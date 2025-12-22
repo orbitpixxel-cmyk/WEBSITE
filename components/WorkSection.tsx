@@ -9,34 +9,39 @@ import WorkCard from "@/components/ui/WorkCard";
 // File metadata derived from /public/webimages
 const workItems = [
     {
-        filename: "admindashboard.jpg",
-        title: "Admin Dashboard",
-        outcome: "Centralized ops dashboard for handoffs & automations",
-        tags: ["Dashboard", "Automation"],
+        filename: "duckhawklaw.png",
+        title: "Duckhawk Law Firm",
+        outcome: "Redefining the digital legal experience with a premium, trust-driven presence",
+        tags: ["Legal", "Website", "Design"],
+        href: "https://www.duckhawk.in/",
     },
     {
-        filename: "doctorapp.jpg",
+        filename: "Studiodevstag.png",
+        title: "Studio Devstag",
+        outcome: "Immersive 3D configuration platform bringing custom products to life in AR",
+        tags: ["AR/VR", "3D Experience", "Interaction"],
+        href: "https://www.studiodevstag.com",
+    },
+    {
+        filename: "askyourcounsellor.png",
+        title: "Ask Your Counsellor",
+        outcome: "Connecting students with experts through a streamlined guidance ecosystem",
+        tags: ["EdTech", "Platform", "Community"],
+        href: "https://www.askyourcounsellor.in/",
+    },
+    {
+        filename: "doctorsapp.png",
         title: "Doctor App",
-        outcome: "Clean system for patient management and scheduling",
-        tags: ["Website", "Dashboard"],
-    },
-    {
-        filename: "duckhawk.jpg",
-        title: "Duck Hawk",
-        outcome: "Growth-ready landing page for product launch",
-        tags: ["Website", "Growth"],
+        outcome: "Simplified healthcare management for clinics and patients alike",
+        tags: ["Healthcare", "App", "System"],
+        href: "https://doctor-app-rho.vercel.app/",
     },
     {
         filename: "growmint.png",
-        title: "Grow Mint",
-        outcome: "Weekly experiments & conversion tracking dashboard",
-        tags: ["Dashboard", "Growth"],
-    },
-    {
-        filename: "studiodevstag.png",
-        title: "Studio Dev Stag",
-        outcome: "Clean system for product and growth",
-        tags: ["Website", "Template"],
+        title: "Growmint",
+        outcome: "High-performance agency site driving digital transformation and growth",
+        tags: ["Agency", "Portfolio", "Growth"],
+        href: "https://www.growmint.net/",
     },
 ];
 
@@ -55,21 +60,25 @@ export default function WorkSection() {
     return (
         <Section
             ref={sectionRef}
-            className="py-16 md:py-20 lg:py-28 bg-gradient-to-b from-background to-muted/20 overflow-hidden"
+            className="py-24 md:py-32 bg-white overflow-hidden relative"
         >
-            <Container className="max-w-7xl">
+            <Container className="max-w-6xl">
                 {/* Header */}
-                <div className="text-center mb-16 md:mb-20">
-                    <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-black mb-4">
-                        Selected Systems
+                <div className="text-center mb-24">
+                    <span className="inline-block px-4 py-1.5 mb-6 text-sm font-medium text-blue-600 bg-blue-50/50 border border-blue-100/50 rounded-full">
+                        Selected Projects
+                    </span>
+                    <h2 className="text-3xl md:text-4xl font-semibold text-black mb-6 tracking-tight text-balance">
+                        Our Work
                     </h2>
-                    <p className="text-lg text-black/60 max-w-2xl mx-auto">
-                        Real projects built for growth, operations, and scale
+                    <p className="text-lg md:text-xl text-black/80 max-w-2xl mx-auto leading-relaxed text-balance">
+                        We build systems that scale. From immersive 3D experiences to complex operational dashboards,
+                        here’s how we create clarity from chaos.
                     </p>
                 </div>
 
                 {/* Primary Cards Grid (First 3) */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10 lg:gap-12 mb-12">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
                     {workItems.slice(0, 3).map((item, index) => (
                         <WorkCard
                             key={item.filename}
@@ -83,7 +92,7 @@ export default function WorkSection() {
 
                 {/* Secondary Cards (Remaining 2) */}
                 {workItems.length > 3 && (
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10 max-w-5xl mx-auto">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
                         {workItems.slice(3).map((item, index) => (
                             <WorkCard
                                 key={item.filename}
@@ -94,6 +103,14 @@ export default function WorkSection() {
                         ))}
                     </div>
                 )}
+
+                {/* Footer Link */}
+                <div className="mt-16 text-center">
+                    <a href="/work" className="inline-flex items-center gap-2 text-base font-medium text-black/60 hover:text-black transition-colors duration-300 group">
+                        View all projects
+                        <span className="group-hover:translate-x-1 transition-transform duration-300">→</span>
+                    </a>
+                </div>
             </Container>
 
             <style jsx global>{`

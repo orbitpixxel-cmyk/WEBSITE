@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import FeaturesSection from "@/components/FeaturesSection";
+import UnifiedSystemSection from "@/components/UnifiedSystemSection";
 
 export const metadata: Metadata = {
     title: "Services · Pixxelorbit",
@@ -7,5 +7,5 @@ export const metadata: Metadata = {
 };
 
 export default function ServicesPage() {
-    return <FeaturesSection />;
+    return <UnifiedSystemSection />;
 }

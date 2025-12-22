@@ -29,10 +29,11 @@ export default function Navbar() {
   return (
     <ResizableNavbar>
       <NavBody>
-        <div className="flex w-full items-center justify-between">
+        <div className="relative flex w-full items-center justify-between">
           <Link
             href="/"
-            className="relative z-20 flex items-center gap-3 px-3 py-1 text-[0.7rem] font-semibold tracking-[0.22em] text-foreground"
+            prefetch={true}
+            className="relative z-[500] flex items-center gap-3 px-3 py-1 text-[0.7rem] font-semibold tracking-[0.22em] text-foreground cursor-pointer pointer-events-auto"
           >
             <Image
               src="/logo.png"
@@ -50,7 +51,7 @@ export default function Navbar() {
             className="text-sm"
           />
 
-          <div className="hidden items-center gap-3 md:flex">
+          <div className="hidden items-center gap-3 md:flex z-[100] pointer-events-auto">
             <Link href="/contact" className="hidden sm:inline-flex">
               <Button className="bg-accent/80 text-accent-foreground shadow-none hover:bg-accent/90">
                 Book intro call
@@ -64,7 +65,9 @@ export default function Navbar() {
         <MobileNavHeader>
           <Link
             href="/"
-            className="flex items-center gap-3 py-1 text-[0.7rem] font-semibold tracking-[0.22em] text-foreground"
+            onClick={closeMobile}
+            prefetch={true}
+            className="relative z-[100] flex items-center gap-3 py-1 text-[0.7rem] font-semibold tracking-[0.22em] text-foreground cursor-pointer pointer-events-auto"
           >
             <Image
               src="/logo.png"

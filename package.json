@@ -9,12 +9,14 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@radix-ui/react-avatar": "^1.1.11",
     "@studio-freight/lenis": "^1.0.42",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "dotted-map": "^2.2.3",
     "framer-motion": "^11.18.2",
     "lucide-react": "^0.556.0",
+    "motion": "^12.23.26",
     "next": "14.0.4",
     "react": "18.2.0",
     "react-dom": "18.2.0",

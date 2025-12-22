@@ -10,7 +10,7 @@ body {
 body {
   background-color: #f9fafb;
   color: #0f172a;
-  font-family: var(--font-saans), "__saans_cd5095", "__saans_Fallback_cd5095", sans-serif;
+  font-family: var(--font-saans), "__saans_cd5095", "__saans_Fallback_cd5095", system-ui, -apple-system, sans-serif;
   text-rendering: optimizeLegibility;
 }
 

@@ -1,4 +1,5 @@
 import type { HTMLAttributes } from "react";
+import { useRef, useEffect } from "react";
 
 const SAFARI_WIDTH = 1203;
 const SAFARI_HEIGHT = 753;
@@ -33,12 +34,37 @@ export function Safari({
 }: SafariProps) {
   const hasVideo = !!videoSrc;
   const hasMedia = hasVideo || !!imageSrc;
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    if (!hasVideo || !videoRef.current) return;
+
+    const videoElement = videoRef.current;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            videoElement.play().catch((error) => {
+              console.log("Video autoplay prevented:", error);
+            });
+          }
+        });
+      },
+      { threshold: 0.25 } // Play when 25% visible
+    );
+
+    observer.observe(videoElement);
+
+    return () => {
+      observer.disconnect();
+    };
+  }, [hasVideo]);
 
   return (
     <div
-      className={`relative inline-block w-full align-middle leading-none ${
-        className ?? ""
-      }`}
+      className={`relative inline-block w-full align-middle leading-none ${className ?? ""
+        }`}
       style={{
         aspectRatio: `${SAFARI_WIDTH}/${SAFARI_HEIGHT}`,
         ...style,
@@ -56,9 +82,9 @@ export function Safari({
           }}
         >
           <video
+            ref={videoRef}
             className="block size-full object-cover"
             src={videoSrc}
-            autoPlay
             loop
             muted
             playsInline

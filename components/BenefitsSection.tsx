@@ -8,54 +8,54 @@ import { LayoutDashboard, Sparkles, TrendingUp } from "lucide-react";
 const benefits = [
   {
     label: "Build",
-    title: "Build clear, focused experiences.",
-    body: "Launch-ready pages that feel effortless to use.",
+    title: "Clear, focused experiences",
+    body: "Launch-ready pages that feel effortless.",
     Icon: LayoutDashboard
   },
   {
     label: "Automate",
-    title: "Automate the busywork.",
-    body: "Workflows that run quietly without constant attention.",
+    title: "Automate the busywork",
+    body: "Workflows that run quietly in the background.",
     Icon: Sparkles
   },
   {
     label: "Grow",
-    title: "Grow with steady systems.",
+    title: "Grow with steady systems",
     body: "Funnels and onboarding that compound over time.",
     Icon: TrendingUp
   }
 ];
 
-export default function BenefitsSection() {
+const BenefitsSection = () => {
   return (
-    <Section className="border-t border-border-subtle/60 pt-16 pb-16 md:pt-20 md:pb-20">
-      <Container>
-        <div className="space-y-8">
-          <FadeInSection className="max-w-2xl space-y-3">
-            <p className="text-label uppercase text-muted-foreground">Why Pixxelorbit</p>
-            <h2 className="text-[1.9rem] font-semibold md:text-[2.05rem]">
+    <Section className="bg-white">
+      <Container className="max-w-5xl">
+        <div className="space-y-24">
+          <FadeInSection className="max-w-3xl space-y-4 text-center mx-auto mb-20">
+            <h2 className="text-3xl md:text-4xl font-semibold text-black tracking-tight text-balance">
               A calm partner for your next chapter.
             </h2>
-            <p className="text-body text-muted-foreground">
-              We design and refine the systems your business runs on—product, automation, and growth—so you can move forward without juggling vendors or disconnected tools.
+            <p className="text-lg md:text-xl text-black/80 max-w-2xl mx-auto leading-relaxed text-balance">
+              We design and refine the systems your business runs on—across product, automation, and growth.
             </p>
           </FadeInSection>
 
-          <div className="grid gap-8 md:grid-cols-3">
+          <div className="grid gap-12 md:gap-16 md:grid-cols-3 text-center md:text-left">
             {benefits.map((item, index) => (
               <FadeInSection key={item.label} delay={0.06 * index}>
-                <SurfaceCard className="h-full rounded-xl">
-                  <div className="flex items-center gap-2">
-                    <FeatureIcon icon={item.Icon} className="bg-accent/15 text-foreground/70" />
-                    <p className="text-label uppercase text-muted-foreground">{item.label}</p>
+                <div className="flex flex-col items-center md:items-start gap-4">
+                  <div className="p-3 bg-slate-50 rounded-xl mb-2">
+                    <item.Icon className="w-6 h-6 text-black/70" />
                   </div>
-                  <h3 className="text-sm font-semibold leading-snug text-foreground md:text-base">
-                    {item.title}
-                  </h3>
-                  <p className="text-sm leading-relaxed text-muted-foreground">
-                    {item.body}
-                  </p>
-                </SurfaceCard>
+                  <div className="space-y-2">
+                    <h3 className="text-lg font-semibold text-black">
+                      {item.title}
+                    </h3>
+                    <p className="text-base text-black/70 leading-relaxed text-balance">
+                      {item.body}
+                    </p>
+                  </div>
+                </div>
               </FadeInSection>
             ))}
           </div>
@@ -64,3 +64,5 @@ export default function BenefitsSection() {
     </Section>
   );
 }
+
+export default BenefitsSection;

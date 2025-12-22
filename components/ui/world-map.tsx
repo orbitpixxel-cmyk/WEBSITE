@@ -20,7 +20,7 @@ export default function WorldMap({ dots = [], lineColor = "#0ea5e9" }: MapProps)
   const svgMap = useMemo(() => {
     return map.getSVG({
       radius: 0.3,
-      color: "#2dde27a9",
+      color: "#2dde27e5",
       shape: "circle",
       backgroundColor: "transparent",
     });
@@ -39,13 +39,13 @@ export default function WorldMap({ dots = [], lineColor = "#0ea5e9" }: MapProps)
   };
 
   return (
-    <div className="w-full aspect-[2/1] rounded-2xl border border-border-subtle/60 bg-surface/80 relative overflow-hidden">
+    <div className="w-full aspect-[2/1] rounded-3xl bg-slate-50/20 border border-slate-200 relative overflow-hidden">
       <Image
         src={`data:image/svg+xml;utf8,${encodeURIComponent(svgMap)}`}
         alt="world map"
         fill
         sizes="(min-width: 1024px) 800px, 100vw"
-        className="h-full w-full [mask-image:linear-gradient(to_bottom,transparent,white_10%,white_90%,transparent)] pointer-events-none select-none"
+        className="h-full w-full pointer-events-none select-none"
         draggable={false}
       />
 

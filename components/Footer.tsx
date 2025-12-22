@@ -1,44 +1,74 @@
 import Link from "next/link";
+import Section from "@/components/ui/Section";
 import Container from "@/components/ui/Container";
 
 export default function Footer() {
   return (
-    <footer className="border-t border-border-subtle/60 bg-background py-16 text-sm text-muted-foreground">
-      <Container className="flex flex-col gap-10">
-        <div className="flex flex-col md:flex-row justify-between gap-8 md:items-start">
-          <div className="space-y-4 max-w-xs">
-            <Link href="/" className="text-foreground font-semibold tracking-wider">PIXXELORBIT</Link>
-            <p className="text-muted-foreground/80 font-serif italic">
+    <Section className="py-6 md:py-10 border-t border-slate-100/50 bg-white">
+      <Container className="max-w-6xl">
+        <div className="flex flex-col md:flex-row md:items-start justify-between gap-8 mb-10">
+          {/* Brand Column */}
+          <div className="space-y-3 shrink-0">
+            <Link href="/" className="inline-block text-base font-semibold tracking-wide text-black uppercase">
+              PIXXELORBIT
+            </Link>
+            <p className="text-sm text-black/50 max-w-xs leading-relaxed">
               Calm systems. Better flow. Smarter growth.
             </p>
           </div>
 
-          <div className="grid grid-cols-2 sm:grid-cols-3 gap-8">
-            <div className="flex flex-col gap-3">
-              <span className="text-foreground font-medium text-xs uppercase tracking-wider">Pages</span>
-              <Link href="/services" className="hover:text-foreground transition-colors">Services</Link>
-              <Link href="/work" className="hover:text-foreground transition-colors">Work</Link>
-              <Link href="/approach" className="hover:text-foreground transition-colors">Approach</Link>
+          {/* Links Columns */}
+          <div className="flex gap-16 md:gap-24">
+            <div className="space-y-3">
+              <h4 className="text-[10px] font-medium uppercase tracking-widest text-black/40">Pages</h4>
+              <ul className="space-y-1.5">
+                <li>
+                  <Link href="/services" className="text-sm text-black/50 hover:text-black transition-colors">
+                    Services
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/work" className="text-sm text-black/50 hover:text-black transition-colors">
+                    Work
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/approach" className="text-sm text-black/50 hover:text-black transition-colors">
+                    Approach
+                  </Link>
+                </li>
+              </ul>
             </div>
-            <div className="flex flex-col gap-3">
-              <span className="text-foreground font-medium text-xs uppercase tracking-wider">Socials</span>
-              <a href="#" className="hover:text-foreground transition-colors">Twitter / X</a>
-              <a href="#" className="hover:text-foreground transition-colors">LinkedIn</a>
-              <a href="#" className="hover:text-foreground transition-colors">Instagram</a>
+            <div className="space-y-3">
+              <h4 className="text-[10px] font-medium uppercase tracking-widest text-black/40">Socials</h4>
+              <ul className="space-y-1.5">
+                <li>
+                  <Link href="https://twitter.com" target="_blank" className="text-sm text-black/50 hover:text-black transition-colors">
+                    X (Twitter)
+                  </Link>
+                </li>
+                <li>
+                  <Link href="https://linkedin.com" target="_blank" className="text-sm text-black/50 hover:text-black transition-colors">
+                    LinkedIn
+                  </Link>
+                </li>
+                <li>
+                  <Link href="https://instagram.com" target="_blank" className="text-sm text-black/50 hover:text-black transition-colors">
+                    Instagram
+                  </Link>
+                </li>
+              </ul>
             </div>
           </div>
         </div>
 
-        <div className="pt-8 border-t border-border-subtle/40 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs">
-          <p>© {new Date().getFullYear()} Pixxelorbit. All rights reserved.</p>
-          <div className="flex items-center gap-6">
-            <Link href="mailto:hello@pixxelorbit.studio" className="hover:text-foreground transition-colors">
-              hello@pixxelorbit.studio
-            </Link>
-            <span>Built remotely worldwide.</span>
-          </div>
+        {/* Bottom Row */}
+        <div className="pt-6 border-t border-slate-100 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-slate-400">
+          <span>© 2025 Pixxelorbit</span>
+          <a href="mailto:hello@pixxelorbit.studio" className="hover:text-slate-600 transition-colors">hello@pixxelorbit.studio</a>
+          <span className="opacity-50">Built remotely worldwide.</span>
         </div>
       </Container>
-    </footer>
+    </Section>
   );
 }

@@ -71,9 +71,9 @@ export const Navbar = ({ children, className }: NavbarProps) => {
       {React.Children.map(children, (child) =>
         React.isValidElement(child)
           ? React.cloneElement(
-              child as React.ReactElement<{ visible?: boolean }>,
-              { visible },
-            )
+            child as React.ReactElement<{ visible?: boolean }>,
+            { visible },
+          )
           : child,
       )}
     </div>
@@ -86,7 +86,7 @@ export const NavBody = ({ children, className, visible }: NavBodyProps) => {
       className={cn(
         "relative z-[60] mx-auto hidden w-full max-w-5xl flex-row items-center justify-between rounded-full border border-border-subtle/40 bg-background/60 px-4 py-2 backdrop-blur-md shadow-[0_0_0_1px_rgba(255,_255,_255,_0.35)_inset] transition-all duration-200 lg:flex",
         visible &&
-          "max-w-3xl bg-background/75 px-3 py-1.5 shadow-[0_20px_60px_rgba(15,_23,_42,_0.03)] translate-y-[2px]",
+        "max-w-3xl bg-background/75 px-3 py-1.5 shadow-[0_20px_60px_rgba(15,_23,_42,_0.03)] translate-y-[2px]",
         className,
       )}
     >
@@ -102,7 +102,7 @@ export const NavItems = ({ items, className, onItemClick }: NavItemsProps) => {
     <div
       onMouseLeave={() => setHovered(null)}
       className={cn(
-        "absolute inset-0 hidden flex-1 flex-row items-center justify-center space-x-2 text-sm text-muted-foreground lg:flex lg:space-x-2",
+        "absolute inset-0 hidden flex-1 flex-row items-center justify-center space-x-2 text-sm text-muted-foreground lg:flex lg:space-x-2 pointer-events-none",
         className,
       )}
     >
@@ -112,7 +112,7 @@ export const NavItems = ({ items, className, onItemClick }: NavItemsProps) => {
           href={item.link}
           onMouseEnter={() => setHovered(idx)}
           onClick={onItemClick}
-          className="relative px-3 py-2 transition-colors hover:text-foreground"
+          className="relative px-3 py-2 transition-colors hover:text-foreground pointer-events-auto"
         >
           {hovered === idx && (
             <span className="absolute inset-0 h-full w-full rounded-full bg-muted" />
@@ -130,7 +130,7 @@ export const MobileNav = ({ children, className, visible }: MobileNavProps) => {
       className={cn(
         "relative z-50 mx-auto flex w-full max-w-[calc(100vw-2rem)] flex-col items-center justify-between bg-transparent px-0 py-2 transition-all duration-200 lg:hidden",
         visible &&
-          "max-w-[calc(100vw-3rem)] bg-background/70 backdrop-blur-md shadow-[0_20px_60px_rgba(15,_23,_42,_0.03)] border border-border-subtle/40 dark:bg-neutral-950/85",
+        "max-w-[calc(100vw-3rem)] bg-background/70 backdrop-blur-md shadow-[0_20px_60px_rgba(15,_23,_42,_0.03)] border border-border-subtle/40 dark:bg-neutral-950/85",
         className,
       )}
     >
@@ -214,9 +214,9 @@ export const NavbarButton = ({
   className?: string;
   variant?: "primary" | "secondary" | "dark" | "gradient";
 } & (
-  | React.ComponentPropsWithoutRef<"a">
-  | React.ComponentPropsWithoutRef<"button">
-)) => {
+    | React.ComponentPropsWithoutRef<"a">
+    | React.ComponentPropsWithoutRef<"button">
+  )) => {
   const baseStyles =
     "px-4 py-2 rounded-md bg-white button bg-white text-black text-sm font-bold relative cursor-pointer hover:-translate-y-0.5 transition duration-200 inline-block text-center";
 
