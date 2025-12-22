@@ -6,22 +6,28 @@ import Container from "@/components/ui/Container";
 import FadeInSection from "@/components/ui/FadeInSection";
 import { GlowingEffect } from "@/components/ui/glowing-effect";
 
-export default function UnifiedSystemSection() {
+interface UnifiedSystemSectionProps {
+    showHeader?: boolean;
+}
+
+export default function UnifiedSystemSection({ showHeader = true }: UnifiedSystemSectionProps) {
     return (
-        <Section className="py-24 md:py-[88px] bg-white text-black">
+        <Section className="bg-white text-black">
             <Container className="max-w-6xl">
                 {/* Header */}
-                <FadeInSection className="text-center mb-24 max-w-3xl mx-auto">
-                    <h2 className="text-3xl md:text-4xl font-semibold tracking-tight text-black mb-6 text-balance">
-                        What we build, systemize, and scale
-                    </h2>
-                    <p className="text-lg md:text-xl text-black/80 leading-relaxed text-balance">
-                        We design high-performing websites, connect them to automation, and grow them with structured marketing systems.
-                    </p>
-                </FadeInSection>
+                {showHeader && (
+                    <FadeInSection className="text-center mb-16 max-w-3xl mx-auto">
+                        <h2 className="text-3xl md:text-4xl font-semibold tracking-tight text-black mb-6 text-balance">
+                            What we build, systemize, and scale
+                        </h2>
+                        <p className="text-lg md:text-xl text-black/80 leading-relaxed text-balance">
+                            We design high-performing websites, connect them to automation, and grow them with structured marketing systems.
+                        </p>
+                    </FadeInSection>
+                )}
 
                 {/* Bento Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                     {/* TOP ROW - PRIMARY */}
                     <BentoCard
                         title="Websites"

@@ -29,7 +29,7 @@ const Section = forwardRef<HTMLElement, SectionProps>((props, ref) => {
         <section
             ref={ref}
             id={id}
-            className={cn(variantClasses[variant], "py-24 md:py-44", className)}
+            className={cn(variantClasses[variant], "py-12 md:py-[70px]", className)}
         // If we want 140px GAP, and sections have background colors, we need padding.
         // If sections are white-on-white, margin works too.
         // Safest bet for "Section -> Section: 140px" in a block layout is padding-top + padding-bottom = 140px per section? 

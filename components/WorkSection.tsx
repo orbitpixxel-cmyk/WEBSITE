@@ -2,6 +2,7 @@
 
 import { useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
+import Link from "next/link";
 import Section from "@/components/ui/Section";
 import Container from "@/components/ui/Container";
 import WorkCard from "@/components/ui/WorkCard";
@@ -45,7 +46,12 @@ const workItems = [
     },
 ];
 
-export default function WorkSection() {
+interface WorkSectionProps {
+    showFooter?: boolean;
+    showHeader?: boolean;
+}
+
+export default function WorkSection({ showFooter = true, showHeader = true }: WorkSectionProps) {
     const sectionRef = useRef<HTMLElement>(null);
 
     // Scroll progress for parallax
@@ -60,25 +66,27 @@ export default function WorkSection() {
     return (
         <Section
             ref={sectionRef}
-            className="py-24 md:py-32 bg-white overflow-hidden relative"
+            className="bg-white overflow-hidden relative"
         >
             <Container className="max-w-6xl">
                 {/* Header */}
-                <div className="text-center mb-24">
-                    <span className="inline-block px-4 py-1.5 mb-6 text-sm font-medium text-blue-600 bg-blue-50/50 border border-blue-100/50 rounded-full">
-                        Selected Projects
-                    </span>
-                    <h2 className="text-3xl md:text-4xl font-semibold text-black mb-6 tracking-tight text-balance">
-                        Our Work
-                    </h2>
-                    <p className="text-lg md:text-xl text-black/80 max-w-2xl mx-auto leading-relaxed text-balance">
-                        We build systems that scale. From immersive 3D experiences to complex operational dashboards,
-                        here’s how we create clarity from chaos.
-                    </p>
-                </div>
+                {showHeader && (
+                    <div className="text-center mb-16">
+                        <span className="inline-block px-4 py-1.5 mb-6 text-sm font-medium text-blue-600 bg-blue-50/50 border border-blue-100/50 rounded-full">
+                            Selected Projects
+                        </span>
+                        <h2 className="text-3xl md:text-4xl font-semibold text-black mb-6 tracking-tight text-balance">
+                            Our Work
+                        </h2>
+                        <p className="text-lg md:text-xl text-black/80 max-w-2xl mx-auto leading-relaxed text-balance">
+                            We build systems that scale. From immersive 3D experiences to complex operational dashboards,
+                            here’s how we create clarity from chaos.
+                        </p>
+                    </div>
+                )}
 
                 {/* Primary Cards Grid (First 3) */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-8">
                     {workItems.slice(0, 3).map((item, index) => (
                         <WorkCard
                             key={item.filename}
@@ -105,12 +113,14 @@ export default function WorkSection() {
                 )}
 
                 {/* Footer Link */}
-                <div className="mt-16 text-center">
-                    <a href="/work" className="inline-flex items-center gap-2 text-base font-medium text-black/60 hover:text-black transition-colors duration-300 group">
-                        View all projects
-                        <span className="group-hover:translate-x-1 transition-transform duration-300">→</span>
-                    </a>
-                </div>
+                {showFooter && (
+                    <div className="mt-16 text-center">
+                        <Link href="/work" className="inline-flex items-center gap-2 text-base font-medium text-black/60 hover:text-black transition-colors duration-300 group">
+                            View all projects
+                            <span className="group-hover:translate-x-1 transition-transform duration-300">→</span>
+                        </Link>
+                    </div>
+                )}
             </Container>
 
             <style jsx global>{`

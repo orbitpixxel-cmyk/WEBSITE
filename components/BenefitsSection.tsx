@@ -30,8 +30,8 @@ const BenefitsSection = () => {
   return (
     <Section className="bg-white">
       <Container className="max-w-5xl">
-        <div className="space-y-24">
-          <FadeInSection className="max-w-3xl space-y-4 text-center mx-auto mb-20">
+        <div className="space-y-20">
+          <FadeInSection className="max-w-3xl space-y-4 text-center mx-auto">
             <h2 className="text-3xl md:text-4xl font-semibold text-black tracking-tight text-balance">
               A calm partner for your next chapter.
             </h2>

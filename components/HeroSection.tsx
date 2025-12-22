@@ -5,15 +5,42 @@ import Section from "@/components/ui/Section";
 import Container from "@/components/ui/Container";
 import Button from "@/components/ui/Button";
 import FadeInSection from "@/components/ui/FadeInSection";
-import AnimatedTooltipPreview from "@/components/animated-tooltip-demo";
+import { AnimatedTooltip } from "@/components/ui/animated-tooltip";
 import VideoPreviewSection from "@/components/VideoPreviewSection";
 import { ArrowRight } from "lucide-react";
+
+const people = [
+    {
+        id: 1,
+        name: "John Doe",
+        designation: "Founder, TechFlow",
+        image: "https://images.unsplash.com/photo-1599566150163-29194dcaad36?auto=format&fit=crop&w=100&q=80",
+    },
+    {
+        id: 2,
+        name: "Robert Johnson",
+        designation: "Product Manager, DataV",
+        image: "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=100&q=80",
+    },
+    {
+        id: 3,
+        name: "Jane Smith",
+        designation: "Design Lead, CreativeAI",
+        image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=100&q=80",
+    },
+    {
+        id: 4,
+        name: "Emily Davis",
+        designation: "CTO, GrowFast",
+        image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=100&q=80",
+    },
+];
 
 export default function HeroSection() {
     return (
         <Section
             id="hero"
-            className="pt-[90px] pb-12"
+            className="pt-[90px]"
         >
             <Container className="max-w-7xl">
                 {/* Centered Vertical Stack with Premium Spacing */}
@@ -57,8 +84,8 @@ export default function HeroSection() {
                         </p>
                     </FadeInSection>
 
-                    <FadeInSection delay={0.3} className="mt-10">
-                        <AnimatedTooltipPreview />
+                    <FadeInSection delay={0.3} className="mt-10 flex flex-row items-center justify-center w-full">
+                        <AnimatedTooltip items={people} />
                     </FadeInSection>
 
                     <VideoPreviewSection />

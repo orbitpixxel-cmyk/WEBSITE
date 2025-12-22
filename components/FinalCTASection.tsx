@@ -5,7 +5,7 @@ import FadeInSection from "@/components/ui/FadeInSection";
 
 export default function FinalCTASection() {
   return (
-    <Section className="py-24 md:py-40 bg-white border-t border-slate-100">
+    <Section className="bg-white border-t border-slate-100">
       <Container className="max-w-6xl">
         <FadeInSection className="text-center space-y-10 max-w-xl mx-auto">
           {/* Headlines */}
