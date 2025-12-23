@@ -3,7 +3,7 @@ import Section from "@/components/ui/Section";
 import Container from "@/components/ui/Container";
 import FinalCTASection from "@/components/FinalCTASection";
 import FadeInSection from "@/components/ui/FadeInSection";
-import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
+import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/Card";
 
 export const metadata: Metadata = {
   title: "FAQ · Pixxelorbit",
@@ -36,7 +36,7 @@ const faqs = [
 export default function FAQPage() {
   return (
     <div className="bg-white">
-      <Section className="py-32 md:py-48">
+      <Section className="mt-32 md:mt-48 pt-0 pb-32 md:pb-48">
         <Container className="max-w-4xl">
           <div className="text-center space-y-6 mb-20">
             <FadeInSection>

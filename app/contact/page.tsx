@@ -3,7 +3,7 @@ import Link from "next/link";
 import Section from "@/components/ui/Section";
 import Container from "@/components/ui/Container";
 import Button from "@/components/ui/Button";
-import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/card";
+import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/Card";
 import { Mail, Calendar, MessageSquare, Video } from "lucide-react";
 
 export const metadata: Metadata = {

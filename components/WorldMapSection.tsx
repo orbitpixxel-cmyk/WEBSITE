@@ -23,7 +23,7 @@ function WorldMap({ dots = [], lineColor = "#0ea5e9" }: MapProps) {
   const svgMap = useMemo(() => {
     return map.getSVG({
       radius: 0.3,
-      color: "#2dde27e5",
+      color: "#00000050",
       shape: "circle",
       backgroundColor: "transparent",
     });
@@ -37,8 +37,10 @@ function WorldMap({ dots = [], lineColor = "#0ea5e9" }: MapProps) {
 
   const createCurvedPath = (start: { x: number; y: number }, end: { x: number; y: number }) => {
     const midX = (start.x + end.x) / 2;
-    const midY = Math.min(start.y, end.y) - 50;
-    return `M ${start.x} ${start.y} Q ${midX} ${midY} ${end.x} ${end.y}`;
+    const minY = Math.min(start.y, end.y);
+    const distance = Math.sqrt(Math.pow(end.x - start.x, 2) + Math.pow(end.y - start.y, 2));
+    const arcHeight = distance * 0.2; // Optimized for a cleaner, flatter sweep
+    return `M ${start.x} ${start.y} Q ${midX} ${minY - arcHeight} ${end.x} ${end.y}`;
   };
 
   return (
@@ -151,20 +153,20 @@ function WorldMap({ dots = [], lineColor = "#0ea5e9" }: MapProps) {
 export default function WorldMapSection() {
   const dots = [
     {
-      start: { lat: 51.5074, lng: -0.1278 },
-      end: { lat: 40.7128, lng: -74.006 },
+      start: { lat: 37.7749, lng: -122.4194 }, // San Francisco
+      end: { lat: 51.5074, lng: -0.1278 }, // London
     },
     {
-      start: { lat: 40.7128, lng: -74.006 },
-      end: { lat: 28.6139, lng: 77.209 },
+      start: { lat: -23.5505, lng: -46.6333 }, // Sao Paulo
+      end: { lat: 55.7558, lng: 37.6173 }, // Western Russia (Moscow)
     },
     {
-      start: { lat: 28.6139, lng: 77.209 },
-      end: { lat: -33.8688, lng: 151.2093 },
+      start: { lat: 6.5244, lng: 3.3792 }, // Lagos (Africa)
+      end: { lat: 21.0, lng: 78.0 }, // Central India
     },
     {
-      start: { lat: 37.7749, lng: -122.4194 },
-      end: { lat: -1.2921, lng: 36.8219 },
+      start: { lat: -33.8688, lng: 151.2093 }, // Sydney
+      end: { lat: 50.0, lng: 60.0 }, // Kazakhstan / Western Russia border
     },
   ];
 
@@ -183,7 +185,7 @@ export default function WorldMapSection() {
 
           <FadeInSection delay={0.1}>
             <WorldMap
-              lineColor="#2563EB"
+              lineColor="#006fe7ff"
               dots={dots}
             />
           </FadeInSection>

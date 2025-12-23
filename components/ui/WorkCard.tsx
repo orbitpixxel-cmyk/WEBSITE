@@ -3,8 +3,9 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/Card";
 import { cn } from "@/lib/utils";
+import { GlowingEffect } from "@/components/ui/glowing-effect";
 
 interface WorkCardProps {
     filename: string;
@@ -26,7 +27,16 @@ export default function WorkCard({
 }: WorkCardProps) {
     return (
         <Link href={href} target="_blank" rel="noopener noreferrer" className="block group h-full">
-            <Card className="h-full overflow-hidden border-border-subtle/60 bg-white transition-all duration-300 hover:shadow-lg hover:border-muted-foreground/30 flex flex-col">
+            <Card className="h-full overflow-hidden border-border-subtle/60 bg-white transition-all duration-300 hover:shadow-lg hover:border-muted-foreground/30 flex flex-col relative">
+                <GlowingEffect
+                    blur={0}
+                    borderWidth={3}
+                    spread={80}
+                    glow={true}
+                    disabled={false}
+                    proximity={64}
+                    inactiveZone={0.01}
+                />
                 {/* Image Wrapper */}
                 <div className="relative aspect-[16/10] overflow-hidden border-b border-white/10">
                     <Image

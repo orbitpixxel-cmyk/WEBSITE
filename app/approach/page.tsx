@@ -15,7 +15,7 @@ export default function ApproachPage() {
     return (
         <div className="bg-white">
             {/* Dedicated Hero */}
-            <Section className="pt-32 md:pt-40 pb-0 overflow-hidden">
+            <Section className="mt-32 md:mt-40 pt-0 pb-0 overflow-hidden">
                 <Container className="max-w-6xl">
                     <div className="text-center max-w-3xl mx-auto space-y-6">
                         <FadeInSection>

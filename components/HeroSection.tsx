@@ -40,7 +40,7 @@ export default function HeroSection() {
     return (
         <Section
             id="hero"
-            className="pt-[90px]"
+            className="mt-[90px] pt-0"
         >
             <Container className="max-w-7xl">
                 {/* Centered Vertical Stack with Premium Spacing */}

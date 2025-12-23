@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { cn } from '@/lib/utils';
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/Avatar';
+import { GlowingEffect } from "@/components/ui/glowing-effect";
 
 /**
  * The root container for a testimonial card. Establishes a relative
@@ -54,7 +55,18 @@ const TestimonialCardContent = React.forwardRef<
             className
         )}
         {...props}
-    />
+    >
+        <GlowingEffect
+            blur={0}
+            borderWidth={3}
+            spread={80}
+            glow={true}
+            disabled={false}
+            proximity={64}
+            inactiveZone={0.01}
+        />
+        {props.children}
+    </figure>
 ));
 TestimonialCardContent.displayName = 'TestimonialCardContent';
 

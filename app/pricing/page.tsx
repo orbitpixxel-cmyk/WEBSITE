@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Section from "@/components/ui/Section";
 import Container from "@/components/ui/Container";
-import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from "@/components/ui/card";
+import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from "@/components/ui/Card";
 import { Check } from "lucide-react";
 import Button from "@/components/ui/Button";
 import Link from "next/link";
@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 
 export default function PricingPage() {
   return (
-    <Section className="py-32 md:py-48 bg-white overflow-hidden">
+    <Section className="mt-32 md:mt-48 pt-0 pb-32 md:pb-48 bg-white overflow-hidden">
       <Container className="max-w-6xl">
         <div className="text-center max-w-3xl mx-auto space-y-6 mb-20">
           <h1 className="text-4xl md:text-6xl font-bold tracking-tight text-black">
