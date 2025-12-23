@@ -3,7 +3,7 @@ import Section from "@/components/ui/Section";
 import Container from "@/components/ui/Container";
 import FinalCTASection from "@/components/FinalCTASection";
 import FadeInSection from "@/components/ui/FadeInSection";
-import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/Card";
+import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 
 export const metadata: Metadata = {
   title: "FAQ · Pixxelorbit",
