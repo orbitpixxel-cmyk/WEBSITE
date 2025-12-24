@@ -20,7 +20,7 @@ export default function ContactPage() {
             Let’s turn <span className="text-blue-600">chaos</span> into calm.
           </h1>
           <p className="text-lg md:text-xl text-black/60 leading-relaxed balance">
-            Whether you have a specific project in mind or just feel like your systems are slipping, we're here to help. No sales pressure, just practical next steps.
+            Whether you have a specific project in mind or just feel like your systems are slipping, we&apos;re here to help. No sales pressure, just practical next steps.
           </p>
         </div>
 
