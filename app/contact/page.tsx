@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 
 export default function ContactPage() {
   return (
-    <Section className="py-32 md:py-48 bg-white min-h-screen">
+    <Section className="pt-32 md:pt-48 pb-24 md:pb-36 bg-white min-h-screen">
       <Container className="max-w-6xl">
         <div className="text-center max-w-3xl mx-auto space-y-6 mb-20">
           <h1 className="text-4xl md:text-6xl font-bold tracking-tight text-black">
@@ -52,7 +52,7 @@ export default function ContactPage() {
                 </div>
               </div>
 
-              <Link href="mailto:hello@pixxelorbit.studio" className="block">
+              <Link href="https://mail.google.com/mail/?view=cm&fs=1&to=orbitpixxel@gmail.com" target="_blank" className="block">
                 <Button className="w-full h-14 text-base bg-black hover:bg-black/90 text-white rounded-2xl transition-all">
                   Email the studio
                 </Button>
@@ -82,7 +82,7 @@ export default function ContactPage() {
                 </div>
               </div>
 
-              <Link href="/contact" className="block">
+              <Link href="https://mail.google.com/mail/?view=cm&fs=1&to=orbitpixxel@gmail.com" target="_blank" className="block">
                 <Button className="w-full h-14 text-base bg-blue-600 hover:bg-blue-700 text-white rounded-2xl shadow-lg shadow-blue-500/10 transition-all">
                   Book intro call
                 </Button>

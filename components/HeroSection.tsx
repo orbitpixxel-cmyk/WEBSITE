@@ -12,29 +12,41 @@ import { ArrowRight } from "lucide-react";
 const people = [
     {
         id: 1,
-        name: "John Doe",
-        designation: "Founder, TechFlow",
-        image: "https://images.unsplash.com/photo-1599566150163-29194dcaad36?auto=format&fit=crop&w=100&q=80",
+        name: "Product Founder",
+        designation: "B2B SaaS · Early-Series A",
+        image: "https://images.unsplash.com/photo-1527980965255-d3b416303d12?auto=format&fit=crop&w=100&q=80",
+
     },
     {
         id: 2,
-        name: "Robert Johnson",
-        designation: "Product Manager, DataV",
-        image: "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=100&q=80",
+        name: "Growth Lead",
+        designation: "DTC · Funnels & Performance",
+        image: "https://images.unsplash.com/photo-1548142813-c348350df52b?auto=format&fit=crop&w=100&q=80",
     },
     {
         id: 3,
-        name: "Jane Smith",
-        designation: "Design Lead, CreativeAI",
-        image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=100&q=80",
+        name: "Design Director",
+        designation: "Product Design · UX Systems",
+        image: "https://images.unsplash.com/photo-1544723795-3fb6469f5b39?auto=format&fit=crop&w=100&q=80",
     },
     {
         id: 4,
-        name: "Emily Davis",
-        designation: "CTO, GrowFast",
-        image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=100&q=80",
+        name: "Technical Lead",
+        designation: "Automation · Data · Integrations",
+        image: "https://images.unsplash.com/photo-1519345182560-3f2917c472ef?auto=format&fit=crop&w=100&q=80",
+    },
+    {
+        id: 5,
+        name: "Operations Manager",
+        designation: "Service Ops · Scaling Teams",
+        image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=100&q=80",
+
+
     },
 ];
+
+
+
 
 export default function HeroSection() {
     return (
@@ -73,7 +85,7 @@ export default function HeroSection() {
 
                     {/* CTA Block - Horizontal Layout */}
                     <FadeInSection delay={0.25} className="mt-8 flex items-center justify-center gap-5">
-                        <Link href="/contact">
+                        <Link href="https://mail.google.com/mail/?view=cm&fs=1&to=orbitpixxel@gmail.com" target="_blank">
                             <Button className="h-14 px-10 text-base bg-[#1E63F9] hover:bg-[#1E63F9]/90 rounded-full shadow-md hover:shadow-lg hover:shadow-blue-500/20 transition-all duration-300 hover:-translate-y-0.5">
                                 Book intro call
                                 <ArrowRight className="ml-2 h-5 w-5" />

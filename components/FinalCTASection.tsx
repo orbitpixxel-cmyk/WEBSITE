@@ -21,7 +21,8 @@ export default function FinalCTASection() {
           {/* Actions */}
           <div className="flex flex-col items-center gap-6">
             <Link
-              href="mailto:hello@pixxelorbit.studio"
+              href="https://mail.google.com/mail/?view=cm&fs=1&to=orbitpixxel@gmail.com"
+              target="_blank"
               className="inline-flex h-11 items-center justify-center rounded-full bg-blue-600/90 hover:bg-blue-600 px-8 text-sm font-medium text-white transition-all hover:-translate-y-0.5"
             >
               Email the studio

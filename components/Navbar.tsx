@@ -52,7 +52,7 @@ export default function Navbar() {
           />
 
           <div className="hidden items-center gap-3 md:flex z-[100] pointer-events-auto">
-            <Link href="/contact" className="hidden sm:inline-flex">
+            <Link href="https://mail.google.com/mail/?view=cm&fs=1&to=orbitpixxel@gmail.com" target="_blank" className="hidden sm:inline-flex">
               <Button className="bg-accent/80 text-accent-foreground shadow-none hover:bg-accent/90">
                 Book intro call
               </Button>
@@ -103,7 +103,7 @@ export default function Navbar() {
               </Link>
             ))}
             <div className="mt-2">
-              <Link href="/contact" onClick={closeMobile}>
+              <Link href="https://mail.google.com/mail/?view=cm&fs=1&to=orbitpixxel@gmail.com" target="_blank" onClick={closeMobile}>
                 <Button className="w-full justify-center">
                   Book intro call
                 </Button>

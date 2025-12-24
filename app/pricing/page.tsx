@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 
 export default function PricingPage() {
   return (
-    <Section className="mt-32 md:mt-48 pt-0 pb-32 md:pb-48 bg-white overflow-hidden">
+    <Section className="pt-32 md:pt-48 pb-24 md:pb-36 bg-white overflow-hidden">
       <Container className="max-w-6xl">
         <div className="text-center max-w-3xl mx-auto space-y-6 mb-20">
           <h1 className="text-4xl md:text-6xl font-bold tracking-tight text-black">
@@ -57,7 +57,7 @@ export default function PricingPage() {
               </div>
             </CardContent>
             <CardFooter className="p-8 pt-0">
-              <Link href="/contact" className="w-full">
+              <Link href="https://mail.google.com/mail/?view=cm&fs=1&to=orbitpixxel@gmail.com" target="_blank" className="w-full">
                 <Button className="w-full h-12 bg-black hover:bg-black/90 text-white rounded-xl transition-all">
                   Get started
                 </Button>
@@ -108,7 +108,7 @@ export default function PricingPage() {
               </div>
             </CardContent>
             <CardFooter className="p-8 pt-0">
-              <Link href="/contact" className="w-full">
+              <Link href="https://mail.google.com/mail/?view=cm&fs=1&to=orbitpixxel@gmail.com" target="_blank" className="w-full">
                 <Button className="w-full h-12 bg-blue-600 hover:bg-blue-700 text-white rounded-xl shadow-lg shadow-blue-500/20 transition-all">
                   Let’s talk scaling
                 </Button>
@@ -120,7 +120,7 @@ export default function PricingPage() {
         {/* Trust Footer */}
         <div className="mt-24 text-center">
           <p className="text-sm text-slate-400 mb-2">Flexible payments for startups available.</p>
-          <Link href="mailto:hello@pixxelorbit.studio" className="text-blue-600 font-medium hover:underline">
+          <Link href="https://mail.google.com/mail/?view=cm&fs=1&to=orbitpixxel@gmail.com" target="_blank" className="text-blue-600 font-medium hover:underline">
             Need a custom quote? Email us →
           </Link>
         </div>

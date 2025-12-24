@@ -65,7 +65,7 @@ export default function Footer() {
         {/* Bottom Row */}
         <div className="pt-6 border-t border-slate-100 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-slate-400">
           <span>© 2025 Pixxelorbit</span>
-          <a href="mailto:hello@pixxelorbit.studio" className="hover:text-slate-600 transition-colors">hello@pixxelorbit.studio</a>
+          <a href="https://mail.google.com/mail/?view=cm&fs=1&to=orbitpixxel@gmail.com" target="_blank" className="hover:text-slate-600 transition-colors">orbitpixxel@gmail.com</a>
           <span className="opacity-50">Built remotely worldwide.</span>
         </div>
       </Container>
