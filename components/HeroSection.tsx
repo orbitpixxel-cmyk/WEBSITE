@@ -61,25 +61,25 @@ export default function HeroSection() {
                     {/* Main Headline - Reduced Size, Wider Max-Width */}
                     <FadeInSection className="max-w-[820px]">
                         <h1 className="text-[40px] sm:text-[48px] md:text-[54px] lg:text-[56px] font-bold leading-[1.06] tracking-tight text-black">
-                            Websites that <span className="relative inline-block px-1">
+                            We help service <span className="relative inline-block px-1">
                                 <span className="absolute inset-x-[-2px] inset-y-[8%] -z-10 -rotate-3 rounded-[4px] bg-[#1E63F9]/20"></span>
-                                convert
+                                businesses
                             </span><br />
-                            Workflows that <span className="relative inline-block px-1">
+                            get more leads <span className="relative inline-block px-1">
                                 <span className="absolute inset-x-[-2px] inset-y-[8%] -z-10 -rotate-3 rounded-[4px] bg-[#1E63F9]/20"></span>
-                                run
+                                without hiring
                             </span><br />
-                            Growth that <span className="relative inline-block px-1">
+                            more <span className="relative inline-block px-1">
                                 <span className="absolute inset-x-[-2px] inset-y-[8%] -z-10 -rotate-3 rounded-[4px] bg-[#1E63F9]/20"></span>
-                                sticks
+                                people.
                             </span>
                         </h1>
                     </FadeInSection>
 
                     <FadeInSection delay={0.1} className="mt-6 max-w-3xl">
                         <h2 className="text-xl sm:text-2xl md:text-[26px] lg:text-[28px] font-medium leading-[1.15] text-black/85">
-                            We design, automate, and tune <br />
-                            the system you actually want to own.
+                            High-converting websites + automated workflows <br />
+                            that capture, qualify, and follow up with leads.
                         </h2>
                     </FadeInSection>
 
