@@ -5,45 +5,11 @@ import Section from "@/components/ui/Section";
 import Container from "@/components/ui/Container";
 import Button from "@/components/ui/Button";
 import FadeInSection from "@/components/ui/FadeInSection";
-import { AnimatedTooltip } from "@/components/ui/animated-tooltip";
+
 import VideoPreviewSection from "@/components/VideoPreviewSection";
 import { ArrowRight } from "lucide-react";
 
-const people = [
-    {
-        id: 1,
-        name: "Product Founder",
-        designation: "B2B SaaS · Early-Series A",
-        image: "https://images.unsplash.com/photo-1527980965255-d3b416303d12?auto=format&fit=crop&w=100&q=80",
 
-    },
-    {
-        id: 2,
-        name: "Growth Lead",
-        designation: "DTC · Funnels & Performance",
-        image: "https://images.unsplash.com/photo-1548142813-c348350df52b?auto=format&fit=crop&w=100&q=80",
-    },
-    {
-        id: 3,
-        name: "Design Director",
-        designation: "Product Design · UX Systems",
-        image: "https://images.unsplash.com/photo-1544723795-3fb6469f5b39?auto=format&fit=crop&w=100&q=80",
-    },
-    {
-        id: 4,
-        name: "Technical Lead",
-        designation: "Automation · Data · Integrations",
-        image: "https://images.unsplash.com/photo-1519345182560-3f2917c472ef?auto=format&fit=crop&w=100&q=80",
-    },
-    {
-        id: 5,
-        name: "Operations Manager",
-        designation: "Service Ops · Scaling Teams",
-        image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=100&q=80",
-
-
-    },
-];
 
 
 
@@ -78,8 +44,8 @@ export default function HeroSection() {
 
                     <FadeInSection delay={0.1} className="mt-6 max-w-3xl">
                         <h2 className="text-xl sm:text-2xl md:text-[26px] lg:text-[28px] font-medium leading-[1.15] text-black/85">
-                            High-converting websites + automated workflows <br />
-                            that capture, qualify, and follow up with leads.
+                            High-converting websites and automations that capture <br />
+                            enquiries, leads and turn them into confirmed bookings.
                         </h2>
                     </FadeInSection>
 
@@ -96,9 +62,7 @@ export default function HeroSection() {
                         </p>
                     </FadeInSection>
 
-                    <FadeInSection delay={0.3} className="mt-10 flex flex-row items-center justify-center w-full">
-                        <AnimatedTooltip items={people} />
-                    </FadeInSection>
+
 
                     <VideoPreviewSection />
 
