@@ -1,5 +1,6 @@
 "use client";
 import { useRef, forwardRef } from "react";
+import Image from "next/image";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ReactLenis } from "@studio-freight/react-lenis";
@@ -26,7 +27,13 @@ const Card = forwardRef(({ title, copy, index }, ref) => {
                     </p>
                 </div>
                 <div className={styles.cardImg}>
-                    <img src={`/assets/card-${index + 1}.jpeg`} alt={title} />
+                    <Image 
+                        src={`/assets/card-${index + 1}.jpeg`} 
+                        alt={title} 
+                        width={400} 
+                        height={300}
+                        className="object-cover w-full h-full"
+                    />
                 </div>
             </div>
         </div>

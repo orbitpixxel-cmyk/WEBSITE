@@ -146,7 +146,7 @@ export default function UnifiedSystemSection() {
                 {/* ─── Sliding track with 5 separate containers ─── */}
                 <div className="w-full overflow-hidden">
                     <div
-                        className="flex flex-row transition-transform duration-500 ease-[cubic-bezier(0.25,0.8,0.25,1)]"
+                        className="flex flex-row transition-transform duration-500 ease-&lsqb;cubic-bezier(0.25,0.8,0.25,1)&rsqb;"
                         style={{
                             width: `${tabData.length * 100}%`,
                             transform: `translateX(-${activeIndex * (100 / tabData.length)}%)`
