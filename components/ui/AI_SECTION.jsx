@@ -56,10 +56,10 @@ export default function AISection() {
           className="mb-24 max-w-4xl"
         >
           <h2 className="text-6xl md:text-7xl font-bold tracking-tight leading-[1.05] text-gray-900">
-            Unlocking AI for enterprise isn't about chasing <span className="text-[#3b82f6]">shiny trends</span>
+            Unlocking AI for enterprise isn&apos;t about chasing <span className="text-[#3b82f6]">shiny trends</span>
           </h2>
           <p className="text-zinc-500 mt-8 max-w-3xl text-lg md:text-xl font-medium leading-relaxed">
-            Most organizations face the same obstacles. The difference between success and failure isn't the latest hype wave—it's having a partner who understands enterprise complexity.
+            Most organizations face the same obstacles. The difference between success and failure isn&apos;t the latest hype wave—it&apos;s having a partner who understands enterprise complexity.
           </p>
         </motion.div>
 
