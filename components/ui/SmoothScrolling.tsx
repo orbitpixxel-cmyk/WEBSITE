@@ -10,8 +10,15 @@ export default function SmoothScrolling({ children }: { children: React.ReactNod
             easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
             orientation: "vertical",
             smoothWheel: true,
-            wheelMultiplier: 1,
+            wheelMultiplier: 0.7,
             touchMultiplier: 2,
+        });
+
+        lenis.on('scroll', () => {
+            if (typeof window !== 'undefined' && (window as any).gsap) {
+                const { ScrollTrigger } = require('gsap/ScrollTrigger');
+                ScrollTrigger.update();
+            }
         });
 
         function raf(time: number) {

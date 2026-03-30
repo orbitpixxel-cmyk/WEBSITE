@@ -43,25 +43,36 @@ interface MobileNavMenuProps {
   onClose: () => void;
 }
 
+import { motion, useScroll, useMotionValueEvent } from "framer-motion";
+
 export const Navbar = ({ children, className }: NavbarProps) => {
   const [visible, setVisible] = useState<boolean>(false);
+  const [hidden, setHidden] = useState<boolean>(false);
+  const { scrollY } = useScroll();
 
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 100) {
-        setVisible(true);
-      } else {
-        setVisible(false);
-      }
-    };
+  useMotionValueEvent(scrollY, "change", (latest) => {
+    const previous = scrollY.getPrevious() ?? 0;
+    if (latest > previous && latest > 150) {
+      setHidden(true);
+    } else {
+      setHidden(false);
+    }
 
-    handleScroll();
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+    if (latest > 100) {
+      setVisible(true);
+    } else {
+      setVisible(false);
+    }
+  });
 
   return (
-    <div
+    <motion.div
+      variants={{
+        visible: { y: 0 },
+        hidden: { y: -100 },
+      }}
+      animate={hidden ? "hidden" : "visible"}
+      transition={{ duration: 0.35, ease: "easeInOut" }}
       className={cn(
         "fixed inset-x-0 z-40 w-full px-4 md:px-6 transition-all duration-200",
         visible ? "top-4" : "top-2",
@@ -76,7 +87,7 @@ export const Navbar = ({ children, className }: NavbarProps) => {
           )
           : child,
       )}
-    </div>
+    </motion.div>
   );
 };
 
@@ -84,9 +95,9 @@ export const NavBody = ({ children, className, visible }: NavBodyProps) => {
   return (
     <div
       className={cn(
-        "relative z-[60] mx-auto hidden w-full max-w-5xl flex-row items-center justify-between rounded-full border border-border-subtle/40 bg-background/60 px-4 py-2 backdrop-blur-md shadow-[0_0_0_1px_rgba(255,_255,_255,_0.35)_inset] transition-all duration-200 lg:flex",
+        "relative z-[60] mx-auto hidden w-full max-w-5xl flex-row items-center justify-between rounded-full bg-transparent px-4 py-2 transition-all duration-200 lg:flex backdrop-blur-none",
         visible &&
-        "max-w-3xl bg-background/75 px-3 py-1.5 shadow-[0_20px_60px_rgba(15,_23,_42,_0.03)] translate-y-[2px]",
+        "max-w-3xl px-3 py-1.5 translate-y-[2px] bg-black/40 backdrop-blur-xl border border-white/10 shadow-[0_8px_32px_0_rgba(0,0,0,0.3)]",
         className,
       )}
     >
@@ -102,7 +113,7 @@ export const NavItems = ({ items, className, onItemClick }: NavItemsProps) => {
     <div
       onMouseLeave={() => setHovered(null)}
       className={cn(
-        "absolute inset-0 hidden flex-1 flex-row items-center justify-center space-x-2 text-sm text-muted-foreground lg:flex lg:space-x-2 pointer-events-none",
+        "absolute inset-0 hidden flex-1 flex-row items-center justify-center space-x-2 text-sm text-white/70 lg:flex lg:space-x-2 pointer-events-none",
         className,
       )}
     >
@@ -112,7 +123,7 @@ export const NavItems = ({ items, className, onItemClick }: NavItemsProps) => {
           href={item.link}
           onMouseEnter={() => setHovered(idx)}
           onClick={onItemClick}
-          className="relative px-3 py-2 transition-colors hover:text-foreground pointer-events-auto"
+          className="relative px-3 py-2 transition-colors hover:text-white pointer-events-auto"
         >
           {hovered === idx && (
             <span className="absolute inset-0 h-full w-full rounded-full bg-muted" />
@@ -128,9 +139,9 @@ export const MobileNav = ({ children, className, visible }: MobileNavProps) => {
   return (
     <div
       className={cn(
-        "relative z-50 mx-auto flex w-full max-w-[calc(100vw-2rem)] flex-col items-center justify-between bg-transparent px-0 py-2 transition-all duration-200 lg:hidden",
+        "relative z-50 mx-auto flex w-full max-w-[calc(100vw-2rem)] flex-col items-center justify-between bg-transparent px-0 py-2 transition-all duration-200 lg:hidden rounded-2xl",
         visible &&
-        "max-w-[calc(100vw-3rem)] bg-background/70 backdrop-blur-md shadow-[0_20px_60px_rgba(15,_23,_42,_0.03)] border border-border-subtle/40 dark:bg-neutral-950/85",
+        "max-w-[calc(100vw-3rem)] bg-black/40 backdrop-blur-xl border border-white/10 shadow-[0_8px_32px_0_rgba(0,0,0,0.3)] px-4",
         className,
       )}
     >
@@ -183,9 +194,9 @@ export const MobileNavToggle = ({
   onClick: () => void;
 }) => {
   return isOpen ? (
-    <X className="h-5 w-5 text-black dark:text-white" onClick={onClick} />
+    <X className="h-5 w-5 text-white" onClick={onClick} />
   ) : (
-    <Menu className="h-5 w-5 text-black dark:text-white" onClick={onClick} />
+    <Menu className="h-5 w-5 text-white" onClick={onClick} />
   );
 };
 
@@ -193,7 +204,7 @@ export const NavbarLogo = () => {
   return (
     <Link
       href="#hero"
-      className="relative z-20 mr-4 flex items-center px-2 py-1 text-[0.7rem] font-semibold tracking-[0.22em] text-foreground"
+      className="relative z-20 mr-4 flex items-center px-2 py-1 text-[0.7rem] font-semibold tracking-[0.22em] text-white"
     >
       PIXXELORBIT
     </Link>

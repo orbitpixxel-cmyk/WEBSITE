@@ -1,6 +1,5 @@
 import Section from "@/components/ui/Section";
 import Container from "@/components/ui/Container";
-import SurfaceCard from "@/components/ui/SurfaceCard";
 import FadeInSection from "@/components/ui/FadeInSection";
 import FeatureIcon from "@/components/ui/feature-icon";
 import { LayoutDashboard, Sparkles, TrendingUp } from "lucide-react";

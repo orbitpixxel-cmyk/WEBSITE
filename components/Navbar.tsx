@@ -33,7 +33,7 @@ export default function Navbar() {
           <Link
             href="/"
             prefetch={true}
-            className="relative z-[500] flex items-center gap-3 px-3 py-1 text-[0.7rem] font-semibold tracking-[0.22em] text-foreground cursor-pointer pointer-events-auto"
+            className="relative z-[500] flex items-center gap-3 px-3 py-1 text-[0.7rem] font-semibold tracking-[0.22em] text-white cursor-pointer pointer-events-auto"
           >
             <Image
               src="/logo.png"
@@ -67,7 +67,7 @@ export default function Navbar() {
             href="/"
             onClick={closeMobile}
             prefetch={true}
-            className="relative z-[100] flex items-center gap-3 py-1 text-[0.7rem] font-semibold tracking-[0.22em] text-foreground cursor-pointer pointer-events-auto"
+            className="relative z-[100] flex items-center gap-3 py-1 text-[0.7rem] font-semibold tracking-[0.22em] text-white cursor-pointer pointer-events-auto"
           >
             <Image
               src="/logo.png"
@@ -80,7 +80,7 @@ export default function Navbar() {
           </Link>
           <button
             type="button"
-            className="rounded-full p-1.5 text-foreground"
+            className="rounded-full p-1.5 text-white"
             aria-label={mobileOpen ? "Close navigation" : "Open navigation"}
           >
             <MobileNavToggle
@@ -91,12 +91,12 @@ export default function Navbar() {
         </MobileNavHeader>
 
         <MobileNavMenu isOpen={mobileOpen} onClose={closeMobile}>
-          <nav className="flex w-full flex-col gap-3 text-sm text-foreground">
+          <nav className="flex w-full flex-col gap-3 text-sm text-white">
             {links.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
-                className="w-full rounded-full px-3 py-2 text-left text-muted-foreground hover:bg-muted hover:text-foreground"
+                className="w-full rounded-full px-3 py-2 text-left text-white/70 hover:bg-white/10 hover:text-white"
                 onClick={closeMobile}
               >
                 {item.label}

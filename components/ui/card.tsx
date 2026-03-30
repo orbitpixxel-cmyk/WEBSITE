@@ -1,5 +1,5 @@
 import * as React from "react"
-
+import { motion, useScroll, useTransform } from "framer-motion"
 import { cn } from "@/lib/utils"
 
 const Card = React.forwardRef<
@@ -73,4 +73,75 @@ const CardFooter = React.forwardRef<
 ))
 CardFooter.displayName = "CardFooter"
 
-export { Card, CardHeader, CardFooter, CardTitle, CardDescription, CardContent }
+const ScrollStack = ({
+  children,
+  className,
+}: {
+  children: React.ReactNode;
+  className?: string;
+}) => {
+  return (
+    <div className={cn("relative", className)}>
+      {children}
+    </div>
+  )
+}
+ScrollStack.displayName = "ScrollStack"
+
+const ScrollStackItem = ({
+  children,
+  className,
+  index,
+  total,
+  targetScale = 1 - (total - index) * 0.05,
+}: {
+  children: React.ReactNode;
+  className?: string;
+  index: number;
+  total: number;
+  targetScale?: number;
+}) => {
+  const container = React.useRef(null)
+  
+  // Track scroll progress of this specific item's scroll area
+  const { scrollYProgress } = useScroll({
+    target: container,
+    offset: ["start start", "end start"], // animation happens while card is pinned
+  })
+
+  // Scale down as we scroll deeper into this card's track
+  const scale = useTransform(scrollYProgress, [0, 1], [1, targetScale])
+
+  return (
+    <div
+      ref={container}
+      className="relative h-screen flex flex-col items-center justify-start py-[10vh]"
+    >
+      <motion.div
+        style={{
+          scale,
+          top: `calc(10vh + ${index * 25}px)`,
+        }}
+        className={cn(
+          "sticky w-full rounded-[2.5rem] origin-top will-change-transform shadow-2xl overflow-hidden",
+          className
+        )}
+      >
+        {children}
+      </motion.div>
+    </div>
+  )
+}
+ScrollStackItem.displayName = "ScrollStackItem"
+
+export {
+  Card,
+  CardHeader,
+  CardFooter,
+  CardTitle,
+  CardDescription,
+  CardContent,
+  ScrollStack,
+  ScrollStackItem,
+}
+
