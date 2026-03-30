@@ -79,7 +79,7 @@ export default function DemoPage() {
                                 transition={{ duration: 1.2, delay: 0.5 }}
                                 className="text-white/50 text-lg md:text-xl max-w-2xl leading-relaxed mb-14 font-light text-left"
                             >
-                                Build visually, go deep with code, connect to anything. Every step of your agents' reasoning is traceable. Deploy on your infrastructure or ours.
+                                Build visually, go deep with code, connect to anything. Every step of your agents&apos; reasoning is traceable. Deploy on your infrastructure or ours.
                             </motion.p>
 
                             <motion.div

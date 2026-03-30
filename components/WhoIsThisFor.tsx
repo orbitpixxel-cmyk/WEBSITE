@@ -54,7 +54,7 @@ export default function WhoIsThisFor() {
 
                     <FadeInSection delay={0.5} className="text-center pt-8">
                         <p className="text-xl md:text-2xl font-light italic text-white/40">
-                            If this resonates with your journey, <span className="text-white not-italic font-semibold underline decoration-[#32C864]/40 underline-offset-8">we'll get along well.</span>
+                            If this resonates with your journey, <span className="text-white not-italic font-semibold underline decoration-[#32C864]/40 underline-offset-8">we&apos;ll get along well.</span>
                         </p>
                     </FadeInSection>
                 </div>
