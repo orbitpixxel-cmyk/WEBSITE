@@ -98,7 +98,7 @@ const tabData = [
     }
 ];
 
-export default function UnifiedSystemSection() {
+export default function UnifiedSystemSection({ showHeader = true }: { showHeader?: boolean }) {
     const [activeIndex, setActiveIndex] = useState(0);
 
     const switchTab = (newIndex: number) => {
@@ -114,14 +114,16 @@ export default function UnifiedSystemSection() {
             <Container className="max-w-[90rem] w-full mx-auto px-4 sm:px-6 lg:px-8">
 
                 {/* ─── Heading Section ─── */}
-                <div className="mb-20 text-center">
-                    <h2 className="text-4xl md:text-5xl lg:text-7xl font-bold tracking-tight mb-6 text-white leading-tight">
-                        <span className="textured-text">AI for every</span> <span className="text-[#FF5C35]">department</span>
-                    </h2>
-                    <p className="text-lg md:text-xl text-white/50 max-w-3xl mx-auto leading-relaxed font-light">
-                        From Sales to Operations to Finance, we help every team across your organization unlock the true power of AI.
-                    </p>
-                </div>
+                {showHeader && (
+                    <div className="mb-20 text-center">
+                        <h2 className="text-4xl md:text-5xl lg:text-7xl font-bold tracking-tight mb-6 text-white leading-tight">
+                            <span className="textured-text">AI for every</span> <span className="text-[#FF5C35]">department</span>
+                        </h2>
+                        <p className="text-lg md:text-xl text-white/50 max-w-3xl mx-auto leading-relaxed font-light">
+                            From Sales to Operations to Finance, we help every team across your organization unlock the true power of AI.
+                        </p>
+                    </div>
+                )}
 
                 {/* ─── Navbar (separate, outside the containers) ─── */}
                 <div className="max-w-[60rem] flex flex-row justify-center items-center border-b border-white/10 mx-auto mb-6">
