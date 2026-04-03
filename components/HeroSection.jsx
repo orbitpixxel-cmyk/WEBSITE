@@ -1,5 +1,6 @@
 "use client";
 import React from "react";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import {
     Phone,
@@ -35,7 +36,7 @@ const FloatingCard = ({ children, delay = 0, className = "" }) => (
                 delay: delay + 0.5
             }
         }}
-        className={`absolute bg-white/95 backdrop-blur-md rounded-lg shadow-[0_20px_50px_rgba(0,0,0,0.15)] border border-white/20 p-4 z-[90] ${className}`}
+        className={`absolute bg-white/80 backdrop-blur-xl rounded-xl shadow-[0_20px_50px_rgba(0,0,0,0.15)] border border-white/30 p-4 z-[120] ${className}`}
     >
         {children}
     </motion.div>
@@ -68,23 +69,17 @@ export default function RoughHeroReplicate() {
 
                 {/* Subtle Top Glow - Reduced Blue */}
                 <div
-                    className="absolute top-0 left-1/2 -translate-x-[50%] w-[120vw] h-[600px] z-0"
+                    className="absolute top-0 left-1/2 -translate-x-[50%] w-full h-[600px] z-0"
                     style={{
                         background: 'radial-gradient(circle at 50% 0%, rgba(59, 130, 246, 0.15) 0%, rgba(59, 130, 246, 0.05) 40%, transparent 75%)'
                     }}
                 />
 
                 {/* Background Concentric Arcs - RADIATING FROM THE BOTTOM (Semi-circles) */}
-                <div className="absolute top-[110%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1200px] h-[1200px] opacity-40">
+                <div className="absolute top-[115%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1700px] h-[1700px] opacity-40">
                     <svg viewBox="0 0 1000 1000" className="w-full h-full">
-                        <defs>
-                            <filter id="circleBlur" x="-50%" y="-50%" width="200%" height="200%">
-                                <feGaussianBlur in="SourceGraphic" stdDeviation="2" />
-                            </filter>
-                        </defs>
-                        <circle cx="500" cy="500" r="350" fill="#1e1b4b" fillOpacity="0.05" stroke="#264181ff" strokeWidth="2" /> {/* Outer - Deep Indigo */}
-                        <circle cx="500" cy="500" r="300" fill="#334155" fillOpacity="0.05" stroke="#264181ff" strokeWidth="2" /> {/* Middle - Slate Blue */}
-                        <circle cx="500" cy="500" r="250" fill="#264181ff" fillOpacity="0.9" stroke="#264181ff" strokeWidth="2" filter="url(#circleBlur)" /> {/* Inner - Dark Navy */}
+                        <circle cx="500" cy="500" r="400" fill="#1e1b4b" fillOpacity="0.05" stroke="#264181ff" strokeWidth="1.5" /> {/* Outer - Deep Indigo */}
+                        <circle cx="500" cy="500" r="315" fill="#334155" fillOpacity="0.05" stroke="#264181ff" strokeWidth="2" /> {/* Middle - Slate Blue */}
                     </svg>
                 </div>
             </div>
@@ -165,8 +160,40 @@ export default function RoughHeroReplicate() {
                 {/* Hero Interactive Playground */}
                 <div className="relative w-full h-[500px]">
 
+                    {/* NEW RECTANGULAR VIDEO MOCKUP */}
+                    {/* Ambient Aura Glow behind mockup */}
+                    <motion.div 
+                        initial={{ opacity: 0, scale: 0.8 }}
+                        animate={{ opacity: 1, scale: 1.2 }}
+                        transition={{ duration: 2, repeat: Infinity, repeatType: "reverse" }}
+                        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-[45%] w-[50vw] h-[50vw] bg-blue-600/20 blur-[150px] rounded-full pointer-events-none z-[-1]"
+                    />
+
+                    <motion.div
+                        initial={{ opacity: 0, x: "-50%", y: 100 }}
+                        animate={{ opacity: 1, x: "-50%", y: "-45%" }}
+                        transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
+                        className="absolute top-1/2 left-1/2 w-[300px] h-[520px] sm:w-[350px] sm:h-[620px] md:w-[45vw] md:h-[65vh] lg:w-[30vw] lg:h-[75vh] xl:w-[60vw] xl:h-[80vh] bg-white border-[6px] sm:border-[8px] border-slate-700 rounded-[2.5rem] shadow-[0_50px_100px_-20px_rgba(0,0,0,0.8),0_0_120px_rgba(59,130,246,0.3)] overflow-hidden z-[0]"
+                    >
+                        {/* Dynamic Island / Selfie Camera */}
+                        <div className="absolute top-4 left-1/2 -translate-x-1/2 w-24 h-7 bg-slate-950 rounded-full z-[10] flex items-center justify-end px-4 shadow-[inset_0_1px_2px_rgba(255,255,255,0.1)] transition-all">
+                            <div className="w-2 h-2 rounded-full bg-slate-900 border border-white/5 shadow-inner"></div>
+                        </div>
+
+                        {/* Content Area */}
+                        <div className="w-full h-full bg-slate-900 flex items-center justify-center relative">
+                            <Image
+                                src="/assets/Screenshot 2026-04-04 003858.png"
+                                alt="Dashboard Preview"
+                                fill
+                                className="object-cover"
+                                priority
+                            />
+                        </div>
+                    </motion.div>
+
                     {/* Floating Card: Engagement Stats (Top Left) — High Elevation */}
-                    <FloatingCard className="top-[-15%] left-[2%] w-52 hidden lg:block" delay={0.4}>
+                    <FloatingCard className="top-[-18%] left-[-10%] w-52 hidden lg:block" delay={0.4}>
                         <div className="flex flex-col text-left">
                             <span className="text-3xl font-bold text-blue-500 tracking-tight leading-none mb-1">48%↑</span>
                             <p className="text-[10px] text-slate-500 font-bold mb-3">Increase in Communication</p>
@@ -179,7 +206,7 @@ export default function RoughHeroReplicate() {
                     </FloatingCard>
 
                     {/* Floating Card: Chat (Bottom Left) — High Elevation */}
-                    <FloatingCard className="bottom-[40%] left-[5%] w-72 hidden lg:block" delay={0.6}>
+                    <FloatingCard className="bottom-[40%] left-[-5%] w-72 hidden lg:block" delay={0.6}>
                         <div className="flex items-start gap-2 text-left">
                             <div className="w-6 h-6 rounded-full bg-slate-200 overflow-hidden flex-shrink-0">
                                 <User className="w-full h-full text-slate-400" />
@@ -199,7 +226,7 @@ export default function RoughHeroReplicate() {
                     </FloatingCard>
 
                     {/* Floating Card: Shelba AI (Top Right) — High Elevation */}
-                    <FloatingCard className="top-[-13%] right-[2%] w-72 hidden lg:block" delay={0.8}>
+                    <FloatingCard className="top-[-16%] right-[-10%] w-72 hidden lg:block" delay={0.8}>
                         <div className="flex items-center gap-2 mb-2 text-left">
                             <div className="p-1 bg-blue-100 rounded-lg">
                                 <Bot className="w-4 h-4 text-blue-600" />
@@ -219,7 +246,7 @@ export default function RoughHeroReplicate() {
                     </FloatingCard>
 
                     {/* Floating Card: Insight/Engagement (Bottom Right) — High Elevation */}
-                    <FloatingCard className="bottom-[41%] right-[1%] w-60 hidden lg:block" delay={1}>
+                    <FloatingCard className="bottom-[41%] right-[-10%] w-60 hidden lg:block" delay={1}>
                         <div className="flex items-center gap-2 mb-3 text-left">
                             <div className="w-7 h-7 rounded-full bg-slate-200 overflow-hidden flex-shrink-0">
                                 <User className="w-full h-full text-slate-400" />
@@ -320,24 +347,6 @@ export default function RoughHeroReplicate() {
                         </div>
                     </motion.div>
                     */}
-
-                    {/* NEW RECTANGULAR VIDEO MOCKUP */}
-                    <motion.div
-                        initial={{ opacity: 0, x: "-50%", y: 100 }}
-                        animate={{ opacity: 1, x: "-50%", y: "-45%" }}
-                        transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
-                        className="absolute top-1/2 left-1/2 w-[280px] h-[500px] sm:w-[320px] sm:h-[580px] md:w-[40vw] md:h-[60vh] lg:w-[25vw] lg:h-[70vh] xl:w-[22vw] xl:h-[82vh] bg-white border-[6px] sm:border-[8px] border-slate-700 rounded-[2.5rem] shadow-[0_50px_100px_-20px_rgba(0,0,0,0.8),0_0_50px_rgba(59,130,246,0.1)] overflow-hidden z-[100]"
-                    >
-                        {/* Dynamic Island / Selfie Camera */}
-                        <div className="absolute top-4 left-1/2 -translate-x-1/2 w-24 h-7 bg-slate-950 rounded-full z-[110] flex items-center justify-end px-4 shadow-[inset_0_1px_2px_rgba(255,255,255,0.1)] transition-all">
-                            <div className="w-2 h-2 rounded-full bg-slate-900 border border-white/5 shadow-inner"></div>
-                        </div>
-                        
-                        {/* Content Placeholder */}
-                        <div className="w-full h-full bg-slate-50 flex items-center justify-center">
-                            {/* Inner content can be added here */}
-                        </div>
-                    </motion.div>
 
                 </div>
             </div>

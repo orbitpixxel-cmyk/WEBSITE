@@ -43,20 +43,23 @@ export default function DemoPage() {
 
                 {/* Subtle Top Glow - Reduced Blue */}
                 <div
-                    className="absolute top-0 left-1/2 -translate-x-[50%] w-[120vw] h-[600px] pointer-events-none z-0"
+                    className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[600px] pointer-events-none z-0 overflow-hidden"
                     style={{
                         background: 'radial-gradient(circle at 50% 0%, rgba(59, 130, 246, 0.15) 0%, rgba(59, 130, 246, 0.05) 40%, transparent 75%)'
                     }}
                 />
 
-                <HeroSection />
+                <div className="relative z-0 w-full flex flex-col items-center">
+                    <HeroSection />
+                </div>
 
-                <AISection />
-                {/* <Workflow /> */}
-                <UnifiedSystemSection />
-                <WhoIsThisFor />
-                <WhatWeProvide />
-                {/* <div className="h-[150vh] w-[100vw]">
+                <div className="relative z-10 w-full bg-[#020617]/80 backdrop-blur-sm">
+                    <AISection />
+                    <UnifiedSystemSection />
+                    <WhoIsThisFor />
+                    <WhatWeProvide />
+                </div>
+                {/* <div className="h-[150vh] w-full">
                     <BigTestimonialSection />
                 </div> */}
             </div>
