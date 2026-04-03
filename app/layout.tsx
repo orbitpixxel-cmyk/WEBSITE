@@ -4,6 +4,13 @@ import type { ReactNode } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import SmoothScrolling from "@/components/ui/SmoothScrolling";
+import { Montserrat } from "next/font/google";
+
+const montserrat = Montserrat({
+    subsets: ["latin"],
+    variable: "--font-montserrat",
+    weight: ["300", "400", "500", "600", "700"],
+});
 
 export const metadata: Metadata = {
     title: "Pixxelorbit · Digital product and growth studio",
@@ -15,8 +22,8 @@ export default function RootLayout(props: { children: ReactNode }) {
     const { children } = props;
 
     return (
-        <html lang="en">
-            <body className="bg-background text-foreground antialiased">
+        <html lang="en" className={montserrat.variable}>
+            <body className="bg-background text-foreground antialiased font-sans">
                 {/* <SmoothScrolling> */}
                 <div className="relative min-h-screen w-full overflow-hidden bg-background">
                     {/* Blue corner glow background, fixed behind all content */}

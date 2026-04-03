@@ -41,7 +41,8 @@
     "app/rough/page.jsx",
     "app/demo/page.jsx",
     "components/ui/AI_SECTION.jsx",
-    "components/ui/WhatWeProvide.jsx"
+    "components/ui/WhatWeProvide.jsx",
+    "components/HeroSection.jsx"
   ],
   "exclude": [
     "node_modules"

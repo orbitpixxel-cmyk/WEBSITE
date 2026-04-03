@@ -3,6 +3,7 @@ import { useRef, forwardRef } from "react";
 import Image from "next/image";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
+import { motion } from "framer-motion";
 import { ReactLenis } from "@studio-freight/react-lenis";
 import styles from "@/styles/rough.module.css";
 
@@ -27,10 +28,10 @@ const Card = forwardRef(({ title, copy, index }, ref) => {
                     </p>
                 </div>
                 <div className={styles.cardImg}>
-                    <Image 
-                        src={`/assets/card-${index + 1}.jpeg`} 
-                        alt={title} 
-                        width={400} 
+                    <Image
+                        src={`/assets/card-${index + 1}.jpeg`}
+                        alt={title}
+                        width={400}
                         height={300}
                         className="object-cover w-full h-full"
                     />
@@ -43,29 +44,29 @@ Card.displayName = "Card";
 
 export default function SlackSection({
     heroImage = "/assets/hero.jpeg",
-    introHeading = "Creating standout brands for startups that bring joy and leave lasting impressions.",
-    outroHeading = "Let’s build a brand that leaves a mark.",
+    introHeading = "We turn complex business challenges into intelligent AI-driven solutions.",
+    outroHeading = "Ready to eliminate inefficiency? Let's build your AI advantage.",
     marqueeHeading = "Our Work & Collaborations",
     cards = [
         {
-            title: "Brand Foundation",
+            title: "Intelligent Automation",
             copy:
-                " The heart of your company’s story. It shapes your vision, values, and voice, ensuring a clear and powerful impact in every, interaction.",
+                "We analyze your operations end-to-end and deploy AI agents that handle repetitive, high-volume tasks — freeing your team to focus on strategy and growth.",
         },
         {
-            title: "Design Identity",
+            title: "Predictive Analytics",
             copy:
-                "Your brand's visual fingerprint. It crafts a distinctive look that sparks recognition and builds emotional connections with your audience.",
+                "Our models turn raw data into actionable foresight — helping you anticipate demand, reduce churn, and make decisions with confidence.",
         },
         {
-            title: "Digital Presence",
+            title: "Custom AI Products",
             copy:
-                "Our web solutions combine cutting-edge design and seamless functionality to create experiences that captivate and inspire your audience.",
+                "From conversational interfaces to recommendation engines, we design and ship AI-native products tailored to your industry and user base.",
         },
         {
-            title: "Product Design",
+            title: "AI Strategy & Consulting",
             copy:
-                "We craft user-first products that are both functional and visually appealing, delivering solutions that leave a lasting impression.",
+                "Not sure where AI fits? We audit your workflows, identify high-impact opportunities, and build a roadmap that delivers ROI from day one.",
         },
     ],
     withLenis = false,
@@ -131,11 +132,35 @@ export default function SlackSection({
         <>
             <div className={styles.app} ref={container}>
                 <section
-                    className={styles.intro + " text-black relative overflow-hidden"}
+                    className={styles.intro + " text-black relative overflow-hidden h-fit py-32"}
                     style={{ backgroundColor: "transparent" }}
                 >
-                    {/* Local purple glow like About section (amped) */}
-                    <h1 className={styles.heading1 + " text-black"}>{introHeading}</h1>
+                    <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                        <div className="flex flex-col">
+                            <h1 className={styles.heading1 + " text-black mb-8"}>{introHeading}</h1>
+                            <div className="flex flex-wrap gap-3 mt-4">
+                                {["Workflow Automation", "Predictive Models", "Custom LLM Apps", "Data Pipelines"].map((tag) => (
+                                    <div key={tag} className="px-5 py-2 bg-gray-100/80 backdrop-blur-sm rounded-full text-sm font-semibold text-zinc-600 border border-gray-200/50">
+                                        {tag}
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                        <motion.div
+                            initial={{ opacity: 0, x: 20 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            transition={{ duration: 0.8, ease: "easeOut" }}
+                            className="relative aspect-[4/3] rounded-3xl overflow-hidden shadow-[0_32px_64px_-16px_rgba(0,0,0,0.1)] border border-gray-100"
+                        >
+                            <Image
+                                src="/assets/20260403_1345_Image Generation_remix_01kn96geb4esvsds28322f1a1t.png"
+                                alt="AI Intelligence Visualization"
+                                fill
+                                className="object-cover"
+                                priority
+                            />
+                        </motion.div>
+                    </div>
                 </section>
 
                 <section className={styles.cards}>
@@ -153,7 +178,19 @@ export default function SlackSection({
                     className={styles.outro + " text-black"}
                     style={{ backgroundColor: "transparent" }}
                 >
-                    <h1 className={styles.heading1 + " text-black"}>{outroHeading}</h1>
+                    <div className="max-w-5xl px-6 mx-auto">
+                        <h1 className={styles.heading1 + " text-black"}>{outroHeading}</h1>
+                        <div className="-mt-8 flex flex-col sm:flex-row gap-6 items-start">
+                            <div className="flex items-center gap-3">
+                                <div className="w-3 h-3 rounded-full bg-[#3b82f6] animate-pulse"></div>
+                                <span className="text-gray-500 font-medium text-sm">Trusted by 40+ enterprises worldwide</span>
+                            </div>
+                            <div className="flex items-center gap-3">
+                                <div className="w-3 h-3 rounded-full bg-emerald-500 animate-pulse"></div>
+                                <span className="text-gray-500 font-medium text-sm">Average 3.2x ROI in first quarter</span>
+                            </div>
+                        </div>
+                    </div>
                 </section>
             </div>
 
@@ -161,7 +198,7 @@ export default function SlackSection({
         </>
     );
 
-    // Themed background wrapper: black base with violet-ish gradient and subtle glows
+    // Themed background wrapper: white base with minimal elements
     const Wrapped = (
         <section className="relative bg-white overflow-hidden py-12 sm:py-16">
             {/* Minimal background elements */}
@@ -175,5 +212,17 @@ export default function SlackSection({
         </section>
     );
 
-    return withLenis ? <ReactLenis root>{Wrapped}</ReactLenis> : Wrapped;
+    return (
+        <ReactLenis
+            root
+            options={{
+                lerp: 0.02,
+                duration: 2.5,
+                smoothWheel: true,
+                wheelMultiplier: 0.5,
+            }}
+        >
+            {Wrapped}
+        </ReactLenis>
+    );
 }

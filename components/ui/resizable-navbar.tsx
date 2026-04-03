@@ -74,7 +74,7 @@ export const Navbar = ({ children, className }: NavbarProps) => {
       animate={hidden ? "hidden" : "visible"}
       transition={{ duration: 0.35, ease: "easeInOut" }}
       className={cn(
-        "fixed inset-x-0 z-40 w-full px-4 md:px-6 transition-all duration-200",
+        "fixed inset-x-0 z-[1000] w-full px-4 md:px-6 transition-all duration-200",
         visible ? "top-4" : "top-2",
         className,
       )}

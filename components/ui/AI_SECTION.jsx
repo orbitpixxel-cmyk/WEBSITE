@@ -1,178 +1,317 @@
 "use client";
 
-import React from "react";
-import { motion } from "framer-motion";
+import React, { useState } from "react";
+import Image from "next/image";
+import { motion, AnimatePresence } from "framer-motion";
 import CardAni from "./card-animation/cardAni";
-import { Workflow, Shield, Zap, Layout } from "lucide-react";
+import Bento from "./Bento";
+import { ChevronDown, Star, Bot, BrainCircuit, ShieldCheck, Users, Cpu, Briefcase, Zap } from "lucide-react";
 
 /**
- * Bento Grid Item component for the Left Column
+ * Accordion Item
  */
-const ServiceBox = ({ icon: Icon, title, description, stat, statCaption, delay = 0 }) => (
+const AccordionItem = ({ title, children, isOpen, onToggle, delay = 0 }) => (
+  <motion.div
+    initial={{ opacity: 0, y: 10 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.5, delay }}
+    viewport={{ once: true }}
+  >
+    <button
+      onClick={onToggle}
+      className="w-full flex items-center justify-between py-5 text-left group"
+    >
+      <span className="text-lg font-semibold text-gray-900 group-hover:text-[#3b82f6] transition-colors">
+        {title}
+      </span>
+      <motion.div
+        animate={{ rotate: isOpen ? 180 : 0 }}
+        transition={{ duration: 0.3 }}
+      >
+        <ChevronDown className="w-5 h-5 text-gray-400 group-hover:text-[#3b82f6] transition-colors" />
+      </motion.div>
+    </button>
+    <AnimatePresence>
+      {isOpen && (
+        <motion.div
+          initial={{ height: 0, opacity: 0 }}
+          animate={{ height: "auto", opacity: 1 }}
+          exit={{ height: 0, opacity: 0 }}
+          transition={{ duration: 0.3 }}
+          className="overflow-hidden"
+        >
+          <div className="pb-5 text-sm text-zinc-500 leading-relaxed font-medium">
+            {children}
+          </div>
+        </motion.div>
+      )}
+    </AnimatePresence>
+    <div className="h-[1px] bg-gray-100" />
+  </motion.div>
+);
+
+/**
+ * Profile row inside dashboard card
+ */
+const ProfileRow = ({ name, role, rating, color, delay = 0 }) => (
+  <motion.div
+    initial={{ opacity: 0, x: 10 }}
+    whileInView={{ opacity: 1, x: 0 }}
+    transition={{ duration: 0.4, delay }}
+    viewport={{ once: true }}
+    className="flex items-center gap-3 p-3 rounded-xl hover:bg-gray-50/80 transition-colors cursor-default"
+  >
+    <div
+      className="w-9 h-9 rounded-full shrink-0 flex items-center justify-center text-white text-xs font-bold shadow-sm"
+      style={{ background: color }}
+    >
+      {name.split(" ").map(n => n[0]).join("")}
+    </div>
+    <div className="flex-1 min-w-0">
+      <div className="text-sm font-semibold text-gray-900 truncate">{name}</div>
+      <div className="text-[11px] text-zinc-400 font-medium">{role}</div>
+    </div>
+    <div className="flex items-center gap-1 shrink-0">
+      <Star className="w-3 h-3 fill-amber-400 text-amber-400" />
+      <span className="text-xs font-semibold text-gray-700">{rating}</span>
+    </div>
+  </motion.div>
+);
+
+/**
+ * Stat Card for the bottom row
+ */
+const StatCard = ({ icon: Icon, value, description, delay = 0 }) => (
   <motion.div
     initial={{ opacity: 0, y: 20 }}
     whileInView={{ opacity: 1, y: 0 }}
     transition={{ duration: 0.5, delay }}
     viewport={{ once: true }}
-    className="p-8 bg-white rounded-2xl border border-gray-100 flex flex-col h-full bg-white/50 backdrop-blur-sm group hover:border-[#3b82f6]/20 transition-all duration-300 shadow-sm"
+    className="flex flex-col items-center text-center px-4"
   >
-    <div className="mb-6">
-      <div className="p-3 bg-gray-50 rounded-xl w-fit group-hover:bg-[#3b82f6]/5 transition-colors border border-gray-100/50">
-        <Icon className="w-6 h-6 text-gray-500 group-hover:text-[#3b82f6]" />
-      </div>
+    <div className="w-14 h-14 rounded-full bg-[#f8fafc] border border-slate-100 flex items-center justify-center mb-6 shadow-sm group-hover:bg-[#3b82f6]/5 transition-colors">
+      <Icon className="w-6 h-6 text-[#3b82f6]" />
     </div>
-    <h4 className="text-xl font-bold text-gray-900 mb-4">{title}</h4>
-    <p className="text-sm text-zinc-500 leading-relaxed font-medium mb-8">
-      {description}
-    </p>
-    
-    <div className="mt-auto">
-      <div className="text-3xl font-bold text-[#3b82f6] mb-1">{stat}</div>
-      <div className="text-xs text-zinc-400 font-medium">{statCaption}</div>
-    </div>
+    <div className="text-xl font-bold text-gray-900 mb-3 tracking-tight">{value}</div>
+    <p className="text-sm text-zinc-500 leading-relaxed font-medium max-w-[280px]">{description}</p>
   </motion.div>
 );
 
-const certifications = ["Business Strategist", "AI Architect"];
-const badges = [
-  { name: "Solutions", level: "Expert", stars: 3, icon: "bg-gray-600/20" },
-  { name: "Strategy", level: "Expert", stars: 3, icon: "bg-[#b8860b]/20", active: true },
-  { name: "Insights", level: "Advanced", stars: 2, icon: "bg-gray-600/20" },
+const teamMembers = [
+  { name: "Arlene McCoy", role: "Business Development", rating: "4.8", color: "#7c3aed" },
+  { name: "David Beckham", role: "AI Strategy Lead", rating: "4.9", color: "#2563eb" },
+  { name: "Ronald Richards", role: "Solutions Architect", rating: "4.7", color: "#059669" },
+];
+
+const featuredExperts = [
+  { name: "Mario Kassa", role: "LLM Engineer", color: "#ec4899" },
+  { name: "Sara Rose", role: "Lead Developer", color: "#f59e0b" },
 ];
 
 export default function AISection() {
+  const [openAccordion, setOpenAccordion] = useState(0);
+
   return (
     <div className="min-h-screen w-full rounded-[3.5rem] bg-white py-24 text-black z-10 relative overflow-hidden">
       {/* Background Mesh Gradient */}
       <div className="absolute top-0 right-0 -translate-y-1/2 translate-x-1/2 w-[60%] h-[60%] bg-[#3b82f6]/5 blur-[120px] pointer-events-none rounded-full" />
 
       <div className="max-w-7xl mx-auto w-full px-6 md:px-10 relative z-10 text-left">
-        {/* Heading Section - Matches Image 2 */}
+
+        {/* Main Content Grid: Left Text + Right Dashboard Card */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-start">
+
+          {/* Left Column — Heading + Description + Accordions */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="lg:col-span-6"
+          >
+            <h2 className="text-5xl md:text-6xl font-bold tracking-tight leading-[1.08] text-gray-900 mb-10">
+              Check our Business Model built with{" "}
+              <span className="text-[#3b82f6]">AI</span>
+            </h2>
+
+            {/* Feature Blurb */}
+            <div className="mb-8">
+              <h4 className="text-base font-bold text-gray-900 mb-2">AI is the future of enterprise</h4>
+              <p className="text-sm text-zinc-500 leading-relaxed font-medium max-w-md">
+                We build intelligent AI systems powered by LLMs that give better operational efficiency, deeper insights, and a competitive edge to our clients.
+              </p>
+            </div>
+
+            <div className="h-[1px] bg-gray-100 mb-2" />
+
+            {/* Accordion Items */}
+            <AccordionItem
+              title="No Cost Until You See Results"
+              isOpen={openAccordion === 0}
+              onToggle={() => setOpenAccordion(openAccordion === 0 ? -1 : 0)}
+              delay={0.1}
+            >
+              We work on a performance-first model. You only invest when our AI solutions demonstrate measurable business impact — zero risk, full transparency.
+            </AccordionItem>
+
+            <AccordionItem
+              title="Enterprise-Grade Security"
+              isOpen={openAccordion === 1}
+              onToggle={() => setOpenAccordion(openAccordion === 1 ? -1 : 1)}
+              delay={0.2}
+            >
+              Every system we deploy is SOC 2 aligned with private cloud and on-prem options. Your proprietary data never leaves your infrastructure.
+            </AccordionItem>
+
+            <AccordionItem
+              title="Seamless Integration"
+              isOpen={openAccordion === 2}
+              onToggle={() => setOpenAccordion(openAccordion === 2 ? -1 : 2)}
+              delay={0.3}
+            >
+              Our AI plugs directly into your existing CRM, ERP, and internal tools — no rip-and-replace. Your teams keep working the way they already do.
+            </AccordionItem>
+          </motion.div>
+
+          {/* Right Column — Dashboard Card */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.96, y: 20 }}
+            whileInView={{ opacity: 1, scale: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            viewport={{ once: true }}
+            className="lg:col-span-6 flex justify-center lg:justify-end"
+          >
+            <div className="w-full max-w-[480px] bg-white rounded-[2rem] border border-gray-100 shadow-[0_20px_80px_-20px_rgba(0,0,0,0.08)] p-6 md:p-8 relative overflow-hidden">
+              {/* Subtle bg pattern */}
+              <div className="absolute top-0 right-0 w-40 h-40 bg-[#3b82f6]/5 blur-[80px] rounded-full pointer-events-none" />
+
+              {/* Header */}
+              <div className="flex items-center justify-between mb-6 relative z-10">
+                <div className="flex items-center gap-2.5">
+                  <div className="w-8 h-8 rounded-lg bg-[#3b82f6]/10 flex items-center justify-center">
+                    <BrainCircuit className="w-4 h-4 text-[#3b82f6]" />
+                  </div>
+                  <span className="text-sm font-bold text-gray-900">AI Team Dashboard</span>
+                </div>
+                <div className="flex items-center gap-1.5 px-3 py-1.5 bg-emerald-50 rounded-full">
+                  <div className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                  <span className="text-[10px] font-bold text-emerald-700 uppercase tracking-wider">Live</span>
+                </div>
+              </div>
+
+              {/* Team Members List */}
+              <div className="space-y-1 mb-6 relative z-10">
+                {teamMembers.map((member, i) => (
+                  <ProfileRow key={i} {...member} delay={0.3 + i * 0.1} />
+                ))}
+              </div>
+
+              {/* Divider */}
+              <div className="h-[1px] bg-gray-100 mb-6" />
+
+              {/* Featured Experts Row */}
+              <div className="flex gap-3 mb-6 relative z-10">
+                {featuredExperts.map((expert, i) => (
+                  <motion.div
+                    key={i}
+                    initial={{ opacity: 0, y: 10 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.4, delay: 0.6 + i * 0.1 }}
+                    viewport={{ once: true }}
+                    className="flex-1 p-4 bg-gray-50/80 rounded-xl border border-gray-100/80 hover:border-[#3b82f6]/20 transition-all duration-300 group"
+                  >
+                    <div
+                      className="w-10 h-10 rounded-full mb-3 flex items-center justify-center text-white text-xs font-bold shadow-sm"
+                      style={{ background: expert.color }}
+                    >
+                      {expert.name.split(" ").map(n => n[0]).join("")}
+                    </div>
+                    <div className="text-sm font-semibold text-gray-900 mb-1">{expert.name}</div>
+                    <div className="text-[11px] text-zinc-400 font-medium">{expert.role}</div>
+                  </motion.div>
+                ))}
+              </div>
+
+              {/* Action Button */}
+              <motion.button
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                transition={{ duration: 0.4, delay: 0.8 }}
+                viewport={{ once: true }}
+                className="w-full py-3 bg-gray-900 hover:bg-gray-800 text-white text-sm font-semibold rounded-xl transition-colors duration-300 relative z-10"
+              >
+                View Profile
+              </motion.button>
+            </div>
+          </motion.div>
+        </div>
+
+        {/* Bottom Stats Section */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.7, delay: 0.2 }}
           viewport={{ once: true }}
-          className="mb-24 max-w-4xl"
+          className="mt-24 pt-16 border-t border-gray-100"
         >
-          <h2 className="text-6xl md:text-7xl font-bold tracking-tight leading-[1.05] text-gray-900">
-            Unlocking AI for enterprise isn&apos;t about chasing <span className="text-[#3b82f6]">shiny trends</span>
-          </h2>
-          <p className="text-zinc-500 mt-8 max-w-3xl text-lg md:text-xl font-medium leading-relaxed">
-            Most organizations face the same obstacles. The difference between success and failure isn&apos;t the latest hype wave—it&apos;s having a partner who understands enterprise complexity.
-          </p>
-        </motion.div>
-
-        {/* Content Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-start">
-
-          {/* Left Column - Clean Grid Boxes */}
-          <div className="lg:col-span-7 grid grid-cols-1 md:grid-cols-2 gap-6 pb-20 lg:pb-0">
-            <ServiceBox 
-              icon={Workflow}
-              title="Workflows"
-              description="Custom autonomous agents that handle complex, multi-step business logic without intervention."
-              stat="90%"
-              statCaption="of manual tasks automated"
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-0 divide-y md:divide-y-0 md:divide-x divide-dashed divide-gray-200">
+            <StatCard
+              icon={Briefcase}
+              value="500+"
+              description="We provide best-in-class AI implementations with deep domain expertise across every major industry vertical."
               delay={0.1}
             />
-            <ServiceBox 
-              icon={Zap}
-              title="Execution"
-              description="Ultra-fast deployment of LLM-powered features tailored to your specific industry vertical."
-              stat="4x"
-              statCaption="faster production cycles"
+            <StatCard
+              icon={Users}
+              value="Total Clients 14M"
+              description="We serve millions of end-users through our client deployments. You can check our customer success stories."
               delay={0.2}
             />
-            <ServiceBox 
-              icon={Shield}
-              title="Security"
-              description="Privacy-first architecture ensuring your proprietary data remains safe and fully compliant."
-              stat="100%"
-              statCaption="data sovereignty guaranteed"
+            <StatCard
+              icon={Zap}
+              value="AI Solutions Deployed 15K"
+              description="The AI industry is evolving rapidly, and our solutions are built to scale with your growing business needs."
               delay={0.3}
             />
-            <ServiceBox 
-              icon={Layout}
-              title="Integration"
-              description="Seamless connection to your existing CRM, ERP, and communication tools for zero friction."
-              stat="0"
-              statCaption="friction during implementation"
-              delay={0.4}
-            />
           </div>
+        </motion.div>
 
-          {/* Right Column - Premium Strategy Bot Display */}
-          <div className="lg:col-span-5 relative h-full min-h-[500px] flex flex-col justify-start items-center">
-
-            {/* Visual Infrastructure Background */}
-            <div className="absolute inset-0 w-full h-[600px] rounded-[3rem] bg-gray-50/50 border border-gray-100/50 overflow-hidden flex flex-col items-center justify-center -z-10 mt-12">
-               <span className="text-black/5 font-extrabold text-7xl tracking-[.15em] uppercase select-none pb-20">INFRASTRUCTURE</span>
-               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-[#3b82f6]/5 blur-[100px] rounded-full" />
-            </div>
-
-            {/* Shifted Overlapping Strategy Bot Card */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95, x: 20 }}
-              whileInView={{ opacity: 1, scale: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: 0.3 }}
-              viewport={{ once: true }}
-              className="relative w-full max-w-[420px] bg-[#1a1b23] p-10 rounded-[2.5rem] shadow-[0_50px_100px_-20px_rgba(0,0,0,0.5)] border border-white/5 z-20 backdrop-blur-2xl mt-8"
-            >
-              {/* Profile Header */}
-              <div className="flex flex-row items-center gap-6 mb-10 text-left">
-                <div className="w-20 h-20 rounded-full bg-gradient-to-tr from-[#3b82f6]/40 to-[#3b82f6]/10 border border-[#3b82f6]/20 shrink-0 overflow-hidden relative shadow-lg">
-                  <div className="absolute inset-x-0 bottom-0 h-1/2 bg-black/30 backdrop-blur-sm" />
-                  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-6 h-6 rounded-full bg-[#3b82f6]/30 blur-xl" />
-                </div>
-                <div className="flex flex-col">
-                  <span className="text-white font-bold text-2xl tracking-tight leading-none mb-2">Strategy Bot</span>
-                  <span className="text-[#3b82f6] text-[10px] font-bold font-mono uppercase tracking-[0.2em] opacity-80">Solution Architect</span>
-                </div>
-              </div>
-
-              <div className="h-[1px] w-full bg-gradient-to-r from-white/15 to-transparent mb-10" />
-
-              {/* Focus Areas */}
-              <div className="mb-10 text-left">
-                <h4 className="text-zinc-500 font-bold text-[10px] uppercase tracking-[0.2em] mb-5">Enterprise Focus Areas</h4>
-                <div className="flex flex-row gap-4">
-                  {certifications.map((c, i) => (
-                    <div key={i} className="flex-1 bg-white/5 rounded-2xl border border-white/5 p-5 relative overflow-hidden group hover:bg-white/10 transition-colors">
-                      <span className="text-[11px] text-zinc-300 block mb-4 font-semibold leading-tight">{c}</span>
-                      <div className="w-8 h-1 bg-[#3b82f6]/50 rounded-full group-hover:w-12 transition-all duration-500"></div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              {/* Core Strengths */}
-              <div className="text-left">
-                <h4 className="text-zinc-500 font-bold text-[10px] uppercase tracking-[0.2em] mb-5">Strategic Capabilities</h4>
-                <div className="flex flex-row gap-4">
-                  {badges.map((b, i) => (
-                    <div key={i} className={`flex-1 min-h-[110px] flex flex-col items-center justify-center rounded-2xl border transition-all duration-500 hover:-translate-y-2 ${b.active
-                      ? "bg-white/10 border-[#b8860b]/40 shadow-[0_15px_30px_rgba(184,134,11,0.15)]"
-                      : "bg-white/5 border-white/5"
-                      }`}>
-                      <div className={`w-8 h-8 rounded-full mb-4 flex items-center justify-center ${b.active ? "bg-[#b8860b]/20" : "bg-white/10"}`}>
-                        <div className={`w-2.5 h-2.5 rounded-sm ${b.active ? "bg-[#b8860b]" : "bg-zinc-600"}`} />
-                      </div>
-                      <span className={`text-[10px] font-bold tracking-tight mb-2 ${b.active ? "text-[#b8860b]" : "text-zinc-300"}`}>{b.name}</span>
-                      <span className="text-[7px] text-zinc-500 uppercase tracking-widest font-bold">{b.level}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-            </motion.div>
-          </div>
-        </div>
       </div>
 
+
+      {/* ─── Bento Grid Section ─── */}
+      <Bento />
+
       <div className="w-full mt-24">
-        <section id="solutions" className="relative w-full">
-          <CardAni />
+        <section className="relative overflow-hidden h-fit py-32 bg-transparent text-black">
+          <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div className="flex flex-col">
+              <h1 className="text-4xl md:text-6xl font-semibold leading-[1.1] text-black mb-8">
+                We turn complex business challenges into intelligent AI-driven solutions.
+              </h1>
+              <div className="flex flex-wrap gap-3 mt-4">
+                {["Workflow Automation", "Predictive Models", "Custom LLM Apps", "Data Pipelines"].map((tag) => (
+                  <div key={tag} className="px-5 py-2 bg-gray-100/80 backdrop-blur-sm rounded-full text-sm font-semibold text-zinc-600 border border-gray-200/50">
+                    {tag}
+                  </div>
+                ))}
+              </div>
+            </div>
+            <motion.div 
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+              className="relative aspect-[4/3] rounded-3xl overflow-hidden shadow-[0_32px_64px_-16px_rgba(0,0,0,0.1)] border border-gray-100"
+            >
+              <Image 
+                src="/assets/20260403_1348_Image Generation_remix_01kn96pkwbfes8t2s32d6se0rp.png" 
+                alt="AI Intelligence Visualization" 
+                fill
+                className="object-cover"
+                priority
+              />
+            </motion.div>
+          </div>
         </section>
       </div>
     </div>
