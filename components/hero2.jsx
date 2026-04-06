@@ -44,43 +44,42 @@ const FloatingCard = ({ children, delay = 0, className = "" }) => (
 
 export default function RoughHeroReplicate() {
     return (
-        <div className="relative w-[100vw] h-[100vh] text-slate-900 flex flex-col items-center pt-20 font-sans z-[50]" style={{ background: 'linear-gradient(160deg, #eef4ff 0%, #dce9fc 30%, #e8f0fb 60%, #f0f6ff 100%)' }}>
+        <div className="relative w-[100vw] h-[145vh] bg-black text-white flex flex-col items-center pt-20 font-sans z-[50]">
 
             {/* Background Infrastructure Layer (Clipped to HeroSection boundary) */}
             <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
-                {/* Visual Infrastructure Background Layer - Light */}
-                <div className="absolute inset-0 opacity-[0.15]">
-                    <svg className="h-full w-full" aria-hidden="true">
+                {/* Visual Infrastructure Background Layer - Darker */}
+                <div className="absolute inset-0 opacity-[0.08]">
+                    <svg className="h-full w-full stroke-slate-500/20" aria-hidden="true">
                         <defs>
                             <pattern id="hero-grid" width="80" height="80" patternUnits="userSpaceOnUse" x="50%" y="-1">
-                                <path d="M.5 80V.5H80" fill="none" stroke="#94b8e8" strokeWidth="0.5" />
+                                <path d="M.5 80V.5H80" fill="none" />
                             </pattern>
                         </defs>
                         <rect width="100%" height="100%" strokeWidth="0" fill="url(#hero-grid)" />
                     </svg>
                 </div>
 
-                {/* Ambient Glows - Light Theme */}
-                <div className="absolute top-[-10%] left-[10%] w-[40%] h-[40%] bg-blue-200/30 blur-[150px] rounded-full" />
-                <div className="absolute bottom-[-10%] right-[10%] w-[40%] h-[40%] bg-indigo-100/40 blur-[150px] rounded-full" />
+                {/* Ambient Deep Glows - Subtle Dark Theme */}
+                <div className="absolute top-[-10%] left-[10%] w-[40%] h-[40%] bg-slate-700/5 blur-[150px] rounded-full" />
+                <div className="absolute bottom-[-10%] right-[10%] w-[40%] h-[40%] bg-slate-800/5 blur-[150px] rounded-full" />
 
                 {/* Center Glow Behind Content */}
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[600px] bg-blue-300/10 blur-[120px] rounded-full z-0" />
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[600px] bg-blue-500/5 blur-[120px] rounded-full z-0" />
 
                 {/* Subtle Top Glow - Reduced Blue */}
                 <div
                     className="absolute top-0 left-1/2 -translate-x-[50%] w-full h-[600px] z-0"
                     style={{
-                        background: 'radial-gradient(circle at 50% 0%, rgba(147, 197, 253, 0.25) 0%, rgba(191, 219, 254, 0.10) 40%, transparent 75%)'
+                        background: 'radial-gradient(circle at 50% 0%, rgba(59, 130, 246, 0.15) 0%, rgba(59, 130, 246, 0.05) 40%, transparent 75%)'
                     }}
                 />
 
                 {/* Background Concentric Arcs - RADIATING FROM THE BOTTOM (Semi-circles) */}
                 <div className="absolute top-[115%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1700px] h-[1700px] opacity-40">
                     <svg viewBox="0 0 1000 1000" className="w-full h-full">
-                        <circle cx="500" cy="500" r="400" fill="none" stroke="#93c5fd" strokeWidth="2.5" strokeOpacity="0.6" />
-                        <circle cx="500" cy="500" r="315" fill="none" stroke="#60a5fa" strokeWidth="2.5" strokeOpacity="0.5" />
-                        <circle cx="500" cy="500" r="220" fill="#bfdbfe" fillOpacity="0.35" stroke="#3b82f6" strokeWidth="1.5" strokeOpacity="0.4" />
+                        <circle cx="500" cy="500" r="400" fill="#1e1b4b" fillOpacity="0.05" stroke="#264181ff" strokeWidth="1.5" /> {/* Outer - Deep Indigo */}
+                        <circle cx="500" cy="500" r="315" fill="#334155" fillOpacity="0.05" stroke="#264181ff" strokeWidth="2" /> {/* Middle - Slate Blue */}
                     </svg>
                 </div>
             </div>
@@ -89,13 +88,13 @@ export default function RoughHeroReplicate() {
             <div className="relative z-10 w-full max-w-6xl flex flex-col items-center">
 
                 {/* Hero Header Section */}
-                <div className="text-center max-w-4xl mb-8 mt-10">
+                <div className="text-center max-w-4xl mb-8">
                     <motion.div
                         initial={{ opacity: 0, y: -20 }}
                         animate={{ opacity: 1, y: 0 }}
-                        className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-50 border border-blue-200/60 text-blue-600 text-sm font-medium mb-6 mx-auto shadow-sm"
+                        className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-sm font-medium mb-6 mx-auto"
                     >
-                        <Zap className="w-4 h-4 text-blue-500" />
+                        <Zap className="w-4 h-4 fill-blue-400/20" />
                         <span>Experience the future of AI communication</span>
                     </motion.div>
 
@@ -105,7 +104,7 @@ export default function RoughHeroReplicate() {
                         transition={{ duration: 1, ease: [0.25, 0.1, 0.25, 1] }}
                         className="text-[40px] sm:text-[48px] md:text-[54px] lg:text-[56px] font-bold leading-[1.06] tracking-tight mb-8 px-6"
                     >
-                        <span className="text-slate-900 font-extrabold">
+                        <span className="bg-gradient-to-r from-white via-slate-200 to-slate-400 bg-clip-text text-transparent">
                             Empower Your
                         </span>{' '}
                         <span className="relative inline-block px-1">
@@ -114,7 +113,7 @@ export default function RoughHeroReplicate() {
                                 Business
                             </span>
                         </span><br />
-                        <span className="text-slate-900 font-extrabold">
+                        <span className="bg-gradient-to-r from-white via-slate-200 to-slate-400 bg-clip-text text-transparent">
                             with an
                         </span>{' '}
                         <span className="relative inline-block px-1">
@@ -123,7 +122,7 @@ export default function RoughHeroReplicate() {
                                 AI Partner
                             </span>
                         </span><br />
-                        <span className="text-slate-900 font-extrabold">
+                        <span className="bg-gradient-to-r from-white via-slate-200 to-slate-400 bg-clip-text text-transparent">
                             That
                         </span>{' '}
                         <span className="relative inline-block px-1">
@@ -138,7 +137,7 @@ export default function RoughHeroReplicate() {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8, delay: 0.2 }}
-                        className="text-slate-500 text-base md:text-lg max-w-2xl mx-auto mb-8 font-medium"
+                        className="text-slate-400 text-base md:text-lg max-w-2xl mx-auto mb-8 font-medium"
                     >
                         Stay connected to those who matter most with consistent messaging & calling options available on iOS and Android devices.
                     </motion.p>
@@ -149,10 +148,10 @@ export default function RoughHeroReplicate() {
                         transition={{ duration: 0.8, delay: 0.3 }}
                         className="flex flex-wrap justify-center gap-4"
                     >
-                        <button className="bg-blue-600 hover:bg-blue-500 text-white px-8 py-3 rounded-full font-bold transition-all shadow-[0_8px_24px_rgba(59,130,246,0.35)] hover:scale-105 active:scale-95">
+                        <button className="bg-blue-600 hover:bg-blue-500 text-white px-8 py-3 rounded-full font-bold transition-all shadow-[0_15px_30px_rgba(59,130,246,0.25)] hover:scale-105 active:scale-95">
                             Download App
                         </button>
-                        <button className="bg-white hover:bg-blue-50 text-slate-800 border border-slate-200 px-8 py-3 rounded-full font-bold transition-all shadow-sm hover:border-blue-200">
+                        <button className="bg-white/5 hover:bg-white/10 text-white border border-white/10 px-8 py-3 rounded-full font-bold transition-all backdrop-blur-sm hover:border-white/20">
                             Learn More
                         </button>
                     </motion.div>
@@ -161,8 +160,8 @@ export default function RoughHeroReplicate() {
                 {/* Hero Interactive Playground */}
                 <div className="relative w-full h-[500px]">
 
-                    {/* NEW RECTANGULAR VIDEO MOCKUP — COMMENTED OUT */}
-                    {/*
+                    {/* NEW RECTANGULAR VIDEO MOCKUP */}
+                    {/* Ambient Aura Glow behind mockup */}
                     <motion.div
                         initial={{ opacity: 0, scale: 0.8 }}
                         animate={{ opacity: 1, scale: 1.2 }}
@@ -176,9 +175,12 @@ export default function RoughHeroReplicate() {
                         transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
                         className="absolute top-1/2 left-1/2 w-[300px] h-[520px] sm:w-[350px] sm:h-[620px] md:w-[45vw] md:h-[65vh] lg:w-[30vw] lg:h-[75vh] xl:w-[60vw] xl:h-[80vh] bg-white border-[6px] sm:border-[8px] border-slate-700 rounded-[2.5rem] shadow-[0_50px_100px_-20px_rgba(0,0,0,0.8),0_0_120px_rgba(59,130,246,0.3)] overflow-hidden z-[0]"
                     >
+                        {/* Dynamic Island / Selfie Camera */}
                         <div className="absolute top-4 left-1/2 -translate-x-1/2 w-24 h-7 bg-slate-950 rounded-full z-[10] flex items-center justify-end px-4 shadow-[inset_0_1px_2px_rgba(255,255,255,0.1)] transition-all">
                             <div className="w-2 h-2 rounded-full bg-slate-900 border border-white/5 shadow-inner"></div>
                         </div>
+
+                        {/* Content Area */}
                         <div className="w-full h-full bg-slate-900 flex items-center justify-center relative">
                             <Image
                                 src="/assets/Screenshot 2026-04-04 003858.png"
@@ -189,51 +191,90 @@ export default function RoughHeroReplicate() {
                             />
                         </div>
                     </motion.div>
-                    */}
 
-                    {/* Floating Image: Appointments (Top Left) */}
-                    <motion.div
-                        initial={{ opacity: 0, y: 30 }}
-                        animate={{ opacity: 1, y: [0, -10, 0] }}
-                        transition={{ opacity: { duration: 1, delay: 0.4 }, y: { duration: 4, repeat: Infinity, ease: "easeInOut", delay: 0.9 } }}
-                        className="absolute top-[-68%] left-[-10%] w-[318px] hidden lg:block z-[120]"
-                    >
-                        {/* Ambient Glow behind image */}
-                        <div className="absolute inset-x-0 top-1/2 -translate-y-1/2 h-full bg-blue-400/20 blur-[60px] -z-10 rounded-full pointer-events-none" />
-                        <Image src="/hero/appointment-removebg-preview.png" alt="Appointments" width={610} height={487} className="w-full h-auto object-contain drop-shadow-2xl" />
-                    </motion.div>
-
-                    {/* Floating Image: Email (Bottom Left) */}
-                    <motion.div
-                        initial={{ opacity: 0, y: 30 }}
-                        animate={{ opacity: 1, y: [0, -10, 0] }}
-                        transition={{ opacity: { duration: 1, delay: 0.6 }, y: { duration: 4, repeat: Infinity, ease: "easeInOut", delay: 1.1 } }}
-                        className="absolute bottom-[80%] left-[-5%] w-[381px] hidden lg:block z-[120]"
-                    >
-                        {/* Ambient Glow behind image */}
-                        <div className="absolute inset-x-0 top-1/2 -translate-y-1/2 h-full bg-blue-400/20 blur-[80px] -z-10 rounded-full pointer-events-none" />
-                        <Image src="/hero/email-removebg-preview.png" alt="Email" width={739} height={528} className="w-full h-auto object-contain drop-shadow-2xl" />
-                    </motion.div>
-
-                    {/* Floating Image: Chats (Top Right) */}
-                    <motion.div
-                        initial={{ opacity: 0, y: 30 }}
-                        animate={{ opacity: 1, y: [0, -10, 0] }}
-                        transition={{ opacity: { duration: 1, delay: 0.8 }, y: { duration: 4, repeat: Infinity, ease: "easeInOut", delay: 1.3 } }}
-                        className="absolute top-[-76%] right-[-15%] w-[460px] hidden lg:block z-[120]"
-                    >
-                        {/* Ambient Glow behind image */}
-                        <div className="absolute inset-x-0 top-1/2 -translate-y-1/2 h-full bg-blue-400/20 blur-[90px] -z-10 rounded-full pointer-events-none" />
-                        <Image src="/hero/chats.png" alt="Chats" width={895} height={639} className="w-full h-auto object-contain drop-shadow-2xl" />
-                    </motion.div>
-
-                    {/* Floating Card: Calls (Bottom Right) */}
-                    <FloatingCard className="bottom-[85%] right-[-2%] w-[266px] hidden lg:block !p-0 overflow-hidden" delay={1}>
-                        {/* Ambient Glow behind image */}
-                        <div className="absolute inset-0 bg-blue-500/15 blur-[60px] -z-10 pointer-events-none rounded-full scale-125" />
-                        <Image src="/hero/calls.png" alt="Calls" width={532} height={399} className="w-full h-full object-cover" />
+                    {/* Floating Card: Engagement Stats (Top Left) — High Elevation */}
+                    <FloatingCard className="top-[-18%] left-[-10%] w-52 hidden lg:block" delay={0.4}>
+                        <div className="flex flex-col text-left">
+                            <span className="text-3xl font-bold text-blue-500 tracking-tight leading-none mb-1">48%↑</span>
+                            <p className="text-[10px] text-slate-500 font-bold mb-3">Increase in Communication</p>
+                        </div>
+                        <div className="flex gap-1 items-end h-8 w-full">
+                            {[20, 50, 80, 100, 70, 85, 45, 60, 90, 30].map((h, i) => (
+                                <div key={i} className="flex-1 bg-blue-100 rounded-[1px]" style={{ height: `${h}%` }}></div>
+                            ))}
+                        </div>
                     </FloatingCard>
 
+                    {/* Floating Card: Chat (Bottom Left) — High Elevation */}
+                    <FloatingCard className="bottom-[40%] left-[-5%] w-72 hidden lg:block" delay={0.6}>
+                        <div className="flex items-start gap-2 text-left">
+                            <div className="w-6 h-6 rounded-full bg-slate-200 overflow-hidden flex-shrink-0">
+                                <User className="w-full h-full text-slate-400" />
+                            </div>
+                            <div className="flex flex-col">
+                                <span className="text-[10px] font-bold text-slate-400 leading-none mb-2">Jane Cooper • 10 am</span>
+                                <div className="bg-slate-50 rounded-lg p-2.5 border border-slate-100 mb-2">
+                                    <p className="text-[11px] text-slate-700 leading-relaxed font-semibold">
+                                        Sounds good! 🙌🔥, I&apos;m not sure about the rest of the group.
+                                    </p>
+                                </div>
+                                <div className="bg-blue-950 text-white rounded-lg p-2.5 self-end">
+                                    <p className="text-[11px] font-semibold">Yes, I am still interested. Count me in ❤️</p>
+                                </div>
+                            </div>
+                        </div>
+                    </FloatingCard>
+
+                    {/* Floating Card: Shelba AI (Top Right) — High Elevation */}
+                    <FloatingCard className="top-[-16%] right-[-10%] w-72 hidden lg:block" delay={0.8}>
+                        <div className="flex items-center gap-2 mb-2 text-left">
+                            <div className="p-1 bg-blue-100 rounded-lg">
+                                <Bot className="w-4 h-4 text-blue-600" />
+                            </div>
+                            <span className="text-[11px] font-extrabold text-slate-900 tracking-tight uppercase">Shelba AI</span>
+                        </div>
+                        <div className="space-y-2">
+                            <div className="bg-slate-50 rounded-lg p-3 text-left border border-slate-100">
+                                <p className="text-[10px] font-bold text-slate-800 leading-relaxed">Hi, I&apos;m Shelba!</p>
+                                <p className="text-[9px] text-slate-500 font-medium leading-relaxed">You can ask me all your questions</p>
+                                <span className="text-[9px] text-blue-600 font-bold mt-1 block cursor-pointer">Learn More</span>
+                            </div>
+                            <div className="bg-blue-800 text-white rounded-lg p-2.5 inline-block ml-auto shadow-md">
+                                <p className="text-[9px] font-bold">How much PTO do I have?</p>
+                            </div>
+                        </div>
+                    </FloatingCard>
+
+                    {/* Floating Card: Insight/Engagement (Bottom Right) — High Elevation */}
+                    <FloatingCard className="bottom-[41%] right-[-10%] w-60 hidden lg:block" delay={1}>
+                        <div className="flex items-center gap-2 mb-3 text-left">
+                            <div className="w-7 h-7 rounded-full bg-slate-200 overflow-hidden flex-shrink-0">
+                                <User className="w-full h-full text-slate-400" />
+                            </div>
+                            <div className="flex flex-col">
+                                <span className="text-[10px] font-extrabold text-slate-900 leading-none">Jackie Sprow</span>
+                                <span className="text-[8px] text-slate-400 font-bold">Just now</span>
+                            </div>
+                        </div>
+                        <p className="text-[11px] font-extrabold text-slate-900 mb-2 text-left leading-tight">Thank You all! ✨</p>
+                        <div className="flex flex-wrap gap-1 mb-3">
+                            {["#feedback", "#relate", "#realtalk", "#thankyou"].map((tag) => (
+                                <span key={tag} className="text-[7px] font-bold text-blue-500 uppercase">{tag}</span>
+                            ))}
+                        </div>
+                        <div className="flex items-center justify-between border-t border-slate-50 pt-2 text-slate-400">
+                            <div className="flex gap-3">
+                                <div className="flex items-center gap-1">
+                                    <Heart className="w-2.5 h-2.5 text-blue-500" />
+                                    <span className="text-[8px] font-bold">12k</span>
+                                </div>
+                                <div className="flex items-center gap-1">
+                                    <MessageCircle className="w-2.5 h-2.5" />
+                                    <span className="text-[8px] font-bold">842</span>
+                                </div>
+                            </div>
+                        </div>
+                    </FloatingCard>
 
                     {/* CENTRAL MOBILE MOCKUP - COMMENTED OUT AS REQUESTED */}
                     {/* 
@@ -310,8 +351,8 @@ export default function RoughHeroReplicate() {
                 </div>
             </div>
 
-            <div className="absolute top-20 right-20 w-[400px] h-[400px] bg-blue-300/20 blur-[120px] rounded-full pointer-events-none"></div>
-            <div className="absolute bottom-20 left-10 w-[300px] h-[300px] bg-cyan-200/20 blur-[100px] rounded-full pointer-events-none"></div>
+            <div className="absolute top-20 right-20 w-[400px] h-[400px] bg-blue-600/5 blur-[120px] rounded-full pointer-events-none"></div>
+            <div className="absolute bottom-20 left-10 w-[300px] h-[300px] bg-cyan-600/5 blur-[100px] rounded-full pointer-events-none"></div>
 
         </div>
     );

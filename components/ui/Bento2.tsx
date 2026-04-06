@@ -3,9 +3,9 @@
 import React from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { ShieldCheck, Users, Calendar, Mail, Headphones, Check, Zap, MessageSquare } from "lucide-react";
+import { ShieldCheck, Calendar, Zap, MessageSquare } from "lucide-react";
 
-const Bento = () => {
+const Bento2 = () => {
   return (
     <div className="max-w-5xl mx-auto w-full px-6 md:px-10 mt-24 mb-24 font-primary">
       {/* Header */}
@@ -18,52 +18,51 @@ const Bento = () => {
         </h2>
       </div>
 
-      {/* Bento Grid - Original 12-column layout with staggered cards */}
+      {/* Bento Grid - 2x2 symmetrical layout */}
       <div className="grid grid-cols-12 gap-8">
 
-        {/* Box 1 — Instant replies, 24/7 — col-span-5 — White BG */}
+        {/* Box 1 */}
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.55, delay: 0.05 }}
           viewport={{ once: true }}
-          className="col-span-12 md:col-span-5 bg-white rounded-[2.5rem] flex flex-col overflow-hidden min-h-[380px] group border border-gray-100 shadow-[0_4px_30px_-4px_rgba(0,0,0,0.05)]"
+          className="col-span-12 md:col-span-6 bg-white rounded-[2.5rem] flex flex-col overflow-hidden min-h-[380px] group border border-gray-100 shadow-[0_4px_30px_-4px_rgba(0,0,0,0.05)]"
         >
           {/* Image on top, full width */}
           <div className="relative w-full h-64 overflow-hidden">
             <Image
-              src="/hero/appointment.png"
-              alt="Automatic Booking System"
+              src="/agents/20260405_0017_Image Generation_remix_01kncx44xfey0seb8sje261new.png"
+              alt="Instant replies"
               fill
               className="object-cover transition-transform duration-500 group-hover:scale-105"
             />
           </div>
-
           {/* Text below */}
           <div className="p-6 flex-1">
             <div className="w-10 h-10 rounded-xl bg-gray-900/5 flex items-center justify-center mb-4">
-              <Calendar className="w-5 h-5 text-gray-900" />
+              <MessageSquare className="w-5 h-5 text-gray-900" />
             </div>
-            <h3 className="text-xl font-bold text-gray-900 mb-3 font-primary tracking-tight">Automatic Booking System</h3>
+            <h3 className="text-xl font-bold text-gray-900 mb-3 font-primary tracking-tight">Instant replies, 24/7</h3>
             <p className="text-sm text-zinc-500 leading-relaxed font-semibold">
-              AI schedules appointments, sends confirmations, and manages your calendar — so you never miss a booking.
+              Pick up the phone instantly, even at night or on weekends - so you don't lose leads or keep customers waiting.
             </p>
           </div>
         </motion.div>
 
-        {/* Box 2 — Save time for your team — col-span-7 — White BG */}
+        {/* Box 2 */}
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.55, delay: 0.15 }}
           viewport={{ once: true }}
-          className="col-span-12 md:col-span-7 bg-white rounded-[2.5rem] flex flex-col overflow-hidden min-h-[380px] group border border-gray-100 shadow-[0_4px_30px_-4px_rgba(0,0,0,0.05)]"
+          className="col-span-12 md:col-span-6 bg-white rounded-[2.5rem] flex flex-col overflow-hidden min-h-[380px] group border border-gray-100 shadow-[0_4px_30px_-4px_rgba(0,0,0,0.05)]"
         >
           {/* Image on top, full width */}
           <div className="relative w-full h-64 overflow-hidden">
             <Image
-              src="/hero/email.png"
-              alt="Automated Email"
+              src="/agents/20260405_0022_Image Generation_remix_01kncxc5p8fg5vdy8tg8rw9qtb.png"
+              alt="Save time"
               fill
               className="object-cover transition-transform duration-500 group-hover:scale-105"
             />
@@ -75,23 +74,23 @@ const Bento = () => {
             </div>
             <h3 className="text-xl font-bold text-gray-900 mb-3 font-primary tracking-tight">Save time for your team</h3>
             <p className="text-sm text-zinc-500 leading-relaxed font-semibold">
-              By handling repetitive tasks and emails, the agent frees up your team to focus on work that actually needs a human.
+              By handling repetitive calls, the agent frees up your team to focus on work that actually needs a human.
             </p>
           </div>
         </motion.div>
 
-        {/* Box 3 — Works with your existing systems — col-span-7 — White BG */}
+        {/* Box 3 */}
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.55, delay: 0.25 }}
           viewport={{ once: true }}
-          className="col-span-12 md:col-span-7 bg-white rounded-[2.5rem] flex flex-col overflow-hidden min-h-[380px] group border border-gray-100 shadow-[0_4px_30px_-4px_rgba(0,0,0,0.05)]"
+          className="col-span-12 md:col-span-6 bg-white rounded-[2.5rem] flex flex-col overflow-hidden min-h-[380px] group border border-gray-100 shadow-[0_4px_30px_-4px_rgba(0,0,0,0.05)]"
         >
           {/* Image on top, full width */}
           <div className="relative w-full h-64 overflow-hidden">
             <Image
-              src="/hero/chats.png"
+              src="/agents/20260405_0030_Image Generation_remix_01kncxvezcev58fbemj0stfwf5.png"
               alt="System integration"
               fill
               className="object-cover transition-transform duration-500 group-hover:scale-105"
@@ -100,7 +99,7 @@ const Bento = () => {
           {/* Text below */}
           <div className="p-6 flex-1">
             <div className="w-10 h-10 rounded-xl bg-gray-900/5 flex items-center justify-center mb-4">
-              <MessageSquare className="w-5 h-5 text-gray-900" />
+              <Calendar className="w-5 h-5 text-gray-900" />
             </div>
             <h3 className="text-xl font-bold text-gray-900 mb-3 font-primary tracking-tight">Works with your existing systems</h3>
             <p className="text-sm text-zinc-500 leading-relaxed font-semibold">
@@ -109,13 +108,13 @@ const Bento = () => {
           </div>
         </motion.div>
 
-        {/* Box 4 — You fully own the agent — col-span-5 — White BG */}
+        {/* Box 4 */}
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.55, delay: 0.35 }}
           viewport={{ once: true }}
-          className="col-span-12 md:col-span-5 bg-white rounded-[2.5rem] flex flex-col overflow-hidden min-h-[380px] group border border-gray-100 shadow-[0_4px_30px_-4px_rgba(0,0,0,0.05)]"
+          className="col-span-12 md:col-span-6 bg-white rounded-[2.5rem] flex flex-col overflow-hidden min-h-[380px] group border border-gray-100 shadow-[0_4px_30px_-4px_rgba(0,0,0,0.05)]"
         >
           {/* Image on top, full width */}
           <div className="relative w-full h-64 overflow-hidden">
@@ -143,4 +142,4 @@ const Bento = () => {
   );
 };
 
-export default Bento;
+export default Bento2;

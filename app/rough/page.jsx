@@ -2,10 +2,11 @@
 import { motion } from "framer-motion";
 import { Phone, BrainCircuit, Zap, Mail, CalendarDays } from "lucide-react";
 import FadeInSection from "@/components/ui/FadeInSection";
-import HeroSection from "@/components/HeroSection";
+import HeroSection from "@/components/hero2";
 import SmoothScrolling from "@/components/ui/SmoothScrolling";
 import BigTestimonialSection from "@/components/BigTestimonialSection";
 import AISection from "@/components/ui/AI_SECTION";
+
 
 export default function HeroFlow() {
   return (
