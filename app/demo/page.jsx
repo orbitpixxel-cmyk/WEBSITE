@@ -15,7 +15,8 @@ import CardAni from '@/components/ui/card-animation/cardAni';
 import SmoothScrolling from '@/components/ui/SmoothScrolling';
 import Footer from "@/components/Footer";
 import WhatWeProvide from "@/components/ui/WhatWeProvide";
-import HeroSection from "@/components/HeroSection";
+// import HeroSection from "@/components/HeroSection";
+import HeroSection from "@/components/hero2";
 
 export default function DemoPage() {
     return (
