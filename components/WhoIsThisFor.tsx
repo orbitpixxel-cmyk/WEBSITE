@@ -156,7 +156,7 @@ export default function WhoIsThisFor() {
                 {/* ── Sliding track for content ── */}
                 <div className="w-full overflow-hidden">
                     <div
-                        className="flex flex-row transition-transform duration-[1100ms] ease-[cubic-bezier(0.19,1,0.22,1)]"
+                        className="flex flex-row transition-transform [transition-duration:1100ms] [transition-timing-function:cubic-bezier(0.19,1,0.22,1)]"
                         style={{
                             width: `${tabData.length * 100}%`,
                             transform: `translateX(-${activeIndex * (100 / tabData.length)}%)`,
