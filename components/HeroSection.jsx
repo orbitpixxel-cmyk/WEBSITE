@@ -44,7 +44,9 @@ const FloatingCard = ({ children, delay = 0, className = "" }) => (
 
 export default function RoughHeroReplicate() {
     return (
-        <div className="relative w-[100vw] h-[100vh] text-slate-900 flex flex-col items-center pt-20 font-sans z-[50]" style={{ background: 'linear-gradient(160deg, #eef4ff 0%, #dce9fc 30%, #e8f0fb 60%, #f0f6ff 100%)' }}>
+        <div className="relative w-[100vw] h-[100vh] text-slate-900 flex flex-col items-center pt-20 font-sans z-[50] overflow-hidden" style={{ 
+            background: 'radial-gradient(ellipse at 15% 25%, rgba(99, 102, 241, 0.12) 0%, transparent 40%), radial-gradient(ellipse at 85% 75%, rgba(59, 130, 246, 0.10) 0%, transparent 45%), radial-gradient(ellipse at 50% 95%, rgba(37, 99, 235, 0.08) 0%, transparent 35%), linear-gradient(145deg, #fafbfc 0%, #f1f5f9 20%, #e2e8f0 40%, #f0f9ff 65%, #f8fafc 85%, #ffffff 100%)'
+        }}>
 
             {/* Background Infrastructure Layer (Clipped to HeroSection boundary) */}
             <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">

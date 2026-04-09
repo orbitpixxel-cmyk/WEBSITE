@@ -15,7 +15,8 @@ import CardAni from '@/components/ui/card-animation/cardAni';
 import SmoothScrolling from '@/components/ui/SmoothScrolling';
 import Footer from "@/components/Footer";
 import WhatWeProvide from "@/components/ui/WhatWeProvide";
-import HeroSection from "@/components/HeroSection";
+// import HeroSection from "@/components/HeroSection";
+import HeroSection from "@/components/hero2";
 
 export default function DemoPage() {
     return (
@@ -53,15 +54,16 @@ export default function DemoPage() {
                     <HeroSection />
                 </div>
 
-                <div className="relative z-10 w-full bg-[#020617]/80 backdrop-blur-sm">
+                <div className="relative z-10 w-full">
+
+                    <div className="w-[100vw] relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw]">
+                        <BigTestimonialSection />
+                    </div>
                     <AISection />
                     <UnifiedSystemSection />
                     <WhoIsThisFor />
                     <WhatWeProvide />
                 </div>
-                {/* <div className="h-[150vh] w-full">
-                    <BigTestimonialSection />
-                </div> */}
             </div>
         </SmoothScrolling>
     );
