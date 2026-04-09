@@ -17,6 +17,7 @@ import {
 } from "lucide-react";
 
 import DarkVeil from './DarkVeil';
+import TechStackRow from './TechStackRow';
 
 /**
  * FloatingCard Component
@@ -135,10 +136,16 @@ export default function RoughHeroReplicate() {
                             Learn More
                         </button>
                     </motion.div>
+
+
                 </div>
 
                 {/* Hero Interactive Playground */}
                 <div className="relative w-full h-[500px]">
+                    {/* Tech Marquee: Positioned at the top of the playground to stay below text */}
+                    <div className="absolute -top-24 left-0 w-full z-0 opacity-50 pointer-events-none">
+                        <TechStackRow />
+                    </div>
 
                     {/* NEW RECTANGULAR VIDEO MOCKUP — COMMENTED OUT */}
                     {/*

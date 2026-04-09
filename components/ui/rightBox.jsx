@@ -109,18 +109,18 @@ const DashboardCard = ({
               <Image src={iconSrc} alt={title} fill className="object-contain drop-shadow-sm scale-110 sm:scale-125" />
             </div>
             <div>
-              <h4 className={`text-[18px] sm:text-[20px] font-bold leading-tight ${variant === 'dark' ? 'text-white' : 'text-gray-900'}`}>
+              <h4 className={`text-[18px] sm:text-[20px] font-bold leading-tight text-white`}>
                 {title}
               </h4>
-              <p className={`text-[12px] sm:text-[13px] font-medium mt-0.5 ${variant === 'dark' ? 'text-blue-200/60' : 'text-zinc-400'}`}>
+              <p className={`text-[12px] sm:text-[13px] font-medium mt-0.5 text-blue-100/60`}>
                 {subtitle}
               </p>
             </div>
           </div>
           {rating && (
-            <div className={`flex items-center gap-1.5 pt-1 px-3 py-1 rounded-full ${variant === 'dark' ? 'bg-white/5 border-white/10' : 'bg-gray-900/5 border-gray-900/5'} border`}>
+            <div className={`flex items-center gap-1.5 pt-1 px-3 py-1 rounded-full bg-white/5 border-white/10 border backdrop-blur-md`}>
               <Star className="w-4 h-4 fill-amber-400 text-amber-400" />
-              <span className={`text-[13px] font-bold ${variant === 'dark' ? 'text-white' : 'text-gray-700'}`}>
+              <span className={`text-[13px] font-bold text-white`}>
                 {rating} <span className="opacity-40 font-normal ml-0.5">(350 calls)</span>
               </span>
             </div>
@@ -154,13 +154,13 @@ const RightBox = () => {
         >
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {/* Left Card: Inbound Voice Agents */}
-            <div className="bg-white/80 backdrop-blur-sm rounded-[1.25rem] border border-gray-100 shadow-sm flex flex-col overflow-hidden h-full">
+            <div className="bg-white rounded-[1.25rem] border border-gray-100 shadow-sm flex flex-col overflow-hidden h-full">
               <div className="p-4 md:p-5 flex-1">
                 <div className="flex items-center gap-2 mb-4 flex-wrap">
                   <h4 className="text-[13px] font-bold text-gray-900 tracking-tight">Inbound Voice Agents</h4>
-                  <span className="px-2 py-0.5 bg-[#eaffec] text-[#2ebd59] text-[8px] font-extrabold uppercase rounded-full tracking-wider whitespace-nowrap">Receive Calls</span>
+                  <span className="px-2 py-0.5 bg-green-100 text-green-700 text-[8px] font-extrabold uppercase rounded-full tracking-wider whitespace-nowrap">Receive Calls</span>
                 </div>
-                <h3 className="text-[16px] font-semibold text-gray-900 leading-tight tracking-tight mb-5">
+                <h3 className="text-[16px] font-semibold text-gray-800 leading-tight tracking-tight mb-5">
                   Your automated digital receptionist.
                 </h3>
                 <button className="bg-[#1a1a1b] hover:bg-black text-white px-4 py-2 rounded-xl flex items-center gap-1.5 text-[11px] font-bold transition-all hover:scale-105 active:scale-95 w-fit">
@@ -179,8 +179,8 @@ const RightBox = () => {
                     "Latest AI Models"
                   ].map((item, i) => (
                     <li key={i} className="flex items-start gap-1.5">
-                      <span className="w-1 h-1 rounded-full bg-gray-300 shrink-0 mt-[6px]" />
-                      <span className="text-[9px] font-bold text-gray-600 leading-snug">{item}</span>
+                      <span className="w-1 h-1 rounded-full bg-gray-200 shrink-0 mt-[6px]" />
+                      <span className="text-[9px] font-bold text-gray-500 leading-snug">{item}</span>
                     </li>
                   ))}
                 </ul>
@@ -188,14 +188,14 @@ const RightBox = () => {
             </div>
 
             {/* Right Card: Outbound Voice Agents */}
-            <div className="bg-[#242424]/90 backdrop-blur-sm rounded-[1.25rem] border border-[#2d2d2d] shadow-sm flex flex-col overflow-hidden h-full">
+            <div className="bg-[#242424] rounded-[1.25rem] border border-[#2d2d2d] shadow-sm flex flex-col overflow-hidden h-full">
               <div className="p-4 md:p-5 flex-1">
                 <div className="flex items-center gap-2 mb-4 flex-wrap">
                   <h4 className="text-[13px] font-bold text-white tracking-tight">Outbound Voice Agents</h4>
-                  <span className="px-2 py-0.5 bg-[#1da0f2] text-white text-[8px] font-extrabold uppercase rounded-full tracking-wider whitespace-nowrap">Send Calls</span>
+                  <span className="px-2 py-0.5 bg-blue-400/20 text-blue-300 text-[8px] font-extrabold uppercase rounded-full tracking-wider whitespace-nowrap">Send Calls</span>
                 </div>
-                <h3 className="text-[16px] leading-tight tracking-tight mb-5 text-[#989898] font-medium">
-                  Fully automate <span className="font-semibold text-white">reminders, follow-ups & more.</span>
+                <h3 className="text-[16px] leading-tight tracking-tight mb-5 text-white/70 font-medium">
+                  Fully automate <span className="font-bold text-white">reminders, follow-ups & more.</span>
                 </h3>
                 <button className="bg-white hover:bg-gray-100 text-[#1a1a1b] px-4 py-2 rounded-xl flex items-center gap-1.5 text-[11px] font-bold transition-all hover:scale-105 active:scale-95 w-fit">
                   <Rocket className="w-3.5 h-3.5 text-[#1a1a1b]" />
@@ -233,13 +233,13 @@ const RightBox = () => {
             delay={0.4}
             className="h-full"
           >
-            <div className="bg-white/70 backdrop-blur-sm rounded-xl border border-violet-100 shadow-sm flex flex-col overflow-hidden w-full mt-3">
+            <div className="bg-white rounded-xl border border-violet-100 shadow-sm flex flex-col overflow-hidden w-full mt-3">
               <div className="p-3 md:p-4 flex-1">
                 <div className="flex items-center gap-2 mb-3 flex-wrap">
                   <h4 className="text-[12px] font-bold text-gray-900 tracking-tight">Direct Response</h4>
-                  <span className="px-2 py-0.5 bg-violet-200/50 text-violet-700 text-[8px] font-extrabold uppercase rounded-full tracking-wider whitespace-nowrap">Omnichannel</span>
+                  <span className="px-2 py-0.5 bg-violet-100 text-violet-700 text-[8px] font-extrabold uppercase rounded-full tracking-wider whitespace-nowrap">Omnichannel</span>
                 </div>
-                <h3 className="text-[14px] font-semibold text-gray-900 leading-tight tracking-tight mb-4">
+                <h3 className="text-[14px] font-semibold text-gray-800 leading-tight tracking-tight mb-4">
                   Engage visitors instantly.
                 </h3>
                 <button className="bg-violet-600 hover:bg-violet-700 text-white px-3 py-1.5 rounded-lg flex items-center gap-1.5 text-[10px] font-bold transition-all hover:scale-105 active:scale-95 w-fit">
@@ -254,8 +254,8 @@ const RightBox = () => {
                     "Real-time CRM Sync"
                   ].map((item, i) => (
                     <li key={i} className="flex items-start gap-1.5">
-                      <span className="w-1.5 h-1.5 rounded-full bg-violet-400 shrink-0 mt-[3px]" />
-                      <span className="text-[9px] font-bold text-violet-900/60 leading-snug">{item}</span>
+                      <span className="w-1.5 h-1.5 rounded-full bg-violet-300 shrink-0 mt-[3px]" />
+                      <span className="text-[9px] font-bold text-violet-800/50 leading-snug">{item}</span>
                     </li>
                   ))}
                 </ul>
@@ -271,14 +271,14 @@ const RightBox = () => {
             delay={0.5}
             className="h-full"
           >
-            <div className="bg-[#0f172a]/80 backdrop-blur-sm rounded-xl border border-[#1e293b] shadow-sm flex flex-col overflow-hidden w-full mt-3">
+            <div className="bg-[#0f172a] rounded-xl border border-[#1e293b] shadow-sm flex flex-col overflow-hidden w-full mt-3">
               <div className="p-3 md:p-4 flex-1">
                 <div className="flex items-center gap-2 mb-3 flex-wrap">
                   <h4 className="text-[12px] font-bold text-white tracking-tight">API Bridges</h4>
-                  <span className="px-2 py-0.5 bg-blue-500/20 text-blue-400 text-[8px] font-extrabold uppercase rounded-full tracking-wider whitespace-nowrap">Zapier / Custom</span>
+                  <span className="px-2 py-0.5 bg-blue-400/20 text-blue-300 text-[8px] font-extrabold uppercase rounded-full tracking-wider whitespace-nowrap">Zapier / Custom</span>
                 </div>
-                <h3 className="text-[14px] leading-tight tracking-tight mb-4 text-[#94a3b8] font-medium">
-                  Connect tools <span className="font-semibold text-white">seamlessly in the background.</span>
+                <h3 className="text-[14px] leading-tight tracking-tight mb-4 text-white/70 font-medium">
+                  Connect tools <span className="font-bold text-white">seamlessly in the background.</span>
                 </h3>
                 <button className="bg-blue-600 hover:bg-blue-500 text-white px-3 py-1.5 rounded-lg flex items-center gap-1.5 text-[10px] font-bold transition-all hover:scale-105 active:scale-95 w-fit">
                   Explore Workflows
