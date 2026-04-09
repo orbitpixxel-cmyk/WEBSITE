@@ -133,7 +133,7 @@ const Bento = () => {
             </div>
             <h3 className="text-xl font-bold text-gray-900 mb-3 font-primary tracking-tight">You fully own the agent</h3>
             <p className="text-sm text-zinc-500 leading-relaxed font-semibold">
-              Once your agent is built, it's yours. No hidden platform fees or subscriptions. You stay in full control.
+              Once your agent is built, it&apos;s yours. No hidden platform fees or subscriptions. You stay in full control.
             </p>
           </div>
         </motion.div>

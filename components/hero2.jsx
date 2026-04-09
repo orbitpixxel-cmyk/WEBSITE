@@ -16,6 +16,8 @@ import {
     MessageCircle
 } from "lucide-react";
 
+import DarkVeil from './DarkVeil';
+
 /**
  * FloatingCard Component
  * Wraps content in a premium card that floats subtly using Framer Motion.
@@ -48,6 +50,16 @@ export default function RoughHeroReplicate() {
 
             {/* Background Infrastructure Layer (Clipped to HeroSection boundary) */}
             <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
+                <div style={{ width: '100%', height: '200vh', position: 'relative' }}>
+                    <DarkVeil
+                        hueShift={0}
+                        noiseIntensity={0}
+                        scanlineIntensity={0}
+                        speed={0.5}
+                        scanlineFrequency={0}
+                        warpAmount={0}
+                    />
+                </div>
                 {/* Visual Infrastructure Background Layer - Darker */}
                 <div className="absolute inset-0 opacity-[0.08]">
                     <svg className="h-full w-full stroke-slate-500/20" aria-hidden="true">

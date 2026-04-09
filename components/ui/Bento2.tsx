@@ -45,7 +45,7 @@ const Bento2 = () => {
             </div>
             <h3 className="text-xl font-bold text-gray-900 mb-3 font-primary tracking-tight">Instant replies, 24/7</h3>
             <p className="text-sm text-zinc-500 leading-relaxed font-semibold">
-              Pick up the phone instantly, even at night or on weekends - so you don't lose leads or keep customers waiting.
+              Pick up the phone instantly, even at night or on weekends - so you don&apos;t lose leads or keep customers waiting.
             </p>
           </div>
         </motion.div>
@@ -132,7 +132,7 @@ const Bento2 = () => {
             </div>
             <h3 className="text-xl font-bold text-gray-900 mb-3 font-primary tracking-tight">You fully own the agent</h3>
             <p className="text-sm text-zinc-500 leading-relaxed font-semibold">
-              Once your agent is built, it's yours. No hidden platform fees or subscriptions. You stay in full control.
+              Once your agent is built, it&apos;s yours. No hidden platform fees or subscriptions. You stay in full control.
             </p>
           </div>
         </motion.div>

@@ -1,113 +1,159 @@
 import Section from "@/components/ui/Section";
 import Container from "@/components/ui/Container";
 import FadeInSection from "@/components/ui/FadeInSection";
-import { Timer, Zap, Wallet, TrendingDown, PhoneIncoming, Brain } from "lucide-react";
+import { Star, Quote } from "lucide-react";
+import { motion } from "framer-motion";
+import Link from "next/link";
+
+const testimonials = [
+  {
+    name: "Legal Partner",
+    role: "Duck Hawk Law Firm",
+    quote: "The new website gives us a stronger and more credible digital presence. It presents our legal services clearly, making it easier for potential clients to take the next step.",
+    rating: 5,
+    color: "from-blue-500/20 to-purple-500/20"
+  },
+  {
+    name: "Founder",
+    role: "Studio Devstag",
+    quote: "They designed an experience that mirrors our creative depth. The website communicates our value with clarity, enabling us to attract higher-quality clients and establish stronger credibility.",
+    rating: 5,
+    color: "from-purple-500/20 to-pink-500/20"
+  },
+  {
+    name: "Director",
+    role: "Ask Your Counsellor",
+    quote: "They helped translate a sensitive service into a digital experience that feels safe and credible. It allows our users to engage comfortably and take the first step toward getting guidance.",
+    rating: 5,
+    color: "from-emerald-500/20 to-blue-500/20"
+  },
+  {
+    name: "Product Lead",
+    role: "Health Consultation Platform",
+    quote: "They created a smooth, structured healthcare experience. They transformed a time-consuming offline process into a fast, digital-first platform, drastically improving accessibility.",
+    rating: 5,
+    color: "from-orange-500/20 to-red-500/20"
+  },
+  {
+    name: "CEO",
+    role: "Growmint",
+    quote: "The final platform positions us as a forward-thinking digital partner. Their focus on performance and precision helps us present ourselves with authority and attract the right clients.",
+    rating: 5,
+    color: "from-cyan-500/20 to-blue-500/20"
+  }
+];
+
+const TestimonialCard = ({ testimonial }: { testimonial: typeof testimonials[0] }) => (
+  <div
+    className="flex flex-col w-[350px] md:w-[450px] shrink-0 rounded-[2.5rem] p-8 md:p-10 mx-3 border border-white/10 backdrop-blur-xl bg-white/[0.03] shadow-[0_20px_40px_rgba(0,0,0,0.2)] transition-all duration-500 hover:border-purple-500/30 hover:bg-white/[0.05] relative overflow-hidden group"
+  >
+    {/* Subtle Inner Glow */}
+    <div className={`absolute inset-0 bg-gradient-to-br ${testimonial.color} opacity-0 group-hover:opacity-100 transition-opacity duration-700`} />
+    
+    <div className="flex items-center justify-between mb-8 relative z-10">
+      <div className="flex gap-0.5">
+        {[...Array(testimonial.rating)].map((_, i) => (
+          <Star key={i} className="w-4 h-4 fill-purple-400 text-purple-400" />
+        ))}
+      </div>
+      <Quote className="w-8 h-8 text-white/5 group-hover:text-purple-500/20 transition-colors duration-500" />
+    </div>
+
+    <p className="text-lg md:text-xl text-white/80 leading-relaxed font-medium mb-10 relative z-10 flex-grow">
+      &quot;{testimonial.quote}&quot;
+    </p>
+
+    <div className="flex flex-col gap-6 mt-auto relative z-10">
+      <div className="flex items-center gap-4">
+        <div className="w-12 h-12 rounded-full bg-gradient-to-br from-purple-500 to-blue-500 flex items-center justify-center text-white font-bold text-lg shadow-lg border border-white/20">
+          {testimonial.name[0]}
+        </div>
+        <div>
+          <h4 className="font-bold text-white text-[16px] tracking-tight">{testimonial.name}</h4>
+          <p className="text-zinc-500 text-[13px] font-semibold uppercase tracking-wider">{testimonial.role}</p>
+        </div>
+      </div>
+      
+      {/* Read More Button */}
+      <Link
+        href={`/testimonials`}
+        className="inline-flex w-fit items-center justify-center rounded-full bg-white/5 hover:bg-white/15 border border-white/10 px-5 py-2 text-white/90 text-sm font-semibold transition-all group-hover:border-purple-500/30 whitespace-nowrap"
+      >
+        Read More
+      </Link>
+    </div>
+  </div>
+);
+
+const InfiniteMarquee = ({ items, speed = 40, direction = "left" }: { items: typeof testimonials, speed?: number, direction?: "left" | "right" }) => {
+  return (
+    <div 
+      className="flex overflow-hidden py-10 select-none relative"
+      style={{
+        maskImage: 'linear-gradient(to right, transparent, black 15%, black 85%, transparent)',
+        WebkitMaskImage: 'linear-gradient(to right, transparent, black 15%, black 85%, transparent)'
+      }}
+    >
+      <motion.div
+        animate={{
+          x: direction === "left" ? [0, -items.length * 480] : [-items.length * 480, 0]
+        }}
+        transition={{
+          duration: speed,
+          repeat: Infinity,
+          ease: "linear"
+        }}
+        className="flex shrink-0 min-w-full"
+      >
+        {/* Triple clone for seamless infinite feeling */}
+        {[...items, ...items, ...items].map((item, index) => (
+          <TestimonialCard key={index} testimonial={item} />
+        ))}
+      </motion.div>
+    </div>
+  );
+};
 
 export default function BigTestimonialSection() {
-  const impactStats = [
-    {
-      icon: <Timer className="w-6 h-6" />,
-      title: "Time Saved",
-      stat: "Up to 20–30 hrs saved per week",
-      description: "By automating lead handling, internal workflows, and follow-ups, teams reclaim hours that were previously lost to manual work."
-    },
-    {
-      icon: <Zap className="w-6 h-6" />,
-      title: "Faster Execution",
-      stat: "40–60% faster go-to-market",
-      description: "Clean design systems and reusable workflows help teams launch new pages, campaigns, and features without starting from scratch."
-    },
-    {
-      icon: <Wallet className="w-6 h-6" />,
-      title: "Revenue Efficiency",
-      stat: "15–35% increase in conversion efficiency",
-      description: "Conversion-focused layouts, structured funnels, and analytics-driven decisions turn existing traffic into measurable revenue."
-    },
-    {
-      icon: <TrendingDown className="w-6 h-6" />,
-      title: "Reduced Ops Cost",
-      stat: "25–45% reduction in operational overhead",
-      description: "Fewer tools, fewer handoffs, and fewer manual processes — all connected into a single, reliable system."
-    },
-    {
-      icon: <PhoneIncoming className="w-6 h-6" />,
-      title: "Fewer Missed Leads",
-      stat: "60–80% fewer dropped or untracked leads",
-      description: "Automated intake, CRM syncing, and follow-ups ensure no opportunity slips through the cracks."
-    },
-    {
-      icon: <Brain className="w-6 h-6" />,
-      title: "Founder Sanity",
-      stat: "Less chaos, more clarity",
-      description: "Clear systems replace constant firefighting, giving founders visibility into what’s working and what needs attention."
-    }
-  ];
-
   return (
-    <Section className="py-24 md:py-32 bg-black relative overflow-hidden">
-      {/* Background Image Effect */}
+    <Section className="py-24 md:py-32 bg-transparent relative overflow-hidden">
+      {/* Background Image Effect (Kept as requested) */}
       <div
         className="absolute inset-0 z-0 bg-center bg-cover bg-no-repeat opacity-80 pointer-events-none"
         style={{ backgroundImage: "url('/assets/dualgradiation.webp')" }}
       />
-      {/* Ambient Glows */}
-      <div className="absolute top-0 right-0 -translate-y-1/2 translate-x-1/2 w-[60%] h-[60%] bg-purple-900/10 blur-[120px] pointer-events-none rounded-full" />
+      
+      {/* Ambient Glows (Kept as requested) */}
+      <div className="absolute top-0 right-0 -translate-y-1/2 translate-x-1/2 w-[60%] h-[60%] bg-purple-900/10 blur-[120px] rounded-full pointer-events-none" />
       <div className="absolute bottom-0 left-0 translate-y-1/2 -translate-x-1/2 w-[60%] h-[60%] bg-blue-900/10 blur-[120px] pointer-events-none rounded-full" />
 
-      <Container className="max-w-none w-full px-6 md:px-12 lg:px-24 relative z-10">
-        <FadeInSection className="text-center mb-20 px-4">
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-semibold text-white tracking-tight mb-8">
-            Removing friction, <span className="text-purple-400">compounding results</span>
+      <Container className="max-w-none w-full relative z-10 px-0">
+        <FadeInSection className="text-center mb-16 px-6 md:px-12">
+          <h2 className="text-5xl md:text-7xl lg:text-8xl font-black text-white tracking-tighter mb-8 leading-[0.9]">
+            TRUSTED BY <span className="text-purple-500">THE BEST</span>
           </h2>
-          <p className="text-xl md:text-2xl text-white/60 max-w-3xl mx-auto leading-relaxed">
-            We don’t just design websites or automations — we build systems that remove friction, reduce manual work, and compound results over time.
+          <p className="text-xl md:text-2xl text-white/50 max-w-2xl mx-auto leading-relaxed font-medium">
+            Real stories from founders and teams who transitioned their business to the AI era with Pxo.
           </p>
         </FadeInSection>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 px-4">
-          {impactStats.map((item, index) => (
-            <FadeInSection key={index} delay={0.1 * index} className="h-full">
-              <div
-                className="flex flex-col h-full rounded-[2rem] p-8 transition-all duration-500 hover:-translate-y-2 group"
-                style={{
-                  background: "linear-gradient(135deg, rgba(30, 10, 50, 0.45) 0%, rgba(15, 5, 25, 0.35) 100%)",
-                  backdropFilter: "blur(20px)",
-                  border: "1px solid rgba(168, 85, 247, 0.15)",
-                  boxShadow: "0 20px 40px rgba(0,0,0,0.2), inset 0 1px 0 rgba(255,255,255,0.05)"
-                }}
-              >
-                <div className="flex items-center gap-4 mb-6">
-                  <div className="bg-purple-500/10 p-3 rounded-2xl border border-purple-500/20 group-hover:bg-purple-500/20 transition-colors">
-                    <span className="text-purple-400">
-                      {item.icon}
-                    </span>
-                  </div>
-                  <h3 className="font-semibold text-white text-xl">
-                    {item.title}
-                  </h3>
-                </div>
 
-                <div className="mb-5">
-                  <span
-                    className="inline-block py-1.5 px-4 rounded-full text-xs font-bold tracking-wider uppercase border"
-                    style={{
-                      background: "rgba(168, 85, 247, 0.1)",
-                      borderColor: "rgba(168, 85, 247, 0.2)",
-                      color: "#E9D5FF"
-                    }}
-                  >
-                    {item.stat}
-                  </span>
-                </div>
 
-                <p className="text-white/50 leading-relaxed text-[15px] group-hover:text-white/70 transition-colors">
-                  {item.description}
-                </p>
-              </div>
-            </FadeInSection>
-          ))}
+        <div className="flex flex-col gap-2 relative">
+          <InfiniteMarquee items={testimonials} speed={80} direction="left" />
         </div>
+        
+        {/* Subtle CTA Indicator */}
+        <motion.div 
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ delay: 1 }}
+          className="text-center mt-20"
+        >
+          <span className="text-[12px] font-bold text-zinc-500 uppercase tracking-[0.3em]">Built to scale with your ambition</span>
+        </motion.div>
       </Container>
     </Section>
   );
 }
+

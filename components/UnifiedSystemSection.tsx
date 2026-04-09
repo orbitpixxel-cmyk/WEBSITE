@@ -4,13 +4,14 @@ import React, { useState } from "react";
 import Section from "@/components/ui/Section";
 import Container from "@/components/ui/Container";
 import { ArrowLeft, ArrowRight, TrendingUp, Megaphone, Headphones, Settings, DollarSign, Check } from "lucide-react";
+import { motion } from "framer-motion";
 
 const tabData = [
     {
         id: "sales",
         label: "Sales",
         category: "Sales acceleration",
-        icon: <TrendingUp className="w-5 h-5 text-[#FF5C35]" />,
+        icon: <TrendingUp className="w-4 h-4" />,
         title: "Close deals faster with AI",
         desc: "Accelerate deal cycles with AI-powered lead scoring, automated outreach, and intelligent forecasting that helps your team focus on the opportunities that matter most.",
         bullets: [
@@ -28,7 +29,7 @@ const tabData = [
         id: "marketing",
         label: "Marketing",
         category: "Marketing intelligence",
-        icon: <Megaphone className="w-5 h-5 text-[#FF5C35]" />,
+        icon: <Megaphone className="w-4 h-4" />,
         title: "Personalize campaigns at scale",
         desc: "Create personalized campaigns at scale with AI that understands your audience, optimizes content performance, and turns data into actionable insights.",
         bullets: [
@@ -46,7 +47,7 @@ const tabData = [
         id: "support",
         label: "Support",
         category: "Customer support",
-        icon: <Headphones className="w-5 h-5 text-[#FF5C35]" />,
+        icon: <Headphones className="w-4 h-4" />,
         title: "Resolve issues faster",
         desc: "Resolve issues faster with intelligent routing, automated responses for common queries, and AI assistants that empower your support team to deliver exceptional service.",
         bullets: [
@@ -64,7 +65,7 @@ const tabData = [
         id: "operations",
         label: "Operations",
         category: "Operations optimization",
-        icon: <Settings className="w-5 h-5 text-[#FF5C35]" />,
+        icon: <Settings className="w-4 h-4" />,
         title: "Streamline daily workflows",
         desc: "Automate repetitive tasks, sync data across platforms, and create deeply integrated operational systems that scale seamlessly without adding headcount.",
         bullets: [
@@ -82,7 +83,7 @@ const tabData = [
         id: "finance",
         label: "Finance",
         category: "Financial automation",
-        icon: <DollarSign className="w-5 h-5 text-[#FF5C35]" />,
+        icon: <DollarSign className="w-4 h-4" />,
         title: "Accelerate financial operations",
         desc: "Reduce errors and speed up financial closes with AI that automates invoice processing, expense categorization, and anomaly detection.",
         bullets: [
@@ -110,7 +111,7 @@ export default function UnifiedSystemSection({ showHeader = true }: { showHeader
     const handlePrev = () => switchTab((activeIndex - 1 + tabData.length) % tabData.length);
 
     return (
-        <Section className="bg-black text-white py-10 md:py-12 overflow-hidden w-full">
+        <Section className="bg-transparent text-white py-10 md:py-12 overflow-hidden w-full">
             <Container className="max-w-[90rem] w-full mx-auto px-4 sm:px-6 lg:px-8">
 
                 {/* ─── Heading Section ─── */}
@@ -125,21 +126,29 @@ export default function UnifiedSystemSection({ showHeader = true }: { showHeader
                     </div>
                 )}
 
-                {/* ─── Navbar (separate, outside the containers) ─── */}
-                <div className="max-w-[60rem] flex flex-row justify-center items-center border-b border-white/10 mx-auto mb-6">
-                    <div className="flex flex-row overflow-x-auto scrollbar-hide gap-1 md:gap-2">
-                        {tabData.map((tab, idx) => (
+                {/* ── Tab navigation (Pill style with smooth sliding background) ── */}
+                <div className="w-full max-w-5xl mx-auto bg-[#111827]/50 backdrop-blur-md rounded-2xl p-0 mb-10 border border-white/5 overflow-hidden">
+                    <div className="relative flex flex-wrap sm:flex-nowrap gap-0">
+                        {tabData.map((t, idx) => (
                             <button
-                                key={tab.id}
+                                key={t.id}
                                 onClick={() => switchTab(idx)}
-                                className={`relative pb-3 px-4 md:px-6 text-sm md:text-base font-medium whitespace-nowrap transition-colors duration-200 outline-none ${activeIndex === idx ? "text-white" : "text-white/40 hover:text-white/70"
+                                className={`relative flex-1 flex flex-col sm:flex-row items-center justify-center gap-2.5 py-4 px-4 transition-all duration-300 outline-none z-10 ${activeIndex === idx ? "text-black font-bold" : "text-slate-400 hover:text-white"
                                     }`}
                             >
-                                {tab.label}
-                                <span
-                                    className={`absolute bottom-0 left-0 w-full h-[0.15rem] rounded-t-md transition-all duration-300 ${activeIndex === idx ? "bg-[#FF5C35] scale-x-100" : "bg-transparent scale-x-0"
-                                        }`}
-                                />
+                                {activeIndex === idx && (
+                                    <motion.div
+                                        layoutId="activePillUnified"
+                                        className="absolute inset-0 bg-white rounded-xl shadow-lg"
+                                        transition={{ type: "spring", stiffness: 300, damping: 24 }}
+                                    />
+                                )}
+                                <span className={`relative z-10 transition-colors ${activeIndex === idx ? "text-blue-600" : "text-inherit"}`}>
+                                    {t.icon}
+                                </span>
+                                <span className="relative z-10 text-[12px] font-bold uppercase tracking-widest hidden sm:block">
+                                    {t.label}
+                                </span>
                             </button>
                         ))}
                     </div>
@@ -194,7 +203,9 @@ function CardShell({ children }: { children: React.ReactNode }) {
             className="relative w-full rounded-[2rem] overflow-hidden border border-white/5 shadow-2xl p-6 md:p-8 lg:p-10"
             style={{
                 background: 'radial-gradient(circle at 90% 50%, rgba(131, 38, 13, 0.81) 0%, rgba(184, 60, 20, 0.9) 25%, rgba(69, 33, 14, 0.9) 70%, #1F192A 100%)',
-                backgroundColor: '#454447ff'
+                backgroundColor: '#454447ff',
+                WebkitMaskImage: 'linear-gradient(to right, transparent 2px, black 2px)',
+                maskImage: 'linear-gradient(to right, transparent 2px, black 2px)'
             }}
         >
             <div className="absolute inset-0 opacity-[0.03] mix-blend-overlay pointer-events-none" style={{ backgroundImage: "url('https://www.transparenttextures.com/patterns/stardust.png')" }} />
@@ -208,7 +219,9 @@ function LeftContent({ icon, category, title, desc, bullets }: { icon: React.Rea
     return (
         <div className="flex-[1.2] flex flex-col gap-5">
             <div className="flex items-center gap-3">
-                {icon}
+                <div className="text-[#FF5C35] flex items-center justify-center scale-125">
+                    {icon}
+                </div>
                 <span className="text-xl text-white/90 font-medium">{category}</span>
             </div>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold tracking-tight text-white leading-[1.15]">{title}</h2>
