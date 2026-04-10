@@ -24,11 +24,11 @@ const row2 = [
 const BrandIcon = ({ url, name }: { url: string; name: string }) => (
   <div className="flex flex-col items-center justify-center p-4 bg-white/[0.03] border border-white/10 rounded-2xl w-16 h-16 sm:w-20 sm:h-20 backdrop-blur-sm shadow-[inset_0_0_20px_rgba(255,255,255,0.02)] group hover:border-white/20 transition-all duration-500 hover:scale-110">
     <div className="relative w-8 h-8 sm:w-10 sm:h-10">
-      <Image 
-        src={url} 
-        alt={name} 
+      <Image
+        src={url}
+        alt={name}
         fill
-        className="object-contain filter invert brightness-[2] contrast-125 group-hover:brightness-[3] transition-all" 
+        className="object-contain filter invert brightness-[2] contrast-125 group-hover:brightness-[3] transition-all"
       />
     </div>
   </div>
@@ -66,15 +66,15 @@ export default function TechStackRow() {
         WebkitMaskImage: 'linear-gradient(to right, transparent, black 15%, black 85%, transparent)'
       }}>
         <div className="w-full h-full flex flex-col justify-center gap-6">
-          <MarqueeRow items={row1} direction="left" speed={35} />
+          {/* <MarqueeRow items={row1} direction="left" speed={35} /> */}
           <MarqueeRow items={row2} direction="right" speed={45} />
         </div>
       </div>
-      
+
       {/* Background Abyss Blur Areas */}
       <div className="absolute left-0 top-0 bottom-0 w-48 bg-gradient-to-r from-black via-black/80 to-transparent z-30 pointer-events-none blur-xl sm:blur-2xl opacity-80" />
       <div className="absolute right-0 top-0 bottom-0 w-48 bg-gradient-to-l from-black via-black/80 to-transparent z-30 pointer-events-none blur-xl sm:blur-2xl opacity-80" />
-      
+
       {/* Invisible container to maintain height */}
       <div className="opacity-0 pointer-events-none">
         <div className="h-40 sm:h-48" />

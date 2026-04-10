@@ -47,7 +47,7 @@ const FloatingCard = ({ children, delay = 0, className = "" }) => (
 
 export default function RoughHeroReplicate() {
     return (
-        <div className="relative w-[100vw] h-[100vh] text-white flex flex-col items-center pt-20 font-sans z-[50] overflow-hidden bg-black" /* style={{
+        <div className="relative w-[100vw] h-[110vh] text-white flex flex-col items-center pt-20 font-sans z-[50] overflow-hidden bg-black" /* style={{
             background: 'radial-gradient(ellipse at 15% 25%, rgba(99, 102, 241, 0.12) 0%, transparent 40%), radial-gradient(ellipse at 85% 75%, rgba(59, 130, 246, 0.10) 0%, transparent 45%), radial-gradient(ellipse at 50% 95%, rgba(37, 99, 235, 0.08) 0%, transparent 35%), linear-gradient(145deg, #fafbfc 0%, #f1f5f9 20%, #e2e8f0 40%, #f0f9ff 65%, #f8fafc 85%, #ffffff 100%)'
         }} */>
 
@@ -76,7 +76,7 @@ export default function RoughHeroReplicate() {
                         className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-50 border border-blue-200/60 text-blue-600 text-sm font-medium mb-6 mx-auto shadow-sm"
                     >
                         <Zap className="w-4 h-4 text-blue-500" />
-                        <span>Experience the future of AI communication</span>
+                        <span>Pioneering Next-Gen AI Solutions</span>
                     </motion.div>
 
                     <motion.h1
@@ -120,7 +120,7 @@ export default function RoughHeroReplicate() {
                         transition={{ duration: 0.8, delay: 0.2 }}
                         className="text-slate-400 text-base md:text-lg max-w-2xl mx-auto mb-8 font-medium"
                     >
-                        Stay connected to those who matter most with consistent messaging & calling options available on iOS and Android devices.
+                        We build custom AI solutions that automate your operations, enhance customer engagement, and drive business growth 24/7.
                     </motion.p>
 
                     <motion.div
@@ -130,10 +130,10 @@ export default function RoughHeroReplicate() {
                         className="flex flex-wrap justify-center gap-4"
                     >
                         <button className="bg-blue-600 hover:bg-blue-500 text-white px-8 py-3 rounded-full font-bold transition-all shadow-[0_8px_24px_rgba(59,130,246,0.35)] hover:scale-105 active:scale-95">
-                            Download App
+                            Book a Free Call
                         </button>
                         <button className="bg-white hover:bg-blue-50 text-slate-800 border border-slate-200 px-8 py-3 rounded-full font-bold transition-all shadow-sm hover:border-blue-200">
-                            Learn More
+                            Our Services
                         </button>
                     </motion.div>
 

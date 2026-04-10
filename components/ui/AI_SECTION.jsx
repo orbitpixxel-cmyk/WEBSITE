@@ -8,7 +8,7 @@ import BorderGlow from "./Border/BorderGlow";
 import Bento from "./Bento";
 import Bento2 from "./Bento2";
 import RightBox from "./rightBox";
-import { ChevronDown, Star, Bot, BrainCircuit, ShieldCheck, Users, Cpu, Briefcase, Zap, Phone, MessageSquare, Settings, RefreshCw, ArrowRight, Globe, Webhook, TrendingUp, Search, Rocket, Monitor } from "lucide-react";
+import { ChevronDown, Star, Bot, BrainCircuit, ShieldCheck, Users, Cpu, Briefcase, Zap, Phone, MessageSquare, Settings, RefreshCw, ArrowRight, Globe, Webhook, TrendingUp, Search, Rocket, Monitor, BarChart3 } from "lucide-react";
 
 /**
  * Accordion Item
@@ -223,16 +223,22 @@ export default function AISection() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative z-10">
             <div className="flex flex-col">
               <h2 className="text-3xl md:text-5xl font-bold leading-[1.1] text-white mb-6 tracking-tight">
-                We turn complex challenges into{' '}
-                <span className="bg-gradient-to-r from-blue-400 to-cyan-300 bg-clip-text text-transparent">intelligent solutions.</span>
+                Empower your growth with a{' '}
+                <span className="bg-gradient-to-r from-blue-400 to-cyan-300 bg-clip-text text-transparent">custom CRM built for your business.</span>
               </h2>
               <p className="text-base text-slate-400 leading-relaxed font-medium mb-8 max-w-md">
-                From predictive models to full workflow automation — our AI systems are built to scale with your business.
+                Ditch the generic tools. We build tailored CRM systems that integrate perfectly with your internal workflows and scale as you grow.
               </p>
               <div className="flex flex-wrap gap-3 mb-8">
-                {["Workflow Automation", "Predictive Models", "Custom LLM Apps", "Data Pipelines"].map((tag) => (
-                  <div key={tag} className="px-4 py-2 bg-white/5 backdrop-blur-sm rounded-full text-sm font-semibold text-slate-300 border border-white/10">
-                    {tag}
+                {[
+                  { label: "Custom CRM", icon: Settings },
+                  { label: "Sales Automation", icon: Zap },
+                  { label: "Lead Management", icon: Users },
+                  { label: "Business Analytics", icon: BarChart3 },
+                ].map((item) => (
+                  <div key={item.label} className="flex items-center gap-2 px-4 py-2 bg-white/5 backdrop-blur-sm rounded-full text-sm font-semibold text-slate-300 border border-white/10">
+                    <item.icon className="w-3.5 h-3.5 text-blue-400" />
+                    {item.label}
                   </div>
                 ))}
               </div>
