@@ -16,6 +16,9 @@ import {
     MessageCircle
 } from "lucide-react";
 
+import DarkVeil from './DarkVeil';
+import TechStackRow from './TechStackRow';
+
 /**
  * FloatingCard Component
  * Wraps content in a premium card that floats subtly using Framer Motion.
@@ -44,46 +47,21 @@ const FloatingCard = ({ children, delay = 0, className = "" }) => (
 
 export default function RoughHeroReplicate() {
     return (
-        <div className="relative w-[100vw] h-[100vh] text-slate-900 flex flex-col items-center pt-20 font-sans z-[50] overflow-hidden" style={{ 
+        <div className="relative w-[100vw] h-[110vh] text-white flex flex-col items-center pt-20 font-sans z-[50] overflow-hidden bg-black" /* style={{
             background: 'radial-gradient(ellipse at 15% 25%, rgba(99, 102, 241, 0.12) 0%, transparent 40%), radial-gradient(ellipse at 85% 75%, rgba(59, 130, 246, 0.10) 0%, transparent 45%), radial-gradient(ellipse at 50% 95%, rgba(37, 99, 235, 0.08) 0%, transparent 35%), linear-gradient(145deg, #fafbfc 0%, #f1f5f9 20%, #e2e8f0 40%, #f0f9ff 65%, #f8fafc 85%, #ffffff 100%)'
-        }}>
+        }} */>
 
-            {/* Background Infrastructure Layer (Clipped to HeroSection boundary) */}
+            {/* Background Infrastructure Layer - Pure DarkVeil */}
             <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
-                {/* Visual Infrastructure Background Layer - Light */}
-                <div className="absolute inset-0 opacity-[0.15]">
-                    <svg className="h-full w-full" aria-hidden="true">
-                        <defs>
-                            <pattern id="hero-grid" width="80" height="80" patternUnits="userSpaceOnUse" x="50%" y="-1">
-                                <path d="M.5 80V.5H80" fill="none" stroke="#94b8e8" strokeWidth="0.5" />
-                            </pattern>
-                        </defs>
-                        <rect width="100%" height="100%" strokeWidth="0" fill="url(#hero-grid)" />
-                    </svg>
-                </div>
-
-                {/* Ambient Glows - Light Theme */}
-                <div className="absolute top-[-10%] left-[10%] w-[40%] h-[40%] bg-blue-200/30 blur-[150px] rounded-full" />
-                <div className="absolute bottom-[-10%] right-[10%] w-[40%] h-[40%] bg-indigo-100/40 blur-[150px] rounded-full" />
-
-                {/* Center Glow Behind Content */}
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[600px] bg-blue-300/10 blur-[120px] rounded-full z-0" />
-
-                {/* Subtle Top Glow - Reduced Blue */}
-                <div
-                    className="absolute top-0 left-1/2 -translate-x-[50%] w-full h-[600px] z-0"
-                    style={{
-                        background: 'radial-gradient(circle at 50% 0%, rgba(147, 197, 253, 0.25) 0%, rgba(191, 219, 254, 0.10) 40%, transparent 75%)'
-                    }}
-                />
-
-                {/* Background Concentric Arcs - RADIATING FROM THE BOTTOM (Semi-circles) */}
-                <div className="absolute top-[115%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1700px] h-[1700px] opacity-40">
-                    <svg viewBox="0 0 1000 1000" className="w-full h-full">
-                        <circle cx="500" cy="500" r="400" fill="none" stroke="#93c5fd" strokeWidth="2.5" strokeOpacity="0.6" />
-                        <circle cx="500" cy="500" r="315" fill="none" stroke="#60a5fa" strokeWidth="2.5" strokeOpacity="0.5" />
-                        <circle cx="500" cy="500" r="220" fill="#bfdbfe" fillOpacity="0.35" stroke="#3b82f6" strokeWidth="1.5" strokeOpacity="0.4" />
-                    </svg>
+                <div style={{ width: '100%', height: '80vh', position: 'relative' }}>
+                    <DarkVeil
+                        hueShift={0}
+                        noiseIntensity={0}
+                        scanlineIntensity={0}
+                        speed={0.5}
+                        scanlineFrequency={0}
+                        warpAmount={0}
+                    />
                 </div>
             </div>
 
@@ -98,7 +76,7 @@ export default function RoughHeroReplicate() {
                         className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-50 border border-blue-200/60 text-blue-600 text-sm font-medium mb-6 mx-auto shadow-sm"
                     >
                         <Zap className="w-4 h-4 text-blue-500" />
-                        <span>Experience the future of AI communication</span>
+                        <span>Pioneering Next-Gen AI Solutions</span>
                     </motion.div>
 
                     <motion.h1
@@ -107,7 +85,7 @@ export default function RoughHeroReplicate() {
                         transition={{ duration: 1, ease: [0.25, 0.1, 0.25, 1] }}
                         className="text-[40px] sm:text-[48px] md:text-[54px] lg:text-[56px] font-bold leading-[1.06] tracking-tight mb-8 px-6"
                     >
-                        <span className="text-slate-900 font-extrabold">
+                        <span className="text-white font-extrabold">
                             Empower Your
                         </span>{' '}
                         <span className="relative inline-block px-1">
@@ -116,7 +94,7 @@ export default function RoughHeroReplicate() {
                                 Business
                             </span>
                         </span><br />
-                        <span className="text-slate-900 font-extrabold">
+                        <span className="text-white font-extrabold">
                             with an
                         </span>{' '}
                         <span className="relative inline-block px-1">
@@ -125,7 +103,7 @@ export default function RoughHeroReplicate() {
                                 AI Partner
                             </span>
                         </span><br />
-                        <span className="text-slate-900 font-extrabold">
+                        <span className="text-white font-extrabold">
                             That
                         </span>{' '}
                         <span className="relative inline-block px-1">
@@ -140,9 +118,9 @@ export default function RoughHeroReplicate() {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8, delay: 0.2 }}
-                        className="text-slate-500 text-base md:text-lg max-w-2xl mx-auto mb-8 font-medium"
+                        className="text-slate-400 text-base md:text-lg max-w-2xl mx-auto mb-8 font-medium"
                     >
-                        Stay connected to those who matter most with consistent messaging & calling options available on iOS and Android devices.
+                        We build custom AI solutions that automate your operations, enhance customer engagement, and drive business growth 24/7.
                     </motion.p>
 
                     <motion.div
@@ -152,16 +130,22 @@ export default function RoughHeroReplicate() {
                         className="flex flex-wrap justify-center gap-4"
                     >
                         <button className="bg-blue-600 hover:bg-blue-500 text-white px-8 py-3 rounded-full font-bold transition-all shadow-[0_8px_24px_rgba(59,130,246,0.35)] hover:scale-105 active:scale-95">
-                            Download App
+                            Book a Free Call
                         </button>
                         <button className="bg-white hover:bg-blue-50 text-slate-800 border border-slate-200 px-8 py-3 rounded-full font-bold transition-all shadow-sm hover:border-blue-200">
-                            Learn More
+                            Our Services
                         </button>
                     </motion.div>
+
+
                 </div>
 
                 {/* Hero Interactive Playground */}
                 <div className="relative w-full h-[500px]">
+                    {/* Tech Marquee: Positioned at the top of the playground to stay below text */}
+                    <div className="absolute -top-24 left-0 w-full z-0 opacity-50 pointer-events-none">
+                        <TechStackRow />
+                    </div>
 
                     {/* NEW RECTANGULAR VIDEO MOCKUP — COMMENTED OUT */}
                     {/*
@@ -311,10 +295,6 @@ export default function RoughHeroReplicate() {
 
                 </div>
             </div>
-
-            <div className="absolute top-20 right-20 w-[400px] h-[400px] bg-blue-300/20 blur-[120px] rounded-full pointer-events-none"></div>
-            <div className="absolute bottom-20 left-10 w-[300px] h-[300px] bg-cyan-200/20 blur-[100px] rounded-full pointer-events-none"></div>
-
         </div>
     );
 }

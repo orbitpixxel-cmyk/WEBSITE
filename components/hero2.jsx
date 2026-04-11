@@ -83,7 +83,7 @@ export default function RoughHeroReplicate() {
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 1, ease: [0.25, 0.1, 0.25, 1] }}
-                        className="text-[40px] sm:text-[48px] md:text-[54px] lg:text-[56px] font-bold leading-[1.06] tracking-tight mb-8 px-6"
+                        className="text-[40px] sm:text-[48px] md:text-[54px] lg:text-[56px] font-bold leading-snug tracking-normal mb-8 px-6"
                     >
                         <span className="text-white font-extrabold">
                             Empower Your
@@ -118,7 +118,7 @@ export default function RoughHeroReplicate() {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8, delay: 0.2 }}
-                        className="text-slate-400 text-base md:text-lg max-w-2xl mx-auto mb-8 font-medium"
+                        className="text-slate-400 text-base md:text-lg max-w-2xl mx-auto mb-10 font-medium leading-relaxed tracking-wide"
                     >
                         We build custom AI solutions that automate your operations, enhance customer engagement, and drive business growth 24/7.
                     </motion.p>
@@ -177,48 +177,52 @@ export default function RoughHeroReplicate() {
                     </motion.div>
                     */}
 
-                    {/* Floating Image: Appointments (Top Left) */}
+                    {/* Floating Image: Appointments (Top Left) - COMMENTED OUT */}
+                    {/*
                     <motion.div
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: [0, -10, 0] }}
                         transition={{ opacity: { duration: 1, delay: 0.4 }, y: { duration: 4, repeat: Infinity, ease: "easeInOut", delay: 0.9 } }}
-                        className="absolute top-[-68%] left-[-10%] w-[318px] hidden lg:block z-[120]"
+                        className="absolute top-[-70%] left-[-15%] w-[320px] hidden lg:block z-[120]"
                     >
-                        {/* Ambient Glow behind image */}
                         <div className="absolute inset-x-0 top-1/2 -translate-y-1/2 h-full bg-blue-400/20 blur-[60px] -z-10 rounded-full pointer-events-none" />
                         <Image src="/hero/appointment-removebg-preview.png" alt="Appointments" width={610} height={487} className="w-full h-auto object-contain drop-shadow-2xl" />
                     </motion.div>
+                    */}
 
-                    {/* Floating Image: Email (Bottom Left) */}
+                    {/* Floating Image: Email (Bottom Left) - COMMENTED OUT */}
+                    {/*
                     <motion.div
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: [0, -10, 0] }}
                         transition={{ opacity: { duration: 1, delay: 0.6 }, y: { duration: 4, repeat: Infinity, ease: "easeInOut", delay: 1.1 } }}
-                        className="absolute bottom-[80%] left-[-5%] w-[381px] hidden lg:block z-[120]"
+                        className="absolute bottom-[82%] left-[-15%] w-[320px] hidden lg:block z-[120]"
                     >
-                        {/* Ambient Glow behind image */}
                         <div className="absolute inset-x-0 top-1/2 -translate-y-1/2 h-full bg-blue-400/20 blur-[80px] -z-10 rounded-full pointer-events-none" />
                         <Image src="/hero/email-removebg-preview.png" alt="Email" width={739} height={528} className="w-full h-auto object-contain drop-shadow-2xl" />
                     </motion.div>
+                    */}
 
-                    {/* Floating Image: Chats (Top Right) */}
+                    {/* Floating Image: Chats (Top Right) - COMMENTED OUT */}
+                    {/*
                     <motion.div
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: [0, -10, 0] }}
                         transition={{ opacity: { duration: 1, delay: 0.8 }, y: { duration: 4, repeat: Infinity, ease: "easeInOut", delay: 1.3 } }}
-                        className="absolute top-[-76%] right-[-15%] w-[460px] hidden lg:block z-[120]"
+                        className="absolute top-[-70%] right-[-15%] w-[320px] hidden lg:block z-[120]"
                     >
-                        {/* Ambient Glow behind image */}
                         <div className="absolute inset-x-0 top-1/2 -translate-y-1/2 h-full bg-blue-400/20 blur-[90px] -z-10 rounded-full pointer-events-none" />
                         <Image src="/hero/chats.png" alt="Chats" width={895} height={639} className="w-full h-auto object-contain drop-shadow-2xl" />
                     </motion.div>
+                    */}
 
-                    {/* Floating Card: Calls (Bottom Right) */}
-                    <FloatingCard className="bottom-[85%] right-[-2%] w-[266px] hidden lg:block !p-0 overflow-hidden" delay={1}>
-                        {/* Ambient Glow behind image */}
+                    {/* Floating Card: Calls (Bottom Right) - COMMENTED OUT */}
+                    {/*
+                    <FloatingCard className="bottom-[82%] right-[-15%] w-[320px] hidden lg:block !p-0 overflow-hidden" delay={1}>
                         <div className="absolute inset-0 bg-blue-500/15 blur-[60px] -z-10 pointer-events-none rounded-full scale-125" />
                         <Image src="/hero/calls.png" alt="Calls" width={532} height={399} className="w-full h-full object-cover" />
                     </FloatingCard>
+                    */}
 
 
                     {/* CENTRAL MOBILE MOCKUP - COMMENTED OUT AS REQUESTED */}

@@ -118,7 +118,7 @@ export default function UnifiedSystemSection({ showHeader = true }: { showHeader
                 {showHeader && (
                     <div className="mb-20 text-center">
                         <h2 className="text-4xl md:text-5xl lg:text-7xl font-bold tracking-tight mb-6 text-white leading-tight">
-                            <span className="textured-text">AI for every</span> <span className="text-[#FF5C35]">department</span>
+                            <span className="textured-text">AI for every</span> <span className="text-blue-500">department</span>
                         </h2>
                         <p className="text-lg md:text-xl text-white/50 max-w-3xl mx-auto leading-relaxed font-light">
                             From Sales to Operations to Finance, we help every team across your organization unlock the true power of AI.
@@ -202,8 +202,8 @@ function CardShell({ children }: { children: React.ReactNode }) {
         <div
             className="relative w-full rounded-[2rem] overflow-hidden border border-white/5 shadow-2xl p-6 md:p-8 lg:p-10"
             style={{
-                background: 'radial-gradient(circle at 90% 50%, rgba(131, 38, 13, 0.81) 0%, rgba(184, 60, 20, 0.9) 25%, rgba(69, 33, 14, 0.9) 70%, #1F192A 100%)',
-                backgroundColor: '#454447ff',
+                background: 'radial-gradient(circle at 90% 50%, rgba(30, 58, 138, 0.4) 0%, rgba(15, 23, 42, 0.6) 25%, rgba(2, 6, 23, 0.8) 70%, #000000 100%)',
+                backgroundColor: '#020617',
                 WebkitMaskImage: 'linear-gradient(to right, transparent 2px, black 2px)',
                 maskImage: 'linear-gradient(to right, transparent 2px, black 2px)'
             }}
@@ -219,7 +219,7 @@ function LeftContent({ icon, category, title, desc, bullets }: { icon: React.Rea
     return (
         <div className="flex-[1.2] flex flex-col gap-5">
             <div className="flex items-center gap-3">
-                <div className="text-[#FF5C35] flex items-center justify-center scale-125">
+                <div className="text-blue-500 flex items-center justify-center scale-125">
                     {icon}
                 </div>
                 <span className="text-xl text-white/90 font-medium">{category}</span>
@@ -229,7 +229,7 @@ function LeftContent({ icon, category, title, desc, bullets }: { icon: React.Rea
             <ul className="flex flex-col gap-2 mt-1">
                 {bullets.map((b, i) => (
                     <li key={i} className="flex items-center gap-3 text-white/80 font-medium text-sm md:text-base">
-                        <div className="shrink-0 w-4 h-4 rounded-sm bg-[#FF5C35] flex items-center justify-center">
+                        <div className="shrink-0 w-4 h-4 rounded-sm bg-blue-600 flex items-center justify-center">
                             <Check className="w-3 h-3 text-white stroke-[3px]" />
                         </div>
                         {b}
@@ -237,7 +237,7 @@ function LeftContent({ icon, category, title, desc, bullets }: { icon: React.Rea
                 ))}
             </ul>
             <div className="mt-2">
-                <button className="bg-gradient-to-r from-[#FF7A00] to-[#FF2A00] border-none text-white px-7 py-3 rounded-md text-[15px] font-semibold hover:opacity-90 transition-opacity shadow-lg shadow-orange-500/20">
+                <button className="bg-gradient-to-r from-blue-600 to-cyan-500 border-none text-white px-7 py-3 rounded-md text-[15px] font-semibold hover:opacity-90 transition-opacity shadow-lg shadow-blue-500/20">
                     Learn more
                 </button>
             </div>
@@ -253,11 +253,11 @@ function RightContent({ stat1, label1, stat2, label2 }: { stat1: string; label1:
                 <h4 className="text-white/40 uppercase tracking-widest text-xs font-semibold mb-6">Typical Outcomes</h4>
                 <div className="flex flex-col gap-6">
                     <div className="flex flex-col gap-1">
-                        <span className="text-5xl md:text-6xl font-light text-[#FF5C35] tracking-tight">{stat1}</span>
+                        <span className="text-5xl md:text-6xl font-light text-blue-500 tracking-tight">{stat1}</span>
                         <span className="text-white/60 text-sm md:text-base">{label1}</span>
                     </div>
                     <div className="flex flex-col gap-1">
-                        <span className="text-5xl md:text-6xl font-light text-[#FF5C35] tracking-tight">{stat2}</span>
+                        <span className="text-5xl md:text-6xl font-light text-blue-500 tracking-tight">{stat2}</span>
                         <span className="text-white/60 text-sm md:text-base">{label2}</span>
                     </div>
                 </div>

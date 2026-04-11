@@ -61,7 +61,7 @@ export default function DemoPage() {
           </div>
           <AISection />
           <UnifiedSystemSection />
-          <WhoIsThisFor />
+          {/* <WhoIsThisFor /> */}
           <WhatWeProvide />
         </div>
       </div>
