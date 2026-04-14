@@ -185,7 +185,7 @@ export default function WhatWeProvide() {
                                 </span>
                             </h2>
                             <p className="text-white/50 text-lg leading-relaxed">
-                                Security isn't a feature — it's the foundation. Every solution we build is backed by enterprise-grade infrastructure, immutable audit trails, and ironclad encryption so you can deploy AI with confidence.
+                                Security isn&apos;t a feature — it&apos;s the foundation. Every solution we build is backed by enterprise-grade infrastructure, immutable audit trails, and ironclad encryption so you can deploy AI with confidence.
                             </p>
                         </motion.div>
                     </div>
