@@ -116,42 +116,42 @@ const InfiniteMarquee = ({ items, speed = 40, direction = "left" }: { items: typ
 
 export default function BigTestimonialSection() {
   return (
-    <Section className="py-24 md:py-32 bg-transparent relative overflow-hidden">
+    <Section className="py-4 md:py-8 bg-transparent relative overflow-hidden">
       {/* Background Image Effect (Kept as requested) */}
-      <div
+      {/* <div
         className="absolute inset-0 z-0 bg-center bg-cover bg-no-repeat opacity-80 pointer-events-none"
         style={{ backgroundImage: "url('/assets/dualgradiation.webp')" }}
-      />
+      /> */}
       
       {/* Ambient Glows (Kept as requested) */}
       <div className="absolute top-0 right-0 -translate-y-1/2 translate-x-1/2 w-[60%] h-[60%] bg-purple-900/10 blur-[120px] rounded-full pointer-events-none" />
       <div className="absolute bottom-0 left-0 translate-y-1/2 -translate-x-1/2 w-[60%] h-[60%] bg-blue-900/10 blur-[120px] pointer-events-none rounded-full" />
 
       <Container className="max-w-none w-full relative z-10 px-0">
-        <FadeInSection className="text-center mb-16 px-6 md:px-12">
-          <h2 className="text-5xl md:text-7xl lg:text-8xl font-black text-white tracking-tighter mb-8 leading-[0.9]">
-            TRUSTED BY <span className="text-purple-500">THE BEST</span>
-          </h2>
-          <p className="text-xl md:text-2xl text-white/50 max-w-2xl mx-auto leading-relaxed font-medium">
-            Real stories from founders and teams who transitioned their business to the AI era with Pxo.
-          </p>
-        </FadeInSection>
+        <div className="transform scale-[0.8] md:scale-[0.85] origin-top w-full -mb-24 md:-mb-32">
+          <FadeInSection className="text-center mb-16 px-6 md:px-12">
+            <h2 className="text-5xl md:text-7xl lg:text-8xl font-black text-white tracking-tighter mb-8 leading-[0.9]">
+              TRUSTED BY <span className="text-purple-500">THE BEST</span>
+            </h2>
+            <p className="text-xl md:text-2xl text-white/50 max-w-2xl mx-auto leading-relaxed font-medium">
+              Real stories from founders and teams who transitioned their business to the AI era with Pxo.
+            </p>
+          </FadeInSection>
 
-
-
-        <div className="flex flex-col gap-2 relative">
-          <InfiniteMarquee items={testimonials} speed={80} direction="left" />
+          <div className="flex flex-col gap-2 relative">
+            <InfiniteMarquee items={testimonials} speed={80} direction="left" />
+          </div>
+          
+          {/* Subtle CTA Indicator */}
+          <motion.div 
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ delay: 1 }}
+            className="text-center mt-20"
+          >
+            <span className="text-[12px] font-bold text-zinc-500 uppercase tracking-[0.3em]">Built to scale with your ambition</span>
+          </motion.div>
         </div>
-        
-        {/* Subtle CTA Indicator */}
-        <motion.div 
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ delay: 1 }}
-          className="text-center mt-20"
-        >
-          <span className="text-[12px] font-bold text-zinc-500 uppercase tracking-[0.3em]">Built to scale with your ambition</span>
-        </motion.div>
       </Container>
     </Section>
   );

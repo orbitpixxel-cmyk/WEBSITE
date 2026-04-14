@@ -5,6 +5,7 @@ import Section from "@/components/ui/Section";
 import Container from "@/components/ui/Container";
 import { ArrowLeft, ArrowRight, TrendingUp, Megaphone, Headphones, Settings, DollarSign, Check } from "lucide-react";
 import { motion } from "framer-motion";
+import SmoothScrolling from "@/components/ui/SmoothScrolling";
 
 const tabData = [
     {
@@ -111,88 +112,90 @@ export default function UnifiedSystemSection({ showHeader = true }: { showHeader
     const handlePrev = () => switchTab((activeIndex - 1 + tabData.length) % tabData.length);
 
     return (
-        <Section className="bg-transparent text-white py-10 md:py-12 overflow-hidden w-full">
-            <Container className="max-w-[90rem] w-full mx-auto px-4 sm:px-6 lg:px-8">
+        <SmoothScrolling>
+            <Section className="bg-transparent text-white py-10 md:py-12 overflow-hidden w-full">
+                <Container className="max-w-[90rem] w-full mx-auto px-4 sm:px-6 lg:px-8">
 
-                {/* ─── Heading Section ─── */}
-                {showHeader && (
-                    <div className="mb-20 text-center">
-                        <h2 className="text-4xl md:text-5xl lg:text-7xl font-bold tracking-tight mb-6 text-white leading-tight">
-                            <span className="textured-text">AI for every</span> <span className="text-blue-500">department</span>
-                        </h2>
-                        <p className="text-lg md:text-xl text-white/50 max-w-3xl mx-auto leading-relaxed font-light">
-                            From Sales to Operations to Finance, we help every team across your organization unlock the true power of AI.
-                        </p>
-                    </div>
-                )}
+                    {/* ─── Heading Section ─── */}
+                    {showHeader && (
+                        <div className="mb-20 text-center">
+                            <h2 className="text-4xl md:text-5xl lg:text-7xl font-bold tracking-tight mb-6 text-white leading-tight">
+                                <span className="textured-text">AI for every</span> <span className="text-blue-500">department</span>
+                            </h2>
+                            <p className="text-lg md:text-xl text-white/50 max-w-3xl mx-auto leading-relaxed font-light">
+                                From Sales to Operations to Finance, we help every team across your organization unlock the true power of AI.
+                            </p>
+                        </div>
+                    )}
 
-                {/* ── Tab navigation (Pill style with smooth sliding background) ── */}
-                <div className="w-full max-w-5xl mx-auto bg-[#111827]/50 backdrop-blur-md rounded-2xl p-0 mb-10 border border-white/5 overflow-hidden">
-                    <div className="relative flex flex-wrap sm:flex-nowrap gap-0">
-                        {tabData.map((t, idx) => (
-                            <button
-                                key={t.id}
-                                onClick={() => switchTab(idx)}
-                                className={`relative flex-1 flex flex-col sm:flex-row items-center justify-center gap-2.5 py-4 px-4 transition-all duration-300 outline-none z-10 ${activeIndex === idx ? "text-black font-bold" : "text-slate-400 hover:text-white"
-                                    }`}
-                            >
-                                {activeIndex === idx && (
-                                    <motion.div
-                                        layoutId="activePillUnified"
-                                        className="absolute inset-0 bg-white rounded-xl shadow-lg"
-                                        transition={{ type: "spring", stiffness: 300, damping: 24 }}
-                                    />
-                                )}
-                                <span className={`relative z-10 transition-colors ${activeIndex === idx ? "text-blue-600" : "text-inherit"}`}>
-                                    {t.icon}
-                                </span>
-                                <span className="relative z-10 text-[12px] font-bold uppercase tracking-widest hidden sm:block">
-                                    {t.label}
-                                </span>
-                            </button>
-                        ))}
-                    </div>
-                </div>
-
-                {/* ─── Sliding track with 5 separate containers ─── */}
-                <div className="w-full overflow-hidden">
-                    <div
-                        className="flex flex-row transition-transform duration-500 ease-&lsqb;cubic-bezier(0.25,0.8,0.25,1)&rsqb;"
-                        style={{
-                            width: `${tabData.length * 100}%`,
-                            transform: `translateX(-${activeIndex * (100 / tabData.length)}%)`
-                        }}
-                    >
-                        {tabData.map((data) => (
-                            <div
-                                key={data.id}
-                                className="shrink-0"
-                                style={{ width: `${100 / tabData.length}%` }}
-                            >
-                                <CardShell>
-                                    <div className="flex flex-col lg:flex-row gap-10 lg:gap-14">
-                                        <LeftContent
-                                            icon={data.icon}
-                                            category={data.category}
-                                            title={data.title}
-                                            desc={data.desc}
-                                            bullets={data.bullets}
+                    {/* ── Tab navigation (Pill style with smooth sliding background) ── */}
+                    <div className="w-full max-w-5xl mx-auto bg-[#111827]/80 rounded-2xl p-0 mb-10 border border-white/10 overflow-hidden">
+                        <div className="relative flex flex-wrap sm:flex-nowrap gap-0">
+                            {tabData.map((t, idx) => (
+                                <button
+                                    key={t.id}
+                                    onClick={() => switchTab(idx)}
+                                    className={`relative flex-1 flex flex-col sm:flex-row items-center justify-center gap-2.5 py-4 px-4 transition-all duration-300 outline-none z-10 ${activeIndex === idx ? "text-black font-bold" : "text-slate-400 hover:text-white"
+                                        }`}
+                                >
+                                    {activeIndex === idx && (
+                                        <motion.div
+                                            layoutId="activePillUnified"
+                                            className="absolute inset-0 bg-white rounded-xl shadow-lg"
+                                            transition={{ type: "spring", stiffness: 300, damping: 24 }}
                                         />
-                                        <RightContent
-                                            stat1={data.outcomes[0].stat}
-                                            label1={data.outcomes[0].label}
-                                            stat2={data.outcomes[1].stat}
-                                            label2={data.outcomes[1].label}
-                                        />
-                                    </div>
-                                </CardShell>
-                            </div>
-                        ))}
+                                    )}
+                                    <span className={`relative z-10 transition-colors ${activeIndex === idx ? "text-blue-600" : "text-inherit"}`}>
+                                        {t.icon}
+                                    </span>
+                                    <span className="relative z-10 text-[12px] font-bold uppercase tracking-widest hidden sm:block">
+                                        {t.label}
+                                    </span>
+                                </button>
+                            ))}
+                        </div>
                     </div>
-                </div>
 
-            </Container>
-        </Section>
+                    {/* ─── Sliding track with 5 separate containers ─── */}
+                    <div className="w-full overflow-hidden">
+                        <div
+                            className="flex flex-row transition-transform duration-500 ease-&lsqb;cubic-bezier(0.25,0.8,0.25,1)&rsqb;"
+                            style={{
+                                width: `${tabData.length * 100}%`,
+                                transform: `translateX(-${activeIndex * (100 / tabData.length)}%)`
+                            }}
+                        >
+                            {tabData.map((data) => (
+                                <div
+                                    key={data.id}
+                                    className="shrink-0"
+                                    style={{ width: `${100 / tabData.length}%` }}
+                                >
+                                    <CardShell>
+                                        <div className="flex flex-col lg:flex-row gap-10 lg:gap-14">
+                                            <LeftContent
+                                                icon={data.icon}
+                                                category={data.category}
+                                                title={data.title}
+                                                desc={data.desc}
+                                                bullets={data.bullets}
+                                            />
+                                            <RightContent
+                                                stat1={data.outcomes[0].stat}
+                                                label1={data.outcomes[0].label}
+                                                stat2={data.outcomes[1].stat}
+                                                label2={data.outcomes[1].label}
+                                            />
+                                        </div>
+                                    </CardShell>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+
+                </Container>
+            </Section>
+        </SmoothScrolling>
     );
 }
 
@@ -200,15 +203,12 @@ export default function UnifiedSystemSection({ showHeader = true }: { showHeader
 function CardShell({ children }: { children: React.ReactNode }) {
     return (
         <div
-            className="relative w-full rounded-[2rem] overflow-hidden border border-white/5 shadow-2xl p-6 md:p-8 lg:p-10"
+            className="relative w-full rounded-[2rem] overflow-hidden border border-white/10 bg-[#020617] p-6 md:p-8 lg:p-10 shadow-2xl"
             style={{
-                background: 'radial-gradient(circle at 90% 50%, rgba(30, 58, 138, 0.4) 0%, rgba(15, 23, 42, 0.6) 25%, rgba(2, 6, 23, 0.8) 70%, #000000 100%)',
-                backgroundColor: '#020617',
-                WebkitMaskImage: 'linear-gradient(to right, transparent 2px, black 2px)',
-                maskImage: 'linear-gradient(to right, transparent 2px, black 2px)'
+                backgroundImage: 'radial-gradient(circle at 90% 50%, rgba(30, 58, 138, 0.3) 0%, rgba(15, 23, 42, 0.8) 40%, #020617 100%)',
             }}
         >
-            <div className="absolute inset-0 opacity-[0.03] mix-blend-overlay pointer-events-none" style={{ backgroundImage: "url('https://www.transparenttextures.com/patterns/stardust.png')" }} />
+            <div className="absolute inset-0 opacity-[0.05] pointer-events-none mix-blend-screen" style={{ backgroundImage: "url('https://www.transparenttextures.com/patterns/stardust.png')" }} />
             <div className="relative z-10">{children}</div>
         </div>
     );

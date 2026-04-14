@@ -16,7 +16,7 @@ import {
     MessageCircle
 } from "lucide-react";
 
-import DarkVeil from './DarkVeil';
+
 import TechStackRow from './TechStackRow';
 
 /**
@@ -53,16 +53,14 @@ export default function RoughHeroReplicate() {
 
             {/* Background Infrastructure Layer - Pure DarkVeil */}
             <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
-                <div style={{ width: '100%', height: '80vh', position: 'relative' }}>
-                    <DarkVeil
-                        hueShift={0}
-                        noiseIntensity={0}
-                        scanlineIntensity={0}
-                        speed={0.5}
-                        scanlineFrequency={0}
-                        warpAmount={0}
-                    />
-                </div>
+                <div
+                    className="absolute inset-0 opacity-40 mix-blend-screen pointer-events-none"
+                    style={{ background: 'radial-gradient(ellipse at 50% -20%, rgba(59, 130, 246, 0.4) 0%, rgba(15, 23, 42, 0) 60%)' }}
+                />
+                <div
+                    className="absolute inset-0 opacity-20 mix-blend-screen pointer-events-none"
+                    style={{ background: 'radial-gradient(circle at 15% 35%, rgba(99, 102, 241, 0.4) 0%, rgba(15, 23, 42, 0) 50%)' }}
+                />
             </div>
 
             {/* Content Wrapper to help centering */}

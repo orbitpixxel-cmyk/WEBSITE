@@ -24,7 +24,7 @@ export default function RootLayout(props: { children: ReactNode }) {
     return (
         <html lang="en" className={montserrat.variable}>
             <body className="bg-background text-foreground antialiased font-sans">
-                {/* <SmoothScrolling> */}
+                <SmoothScrolling>
                 <div className="relative min-h-screen w-full overflow-hidden bg-background">
                     {/* Blue corner glow background, fixed behind all content */}
                     <div
@@ -45,7 +45,7 @@ export default function RootLayout(props: { children: ReactNode }) {
                         <Footer />
                     </div>
                 </div>
-                {/* </SmoothScrolling> */}
+                </SmoothScrolling>
             </body>
         </html>
     );

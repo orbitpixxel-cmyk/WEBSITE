@@ -14,13 +14,6 @@ export default function SmoothScrolling({ children }: { children: React.ReactNod
             touchMultiplier: 2,
         });
 
-        lenis.on('scroll', () => {
-            if (typeof window !== 'undefined' && (window as any).gsap) {
-                const { ScrollTrigger } = require('gsap/ScrollTrigger');
-                ScrollTrigger.update();
-            }
-        });
-
         function raf(time: number) {
             lenis.raf(time);
             requestAnimationFrame(raf);

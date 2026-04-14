@@ -124,9 +124,9 @@ export default function AISection() {
   return (
     <div className="min-h-screen w-full rounded-[3.5rem] bg-white py-24 text-black z-10 relative overflow-hidden">
       {/* Background Mesh Gradients — Blueish */}
-      <div className="absolute top-0 right-0 -translate-y-1/2 translate-x-1/2 w-[60%] h-[60%] bg-[#3b82f6]/8 blur-[150px] pointer-events-none rounded-full" />
-      <div className="absolute bottom-0 left-0 translate-y-1/3 -translate-x-1/4 w-[50%] h-[50%] bg-[#60a5fa]/6 blur-[130px] pointer-events-none rounded-full" />
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[40%] h-[40%] bg-[#93c5fd]/5 blur-[100px] pointer-events-none rounded-full" />
+      <div className="absolute top-0 right-0 -translate-y-1/2 translate-x-1/2 w-[60%] h-[60%] rounded-full pointer-events-none" style={{ background: 'radial-gradient(circle, rgba(59,130,246,0.08) 0%, transparent 60%)' }} />
+      <div className="absolute bottom-0 left-0 translate-y-1/3 -translate-x-1/4 w-[50%] h-[50%] rounded-full pointer-events-none" style={{ background: 'radial-gradient(circle, rgba(96,165,250,0.06) 0%, transparent 65%)' }} />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[40%] h-[40%] rounded-full pointer-events-none" style={{ background: 'radial-gradient(circle, rgba(147,197,253,0.05) 0%, transparent 70%)' }} />
 
       <div className="max-w-7xl mx-auto w-full px-6 md:px-10 relative z-10 text-left">
 
@@ -217,8 +217,8 @@ export default function AISection() {
       >
         <div className="max-w-7xl mx-auto relative overflow-hidden rounded-[2.5rem] p-12 md:p-16" style={{ background: 'linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%)' }}>
           {/* Background glows */}
-          <div className="absolute top-0 right-0 w-[50%] h-[50%] bg-blue-500/10 blur-[120px] rounded-full pointer-events-none" />
-          <div className="absolute bottom-0 left-0 w-[40%] h-[40%] bg-blue-600/8 blur-[100px] rounded-full pointer-events-none" />
+          <div className="absolute top-0 right-0 w-[50%] h-[50%] rounded-full pointer-events-none" style={{ background: 'radial-gradient(circle, rgba(59,130,246,0.1) 0%, transparent 70%)' }} />
+          <div className="absolute bottom-0 left-0 w-[40%] h-[40%] rounded-full pointer-events-none" style={{ background: 'radial-gradient(circle, rgba(37,99,235,0.08) 0%, transparent 70%)' }} />
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative z-10">
             <div className="flex flex-col">
