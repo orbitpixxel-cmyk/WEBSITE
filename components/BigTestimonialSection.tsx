@@ -129,11 +129,11 @@ export default function BigTestimonialSection() {
 
       <Container className="max-w-none w-full relative z-10 px-0">
         <FadeInSection className="text-center mb-16 px-6 md:px-12">
-          <h2 className="text-5xl md:text-7xl lg:text-8xl font-black text-white tracking-tighter mb-8 leading-[0.9]">
-            TRUSTED BY <span className="text-purple-500">THE BEST</span>
+          <h2 className="text-4xl md:text-6xl lg:text-7xl font-black text-white tracking-tighter mb-8 leading-[0.9]">
+            PROVEN RESULTS FROM <br /> <span className="text-purple-500 uppercase">Real Businesses</span>
           </h2>
           <p className="text-xl md:text-2xl text-white/50 max-w-2xl mx-auto leading-relaxed font-medium">
-            Real stories from founders and teams who transitioned their business to the AI era with Pxo.
+            Real stories from businesses turning missed opportunities into consistent growth
           </p>
         </FadeInSection>
 

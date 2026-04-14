@@ -12,8 +12,8 @@ const tabData = [
         label: "Sales",
         category: "Sales acceleration",
         icon: <TrendingUp className="w-4 h-4" />,
-        title: "Close deals faster with AI",
-        desc: "Accelerate deal cycles with AI-powered lead scoring, automated outreach, and intelligent forecasting that helps your team focus on the opportunities that matter most.",
+        title: "Sales that don’t stall",
+        desc: "From first contact to follow-up, things move without friction",
         bullets: [
             "Lead scoring & prioritization",
             "Automated outreach sequences",
@@ -23,15 +23,16 @@ const tabData = [
         outcomes: [
             { stat: "35%", label: "increase in qualified leads" },
             { stat: "28%", label: "faster deal cycles" }
-        ]
+        ],
+        cta: "Close deals faster"
     },
     {
         id: "marketing",
         label: "Marketing",
         category: "Marketing intelligence",
         icon: <Megaphone className="w-4 h-4" />,
-        title: "Personalize campaigns at scale",
-        desc: "Create personalized campaigns at scale with AI that understands your audience, optimizes content performance, and turns data into actionable insights.",
+        title: "Marketing that adapts",
+        desc: "Stop guessing what works. Our AI delivers the right message to the right audience, so every campaign drives real results",
         bullets: [
             "Content personalization",
             "Campaign optimization",
@@ -41,15 +42,16 @@ const tabData = [
         outcomes: [
             { stat: "3x", label: "content output" },
             { stat: "45%", label: "improvement in engagement" }
-        ]
+        ],
+        cta: "Unlock better results"
     },
     {
         id: "support",
         label: "Support",
         category: "Customer support",
         icon: <Headphones className="w-4 h-4" />,
-        title: "Resolve issues faster",
-        desc: "Resolve issues faster with intelligent routing, automated responses for common queries, and AI assistants that empower your support team to deliver exceptional service.",
+        title: "Support that scales",
+        desc: "Stop overwhelming your support team. Automate repetitive work and resolve tickets faster, without compromising quality.",
         bullets: [
             "Intelligent ticket routing",
             "Automated response handling",
@@ -59,15 +61,16 @@ const tabData = [
         outcomes: [
             { stat: "60%", label: "reduction in response time" },
             { stat: "40%", label: "increase in CSAT scores" }
-        ]
+        ],
+        cta: "Start resolving faster"
     },
     {
         id: "operations",
         label: "Operations",
         category: "Operations optimization",
         icon: <Settings className="w-4 h-4" />,
-        title: "Streamline daily workflows",
-        desc: "Automate repetitive tasks, sync data across platforms, and create deeply integrated operational systems that scale seamlessly without adding headcount.",
+        title: "Operations that run themselves",
+        desc: "Stop wasting time on disconnected systems. Automate workflows, sync your data, and scale operations, without adding headcount.",
         bullets: [
             "Data synchronization",
             "Workflow automation",
@@ -77,15 +80,16 @@ const tabData = [
         outcomes: [
             { stat: "50%", label: "reduction in manual tasks" },
             { stat: "100s", label: "of hours saved monthly" }
-        ]
+        ],
+        cta: "Start saving time"
     },
     {
         id: "finance",
         label: "Finance",
         category: "Financial automation",
         icon: <DollarSign className="w-4 h-4" />,
-        title: "Accelerate financial operations",
-        desc: "Reduce errors and speed up financial closes with AI that automates invoice processing, expense categorization, and anomaly detection.",
+        title: "Finance that catches what humans miss",
+        desc: "Automate invoice processing, eliminate manual data entry, and detect anomalies in real time, so your team can close faster with complete confidence.",
         bullets: [
             "Invoice processing",
             "Expense management",
@@ -95,7 +99,8 @@ const tabData = [
         outcomes: [
             { stat: "70%", label: "faster month-end close" },
             { stat: "99%", label: "accuracy in data extraction" }
-        ]
+        ],
+        cta: "See it in action"
     }
 ];
 
@@ -118,10 +123,10 @@ export default function UnifiedSystemSection({ showHeader = true }: { showHeader
                 {showHeader && (
                     <div className="mb-20 text-center">
                         <h2 className="text-4xl md:text-5xl lg:text-7xl font-bold tracking-tight mb-6 text-white leading-tight">
-                            <span className="textured-text">AI for every</span> <span className="text-blue-500">department</span>
+                            <span className="textured-text">One system, across</span> <span className="text-blue-500">every team</span>
                         </h2>
                         <p className="text-lg md:text-xl text-white/50 max-w-3xl mx-auto leading-relaxed font-light">
-                            From Sales to Operations to Finance, we help every team across your organization unlock the true power of AI.
+                            Across teams, work becomes simpler and more consistent
                         </p>
                     </div>
                 )}
@@ -177,6 +182,7 @@ export default function UnifiedSystemSection({ showHeader = true }: { showHeader
                                             title={data.title}
                                             desc={data.desc}
                                             bullets={data.bullets}
+                                            cta={data.cta}
                                         />
                                         <RightContent
                                             stat1={data.outcomes[0].stat}
@@ -215,7 +221,7 @@ function CardShell({ children }: { children: React.ReactNode }) {
 }
 
 /* ─── Left Content (text, bullets, CTA) ─── */
-function LeftContent({ icon, category, title, desc, bullets }: { icon: React.ReactNode; category: string; title: string; desc: string; bullets: string[] }) {
+function LeftContent({ icon, category, title, desc, bullets, cta }: { icon: React.ReactNode; category: string; title: string; desc: string; bullets: string[]; cta: string }) {
     return (
         <div className="flex-[1.2] flex flex-col gap-5">
             <div className="flex items-center gap-3">
@@ -238,7 +244,7 @@ function LeftContent({ icon, category, title, desc, bullets }: { icon: React.Rea
             </ul>
             <div className="mt-2">
                 <button className="bg-gradient-to-r from-blue-600 to-cyan-500 border-none text-white px-7 py-3 rounded-md text-[15px] font-semibold hover:opacity-90 transition-opacity shadow-lg shadow-blue-500/20">
-                    Learn more
+                    {cta}
                 </button>
             </div>
         </div>

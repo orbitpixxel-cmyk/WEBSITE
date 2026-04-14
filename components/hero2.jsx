@@ -83,7 +83,7 @@ export default function RoughHeroReplicate() {
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 1, ease: [0.25, 0.1, 0.25, 1] }}
-                        className="text-[40px] sm:text-[48px] md:text-[54px] lg:text-[56px] font-bold leading-snug tracking-normal mb-8 px-6"
+                        className="text-[40px] sm:text-[48px] md:text-[54px] lg:text-[56px] font-bold leading-[1.06] tracking-tight mb-8 px-6"
                     >
                         <span className="text-white font-extrabold">
                             Empower Your
@@ -118,9 +118,9 @@ export default function RoughHeroReplicate() {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8, delay: 0.2 }}
-                        className="text-slate-400 text-base md:text-lg max-w-2xl mx-auto mb-10 font-medium leading-relaxed tracking-wide"
+                        className="text-slate-400 text-base md:text-lg max-w-3xl mx-auto mb-10 font-medium leading-relaxed tracking-wide"
                     >
-                        We build custom AI solutions that automate your operations, enhance customer engagement, and drive business growth 24/7.
+                        We design and manage smart systems that handle your calls, bookings, follow-ups, and workflows, so your business runs smoothly and never misses an opportunity
                     </motion.p>
 
                     <motion.div

@@ -20,7 +20,8 @@ import HeroSection from "@/components/hero2";
 
 export default function DemoPage() {
   return (
-    <SmoothScrolling>
+    <>
+      {/* <SmoothScrolling> */}
       <div className="flex min-h-screen flex-col items-center justify-center px-6 relative overflow-hidden"
         style={{ background: 'linear-gradient(135deg, #020617 0%, #050816 40%, #0B1226 100%)' }}>
         {/* Visual Infrastructure Background Layer - Darker */}
@@ -65,6 +66,7 @@ export default function DemoPage() {
           <WhatWeProvide />
         </div>
       </div>
-    </SmoothScrolling>
+      {/* </SmoothScrolling> */}
+    </>
   );
 }

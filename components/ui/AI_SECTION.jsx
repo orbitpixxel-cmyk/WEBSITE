@@ -155,18 +155,19 @@ export default function AISection() {
             viewport={{ once: true }}
             className="lg:col-span-5"
           >
-            <h2 className="text-5xl md:text-6xl lg:text-[64px] font-bold tracking-tight leading-[1.05] text-gray-900 mb-6">
-              Intelligent Systems{" "}
+            <h2 className="text-5xl md:text-6xl lg:text-[64px] font-bold tracking-tight leading-[1.05] mb-6">
               <span className="relative inline-block">
-                <span className="relative z-10 bg-gradient-to-r from-blue-600 via-blue-500 to-cyan-500 bg-clip-text text-transparent">Built for Scale</span>
+                <span className="relative z-10 bg-gradient-to-r from-blue-600 via-blue-500 to-cyan-500 bg-clip-text text-transparent">Systems That Run Your Business,</span>
                 <div className="absolute -bottom-2 right-0 w-[40%] h-3 bg-blue-200/40 blur-md rounded-full -z-10" />
               </span>
+              <br />
+              <span className="text-gray-900">So You Don&apos;t Have To</span>
             </h2>
 
             {/* Feature Blurb */}
             <div className="mb-12">
               <p className="text-[17px] text-zinc-500 leading-relaxed font-medium max-w-[460px]">
-                We design and deploy AI systems powered by LLMs that drive operational efficiency, surface deeper insights, and give your business a measurable competitive edge.
+                We design and manage smart systems that handle your calls, bookings, follow-ups, and workflows, so your business runs smoothly and never misses an opportunity
               </p>
             </div>
 
@@ -174,12 +175,12 @@ export default function AISection() {
 
               {/* Accordion Items */}
               <AccordionItem
-                title="No Cost Until You See Results"
+                title="Built Around Your Business"
                 isOpen={openAccordion === 0}
                 onToggle={() => setOpenAccordion(openAccordion === 0 ? -1 : 0)}
                 delay={0.1}
               >
-                We work on a performance-first model. You only invest when our AI solutions demonstrate measurable business impact — zero risk, full transparency.
+                Every system is designed to match your workflows, goals, and growth, so you get a solution that fits from day one.
               </AccordionItem>
 
               <AccordionItem
@@ -188,16 +189,16 @@ export default function AISection() {
                 onToggle={() => setOpenAccordion(openAccordion === 1 ? -1 : 1)}
                 delay={0.2}
               >
-                Every system we deploy is SOC 2 aligned with private cloud and on-prem options. Your proprietary data never leaves your infrastructure.
+                SOC 2 compliant systems with private cloud and on-prem options. so your data stays secure, controlled, and always yours.
               </AccordionItem>
 
               <AccordionItem
-                title="Seamless Integration"
+                title="Works With Your Existing Tools"
                 isOpen={openAccordion === 2}
                 onToggle={() => setOpenAccordion(openAccordion === 2 ? -1 : 2)}
                 delay={0.3}
               >
-                Our AI plugs directly into your existing CRM, ERP, and internal tools — no rip-and-replace. Your teams keep working the way they already do.
+                No rip-and-replace. We integrate seamlessly so your team keeps working exactly as they do today.
               </AccordionItem>
             </div> {/* End Accordion Container */}
           </motion.div>
@@ -223,11 +224,12 @@ export default function AISection() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative z-10">
             <div className="flex flex-col">
               <h2 className="text-3xl md:text-5xl font-bold leading-[1.1] text-white mb-6 tracking-tight">
-                Empower your growth with a{' '}
-                <span className="bg-gradient-to-r from-blue-400 to-cyan-300 bg-clip-text text-transparent">custom CRM built for your business.</span>
+                A CRM That Works
+                <br />
+                <span className="bg-gradient-to-r from-blue-400 to-cyan-300 bg-clip-text text-transparent">the Way Your Business Does</span>
               </h2>
               <p className="text-base text-slate-400 leading-relaxed font-medium mb-8 max-w-md">
-                Ditch the generic tools. We build tailored CRM systems that integrate perfectly with your internal workflows and scale as you grow.
+                We design and manage custom systems that handle your leads, follow-ups, and customer journeys, so every opportunity is tracked and converted
               </p>
               <div className="flex flex-wrap gap-3 mb-8">
                 {[
@@ -244,7 +246,7 @@ export default function AISection() {
               </div>
               <div>
                 <button className="bg-blue-600 hover:bg-blue-500 text-white px-8 py-3.5 rounded-full font-bold transition-all shadow-[0_8px_24px_rgba(59,130,246,0.35)] hover:scale-105 active:scale-95 text-sm">
-                  Schedule a Demo →
+                  Get Your Custom CRM
                 </button>
               </div>
             </div>
@@ -280,7 +282,7 @@ export default function AISection() {
         >
           {/* Section Header */}
           <div className="text-center mb-16">
-            <span className="text-[12px] font-bold text-blue-600 uppercase tracking-[0.2em] mb-4 block">How it works</span>
+            <span className="text-[12px] font-bold text-blue-600 uppercase tracking-[0.2em] mb-4 block">How to start</span>
             <h3 className="text-4xl md:text-5xl font-bold text-gray-900 tracking-tight">Getting started is easy</h3>
           </div>
 
