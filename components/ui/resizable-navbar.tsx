@@ -23,6 +23,7 @@ interface NavItemsProps {
   }[];
   className?: string;
   onItemClick?: () => void;
+  visible?: boolean;
 }
 
 interface MobileNavProps {
@@ -80,7 +81,7 @@ export const Navbar = ({ children, className }: NavbarProps) => {
       )}
     >
       {React.Children.map(children, (child) =>
-        React.isValidElement(child)
+        React.isValidElement(child) && typeof child.type !== "string"
           ? React.cloneElement(
             child as React.ReactElement<{ visible?: boolean }>,
             { visible },
@@ -101,19 +102,27 @@ export const NavBody = ({ children, className, visible }: NavBodyProps) => {
         className,
       )}
     >
-      {children}
+      {React.Children.map(children, (child) =>
+        React.isValidElement(child) && typeof child.type !== "string"
+          ? React.cloneElement(
+            child as React.ReactElement<{ visible?: boolean }>,
+            { visible },
+          )
+          : child,
+      )}
     </div>
   );
 };
 
-export const NavItems = ({ items, className, onItemClick }: NavItemsProps) => {
+export const NavItems = ({ items, className, onItemClick, visible }: NavItemsProps) => {
   const [hovered, setHovered] = useState<number | null>(null);
 
   return (
     <div
       onMouseLeave={() => setHovered(null)}
       className={cn(
-        "absolute inset-0 hidden flex-1 flex-row items-center justify-center space-x-2 text-sm text-white/70 lg:flex lg:space-x-2 pointer-events-none",
+        "absolute inset-0 hidden flex-1 flex-row items-center justify-center space-x-2 text-sm lg:flex lg:space-x-2 pointer-events-none",
+        visible ? "text-white/70" : "text-slate-900/70",
         className,
       )}
     >

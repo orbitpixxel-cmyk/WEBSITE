@@ -7,6 +7,16 @@ import {
     Zap, Globe, Eye, CheckCircle2
 } from 'lucide-react';
 
+// Custom gradient style for heading
+const headingGradient = {
+    backgroundImage: 'linear-gradient(90deg, #0F172A 0%, #1E293B 25%, #3B82F6 50%, #60A5FA 75%, #93C5FD 100%)',
+    WebkitBackgroundClip: 'text',
+    backgroundClip: 'text',
+    color: 'transparent',
+    padding: '0.1em 0',
+    margin: '-0.1em 0',
+};
+
 /* ─────────────────────────────────────────────
    DATA
 ───────────────────────────────────────────── */
@@ -116,7 +126,7 @@ function FeatureCard({ icon: Icon, title, description, tags, color, index }) {
 
             {/* Text */}
             <h3 className="text-xl font-bold text-white mb-3 tracking-tight">{title}</h3>
-            <p className="text-white/50 leading-relaxed text-sm flex-1 mb-6">{description}</p>
+            <p className="text-white/80 leading-relaxed text-sm flex-1 mb-6">{description}</p>
 
             {/* Tags */}
             <div className="flex flex-wrap gap-2">
@@ -179,12 +189,10 @@ export default function WhatWeProvide() {
                             transition={{ duration: 0.7, delay: 0.1 }}
                         >
                             <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-[1.08] mb-6">
-                                Built for trust.{' '}
-                                <span className="bg-gradient-to-r from-blue-400 via-cyan-400 to-blue-300 bg-clip-text text-transparent">
-                                    Hardened for scale.
-                                </span>
+                                <span style={headingGradient}>Built for trust.</span>{' '}
+                                <span className="text-blue-400">Hardened for scale.</span>
                             </h2>
-                            <p className="text-white/50 text-lg leading-relaxed">
+                            <p className="text-black text-lg leading-relaxed">
                                 Security isn&apos;t a feature — it&apos;s the foundation. Every solution we build is backed by enterprise-grade infrastructure, immutable audit trails, and ironclad encryption so you can deploy AI with confidence.
                             </p>
                         </motion.div>

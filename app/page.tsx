@@ -21,8 +21,10 @@ import HeroSection from "@/components/hero2";
 export default function DemoPage() {
   return (
     <SmoothScrolling>
-      <div className="flex min-h-screen flex-col items-center justify-center px-6 relative overflow-hidden"
-        style={{ background: 'linear-gradient(135deg, #020617 0%, #050816 40%, #0B1226 100%)' }}>
+      <div className="flex min-h-screen flex-col items-center justify-center px-6 relative overflow-hidden" style={{
+        background: 'radial-gradient(ellipse at 15% 25%, rgba(99, 102, 241, 0.12) 0%, transparent 40%), radial-gradient(ellipse at 85% 75%, rgba(59, 130, 246, 0.10) 0%, transparent 45%), radial-gradient(ellipse at 50% 95%, rgba(37, 99, 235, 0.08) 0%, transparent 35%), linear-gradient(145deg, #fafbfc 0%, #f1f5f9 20%, #e2e8f0 40%, #f0f9ff 65%, #f8fafc 85%, #ffffff 100%)',
+        // Removed opacity: 0
+      }}>
         {/* Visual Infrastructure Background Layer - Darker */}
         <div
           className="absolute inset-0 z-0 pointer-events-none opacity-[0.08]"
@@ -50,9 +52,9 @@ export default function DemoPage() {
 
         <div className="relative z-10 w-full">
 
-          {/* <div className="w-[100vw] relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw]">
+          <div className="w-[100vw] relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw]">
             <BigTestimonialSection />
-          </div> */}
+          </div>
           <AISection />
           <UnifiedSystemSection />
           {/* <WhoIsThisFor /> */}

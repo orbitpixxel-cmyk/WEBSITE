@@ -7,6 +7,16 @@ import { ArrowLeft, ArrowRight, TrendingUp, Megaphone, Headphones, Settings, Dol
 import { motion } from "framer-motion";
 import SmoothScrolling from "@/components/ui/SmoothScrolling";
 
+// Custom gradient style for AI text
+const aiTextGradient = {
+    backgroundImage: 'linear-gradient(90deg, #0F172A 0%, #1E293B 25%, #3B82F6 50%, #60A5FA 75%, #93C5FD 100%)',
+    WebkitBackgroundClip: 'text',
+    backgroundClip: 'text',
+    color: 'transparent',
+    padding: '0.1em 0',
+    margin: '-0.1em 0',
+};
+
 const tabData = [
     {
         id: "sales",
@@ -119,10 +129,10 @@ export default function UnifiedSystemSection({ showHeader = true }: { showHeader
                     {/* ─── Heading Section ─── */}
                     {showHeader && (
                         <div className="mb-20 text-center">
-                            <h2 className="text-4xl md:text-5xl lg:text-7xl font-bold tracking-tight mb-6 text-white leading-tight">
-                                <span className="textured-text">AI for every</span> <span className="text-blue-500">department</span>
+                            <h2 className="text-4xl md:text-5xl lg:text-7xl font-bold tracking-tight mb-6 text-slate-900 leading-tight">
+                                <span style={aiTextGradient}>AI for every</span> <span className="text-blue-600">department</span>
                             </h2>
-                            <p className="text-lg md:text-xl text-white/50 max-w-3xl mx-auto leading-relaxed font-light">
+                            <p className="text-lg md:text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed font-medium">
                                 From Sales to Operations to Finance, we help every team across your organization unlock the true power of AI.
                             </p>
                         </div>

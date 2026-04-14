@@ -19,19 +19,19 @@ const AccordionItem = ({ title, children, isOpen, onToggle, delay = 0 }) => (
     whileInView={{ opacity: 1, y: 0 }}
     transition={{ duration: 0.5, delay }}
     viewport={{ once: true }}
-    className={`mb-3 rounded-2xl overflow-hidden border transition-all duration-300 ${isOpen ? 'border-blue-200 bg-white shadow-[0_8px_30px_-4px_rgba(59,130,246,0.1)]' : 'border-gray-200/60 bg-gray-50/30 hover:border-blue-100 hover:bg-gray-50'}`}
+    className={`mb-3 rounded-2xl overflow-hidden border transition-all duration-300 ${isOpen ? 'border-blue-200 bg-white/90 shadow-[0_8px_30px_-4px_rgba(59,130,246,0.1)]' : 'border-slate-200/60 bg-white/50 hover:border-blue-100 hover:bg-white/70'}`}
   >
     <button
       onClick={onToggle}
       className="w-full flex items-center justify-between py-4 px-5 text-left group"
     >
-      <span className={`text-[16px] font-bold tracking-tight transition-colors duration-300 ${isOpen ? 'text-blue-600' : 'text-gray-800 group-hover:text-blue-600'}`}>
+      <span className={`text-[16px] font-bold tracking-tight transition-colors duration-300 ${isOpen ? 'text-blue-600' : 'text-slate-900 group-hover:text-blue-600'}`}>
         {title}
       </span>
       <motion.div
         animate={{ rotate: isOpen ? 180 : 0 }}
         transition={{ duration: 0.3 }}
-        className={`w-8 h-8 rounded-full flex items-center justify-center transition-colors duration-300 shrink-0 ${isOpen ? 'bg-blue-100 text-blue-600' : 'bg-white border border-gray-200 text-gray-400 group-hover:border-blue-200 group-hover:text-blue-500 shadow-sm'}`}
+        className={`w-8 h-8 rounded-full flex items-center justify-center transition-colors duration-300 shrink-0 ${isOpen ? 'bg-blue-100 text-blue-600' : 'bg-white/80 border border-slate-300 text-slate-600 group-hover:border-blue-200 group-hover:text-blue-500 shadow-sm'}`}
       >
         <ChevronDown className="w-4 h-4" />
       </motion.div>
@@ -44,7 +44,7 @@ const AccordionItem = ({ title, children, isOpen, onToggle, delay = 0 }) => (
           exit={{ height: 0, opacity: 0 }}
           transition={{ duration: 0.3, ease: "easeInOut" }}
         >
-          <div className="pb-5 px-5 text-sm text-zinc-500 leading-relaxed font-medium">
+          <div className="pb-5 px-5 text-sm text-slate-700 leading-relaxed font-medium">
             {children}
           </div>
         </motion.div>
@@ -71,12 +71,12 @@ const ProfileRow = ({ name, role, rating, color, delay = 0 }) => (
       {name.split(" ").map(n => n[0]).join("")}
     </div>
     <div className="flex-1 min-w-0">
-      <div className="text-sm font-semibold text-gray-900 truncate">{name}</div>
-      <div className="text-[11px] text-zinc-400 font-medium">{role}</div>
+      <div className="text-sm font-semibold text-slate-900 truncate">{name}</div>
+      <div className="text-[11px] text-slate-500 font-medium">{role}</div>
     </div>
     <div className="flex items-center gap-1 shrink-0">
       <Star className="w-3 h-3 fill-amber-400 text-amber-400" />
-      <span className="text-xs font-semibold text-gray-700">{rating}</span>
+      <span className="text-xs font-semibold text-slate-700">{rating}</span>
     </div>
   </motion.div>
 );
@@ -101,8 +101,8 @@ const StatCard = ({ icon: Icon, customIcon, value, description, delay = 0 }) => 
         {Icon && <Icon className="w-6 h-6 text-[#3b82f6]" />}
       </div>
     )}
-    <div className="text-xl font-bold text-gray-900 mb-3 tracking-tight">{value}</div>
-    <p className="text-sm text-zinc-500 leading-relaxed font-medium max-w-[280px]">{description}</p>
+    <div className="text-xl font-bold text-slate-900 mb-3 tracking-tight">{value}</div>
+    <p className="text-sm text-slate-600 leading-relaxed font-medium max-w-[280px]">{description}</p>
   </motion.div>
 );
 
@@ -117,16 +117,16 @@ const featuredExperts = [
   { name: "Sara Rose", role: "Lead Developer", color: "#f59e0b" },
 ];
 
-
 export default function AISection() {
   const [openAccordion, setOpenAccordion] = useState(0);
 
   return (
-    <div className="min-h-screen w-full rounded-[3.5rem] bg-white py-24 text-black z-10 relative overflow-hidden">
-      {/* Background Mesh Gradients — Blueish */}
-      <div className="absolute top-0 right-0 -translate-y-1/2 translate-x-1/2 w-[60%] h-[60%] rounded-full pointer-events-none" style={{ background: 'radial-gradient(circle, rgba(59,130,246,0.08) 0%, transparent 60%)' }} />
-      <div className="absolute bottom-0 left-0 translate-y-1/3 -translate-x-1/4 w-[50%] h-[50%] rounded-full pointer-events-none" style={{ background: 'radial-gradient(circle, rgba(96,165,250,0.06) 0%, transparent 65%)' }} />
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[40%] h-[40%] rounded-full pointer-events-none" style={{ background: 'radial-gradient(circle, rgba(147,197,253,0.05) 0%, transparent 70%)' }} />
+    <div className="min-h-screen w-full rounded-[3.5rem] py-24 text-slate-900 z-10 relative overflow-hidden" style={{
+      background: 'radial-gradient(ellipse at 15% 25%, rgba(99, 102, 241, 0.12) 0%, transparent 40%), radial-gradient(ellipse at 85% 75%, rgba(59, 130, 246, 0.10) 0%, transparent 45%), radial-gradient(ellipse at 50% 95%, rgba(37, 99, 235, 0.08) 0%, transparent 35%), linear-gradient(145deg, #fafbfc 0%, #f1f5f9 20%, #e2e8f0 40%, #f0f9ff 65%, #f8fafc 85%, #ffffff 100%)'
+    }}>
+      {/* Light Sky Gradients */}
+      <div className="absolute top-0 right-0 -translate-y-1/2 translate-x-1/2 w-[60%] h-[60%] bg-blue-100/30 blur-[120px] rounded-full pointer-events-none" />
+      <div className="absolute bottom-0 left-0 translate-y-1/2 -translate-x-1/2 w-[60%] h-[60%] bg-blue-50/40 blur-[120px] pointer-events-none rounded-full" />
 
       <div className="max-w-7xl mx-auto w-full px-6 md:px-10 relative z-10 text-left">
 
@@ -155,7 +155,7 @@ export default function AISection() {
             viewport={{ once: true }}
             className="lg:col-span-5"
           >
-            <h2 className="text-5xl md:text-6xl lg:text-[64px] font-bold tracking-tight leading-[1.05] text-gray-900 mb-6">
+            <h2 className="text-5xl md:text-6xl lg:text-[64px] font-bold tracking-tight leading-[1.05] text-slate-900 mb-6">
               Intelligent Systems{" "}
               <span className="relative inline-block">
                 <span className="relative z-10 bg-gradient-to-r from-blue-600 via-blue-500 to-cyan-500 bg-clip-text text-transparent">Built for Scale</span>
@@ -165,7 +165,7 @@ export default function AISection() {
 
             {/* Feature Blurb */}
             <div className="mb-12">
-              <p className="text-[17px] text-zinc-500 leading-relaxed font-medium max-w-[460px]">
+              <p className="text-[17px] text-slate-700 leading-relaxed font-medium max-w-[460px]">
                 We design and deploy AI systems powered by LLMs that drive operational efficiency, surface deeper insights, and give your business a measurable competitive edge.
               </p>
             </div>
@@ -215,18 +215,18 @@ export default function AISection() {
         viewport={{ once: true }}
         className="w-full mt-24 px-6 md:px-10"
       >
-        <div className="max-w-7xl mx-auto relative overflow-hidden rounded-[2.5rem] p-12 md:p-16" style={{ background: 'linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%)' }}>
-          {/* Background glows */}
-          <div className="absolute top-0 right-0 w-[50%] h-[50%] rounded-full pointer-events-none" style={{ background: 'radial-gradient(circle, rgba(59,130,246,0.1) 0%, transparent 70%)' }} />
-          <div className="absolute bottom-0 left-0 w-[40%] h-[40%] rounded-full pointer-events-none" style={{ background: 'radial-gradient(circle, rgba(37,99,235,0.08) 0%, transparent 70%)' }} />
+        <div className="max-w-7xl mx-auto relative overflow-hidden rounded-[2.5rem] p-12 md:p-16 bg-white/90 backdrop-blur-xl border border-slate-200/60 shadow-[0_20px_40px_rgba(0,0,0,0.08)]">
+          {/* Light Background Accents */}
+          <div className="absolute top-0 right-0 w-[50%] h-[50%] bg-blue-100/20 blur-[80px] rounded-full pointer-events-none" />
+          <div className="absolute bottom-0 left-0 w-[40%] h-[40%] bg-blue-50/30 blur-[80px] rounded-full pointer-events-none" />
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative z-10">
             <div className="flex flex-col">
-              <h2 className="text-3xl md:text-5xl font-bold leading-[1.1] text-white mb-6 tracking-tight">
+              <h2 className="text-3xl md:text-5xl font-bold leading-[1.1] text-slate-900 mb-6 tracking-tight">
                 Empower your growth with a{' '}
                 <span className="bg-gradient-to-r from-blue-400 to-cyan-300 bg-clip-text text-transparent">custom CRM built for your business.</span>
               </h2>
-              <p className="text-base text-slate-400 leading-relaxed font-medium mb-8 max-w-md">
+              <p className="text-base text-slate-700 leading-relaxed font-medium mb-8 max-w-md">
                 Ditch the generic tools. We build tailored CRM systems that integrate perfectly with your internal workflows and scale as you grow.
               </p>
               <div className="flex flex-wrap gap-3 mb-8">
@@ -236,7 +236,7 @@ export default function AISection() {
                   { label: "Lead Management", icon: Users },
                   { label: "Business Analytics", icon: BarChart3 },
                 ].map((item) => (
-                  <div key={item.label} className="flex items-center gap-2 px-4 py-2 bg-white/5 backdrop-blur-sm rounded-full text-sm font-semibold text-slate-300 border border-white/10">
+                  <div key={item.label} className="flex items-center gap-2 px-4 py-2 bg-blue-50 backdrop-blur-sm rounded-full text-sm font-semibold text-slate-800 border border-blue-200/60">
                     <item.icon className="w-3.5 h-3.5 text-blue-400" />
                     {item.label}
                   </div>
@@ -281,7 +281,7 @@ export default function AISection() {
           {/* Section Header */}
           <div className="text-center mb-16">
             <span className="text-[12px] font-bold text-blue-600 uppercase tracking-[0.2em] mb-4 block">How it works</span>
-            <h3 className="text-4xl md:text-5xl font-bold text-gray-900 tracking-tight">Getting started is easy</h3>
+            <h3 className="text-4xl md:text-5xl font-bold text-slate-900 tracking-tight">Getting started is easy</h3>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -321,23 +321,23 @@ export default function AISection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: item.delay }}
                 viewport={{ once: true }}
-                className="group relative bg-white border border-gray-100 rounded-[2rem] p-8 shadow-[0_4px_24px_rgba(0,0,0,0.03)] hover:shadow-[0_12px_40px_rgba(59,130,246,0.08)] hover:border-blue-100 transition-all duration-500"
+                className="group relative bg-white/80 border border-slate-200/60 rounded-[2rem] p-8 shadow-[0_4px_24px_rgba(0,0,0,0.03)] hover:shadow-[0_12px_40px_rgba(59,130,246,0.08)] hover:border-blue-100 transition-all duration-500 backdrop-blur-sm"
               >
                 {/* Step Number & Icon Row */}
                 <div className="flex items-start justify-between mb-8">
-                  <span className="text-[40px] font-bold text-gray-900 leading-none tracking-tighter opacity-80 group-hover:text-blue-600 transition-colors duration-300">
+                  <span className="text-[40px] font-bold text-slate-900 leading-none tracking-tighter opacity-80 group-hover:text-blue-600 transition-colors duration-300">
                     {item.step}
                   </span>
-                  <div className="w-12 h-12 rounded-2xl bg-gray-50 flex items-center justify-center transition-all duration-300 group-hover:bg-blue-50 group-hover:scale-110">
-                    <item.icon className="w-5 h-5 text-gray-400 group-hover:text-blue-500 transition-colors duration-300" strokeWidth={1.5} />
+                  <div className="w-12 h-12 rounded-2xl bg-slate-50 flex items-center justify-center transition-all duration-300 group-hover:bg-blue-50 group-hover:scale-110">
+                    <item.icon className="w-5 h-5 text-slate-400 group-hover:text-blue-500 transition-colors duration-300" strokeWidth={1.5} />
                   </div>
                 </div>
 
                 {/* Content */}
-                <h4 className="text-[18px] font-bold text-gray-900 mb-3 tracking-tight">
+                <h4 className="text-[18px] font-bold text-slate-900 mb-3 tracking-tight">
                   {item.title}
                 </h4>
-                <p className="text-[14px] text-zinc-500 leading-relaxed font-medium">
+                <p className="text-[14px] text-slate-700 leading-relaxed font-medium">
                   {item.desc}
                 </p>
               </motion.div>

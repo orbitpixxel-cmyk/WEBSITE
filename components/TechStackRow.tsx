@@ -5,20 +5,21 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 
 const row1 = [
-  { name: "n8n", url: "https://simpleicons.org/icons/n8n.svg" },
+
   { name: "Make", url: "https://simpleicons.org/icons/make.svg" },
   { name: "Google Sheets", url: "https://simpleicons.org/icons/googlesheets.svg" },
-  { name: "Slack", url: "https://simpleicons.org/icons/slack.svg" },
+
   { name: "Discord", url: "https://simpleicons.org/icons/discord.svg" },
-  { name: "Zapier", url: "https://simpleicons.org/icons/zapier.svg" },
+
 ];
 
 const row2 = [
   { name: "Google Calendar", url: "https://simpleicons.org/icons/googlecalendar.svg" },
   { name: "Notion", url: "https://simpleicons.org/icons/notion.svg" },
-  { name: "Cal.com", url: "https://simpleicons.org/icons/cal-dot-com.svg" },
+  { name: "Google Sheets", url: "https://simpleicons.org/icons/googlesheets.svg" },
   { name: "PostgreSQL", url: "https://simpleicons.org/icons/postgresql.svg" },
-  { name: "OpenAI", url: "https://simpleicons.org/icons/openai.svg" },
+  { name: "n8n", url: "https://simpleicons.org/icons/n8n.svg" },
+  { name: "Zapier", url: "https://simpleicons.org/icons/zapier.svg" },
 ];
 
 const BrandIcon = ({ url, name }: { url: string; name: string }) => (
@@ -28,7 +29,7 @@ const BrandIcon = ({ url, name }: { url: string; name: string }) => (
         src={url}
         alt={name}
         fill
-        className="object-contain filter invert brightness-[2] contrast-125 group-hover:brightness-[3] transition-all"
+        className="object-contain filter brightness-[0.2] group-hover:brightness-[0.1] opacity-70 transition-all"
       />
     </div>
   </div>
@@ -38,7 +39,7 @@ const MarqueeRow = ({ items, direction = "left", speed = 40 }: { items: any[]; d
   const marqueeItems = [...items, ...items, ...items, ...items]; // Quadruple for safety
 
   return (
-    <div className="flex w-full overflow-hidden items-center py-4">
+    <div className="flex w-full overflow-hidden items-center pt-1">
       <motion.div
         className="flex gap-6 sm:gap-8 items-center"
         animate={{
@@ -57,28 +58,24 @@ const MarqueeRow = ({ items, direction = "left", speed = 40 }: { items: any[]; d
     </div>
   );
 };
-
 export default function TechStackRow() {
   return (
-    <div className="w-full py-16 relative flex flex-col items-center gap-4">
-      <div className="absolute inset-x-0 top-0 bottom-0 pointer-events-none z-20" style={{
+    <div className="w-full py-0 relative flex flex-col items-center gap-0">
+      <span className="text-[12px] font-bold text-zinc-500 uppercase tracking-[0.3em] opacity-80 z-40 relative mt-4">
+        Integrated with your favorite tools
+      </span>
+      <div className="w-full max-w-xl mx-auto relative pointer-events-none z-20" style={{
         maskImage: 'linear-gradient(to right, transparent, black 15%, black 85%, transparent)',
         WebkitMaskImage: 'linear-gradient(to right, transparent, black 15%, black 85%, transparent)'
       }}>
-        <div className="w-full h-full flex flex-col justify-center gap-6">
-          {/* <MarqueeRow items={row1} direction="left" speed={35} /> */}
-          <MarqueeRow items={row2} direction="right" speed={45} />
+        <div className="w-full h-full flex flex-col justify-center py-0">
+          <MarqueeRow items={row2} direction="right" speed={50} />
         </div>
       </div>
 
-      {/* Background Abyss Blur Areas */}
-      <div className="absolute left-0 top-0 bottom-0 w-48 bg-gradient-to-r from-black via-black/80 to-transparent z-30 pointer-events-none blur-xl sm:blur-2xl opacity-80" />
-      <div className="absolute right-0 top-0 bottom-0 w-48 bg-gradient-to-l from-black via-black/80 to-transparent z-30 pointer-events-none blur-xl sm:blur-2xl opacity-80" />
-
-      {/* Invisible container to maintain height */}
-      <div className="opacity-0 pointer-events-none">
-        <div className="h-40 sm:h-48" />
-      </div>
+      {/* Background Edge Blur Areas - Updated to White for light theme */}
+      <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-white via-white/40 to-transparent z-30 pointer-events-none blur-xl opacity-90" />
+      <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-white via-white/40 to-transparent z-30 pointer-events-none blur-xl opacity-90" />
     </div>
   );
 }

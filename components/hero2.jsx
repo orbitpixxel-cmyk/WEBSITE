@@ -2,6 +2,7 @@
 import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { PremiumArcs } from "@/components/ui/PremiumArcs";
 import {
     Phone,
     MessageSquare,
@@ -47,19 +48,28 @@ const FloatingCard = ({ children, delay = 0, className = "" }) => (
 
 export default function RoughHeroReplicate() {
     return (
-        <div className="relative w-[100vw] h-[110vh] text-white flex flex-col items-center pt-20 font-sans z-[50] overflow-hidden bg-black" /* style={{
+        <div className="relative w-[100vw] h-[110vh] text-slate-900 flex flex-col items-center pt-20 font-sans z-[50] overflow-hidden bg-white" style={{
             background: 'radial-gradient(ellipse at 15% 25%, rgba(99, 102, 241, 0.12) 0%, transparent 40%), radial-gradient(ellipse at 85% 75%, rgba(59, 130, 246, 0.10) 0%, transparent 45%), radial-gradient(ellipse at 50% 95%, rgba(37, 99, 235, 0.08) 0%, transparent 35%), linear-gradient(145deg, #fafbfc 0%, #f1f5f9 20%, #e2e8f0 40%, #f0f9ff 65%, #f8fafc 85%, #ffffff 100%)'
-        }} */>
+        }}>
 
-            {/* Background Infrastructure Layer - Pure DarkVeil */}
+            {/* Background Infrastructure Layer - Circular Gradiations */}
             <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
-                <div
-                    className="absolute inset-0 opacity-40 mix-blend-screen pointer-events-none"
-                    style={{ background: 'radial-gradient(ellipse at 50% -20%, rgba(59, 130, 246, 0.4) 0%, rgba(15, 23, 42, 0) 60%)' }}
-                />
-                <div
-                    className="absolute inset-0 opacity-20 mix-blend-screen pointer-events-none"
-                    style={{ background: 'radial-gradient(circle at 15% 35%, rgba(99, 102, 241, 0.4) 0%, rgba(15, 23, 42, 0) 50%)' }}
+                {/* Concentric Decorative Circles - Increased Visibility */}
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-[40%] w-[100vw] h-[100vw] opacity-[0.06]">
+                    <div className="absolute inset-0 rounded-full border-[1.5px] border-blue-500 scale-[0.9] origin-center" />
+                    <div className="absolute inset-0 rounded-full border-[1.5px] border-blue-500 scale-[0.75] origin-center" />
+                    <div className="absolute inset-0 rounded-full border-[1.5px] border-blue-500 scale-[0.6] origin-center" />
+                    <div className="absolute inset-0 rounded-full border-[1.5px] border-blue-500 scale-[0.45] origin-center" />
+                    <div className="absolute inset-0 rounded-full border-[1.5px] border-blue-500 scale-[0.3] origin-center" />
+                </div>
+
+                {/* 3 Premium Semi-Circles (Concentric Arcs) - Now Reusable */}
+                <PremiumArcs opacity={0.4} />
+                
+                {/* Soft Radial Glows for Light Theme - Ultra Premium Enhanced Wings */}
+                <div 
+                    className="absolute inset-x-0 top-0 h-full opacity-70 pointer-events-none" 
+                    style={{ background: 'radial-gradient(circle at 5% 5%, rgba(37, 99, 235, 0.3) 0%, transparent 60%), radial-gradient(circle at 95% 5%, rgba(37, 99, 235, 0.3) 0%, transparent 60%), radial-gradient(circle at 50% 15%, rgba(59, 130, 246, 0.25) 0%, transparent 50%)' }} 
                 />
             </div>
 
@@ -83,7 +93,7 @@ export default function RoughHeroReplicate() {
                         transition={{ duration: 1, ease: [0.25, 0.1, 0.25, 1] }}
                         className="text-[40px] sm:text-[48px] md:text-[54px] lg:text-[56px] font-bold leading-snug tracking-normal mb-8 px-6"
                     >
-                        <span className="text-white font-extrabold">
+                        <span className="text-slate-900 font-extrabold">
                             Empower Your
                         </span>{' '}
                         <span className="relative inline-block px-1">
@@ -92,7 +102,7 @@ export default function RoughHeroReplicate() {
                                 Business
                             </span>
                         </span><br />
-                        <span className="text-white font-extrabold">
+                        <span className="text-slate-900 font-extrabold">
                             with an
                         </span>{' '}
                         <span className="relative inline-block px-1">
@@ -101,7 +111,7 @@ export default function RoughHeroReplicate() {
                                 AI Partner
                             </span>
                         </span><br />
-                        <span className="text-white font-extrabold">
+                        <span className="text-slate-900 font-extrabold">
                             That
                         </span>{' '}
                         <span className="relative inline-block px-1">
@@ -116,7 +126,7 @@ export default function RoughHeroReplicate() {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8, delay: 0.2 }}
-                        className="text-slate-400 text-base md:text-lg max-w-2xl mx-auto mb-10 font-medium leading-relaxed tracking-wide"
+                        className="text-slate-600 text-base md:text-lg max-w-2xl mx-auto mb-10 font-medium leading-relaxed tracking-wide"
                     >
                         We build custom AI solutions that automate your operations, enhance customer engagement, and drive business growth 24/7.
                     </motion.p>
@@ -140,8 +150,8 @@ export default function RoughHeroReplicate() {
 
                 {/* Hero Interactive Playground */}
                 <div className="relative w-full h-[500px]">
-                    {/* Tech Marquee: Positioned at the top of the playground to stay below text */}
-                    <div className="absolute -top-24 left-0 w-full z-0 opacity-50 pointer-events-none">
+                    {/* Tech Marquee: Positioned in the playground area */}
+                    <div className="absolute top-5 left-0 w-full z-0 opacity-50 pointer-events-none">
                         <TechStackRow />
                     </div>
 
