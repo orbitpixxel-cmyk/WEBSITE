@@ -371,7 +371,7 @@ function TasksPanel({ onToast }) {
                 <div className="p-sub">Track and manage your upcoming tasks.</div>
                 <div className="task-list">
                     {tasks.length === 0 ? (
-                        <div style={{ textAlign: "center", padding: "24px", color: "var(--text3)", fontSize: 13 }}>No tasks yet. Click "Add Task" ✦</div>
+                        <div style={{ textAlign: "center", padding: "24px", color: "var(--text3)", fontSize: 13 }}>No tasks yet. Click &quot;Add Task&quot; ✦</div>
                     ) : tasks.map(t => (
                         <div key={t.id} className={`task-item${t.done ? " done" : ""}`}>
                             <div className="trow">
