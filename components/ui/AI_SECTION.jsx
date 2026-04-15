@@ -8,6 +8,7 @@ import BorderGlow from "./Border/BorderGlow";
 import Bento from "./Bento";
 import Bento2 from "./Bento2";
 import RightBox from "./rightBox";
+import CRMDashboard from "./dasboard";
 import { ChevronDown, Star, Bot, BrainCircuit, ShieldCheck, Users, Cpu, Briefcase, Zap, Phone, MessageSquare, Settings, RefreshCw, ArrowRight, Globe, Webhook, TrendingUp, Search, Rocket, Monitor, BarChart3 } from "lucide-react";
 
 /**
@@ -254,15 +255,9 @@ export default function AISection() {
               initial={{ opacity: 0, x: 20 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, ease: "easeOut" }}
-              className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-[0_32px_64px_-16px_rgba(0,0,0,0.4)] border border-white/10"
+              className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-[0_32px_64px_-16px_rgba(0,0,0,0.4)] border border-white/10 bg-slate-900"
             >
-              <Image
-                src="/assets/20260403_1348_Image Generation_remix_01kn96pkwbfes8t2s32d6se0rp.png"
-                alt="AI Intelligence Visualization"
-                fill
-                className="object-cover"
-                priority
-              />
+              <CRMDashboard />
             </motion.div>
           </div>
         </div>
