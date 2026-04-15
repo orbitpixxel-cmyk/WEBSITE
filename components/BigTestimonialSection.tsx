@@ -116,17 +116,13 @@ const InfiniteMarquee = ({ items, speed = 40, direction = "left" }: { items: typ
 
 export default function BigTestimonialSection() {
   return (
-    <Section className="py-4 md:py-8 relative overflow-hidden bg-transparent">
+    <Section className="-mt-px py-4 md:py-8 relative overflow-hidden bg-transparent">
       
       {/* Background Image Effect (Kept as requested) */}
       {/* <div
         className="absolute inset-0 z-0 bg-center bg-cover bg-no-repeat opacity-80 pointer-events-none"
         style={{ backgroundImage: "url('/assets/dualgradiation.webp')" }}
       /> */}
-      
-      {/* Ambient Glows (Kept as requested) */}
-      <div className="absolute top-0 right-0 -translate-y-1/2 translate-x-1/2 w-[60%] h-[60%] bg-blue-100/30 blur-[120px] rounded-full pointer-events-none" />
-      <div className="absolute bottom-0 left-0 translate-y-1/2 -translate-x-1/2 w-[60%] h-[60%] bg-blue-50/40 blur-[120px] pointer-events-none rounded-full" />
 
       <Container className="max-w-none w-full relative z-10 px-0">
         <div className="transform scale-[0.8] md:scale-[0.85] origin-top w-full -mb-24 md:-mb-32">

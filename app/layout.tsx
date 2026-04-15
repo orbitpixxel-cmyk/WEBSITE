@@ -25,26 +25,33 @@ export default function RootLayout(props: { children: ReactNode }) {
         <html lang="en" className={montserrat.variable}>
             <body className="bg-background text-foreground antialiased font-sans">
                 <SmoothScrolling>
-                <div className="relative min-h-screen w-full overflow-hidden bg-background">
-                    {/* Blue corner glow background, fixed behind all content */}
+                    <div className="relative min-h-screen w-full overflow-hidden bg-background">
+                        {/* Blue gradient background shades are commented out to keep the background pure white */}
+                        {/* 
                     <div
                         className="pointer-events-none fixed inset-0 z-0"
                         style={{
-                            backgroundImage: `
-                  radial-gradient(circle 520px at 0% 160px, rgba(37, 99, 235, 0.3), transparent),
-                  radial-gradient(circle 520px at 100% 160px, rgba(37, 99, 235, 0.3), transparent),
-                  radial-gradient(circle 640px at 50% -140px, rgba(219, 234, 254, 0.4), transparent)
-                `,
+                            background:
+                                "radial-gradient(ellipse at 15% 25%, rgba(99, 102, 241, 0.12) 0%, transparent 40%), radial-gradient(ellipse at 85% 75%, rgba(59, 130, 246, 0.10) 0%, transparent 45%), radial-gradient(ellipse at 50% 95%, rgba(37, 99, 235, 0.08) 0%, transparent 35%), linear-gradient(145deg, #fafbfc 0%, #f1f5f9 20%, #e2e8f0 40%, #f0f9ff 65%, #f8fafc 85%, #ffffff 100%)",
                         }}
                     />
 
-                    {/* Site content */}
-                    <div className="relative z-10 flex min-h-screen flex-col">
-                        <Navbar />
-                        <main className="flex-1">{children}</main>
-                        <Footer />
+                    <div
+                        className="pointer-events-none fixed inset-0 z-0 opacity-70"
+                        style={{
+                            background:
+                                "radial-gradient(circle at 5% 5%, rgba(37, 99, 235, 0.3) 0%, transparent 60%), radial-gradient(circle at 95% 5%, rgba(37, 99, 235, 0.3) 0%, transparent 60%), radial-gradient(circle at 50% 15%, rgba(59, 130, 246, 0.25) 0%, transparent 50%)",
+                        }}
+                    /> 
+                    */}
+
+                        {/* Site content */}
+                        <div className="relative z-10 flex min-h-screen flex-col">
+                            <Navbar />
+                            <main className="flex-1">{children}</main>
+                            <Footer />
+                        </div>
                     </div>
-                </div>
                 </SmoothScrolling>
             </body>
         </html>

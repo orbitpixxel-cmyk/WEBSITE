@@ -1,30 +1,39 @@
 "use client";
 import React from "react";
-import { motion } from "framer-motion";
-import { Zap, Bot, BarChart3, ChevronRight, Phone, Shield, Clock, Layers, Sparkles, Lock } from "lucide-react";
-// @ts-ignore
-import BorderGlow from "@/components/ui/Border/BorderGlow";
-import Workflow from "@/components/ui/Workflow/workflow";
-import DashboardVisual from "@/components/ui/Workflow/DashboardVisual";
-import UnifiedSystemSection from "@/components/UnifiedSystemSection";
-import WhoIsThisFor from "@/components/WhoIsThisFor";
-import AISection from "@/components/ui/AI_SECTION";
-import BigTestimonialSection from "@/components/BigTestimonialSection";
-import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from '@/components/ui/card';
-import CardAni from '@/components/ui/card-animation/cardAni';
-import SmoothScrolling from '@/components/ui/SmoothScrolling';
-import Footer from "@/components/Footer";
-import WhatWeProvide from "@/components/ui/WhatWeProvide";
-// import HeroSection from "@/components/HeroSection";
+import dynamic from "next/dynamic";
 import HeroSection from "@/components/hero2";
+
+// Lazy-loaded below-the-fold components
+const SectionLoader = () => (
+  <div className="w-full min-h-[40vh] flex items-center justify-center">
+    <div className="w-8 h-8 border-2 border-blue-500/30 border-t-blue-500 rounded-full animate-spin" />
+  </div>
+);
+
+const UnifiedSystemSection = dynamic(() => import("@/components/UnifiedSystemSection"), {
+  loading: SectionLoader,
+  ssr: false,
+});
+
+const WhatWeProvide = dynamic(() => import("@/components/ui/WhatWeProvide"), {
+  loading: SectionLoader,
+  ssr: false,
+});
+
+const AISection = dynamic(() => import("@/components/ui/AI_SECTION"), {
+  loading: SectionLoader,
+  ssr: false,
+});
+
+const BigTestimonialSection = dynamic(() => import("@/components/BigTestimonialSection"), {
+  loading: SectionLoader,
+  ssr: false,
+});
 
 export default function DemoPage() {
   return (
-    <SmoothScrolling>
-      <div className="flex min-h-screen flex-col items-center justify-center px-6 relative overflow-hidden" style={{
-        background: 'radial-gradient(ellipse at 15% 25%, rgba(99, 102, 241, 0.12) 0%, transparent 40%), radial-gradient(ellipse at 85% 75%, rgba(59, 130, 246, 0.10) 0%, transparent 45%), radial-gradient(ellipse at 50% 95%, rgba(37, 99, 235, 0.08) 0%, transparent 35%), linear-gradient(145deg, #fafbfc 0%, #f1f5f9 20%, #e2e8f0 40%, #f0f9ff 65%, #f8fafc 85%, #ffffff 100%)',
-        // Removed opacity: 0
-      }}>
+    <>
+      <div className="flex min-h-screen flex-col items-center justify-center px-6 relative overflow-hidden">
         {/* Visual Infrastructure Background Layer - Darker */}
         <div
           className="absolute inset-0 z-0 pointer-events-none opacity-[0.08]"
@@ -53,14 +62,14 @@ export default function DemoPage() {
         <div className="relative z-10 w-full">
 
           <div className="w-[100vw] relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw]">
-            <BigTestimonialSection />
+            {/* <BigTestimonialSection /> */}
           </div>
-          <AISection />
+          {/* <AISection /> */}
           <UnifiedSystemSection />
           {/* <WhoIsThisFor /> */}
           <WhatWeProvide />
         </div>
       </div>
-    </SmoothScrolling>
+    </>
   );
 }

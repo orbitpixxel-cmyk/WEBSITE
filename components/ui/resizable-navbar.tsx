@@ -132,12 +132,21 @@ export const NavItems = ({ items, className, onItemClick, visible }: NavItemsPro
           href={item.link}
           onMouseEnter={() => setHovered(idx)}
           onClick={onItemClick}
-          className="relative px-3 py-2 transition-colors hover:text-white pointer-events-auto"
+          className={cn(
+            "relative px-3 py-2 transition-colors pointer-events-auto rounded-full",
+            visible ? "hover:text-white" : "hover:text-blue-800"
+          )}
         >
           {hovered === idx && (
-            <span className="absolute inset-0 h-full w-full rounded-full bg-muted" />
+            <motion.span
+              layoutId="nav-hover"
+              className="absolute inset-0 h-full w-full rounded-full bg-blue-500/10 backdrop-blur-[2px] z-0"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+            />
           )}
-          <span className="relative z-20">{item.name}</span>
+          <span className="relative z-20 font-semibold">{item.name}</span>
         </Link>
       ))}
     </div>
