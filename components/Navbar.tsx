@@ -15,9 +15,9 @@ import {
 } from "@/components/ui/resizable-navbar";
 
 const links = [
-  { href: "/services", label: "Services" },
+  { href: "/", label: "Home" },
+  // { href: "/about", label: "About" },
   { href: "/testimonials", label: "Testimonials" },
-  { href: "/pricing", label: "Pricing" },
   { href: "/contact", label: "Contact" }
 ];
 
@@ -33,14 +33,14 @@ export default function Navbar() {
           <Link
             href="/"
             prefetch={true}
-            className="relative z-[500] flex items-center gap-3 px-3 py-1 text-[0.7rem] font-semibold tracking-[0.22em] text-slate-900 cursor-pointer pointer-events-auto"
+            className="relative z-[500] flex items-center gap-3 px-3 py-1 text-[0.7rem] font-semibold tracking-[0.22em] text-white cursor-pointer pointer-events-auto"
           >
             <Image
               src="/logo.png"
               alt="Pixxelorbit logo"
               width={40}
               height={40}
-              className="h-5 w-5 shrink-0 object-contain invert"
+              className="h-5 w-5 shrink-0 object-contain"
               priority
             />
             <span>PIXXELORBIT</span>
@@ -48,7 +48,7 @@ export default function Navbar() {
 
           <NavItems
             items={links.map((item) => ({ name: item.label, link: item.href }))}
-            className="text-sm text-slate-900/70"
+            className="text-sm text-slate-300 hover:text-white"
           />
 
           <div className="hidden items-center gap-3 md:flex z-[100] pointer-events-auto">

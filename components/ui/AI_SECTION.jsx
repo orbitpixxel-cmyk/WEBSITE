@@ -125,9 +125,9 @@ export default function AISection() {
   return (
     <div className="min-h-screen w-full rounded-[3.5rem] bg-white py-24 text-black z-10 relative overflow-hidden">
       {/* Background Mesh Gradients — Blueish */}
-      <div className="absolute top-0 right-0 -translate-y-1/2 translate-x-1/2 w-[60%] h-[60%] bg-[#3b82f6]/8 blur-[150px] pointer-events-none rounded-full" />
+      {/* <div className="absolute top-0 right-0 -translate-y-1/2 translate-x-1/2 w-[60%] h-[60%] bg-[#3b82f6]/8 blur-[150px] pointer-events-none rounded-full" />
       <div className="absolute bottom-0 left-0 translate-y-1/3 -translate-x-1/4 w-[50%] h-[50%] bg-[#60a5fa]/6 blur-[130px] pointer-events-none rounded-full" />
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[40%] h-[40%] bg-[#93c5fd]/5 blur-[100px] pointer-events-none rounded-full" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[40%] h-[40%] bg-[#93c5fd]/5 blur-[100px] pointer-events-none rounded-full" /> */}
 
       <div className="max-w-7xl mx-auto w-full px-6 md:px-10 relative z-10 text-left">
 
@@ -217,7 +217,7 @@ export default function AISection() {
         viewport={{ once: true }}
         className="w-full mt-24 px-6 md:px-10"
       >
-        <div className="max-w-7xl mx-auto relative overflow-hidden rounded-[2.5rem] p-12 md:p-16" style={{ background: 'linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%)' }}>
+        <div className="max-w-7xl mx-auto relative overflow-hidden rounded-[2.5rem] p-12 md:p-16" style={{ background: 'linear-gradient(135deg, #000000 0%, #0a0a0a 50%, #000000 100%)' }}>
           {/* Background glows */}
           <div className="absolute top-0 right-0 w-[50%] h-[50%] bg-blue-500/10 blur-[120px] rounded-full pointer-events-none" />
           <div className="absolute bottom-0 left-0 w-[40%] h-[40%] bg-blue-600/8 blur-[100px] rounded-full pointer-events-none" />
@@ -257,7 +257,14 @@ export default function AISection() {
               transition={{ duration: 0.8, ease: "easeOut" }}
               className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-[0_32px_64px_-16px_rgba(0,0,0,0.4)] border border-white/10 bg-slate-900"
             >
-              <CRMDashboard />
+              {/* <CRMDashboard /> */}
+              <Image 
+                src="/crm_dashboard_image.png"
+                alt="AI CRM Dashboard Preview"
+                fill
+                className="object-cover"
+                priority
+              />
             </motion.div>
           </div>
         </div>

@@ -122,7 +122,7 @@ export const NavItems = ({ items, className, onItemClick, visible }: NavItemsPro
       onMouseLeave={() => setHovered(null)}
       className={cn(
         "absolute inset-0 hidden flex-1 flex-row items-center justify-center space-x-2 text-sm lg:flex lg:space-x-2 pointer-events-none",
-        visible ? "text-white/70" : "text-slate-900/70",
+        visible ? "text-white/90" : "text-slate-300",
         className,
       )}
     >
@@ -135,7 +135,7 @@ export const NavItems = ({ items, className, onItemClick, visible }: NavItemsPro
           className="relative px-3 py-2 transition-colors hover:text-white pointer-events-auto"
         >
           {hovered === idx && (
-            <span className="absolute inset-0 h-full w-full rounded-full bg-muted" />
+            <span className="absolute inset-0 h-full w-full rounded-full bg-white/10 backdrop-blur-sm" />
           )}
           <span className="relative z-20">{item.name}</span>
         </Link>

@@ -23,13 +23,13 @@ const row2 = [
 ];
 
 const BrandIcon = ({ url, name }: { url: string; name: string }) => (
-  <div className="flex flex-col items-center justify-center p-4 bg-white/[0.03] border border-white/10 rounded-2xl w-16 h-16 sm:w-20 sm:h-20 backdrop-blur-sm shadow-[inset_0_0_20px_rgba(255,255,255,0.02)] group hover:border-white/20 transition-all duration-500 hover:scale-110">
+  <div className="flex flex-col items-center justify-center p-4 bg-white/[0.03] border border-white/10 rounded-2xl w-16 h-16 sm:w-20 sm:h-20 backdrop-blur-sm shadow-[inset_0_0_20px_rgba(255,255,255,0.02)] group hover:border-white/30 transition-all duration-500 hover:scale-110 cursor-pointer">
     <div className="relative w-8 h-8 sm:w-10 sm:h-10">
       <Image
         src={url}
         alt={name}
         fill
-        className="object-contain filter brightness-[0.2] group-hover:brightness-[0.1] opacity-70 transition-all"
+        className="object-contain filter brightness-0 invert opacity-60 group-hover:opacity-100 transition-all"
       />
     </div>
   </div>
@@ -60,8 +60,8 @@ const MarqueeRow = ({ items, direction = "left", speed = 40 }: { items: any[]; d
 };
 export default function TechStackRow() {
   return (
-    <div className="w-full py-0 relative flex flex-col items-center gap-0">
-      <span className="text-[12px] font-bold text-zinc-500 uppercase tracking-[0.3em] opacity-80 z-40 relative mt-4">
+    <div className="w-full py-0 relative flex flex-col items-center gap-6 mt-4">
+      <span className="text-[12px] font-bold text-zinc-500 uppercase tracking-[0.3em] opacity-80 z-40 relative mb-2">
         Integrated with your favorite tools
       </span>
       <div className="w-full max-w-xl mx-auto relative pointer-events-none z-20" style={{
@@ -73,9 +73,6 @@ export default function TechStackRow() {
         </div>
       </div>
 
-      {/* Background Edge Blur Areas - Updated to White for light theme */}
-      <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-white via-white/40 to-transparent z-30 pointer-events-none blur-xl opacity-90" />
-      <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-white via-white/40 to-transparent z-30 pointer-events-none blur-xl opacity-90" />
     </div>
   );
 }
