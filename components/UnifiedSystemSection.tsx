@@ -5,17 +5,7 @@ import Section from "@/components/ui/Section";
 import Container from "@/components/ui/Container";
 import { ArrowLeft, ArrowRight, TrendingUp, Megaphone, Headphones, Settings, DollarSign, Check } from "lucide-react";
 import { motion } from "framer-motion";
-import SmoothScrolling from "@/components/ui/SmoothScrolling";
 
-// Custom gradient style for AI text
-const aiTextGradient = {
-    backgroundImage: 'linear-gradient(90deg, #0F172A 0%, #1E293B 25%, #3B82F6 50%, #60A5FA 75%, #93C5FD 100%)',
-    WebkitBackgroundClip: 'text',
-    backgroundClip: 'text',
-    color: 'transparent',
-    padding: '0.1em 0',
-    margin: '-0.1em 0',
-};
 
 const tabData = [
     {
@@ -23,8 +13,8 @@ const tabData = [
         label: "Sales",
         category: "Sales acceleration",
         icon: <TrendingUp className="w-4 h-4" />,
-        title: "Close deals faster with AI",
-        desc: "Accelerate deal cycles with AI-powered lead scoring, automated outreach, and intelligent forecasting that helps your team focus on the opportunities that matter most.",
+        title: "Sales that don't stall",
+        desc: "From first contact to follow-up, things move without friction",
         bullets: [
             "Lead scoring & prioritization",
             "Automated outreach sequences",
@@ -34,15 +24,16 @@ const tabData = [
         outcomes: [
             { stat: "35%", label: "increase in qualified leads" },
             { stat: "28%", label: "faster deal cycles" }
-        ]
+        ],
+        cta: "Close deals faster"
     },
     {
         id: "marketing",
         label: "Marketing",
         category: "Marketing intelligence",
         icon: <Megaphone className="w-4 h-4" />,
-        title: "Personalize campaigns at scale",
-        desc: "Create personalized campaigns at scale with AI that understands your audience, optimizes content performance, and turns data into actionable insights.",
+        title: "Marketing that adapts",
+        desc: "Stop guessing what works. Our AI delivers the right message to the right audience, so every campaign drives real results",
         bullets: [
             "Content personalization",
             "Campaign optimization",
@@ -52,15 +43,16 @@ const tabData = [
         outcomes: [
             { stat: "3x", label: "content output" },
             { stat: "45%", label: "improvement in engagement" }
-        ]
+        ],
+        cta: "Unlock better results"
     },
     {
         id: "support",
         label: "Support",
         category: "Customer support",
         icon: <Headphones className="w-4 h-4" />,
-        title: "Resolve issues faster",
-        desc: "Resolve issues faster with intelligent routing, automated responses for common queries, and AI assistants that empower your support team to deliver exceptional service.",
+        title: "Support that scales",
+        desc: "Stop overwhelming your support team. Automate repetitive work and resolve tickets faster, without compromising quality.",
         bullets: [
             "Intelligent ticket routing",
             "Automated response handling",
@@ -70,15 +62,16 @@ const tabData = [
         outcomes: [
             { stat: "60%", label: "reduction in response time" },
             { stat: "40%", label: "increase in CSAT scores" }
-        ]
+        ],
+        cta: "Start resolving faster"
     },
     {
         id: "operations",
         label: "Operations",
         category: "Operations optimization",
         icon: <Settings className="w-4 h-4" />,
-        title: "Streamline daily workflows",
-        desc: "Automate repetitive tasks, sync data across platforms, and create deeply integrated operational systems that scale seamlessly without adding headcount.",
+        title: "Operations that run themselves",
+        desc: "Stop wasting time on disconnected systems. Automate workflows, sync your data, and scale operations, without adding headcount.",
         bullets: [
             "Data synchronization",
             "Workflow automation",
@@ -88,15 +81,16 @@ const tabData = [
         outcomes: [
             { stat: "50%", label: "reduction in manual tasks" },
             { stat: "100s", label: "of hours saved monthly" }
-        ]
+        ],
+        cta: "Start saving time"
     },
     {
         id: "finance",
         label: "Finance",
         category: "Financial automation",
         icon: <DollarSign className="w-4 h-4" />,
-        title: "Accelerate financial operations",
-        desc: "Reduce errors and speed up financial closes with AI that automates invoice processing, expense categorization, and anomaly detection.",
+        title: "Finance that catches what humans miss",
+        desc: "Automate invoice processing, eliminate manual data entry, and detect anomalies in real time, so your team can close faster with complete confidence.",
         bullets: [
             "Invoice processing",
             "Expense management",
@@ -106,7 +100,8 @@ const tabData = [
         outcomes: [
             { stat: "70%", label: "faster month-end close" },
             { stat: "99%", label: "accuracy in data extraction" }
-        ]
+        ],
+        cta: "See it in action"
     }
 ];
 
@@ -122,24 +117,23 @@ export default function UnifiedSystemSection({ showHeader = true }: { showHeader
     const handlePrev = () => switchTab((activeIndex - 1 + tabData.length) % tabData.length);
 
     return (
-        <SmoothScrolling>
-            <Section className="bg-transparent text-white py-10 md:py-12 overflow-hidden w-full">
-                <Container className="max-w-[90rem] w-full mx-auto px-4 sm:px-6 lg:px-8">
+        <Section className="bg-transparent text-white py-10 md:py-12 overflow-hidden w-full">
+            <Container className="max-w-[90rem] w-full mx-auto px-4 sm:px-6 lg:px-8">
 
-                    {/* ─── Heading Section ─── */}
-                    {showHeader && (
-                        <div className="mb-20 text-center">
-                            <h2 className="text-4xl md:text-5xl lg:text-7xl font-bold tracking-tight mb-6 text-slate-900 leading-tight">
-                                <span style={aiTextGradient}>AI for every</span> <span className="text-blue-600">department</span>
-                            </h2>
-                            <p className="text-lg md:text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed font-medium">
-                                From Sales to Operations to Finance, we help every team across your organization unlock the true power of AI.
-                            </p>
-                        </div>
-                    )}
+                {/* ─── Heading Section ─── */}
+                {showHeader && (
+                    <div className="mb-20 text-center">
+                        <h2 className="text-4xl md:text-5xl lg:text-7xl font-bold tracking-tight mb-6 text-white leading-tight">
+                            <span className="textured-text">One system, across</span> <span className="bg-gradient-to-r from-blue-900 via-blue-700 to-blue-800 bg-clip-text text-transparent">every team</span>
+                        </h2>
+                        <p className="text-lg md:text-xl text-white/50 max-w-3xl mx-auto leading-relaxed font-light">
+                            Across teams, work becomes simpler and more consistent
+                        </p>
+                    </div>
+                )}
 
                     {/* ── Tab navigation (Pill style with smooth sliding background) ── */}
-                    <div className="w-full max-w-5xl mx-auto bg-[#111827]/80 rounded-2xl p-0 mb-10 border border-white/10 overflow-hidden">
+                    <div className="w-full max-w-5xl mx-auto bg-[#111827]/50 backdrop-blur-md rounded-2xl p-0 mb-10 border border-white/5 overflow-hidden">
                         <div className="relative flex flex-wrap sm:flex-nowrap gap-0">
                             {tabData.map((t, idx) => (
                                 <button
@@ -189,6 +183,7 @@ export default function UnifiedSystemSection({ showHeader = true }: { showHeader
                                                 title={data.title}
                                                 desc={data.desc}
                                                 bullets={data.bullets}
+                                                cta={data.cta}
                                             />
                                             <RightContent
                                                 stat1={data.outcomes[0].stat}
@@ -205,7 +200,6 @@ export default function UnifiedSystemSection({ showHeader = true }: { showHeader
 
                 </Container>
             </Section>
-        </SmoothScrolling>
     );
 }
 
@@ -213,19 +207,22 @@ export default function UnifiedSystemSection({ showHeader = true }: { showHeader
 function CardShell({ children }: { children: React.ReactNode }) {
     return (
         <div
-            className="relative w-full rounded-[2rem] overflow-hidden border border-white/10 bg-[#020617] p-6 md:p-8 lg:p-10 shadow-2xl"
+            className="relative w-full rounded-[2rem] overflow-hidden border border-white/5 shadow-2xl p-6 md:p-8 lg:p-10"
             style={{
-                backgroundImage: 'radial-gradient(circle at 90% 50%, rgba(30, 58, 138, 0.3) 0%, rgba(15, 23, 42, 0.8) 40%, #020617 100%)',
+                background: 'radial-gradient(circle at 90% 50%, rgba(30, 58, 138, 0.4) 0%, rgba(15, 23, 42, 0.6) 25%, rgba(2, 6, 23, 0.8) 70%, #000000 100%)',
+                backgroundColor: '#020617',
+                WebkitMaskImage: 'linear-gradient(to right, transparent 2px, black 2px)',
+                maskImage: 'linear-gradient(to right, transparent 2px, black 2px)'
             }}
         >
-            <div className="absolute inset-0 opacity-[0.05] pointer-events-none mix-blend-screen" style={{ backgroundImage: "url('https://www.transparenttextures.com/patterns/stardust.png')" }} />
+            <div className="absolute inset-0 opacity-[0.03] mix-blend-overlay pointer-events-none" style={{ backgroundImage: "url('https://www.transparenttextures.com/patterns/stardust.png')" }} />
             <div className="relative z-10">{children}</div>
         </div>
     );
 }
 
 /* ─── Left Content (text, bullets, CTA) ─── */
-function LeftContent({ icon, category, title, desc, bullets }: { icon: React.ReactNode; category: string; title: string; desc: string; bullets: string[] }) {
+function LeftContent({ icon, category, title, desc, bullets, cta }: { icon: React.ReactNode; category: string; title: string; desc: string; bullets: string[]; cta: string }) {
     return (
         <div className="flex-[1.2] flex flex-col gap-5">
             <div className="flex items-center gap-3">
@@ -248,7 +245,7 @@ function LeftContent({ icon, category, title, desc, bullets }: { icon: React.Rea
             </ul>
             <div className="mt-2">
                 <button className="bg-gradient-to-r from-blue-600 to-cyan-500 border-none text-white px-7 py-3 rounded-md text-[15px] font-semibold hover:opacity-90 transition-opacity shadow-lg shadow-blue-500/20">
-                    Learn more
+                    {cta}
                 </button>
             </div>
         </div>
