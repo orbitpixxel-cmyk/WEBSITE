@@ -1,50 +1,10 @@
 "use client";
 import React from "react";
-import Image from "next/image";
 import { motion } from "framer-motion";
 import { PremiumArcs } from "@/components/ui/PremiumArcs";
-import {
-    Phone,
-    MessageSquare,
-    ShieldCheck,
-    TrendingUp,
-    Zap,
-    BarChart3,
-    Clock,
-    Bot,
-    User,
-    Heart,
-    MessageCircle
-} from "lucide-react";
-
+import { Zap } from "lucide-react";
 
 import TechStackRow from './TechStackRow';
-
-/**
- * FloatingCard Component
- * Wraps content in a premium card that floats subtly using Framer Motion.
- */
-const FloatingCard = ({ children, delay = 0, className = "" }) => (
-    <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        animate={{
-            opacity: 1,
-            y: [0, -10, 0],
-        }}
-        transition={{
-            opacity: { duration: 1, delay },
-            y: {
-                duration: 4,
-                repeat: Infinity,
-                ease: "easeInOut",
-                delay: delay + 0.5
-            }
-        }}
-        className={`absolute bg-white/80 backdrop-blur-xl rounded-xl shadow-[0_20px_50px_rgba(0,0,0,0.15)] border border-white/30 p-4 z-[120] ${className}`}
-    >
-        {children}
-    </motion.div>
-);
 
 export default function RoughHeroReplicate() {
     return (
@@ -64,12 +24,12 @@ export default function RoughHeroReplicate() {
                 </div>
 
                 {/* 3 Premium Semi-Circles (Concentric Arcs) - Now Reusable */}
-                <PremiumArcs opacity={0.4} />
-                
+                {/* <PremiumArcs opacity={0.4} /> */}
+
                 {/* Soft Radial Glows for Light Theme - Ultra Premium Enhanced Wings */}
-                <div 
-                    className="absolute inset-x-0 top-0 h-full opacity-70 pointer-events-none" 
-                    style={{ background: 'radial-gradient(circle at 5% 5%, rgba(37, 99, 235, 0.3) 0%, transparent 60%), radial-gradient(circle at 95% 5%, rgba(37, 99, 235, 0.3) 0%, transparent 60%), radial-gradient(circle at 50% 15%, rgba(59, 130, 246, 0.25) 0%, transparent 50%)' }} 
+                <div
+                    className="absolute inset-x-0 top-0 h-full opacity-70 pointer-events-none"
+                    style={{ background: 'radial-gradient(circle at 5% 5%, rgba(37, 99, 235, 0.3) 0%, transparent 60%), radial-gradient(circle at 95% 5%, rgba(37, 99, 235, 0.3) 0%, transparent 60%), radial-gradient(circle at 50% 15%, rgba(59, 130, 246, 0.25) 0%, transparent 50%)' }}
                 />
             </div>
 
@@ -149,161 +109,57 @@ export default function RoughHeroReplicate() {
                 </div>
 
                 {/* Hero Interactive Playground */}
-                <div className="relative w-full h-[500px]">
-                    {/* Tech Marquee: Positioned in the playground area */}
-                    <div className="absolute top-5 left-0 w-full z-0 opacity-50 pointer-events-none">
+                {/* Hero Interactive Playground */}
+                <div className="relative w-full h-[120px] md:h-[150px] mt-0 overflow-visible">
+                    {/* Tech Marquee */}
+                    <div className="absolute top-2 lg:top-4 left-0 w-full z-0 opacity-50 pointer-events-none">
                         <TechStackRow />
                     </div>
 
-                    {/* NEW RECTANGULAR VIDEO MOCKUP — COMMENTED OUT */}
-                    {/*
-                    <motion.div
-                        initial={{ opacity: 0, scale: 0.8 }}
-                        animate={{ opacity: 1, scale: 1.2 }}
-                        transition={{ duration: 2, repeat: Infinity, repeatType: "reverse" }}
-                        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-[45%] w-[50vw] h-[50vw] bg-blue-600/20 blur-[150px] rounded-full pointer-events-none z-[-1]"
-                    />
-
-                    <motion.div
-                        initial={{ opacity: 0, x: "-50%", y: 100 }}
-                        animate={{ opacity: 1, x: "-50%", y: "-45%" }}
-                        transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
-                        className="absolute top-1/2 left-1/2 w-[300px] h-[520px] sm:w-[350px] sm:h-[620px] md:w-[45vw] md:h-[65vh] lg:w-[30vw] lg:h-[75vh] xl:w-[60vw] xl:h-[80vh] bg-white border-[6px] sm:border-[8px] border-slate-700 rounded-[2.5rem] shadow-[0_50px_100px_-20px_rgba(0,0,0,0.8),0_0_120px_rgba(59,130,246,0.3)] overflow-hidden z-[0]"
-                    >
-                        <div className="absolute top-4 left-1/2 -translate-x-1/2 w-24 h-7 bg-slate-950 rounded-full z-[10] flex items-center justify-end px-4 shadow-[inset_0_1px_2px_rgba(255,255,255,0.1)] transition-all">
-                            <div className="w-2 h-2 rounded-full bg-slate-900 border border-white/5 shadow-inner"></div>
+                    {/* Instant Updates Card (Left, Tilted Down) */}
+                    <div className="absolute -top-[210px] lg:-top-[340px] -left-[1%] md:-left-[4%] lg:-left-[6%] xl:-left-[8%] rotate-[-10deg] z-10 w-[220px] transition-transform duration-500 hover:rotate-0 hover:scale-105">
+                        <div className="rounded-[16px] bg-white/60 backdrop-blur-md border border-slate-200 shadow-[0_20px_50px_rgba(0,0,0,0.06)] p-5 flex flex-col items-center justify-center min-h-[130px] text-center">
+                            <div className="w-[46px] h-[46px] rounded-full bg-[#683EE8] flex items-center justify-center shadow-md mb-2.5">
+                                <svg className="w-[22px] h-[22px] text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
+                                </svg>
+                            </div>
+                            <h3 className="text-[14px] md:text-[15px] font-bold text-slate-900 mb-1 tracking-tight">Instant Updates</h3>
+                            <p className="text-[11px] text-slate-500 font-medium">Never miss out any update.</p>
                         </div>
-                        <div className="w-full h-full bg-slate-900 flex items-center justify-center relative">
-                            <Image
-                                src="/assets/Screenshot 2026-04-04 003858.png"
-                                alt="Dashboard Preview"
-                                fill
-                                className="object-cover"
-                                priority
-                            />
-                        </div>
-                    </motion.div>
-                    */}
+                    </div>
 
-                    {/* Floating Image: Appointments (Top Left) - COMMENTED OUT */}
-                    {/*
-                    <motion.div
-                        initial={{ opacity: 0, y: 30 }}
-                        animate={{ opacity: 1, y: [0, -10, 0] }}
-                        transition={{ opacity: { duration: 1, delay: 0.4 }, y: { duration: 4, repeat: Infinity, ease: "easeInOut", delay: 0.9 } }}
-                        className="absolute top-[-70%] left-[-15%] w-[320px] hidden lg:block z-[120]"
-                    >
-                        <div className="absolute inset-x-0 top-1/2 -translate-y-1/2 h-full bg-blue-400/20 blur-[60px] -z-10 rounded-full pointer-events-none" />
-                        <Image src="/hero/appointment-removebg-preview.png" alt="Appointments" width={610} height={487} className="w-full h-auto object-contain drop-shadow-2xl" />
-                    </motion.div>
-                    */}
-
-                    {/* Floating Image: Email (Bottom Left) - COMMENTED OUT */}
-                    {/*
-                    <motion.div
-                        initial={{ opacity: 0, y: 30 }}
-                        animate={{ opacity: 1, y: [0, -10, 0] }}
-                        transition={{ opacity: { duration: 1, delay: 0.6 }, y: { duration: 4, repeat: Infinity, ease: "easeInOut", delay: 1.1 } }}
-                        className="absolute bottom-[82%] left-[-15%] w-[320px] hidden lg:block z-[120]"
-                    >
-                        <div className="absolute inset-x-0 top-1/2 -translate-y-1/2 h-full bg-blue-400/20 blur-[80px] -z-10 rounded-full pointer-events-none" />
-                        <Image src="/hero/email-removebg-preview.png" alt="Email" width={739} height={528} className="w-full h-auto object-contain drop-shadow-2xl" />
-                    </motion.div>
-                    */}
-
-                    {/* Floating Image: Chats (Top Right) - COMMENTED OUT */}
-                    {/*
-                    <motion.div
-                        initial={{ opacity: 0, y: 30 }}
-                        animate={{ opacity: 1, y: [0, -10, 0] }}
-                        transition={{ opacity: { duration: 1, delay: 0.8 }, y: { duration: 4, repeat: Infinity, ease: "easeInOut", delay: 1.3 } }}
-                        className="absolute top-[-70%] right-[-15%] w-[320px] hidden lg:block z-[120]"
-                    >
-                        <div className="absolute inset-x-0 top-1/2 -translate-y-1/2 h-full bg-blue-400/20 blur-[90px] -z-10 rounded-full pointer-events-none" />
-                        <Image src="/hero/chats.png" alt="Chats" width={895} height={639} className="w-full h-auto object-contain drop-shadow-2xl" />
-                    </motion.div>
-                    */}
-
-                    {/* Floating Card: Calls (Bottom Right) - COMMENTED OUT */}
-                    {/*
-                    <FloatingCard className="bottom-[82%] right-[-15%] w-[320px] hidden lg:block !p-0 overflow-hidden" delay={1}>
-                        <div className="absolute inset-0 bg-blue-500/15 blur-[60px] -z-10 pointer-events-none rounded-full scale-125" />
-                        <Image src="/hero/calls.png" alt="Calls" width={532} height={399} className="w-full h-full object-cover" />
-                    </FloatingCard>
-                    */}
-
-
-                    {/* CENTRAL MOBILE MOCKUP - COMMENTED OUT AS REQUESTED */}
-                    {/* 
-                    <motion.div
-                        initial={{ opacity: 0, x: "-50%", y: 100 }}
-                        animate={{ opacity: 1, x: "-50%", y: "-53%" }}
-                        transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
-                        className="absolute top-1/2 left-1/2 w-[260px] h-[450px] sm:w-[280px] sm:h-[480px] bg-slate-950 border-[8px] border-slate-900 rounded-[3rem] shadow-[0_50px_100px_-20px_rgba(0,0,0,0.8),0_0_50px_rgba(59,130,246,0.1)] overflow-hidden z-[100] flex flex-col pt-3"
-                    >
-                        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-28 h-5 bg-slate-900 rounded-b-2xl z-20 flex items-center justify-center">
-                            <div className="w-1 h-1 rounded-full bg-zinc-800 mr-2"></div>
-                            <div className="w-6 h-1 bg-zinc-800 rounded-full"></div>
-                        </div>
-
-                        <div className="flex-1 flex flex-col p-5 pt-6 overflow-y-auto no-scrollbar text-left relative">
-                            <div className="flex justify-between items-center mb-6">
-                                <div className="space-y-1">
-                                    <div className="w-4 h-[2px] bg-white/40"></div>
-                                    <div className="w-3 h-[2px] bg-white/40"></div>
-                                </div>
-                                <div className="flex items-center gap-3">
-                                    <Bot className="w-4 h-4 text-white/50" />
-                                    <div className="w-7 h-7 rounded-full border border-white/20 bg-gradient-to-tr from-blue-500/20 to-cyan-500/20 flex items-center justify-center font-bold text-[10px]">P</div>
-                                </div>
+                    {/* Trusted Companies Card (Right, Tilted Down) */}
+                    <div className="absolute -top-[240px] lg:-top-[340px] -right-[1%] md:-right-[4%] lg:-right-[6%] xl:-right-[8%] rotate-[10deg] z-10 w-[280px] transition-transform duration-500 hover:rotate-0 hover:scale-105">
+                        <div className="rounded-[16px] bg-white/60 backdrop-blur-md border border-slate-200 shadow-[0_20px_50px_rgba(0,0,0,0.06)] p-5 md:p-6 flex items-center justify-between min-h-[110px]">
+                            {/* Text */}
+                            <div className="text-[14px] md:text-[15px] leading-[1.3] font-semibold text-slate-800 tracking-tight">
+                                Trusted By 100+<br />Companies
                             </div>
 
-                            <span className="text-[8px] text-blue-400 font-bold tracking-[0.2em] uppercase mb-1">Live Dashboard</span>
-                            <h3 className="text-2xl font-bold text-white mb-6 tracking-tight">Overview</h3>
-
-                            <div className="bg-white/5 border border-white/10 rounded-[1.2rem] p-4 mb-6 backdrop-blur-sm">
-                                <div className="flex gap-8 mb-4">
-                                    <div>
-                                        <span className="text-[8px] text-white opacity-30 block mb-1 uppercase tracking-widest font-bold">Revenue</span>
-                                        <span className="text-xl font-bold text-white tracking-tighter">$42k<small className="opacity-40 font-normal text-[10px]">.5</small></span>
-                                    </div>
-                                    <div>
-                                        <span className="text-[8px] text-white opacity-30 block mb-1 uppercase tracking-widest font-bold">Agents</span>
-                                        <span className="text-xl font-bold text-white tracking-tighter">12</span>
-                                    </div>
+                            {/* Overlapping Icons */}
+                            <div className="flex -space-x-3">
+                                {/* Lime Green */}
+                                <div className="w-[38px] h-[38px] md:w-[42px] md:h-[42px] rounded-full bg-[#E1F92D] border-[2px] border-[#FAFBFC] flex items-center justify-center shadow-sm relative z-[1]">
+                                    <svg className="w-[18px] h-[18px] md:w-[20px] md:h-[20px] text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                                    </svg>
                                 </div>
-                                <div className="flex gap-2">
-                                    <div className="flex-1 py-1.5 bg-white rounded-lg flex items-center justify-center gap-2 shadow-lg shadow-blue-500/20">
-                                        <Zap className="w-3 h-3 text-blue-600 fill-blue-600/10" />
-                                        <span className="text-[9px] font-bold text-slate-900 uppercase">Auto</span>
-                                    </div>
+                                {/* Red */}
+                                <div className="w-[38px] h-[38px] md:w-[42px] md:h-[42px] rounded-full bg-[#FF453A] border-[2px] border-[#FAFBFC] flex items-center justify-center shadow-sm relative z-[2]">
+                                    <svg className="w-[18px] h-[18px] md:w-[20px] md:h-[20px] text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+                                    </svg>
+                                </div>
+                                {/* Blue */}
+                                <div className="w-[38px] h-[38px] md:w-[42px] md:h-[42px] rounded-full bg-[#0A84FF] border-[2px] border-[#FAFBFC] flex items-center justify-center shadow-sm relative z-[3]">
+                                    <svg className="w-[18px] h-[18px] md:w-[20px] md:h-[20px] text-white" viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M17 10.5V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-3.5l4 4v-11l-4 4z" />
+                                    </svg>
                                 </div>
                             </div>
-
-                            <div className="space-y-4">
-                                <div className="flex items-center justify-between px-1">
-                                    <h4 className="text-[12px] font-bold text-white">Active</h4>
-                                    <span className="text-[9px] text-blue-400 font-bold uppercase tracking-widest">All</span>
-                                </div>
-                                {[1, 2].map((i) => (
-                                    <div key={i} className="flex items-center gap-3 group cursor-pointer">
-                                        <div className="w-8 h-8 rounded-xl bg-white/5 border border-white/5 flex items-center justify-center group-hover:bg-blue-600/20 group-hover:border-blue-500/30 transition-all">
-                                            <User className="w-4 h-4 text-white/20 group-hover:text-blue-400" />
-                                        </div>
-                                        <div className="flex-1 border-b border-white/5 pb-2 group-last:border-0">
-                                            <div className="w-20 h-2 bg-white/10 rounded-full mb-1"></div>
-                                            <div className="w-12 h-1 bg-white/5 rounded-full"></div>
-                                        </div>
-                                    </div>
-                                ))}
-                            </div>
                         </div>
-
-                        <div className="h-4 w-full flex items-center justify-center pb-2 shrink-0">
-                            <div className="w-16 h-1 bg-white/20 rounded-full"></div>
-                        </div>
-                    </motion.div>
-                    */}
+                    </div>
 
                 </div>
             </div>
