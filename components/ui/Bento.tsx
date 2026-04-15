@@ -14,7 +14,7 @@ const Bento = () => {
           BENEFITS
         </span>
         <h2 className="text-4xl md:text-6xl font-bold tracking-tight text-gray-900 mb-6 font-primary">
-          What you get with Inflate AI
+          What your business gains from this
         </h2>
       </div>
 

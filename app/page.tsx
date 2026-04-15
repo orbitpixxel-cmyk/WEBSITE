@@ -20,16 +20,21 @@ import HeroSection from "@/components/hero2";
 
 export default function DemoPage() {
   return (
-    <SmoothScrolling>
-      <div className="flex min-h-screen flex-col items-center justify-center px-6 relative overflow-hidden" style={{
-        background: 'radial-gradient(ellipse at 15% 25%, rgba(99, 102, 241, 0.12) 0%, transparent 40%), radial-gradient(ellipse at 85% 75%, rgba(59, 130, 246, 0.10) 0%, transparent 45%), radial-gradient(ellipse at 50% 95%, rgba(37, 99, 235, 0.08) 0%, transparent 35%), linear-gradient(145deg, #fafbfc 0%, #f1f5f9 20%, #e2e8f0 40%, #f0f9ff 65%, #f8fafc 85%, #ffffff 100%)',
-        // Removed opacity: 0
-      }}>
+    <>
+      {/* <SmoothScrolling> */}
+      <div className="flex min-h-screen flex-col items-center justify-center px-6 relative overflow-hidden"
+        style={{ background: 'linear-gradient(135deg, #020617 0%, #050816 40%, #0B1226 100%)' }}>
         {/* Visual Infrastructure Background Layer - Darker */}
-        <div
-          className="absolute inset-0 z-0 pointer-events-none opacity-[0.08]"
-          style={{ backgroundImage: 'linear-gradient(to right, rgba(148, 163, 184, 0.2) 1px, transparent 1px), linear-gradient(to bottom, rgba(148, 163, 184, 0.2) 1px, transparent 1px)', backgroundSize: '80px 80px', backgroundPosition: '50% -1px' }}
-        />
+        <div className="absolute inset-0 z-0 pointer-events-none opacity-[0.08]">
+          <svg className="h-full w-full stroke-slate-500/20" aria-hidden="true">
+            <defs>
+              <pattern id="hero-grid" width="80" height="80" patternUnits="userSpaceOnUse" x="50%" y="-1">
+                <path d="M.5 80V.5H80" fill="none" />
+              </pattern>
+            </defs>
+            <rect width="100%" height="100%" strokeWidth="0" fill="url(#hero-grid)" />
+          </svg>
+        </div>
 
         {/* Ambient Deep Glows - Subtle Dark Theme */}
         <div className="absolute top-[-10%] left-[10%] w-[40%] h-[40%] bg-slate-700/5 blur-[150px] rounded-full pointer-events-none" />
@@ -61,6 +66,7 @@ export default function DemoPage() {
           <WhatWeProvide />
         </div>
       </div>
-    </SmoothScrolling>
+      {/* </SmoothScrolling> */}
+    </>
   );
 }
