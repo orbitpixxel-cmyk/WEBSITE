@@ -15,9 +15,7 @@ import {
 } from "@/components/ui/resizable-navbar";
 
 const links = [
-  { href: "/services", label: "Services" },
   { href: "/testimonials", label: "Testimonials" },
-  { href: "/pricing", label: "Pricing" },
   { href: "/contact", label: "Contact" }
 ];
 

@@ -141,8 +141,6 @@ function FeatureCard({ icon: Icon, title, description, tags, color, index }) {
     );
 }
 
-import SmoothScrolling from "@/components/ui/SmoothScrolling";
-
 /* ─────────────────────────────────────────────
    MAIN COMPONENT
 ───────────────────────────────────────────── */
@@ -151,8 +149,7 @@ export default function WhatWeProvide() {
     const isHeaderInView = useInView(headerRef, { once: true, margin: '-80px' });
 
     return (
-        <SmoothScrolling>
-            <section className="relative w-full bg-transparent text-white py-28 md:py-40 overflow-hidden">
+        <section className="relative w-full bg-transparent text-white py-28 md:py-40 overflow-hidden">
 
                 {/* ── Background Orbs ── */}
                 <div className="absolute inset-0 pointer-events-none overflow-hidden">
@@ -214,6 +211,5 @@ export default function WhatWeProvide() {
 
                 </div>
             </section>
-        </SmoothScrolling>
     );
 }

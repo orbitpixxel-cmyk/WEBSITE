@@ -121,7 +121,7 @@ export default function AISection() {
   const [openAccordion, setOpenAccordion] = useState(0);
 
   return (
-    <div className="min-h-screen w-full rounded-[3.5rem] py-24 text-slate-900 z-10 relative overflow-hidden" style={{
+    <div id="services" className="min-h-screen w-full rounded-[3.5rem] py-24 text-slate-900 z-10 relative overflow-hidden" style={{
       background: 'radial-gradient(ellipse at 15% 25%, rgba(99, 102, 241, 0.12) 0%, transparent 40%), radial-gradient(ellipse at 85% 75%, rgba(59, 130, 246, 0.10) 0%, transparent 45%), radial-gradient(ellipse at 50% 95%, rgba(37, 99, 235, 0.08) 0%, transparent 35%), linear-gradient(145deg, #fafbfc 0%, #f1f5f9 20%, #e2e8f0 40%, #f0f9ff 65%, #f8fafc 85%, #ffffff 100%)'
     }}>
       {/* Light Sky Gradients */}
@@ -271,13 +271,7 @@ export default function AISection() {
 
       {/* ─── Getting Started Process Section (Moved to 4th/Bottom) ─── */}
       <div className="max-w-7xl mx-auto w-full px-6 md:px-10 relative z-10 text-left">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7 }}
-          viewport={{ once: true }}
-          className="mt-32 pt-20 border-t border-gray-100 mb-20"
-        >
+        <div className="mt-32 pt-20 border-t border-gray-100 mb-20">
           {/* Section Header */}
           <div className="text-center mb-16">
             <span className="text-[12px] font-bold text-blue-600 uppercase tracking-[0.2em] mb-4 block">How it works</span>
@@ -315,12 +309,8 @@ export default function AISection() {
                 delay: 0.4,
               },
             ].map((item, i) => (
-              <motion.div
+              <div
                 key={item.step}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: item.delay }}
-                viewport={{ once: true }}
                 className="group relative bg-white/80 border border-slate-200/60 rounded-[2rem] p-8 shadow-[0_4px_24px_rgba(0,0,0,0.03)] hover:shadow-[0_12px_40px_rgba(59,130,246,0.08)] hover:border-blue-100 transition-all duration-500 backdrop-blur-sm"
               >
                 {/* Step Number & Icon Row */}
@@ -340,10 +330,10 @@ export default function AISection() {
                 <p className="text-[14px] text-slate-700 leading-relaxed font-medium">
                   {item.desc}
                 </p>
-              </motion.div>
+              </div>
             ))}
           </div>
-        </motion.div>
+        </div>
       </div>
     </div>
   );
