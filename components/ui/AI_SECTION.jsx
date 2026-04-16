@@ -26,7 +26,7 @@ const AccordionItem = ({ title, children, isOpen, onToggle, delay = 0 }) => (
       onClick={onToggle}
       className="w-full flex items-center justify-between py-4 px-5 text-left group"
     >
-      <span className={`text-[16px] font-bold tracking-tight transition-colors duration-300 ${isOpen ? 'text-blue-600' : 'text-gray-800 group-hover:text-blue-600'}`}>
+      <span className={`transition-colors duration-300 ${isOpen ? 'text-blue-600' : 'text-gray-800 group-hover:text-blue-600'}`} style={{ fontSize: '16px', fontWeight: 500, letterSpacing: '-0.01em' }}>
         {title}
       </span>
       <motion.div
@@ -45,7 +45,7 @@ const AccordionItem = ({ title, children, isOpen, onToggle, delay = 0 }) => (
           exit={{ height: 0, opacity: 0 }}
           transition={{ duration: 0.3, ease: "easeInOut" }}
         >
-          <div className="pb-5 px-5 text-sm text-zinc-500 leading-relaxed font-medium">
+          <div className="pb-5 px-5 text-zinc-500 leading-relaxed" style={{ fontSize: '13px', fontWeight: 400, lineHeight: 1.7 }}>
             {children}
           </div>
         </motion.div>
@@ -72,12 +72,12 @@ const ProfileRow = ({ name, role, rating, color, delay = 0 }) => (
       {name.split(" ").map(n => n[0]).join("")}
     </div>
     <div className="flex-1 min-w-0">
-      <div className="text-sm font-semibold text-gray-900 truncate">{name}</div>
-      <div className="text-[11px] text-zinc-400 font-medium">{role}</div>
+      <div className="text-gray-900 truncate" style={{ fontSize: '14px', fontWeight: 500, letterSpacing: '-0.01em' }}>{name}</div>
+      <div className="text-zinc-400" style={{ fontSize: '11px', fontWeight: 400, lineHeight: 1.5 }}>{role}</div>
     </div>
     <div className="flex items-center gap-1 shrink-0">
       <Star className="w-3 h-3 fill-amber-400 text-amber-400" />
-      <span className="text-xs font-semibold text-gray-700">{rating}</span>
+      <span className="text-gray-700" style={{ fontSize: '12px', fontWeight: 500, letterSpacing: '0.01em' }}>{rating}</span>
     </div>
   </motion.div>
 );
@@ -102,8 +102,8 @@ const StatCard = ({ icon: Icon, customIcon, value, description, delay = 0 }) => 
         {Icon && <Icon className="w-6 h-6 text-[#3b82f6]" />}
       </div>
     )}
-    <div className="text-xl font-bold text-gray-900 mb-3 tracking-tight">{value}</div>
-    <p className="text-sm text-zinc-500 leading-relaxed font-medium max-w-[280px]">{description}</p>
+    <div className="text-gray-900 mb-3 tracking-tight" style={{ fontSize: '20px', fontWeight: 500, letterSpacing: '-0.02em' }}>{value}</div>
+    <p className="text-zinc-500 leading-relaxed max-w-[280px]" style={{ fontSize: '14px', fontWeight: 400, lineHeight: 1.7 }}>{description}</p>
   </motion.div>
 );
 
@@ -118,17 +118,12 @@ const featuredExperts = [
   { name: "Sara Rose", role: "Lead Developer", color: "#f59e0b" },
 ];
 
-
 export default function AISection() {
   const [openAccordion, setOpenAccordion] = useState(0);
 
   return (
     <div className="min-h-screen w-full rounded-[3.5rem] bg-white py-24 text-black z-10 relative overflow-hidden">
-      {/* Background Mesh Gradients — Blueish */}
-      {/* <div className="absolute top-0 right-0 -translate-y-1/2 translate-x-1/2 w-[60%] h-[60%] bg-[#3b82f6]/8 blur-[150px] pointer-events-none rounded-full" />
-      <div className="absolute bottom-0 left-0 translate-y-1/3 -translate-x-1/4 w-[50%] h-[50%] bg-[#60a5fa]/6 blur-[130px] pointer-events-none rounded-full" />
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[40%] h-[40%] bg-[#93c5fd]/5 blur-[100px] pointer-events-none rounded-full" /> */}
-
+      {/* Background Mesh Gradients - Blueish */}
       <div className="max-w-7xl mx-auto w-full px-6 md:px-10 relative z-10 text-left">
 
         {/* Section Badge */}
@@ -139,7 +134,7 @@ export default function AISection() {
           viewport={{ once: true }}
           className="flex justify-start mb-8"
         >
-          <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-blue-200/60 bg-blue-50 text-blue-600 text-xs font-bold uppercase tracking-widest shadow-sm">
+          <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-blue-200/60 bg-blue-50 text-blue-600 shadow-sm" style={{ fontSize: '11px', fontWeight: 500, letterSpacing: '0.02em' }}>
             <BrainCircuit className="w-3.5 h-3.5" />
             AI-Powered Solutions
           </span>
@@ -148,7 +143,7 @@ export default function AISection() {
         {/* Main Content Grid: Left Text + Right Dashboard Card */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-start">
 
-          {/* Left Column — Heading + Description + Accordions */}
+          {/* Left Column - Heading + Description + Accordions */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -156,7 +151,7 @@ export default function AISection() {
             viewport={{ once: true }}
             className="lg:col-span-5"
           >
-            <h2 className="text-5xl md:text-6xl lg:text-[64px] font-bold tracking-tight leading-[1.05] mb-6">
+            <h2 className="tracking-tight leading-[1.05] mb-6 whitespace-normal" style={{ fontSize: '40px', fontWeight: 500, letterSpacing: '-0.02em', lineHeight: 1.1 }}>
               <span className="relative inline-block">
                 <span className="relative z-10 bg-gradient-to-r from-blue-600 via-blue-500 to-cyan-500 bg-clip-text text-transparent">Systems That Run Your Business,</span>
                 <div className="absolute -bottom-2 right-0 w-[40%] h-3 bg-blue-200/40 blur-md rounded-full -z-10" />
@@ -167,49 +162,50 @@ export default function AISection() {
 
             {/* Feature Blurb */}
             <div className="mb-12">
-              <p className="text-[17px] text-zinc-500 leading-relaxed font-medium max-w-[460px]">
+              <p className="text-zinc-500 leading-relaxed max-w-[460px]" style={{ fontSize: '17px', fontWeight: 400, letterSpacing: '0.01em', lineHeight: 1.7 }}>
                 We design and manage smart systems that handle your calls, bookings, follow-ups, and workflows, so your business runs smoothly and never misses an opportunity
               </p>
             </div>
 
-            <div className="flex flex-col gap-1 w-full max-w-lg mb-8">  {/* Container for accordions for tighter grouping */}
+            <div className="flex flex-col gap-1 w-full max-w-lg mb-8">
+              <div className="mt-12">
+                {/* Accordion Items */}
+                <AccordionItem
+                  title="Built Around Your Business"
+                  isOpen={openAccordion === 0}
+                  onToggle={() => setOpenAccordion(openAccordion === 0 ? -1 : 0)}
+                  delay={0.1}
+                >
+                  Every system is designed to match your workflows, goals, and growth, so you get a solution that fits from day one.
+                </AccordionItem>
 
-              {/* Accordion Items */}
-              <AccordionItem
-                title="Built Around Your Business"
-                isOpen={openAccordion === 0}
-                onToggle={() => setOpenAccordion(openAccordion === 0 ? -1 : 0)}
-                delay={0.1}
-              >
-                Every system is designed to match your workflows, goals, and growth, so you get a solution that fits from day one.
-              </AccordionItem>
+                <AccordionItem
+                  title="Enterprise-Grade Security"
+                  isOpen={openAccordion === 1}
+                  onToggle={() => setOpenAccordion(openAccordion === 1 ? -1 : 1)}
+                  delay={0.2}
+                >
+                  SOC 2 compliant systems with private cloud and on-prem options. so your data stays secure, controlled, and always yours.
+                </AccordionItem>
 
-              <AccordionItem
-                title="Enterprise-Grade Security"
-                isOpen={openAccordion === 1}
-                onToggle={() => setOpenAccordion(openAccordion === 1 ? -1 : 1)}
-                delay={0.2}
-              >
-                SOC 2 compliant systems with private cloud and on-prem options. so your data stays secure, controlled, and always yours.
-              </AccordionItem>
-
-              <AccordionItem
-                title="Works With Your Existing Tools"
-                isOpen={openAccordion === 2}
-                onToggle={() => setOpenAccordion(openAccordion === 2 ? -1 : 2)}
-                delay={0.3}
-              >
-                No rip-and-replace. We integrate seamlessly so your team keeps working exactly as they do today.
-              </AccordionItem>
-            </div> {/* End Accordion Container */}
+                <AccordionItem
+                  title="Works With Your Existing Tools"
+                  isOpen={openAccordion === 2}
+                  onToggle={() => setOpenAccordion(openAccordion === 2 ? -1 : 2)}
+                  delay={0.3}
+                >
+                  No rip-and-replace. We integrate seamlessly so your team keeps working exactly as they do today.
+                </AccordionItem>
+              </div>
+            </div>
           </motion.div>
 
-          {/* Right Column — AI Dashboard (Extracted to RightBox) */}
+          {/* Right Column - AI Dashboard (Extracted to RightBox) */}
           <RightBox />
         </div>
       </div>
 
-      {/* ─── Strategic Vision CTA Section (Moved to 2nd) ─── */}
+      {/* Strategic Vision CTA Section (Moved to 2nd) */}
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -224,12 +220,12 @@ export default function AISection() {
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative z-10">
             <div className="flex flex-col">
-              <h2 className="text-3xl md:text-5xl font-bold leading-[1.1] text-white mb-6 tracking-tight">
+              <h2 className="leading-[1.1] text-white mb-6 tracking-tight" style={{ fontSize: '40px', fontWeight: 500, letterSpacing: '-0.02em', lineHeight: 1.1 }}>
                 A CRM That Works
                 <br />
                 <span className="bg-gradient-to-r from-blue-400 to-cyan-300 bg-clip-text text-transparent">the Way Your Business Does</span>
               </h2>
-              <p className="text-base text-slate-400 leading-relaxed font-medium mb-8 max-w-md">
+              <p className="text-slate-400 leading-relaxed mb-8 max-w-md" style={{ fontSize: '16px', fontWeight: 400, letterSpacing: '0.01em', lineHeight: 1.7 }}>
                 We design and manage custom systems that handle your leads, follow-ups, and customer journeys, so every opportunity is tracked and converted
               </p>
               <div className="flex flex-wrap gap-3 mb-8">
@@ -239,14 +235,14 @@ export default function AISection() {
                   { label: "Lead Management", icon: Users },
                   { label: "Business Analytics", icon: BarChart3 },
                 ].map((item) => (
-                  <div key={item.label} className="flex items-center gap-2 px-4 py-2 bg-white/5 backdrop-blur-sm rounded-full text-sm font-semibold text-slate-300 border border-white/10">
+                  <div key={item.label} className="flex items-center gap-2 px-4 py-2 bg-white/5 backdrop-blur-sm rounded-full text-slate-300 border border-white/10" style={{ fontSize: '14px', fontWeight: 500, letterSpacing: '0.01em' }}>
                     <item.icon className="w-3.5 h-3.5 text-blue-400" />
                     {item.label}
                   </div>
                 ))}
               </div>
               <div>
-                <button className="bg-blue-600 hover:bg-blue-500 text-white px-8 py-3.5 rounded-full font-bold transition-all shadow-[0_8px_24px_rgba(59,130,246,0.35)] hover:scale-105 active:scale-95 text-sm">
+                <button className="bg-blue-600 hover:bg-blue-500 text-white px-8 py-3.5 rounded-full transition-all shadow-[0_8px_24px_rgba(59,130,246,0.35)] hover:scale-105 active:scale-95" style={{ fontWeight: 500, fontSize: '15px', letterSpacing: '0.01em' }}>
                   Get Your Custom CRM
                 </button>
               </div>
@@ -257,7 +253,6 @@ export default function AISection() {
               transition={{ duration: 0.8, ease: "easeOut" }}
               className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-[0_32px_64px_-16px_rgba(0,0,0,0.4)] border border-white/10 bg-slate-900"
             >
-              {/* <CRMDashboard /> */}
               <Image 
                 src="/crm_dashboard_image.png"
                 alt="AI CRM Dashboard Preview"
@@ -270,10 +265,10 @@ export default function AISection() {
         </div>
       </motion.div>
 
-      {/* ─── Bento Grid Section (3rd) ─── */}
+      {/* Bento Grid Section (3rd) */}
       <Bento2 />
 
-      {/* ─── Getting Started Process Section (Moved to 4th/Bottom) ─── */}
+      {/* Getting Started Process Section (Moved to 4th/Bottom) */}
       <div className="max-w-7xl mx-auto w-full px-6 md:px-10 relative z-10 text-left">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -284,8 +279,8 @@ export default function AISection() {
         >
           {/* Section Header */}
           <div className="text-center mb-16">
-            <span className="text-[12px] font-bold text-blue-600 uppercase tracking-[0.2em] mb-4 block">How to start</span>
-            <h3 className="text-4xl md:text-5xl font-bold text-gray-900 tracking-tight">Getting started is easy</h3>
+            <span className="text-blue-600 uppercase mb-4 block" style={{ fontSize: '11px', fontWeight: 500, letterSpacing: '0.02em' }}>How to start</span>
+            <h3 className="text-gray-900 tracking-tight" style={{ fontSize: '40px', fontWeight: 500, letterSpacing: '-0.02em', lineHeight: 1.1 }}>Getting started is easy</h3>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -308,7 +303,7 @@ export default function AISection() {
                 step: "03",
                 icon: Monitor,
                 title: "Development",
-                desc: "Your AI agent gets built and connected to your systems — ready to use, no extra fees.",
+                desc: "Your AI agent gets built and connected to your systems - ready to use, no extra fees.",
                 delay: 0.3,
               },
               {
@@ -329,7 +324,7 @@ export default function AISection() {
               >
                 {/* Step Number & Icon Row */}
                 <div className="flex items-start justify-between mb-8">
-                  <span className="text-[40px] font-bold text-gray-900 leading-none tracking-tighter opacity-80 group-hover:text-blue-600 transition-colors duration-300">
+                  <span className="text-gray-900 leading-none tracking-tighter opacity-80 group-hover:text-blue-600 transition-colors duration-300" style={{ fontSize: '40px', fontWeight: 500, letterSpacing: '-0.03em' }}>
                     {item.step}
                   </span>
                   <div className="w-12 h-12 rounded-2xl bg-gray-50 flex items-center justify-center transition-all duration-300 group-hover:bg-blue-50 group-hover:scale-110">
@@ -338,10 +333,10 @@ export default function AISection() {
                 </div>
 
                 {/* Content */}
-                <h4 className="text-[18px] font-bold text-gray-900 mb-3 tracking-tight">
+                <h4 className="text-gray-900 mb-3 tracking-tight" style={{ fontSize: '18px', fontWeight: 500, letterSpacing: '-0.01em' }}>
                   {item.title}
                 </h4>
-                <p className="text-[14px] text-zinc-500 leading-relaxed font-medium">
+                <p className="text-zinc-500 leading-relaxed" style={{ fontSize: '14px', fontWeight: 400, lineHeight: 1.7 }}>
                   {item.desc}
                 </p>
               </motion.div>

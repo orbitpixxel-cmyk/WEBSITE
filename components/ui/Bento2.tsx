@@ -10,10 +10,10 @@ const Bento2 = () => {
     <div className="max-w-5xl mx-auto w-full px-6 md:px-10 mt-24 mb-24 font-primary">
       {/* Header */}
       <div className="text-center mb-16">
-        <span className="inline-block px-3 py-1 rounded-full border border-blue-600/30 bg-blue-600/5 text-blue-600 text-xs font-bold uppercase tracking-widest mb-4">
+        <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-blue-200/60 bg-blue-50 text-blue-600 shadow-sm" style={{ fontSize: '11px', fontWeight: 500, letterSpacing: '0.02em' }}>
           BENEFITS
         </span>
-        <h2 className="text-4xl md:text-6xl font-bold tracking-tight text-gray-900 mb-6 font-primary">
+        <h2 className="tracking-tight text-gray-900 mb-6" style={{ fontSize: '48px', fontWeight: 500, letterSpacing: '-0.02em', lineHeight: 1.1 }}>
           What your business gains from this
         </h2>
       </div>
@@ -43,8 +43,8 @@ const Bento2 = () => {
             <div className="w-10 h-10 rounded-xl bg-gray-900/5 flex items-center justify-center mb-4">
               <MessageSquare className="w-5 h-5 text-gray-900" />
             </div>
-            <h3 className="text-xl font-bold text-gray-900 mb-3 font-primary tracking-tight">Instant replies, 24/7</h3>
-            <p className="text-sm text-zinc-500 leading-relaxed font-semibold">
+            <h3 className="text-gray-900 mb-3" style={{ fontSize: '16px', fontWeight: 500, letterSpacing: '-0.01em' }}>Instant replies, 24/7</h3>
+            <p className="text-zinc-500 leading-relaxed" style={{ fontSize: '13px', fontWeight: 400, lineHeight: 1.7 }}>
               Pick up the phone instantly, even at night or on weekends - so you don&apos;t lose leads or keep customers waiting.
             </p>
           </div>
@@ -72,8 +72,8 @@ const Bento2 = () => {
             <div className="w-10 h-10 rounded-xl bg-purple-900/5 flex items-center justify-center mb-4">
               <Zap className="w-5 h-5 text-purple-900" />
             </div>
-            <h3 className="text-xl font-bold text-gray-900 mb-3 font-primary tracking-tight">Save time for your team</h3>
-            <p className="text-sm text-zinc-500 leading-relaxed font-semibold">
+            <h3 className="text-gray-900 mb-3" style={{ fontSize: '16px', fontWeight: 500, letterSpacing: '-0.01em' }}>Save time for your team</h3>
+            <p className="text-zinc-500 leading-relaxed" style={{ fontSize: '13px', fontWeight: 400, lineHeight: 1.7 }}>
               By handling repetitive calls, the agent frees up your team to focus on work that actually needs a human.
             </p>
           </div>
@@ -101,8 +101,8 @@ const Bento2 = () => {
             <div className="w-10 h-10 rounded-xl bg-gray-900/5 flex items-center justify-center mb-4">
               <Calendar className="w-5 h-5 text-gray-900" />
             </div>
-            <h3 className="text-xl font-bold text-gray-900 mb-3 font-primary tracking-tight">Works with your existing systems</h3>
-            <p className="text-sm text-zinc-500 leading-relaxed font-semibold">
+            <h3 className="text-gray-900 mb-3" style={{ fontSize: '16px', fontWeight: 500, letterSpacing: '-0.01em' }}>Works with your existing systems</h3>
+            <p className="text-zinc-500 leading-relaxed" style={{ fontSize: '13px', fontWeight: 400, lineHeight: 1.7 }}>
               The AI connects to your tools like CRM, job schedulers, or calendars - so it fits right into your workflow without adding complexity.
             </p>
           </div>
@@ -130,8 +130,8 @@ const Bento2 = () => {
             <div className="w-10 h-10 rounded-xl bg-blue-900/5 flex items-center justify-center mb-4">
               <ShieldCheck className="w-5 h-5 text-blue-900" />
             </div>
-            <h3 className="text-xl font-bold text-gray-900 mb-3 font-primary tracking-tight">You fully own the agent</h3>
-            <p className="text-sm text-zinc-500 leading-relaxed font-semibold">
+            <h3 className="text-gray-900 mb-3" style={{ fontSize: '16px', fontWeight: 500, letterSpacing: '-0.01em' }}>You fully own the agent</h3>
+            <p className="text-zinc-500 leading-relaxed" style={{ fontSize: '13px', fontWeight: 400, lineHeight: 1.7 }}>
               Once your agent is built, it&apos;s yours. No hidden platform fees or subscriptions. You stay in full control.
             </p>
           </div>

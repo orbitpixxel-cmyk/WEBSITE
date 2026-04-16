@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Section from "@/components/ui/Section";
 import Container from "@/components/ui/Container";
+import { Twitter, Linkedin, Instagram } from "lucide-react";
 
 export default function Footer() {
   return (
@@ -21,47 +22,31 @@ export default function Footer() {
             </p>
           </div>
 
-          {/* Links Columns */}
-          <div className="flex gap-16 md:gap-24">
-            <div className="space-y-4">
-              <h4 className="text-[10px] font-semibold uppercase tracking-[0.3em] text-white/30">Pages</h4>
-              <ul className="space-y-2.5">
-                <li>
-                  <Link href="/services" className="text-sm text-white/50 hover:text-[#32C864] transition-colors">
-                    Services
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/work" className="text-sm text-white/50 hover:text-[#32C864] transition-colors">
-                    Work
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/approach" className="text-sm text-white/50 hover:text-[#32C864] transition-colors">
-                    Approach
-                  </Link>
-                </li>
-              </ul>
-            </div>
-            <div className="space-y-4">
-              <h4 className="text-[10px] font-semibold uppercase tracking-[0.3em] text-white/30">Socials</h4>
-              <ul className="space-y-2.5">
-                <li>
-                  <Link href="https://twitter.com" target="_blank" className="text-sm text-white/50 hover:text-[#32C864] transition-colors">
-                    X (Twitter)
-                  </Link>
-                </li>
-                <li>
-                  <Link href="https://linkedin.com" target="_blank" className="text-sm text-white/50 hover:text-[#32C864] transition-colors">
-                    LinkedIn
-                  </Link>
-                </li>
-                <li>
-                  <Link href="https://instagram.com" target="_blank" className="text-sm text-white/50 hover:text-[#32C864] transition-colors">
-                    Instagram
-                  </Link>
-                </li>
-              </ul>
+          {/* Socials Column */}
+          <div className="space-y-4">
+            <h4 className="text-[10px] font-semibold uppercase tracking-[0.3em] text-white/30">Socials</h4>
+            <div className="flex gap-4">
+              <Link 
+                href="https://twitter.com" 
+                target="_blank" 
+                className="w-10 h-10 rounded-lg border border-white/10 bg-white/5 flex items-center justify-center text-white/50 hover:text-[#32C864] hover:border-[#32C864]/30 hover:bg-[#32C864]/10 transition-all duration-300"
+              >
+                <Twitter className="w-4 h-4" />
+              </Link>
+              <Link 
+                href="https://linkedin.com" 
+                target="_blank" 
+                className="w-10 h-10 rounded-lg border border-white/10 bg-white/5 flex items-center justify-center text-white/50 hover:text-[#32C864] hover:border-[#32C864]/30 hover:bg-[#32C864]/10 transition-all duration-300"
+              >
+                <Linkedin className="w-4 h-4" />
+              </Link>
+              <Link 
+                href="https://instagram.com" 
+                target="_blank" 
+                className="w-10 h-10 rounded-lg border border-white/10 bg-white/5 flex items-center justify-center text-white/50 hover:text-[#32C864] hover:border-[#32C864]/30 hover:bg-[#32C864]/10 transition-all duration-300"
+              >
+                <Instagram className="w-4 h-4" />
+              </Link>
             </div>
           </div>
         </div>

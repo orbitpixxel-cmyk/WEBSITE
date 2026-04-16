@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Section from "@/components/ui/Section";
 import Container from "@/components/ui/Container";
 import { ArrowLeft, ArrowRight, TrendingUp, Megaphone, Headphones, Settings, DollarSign, Check } from "lucide-react";
@@ -107,17 +107,63 @@ const tabData = [
 
 export default function UnifiedSystemSection({ showHeader = true }: { showHeader?: boolean }) {
     const [activeIndex, setActiveIndex] = useState(0);
+    const [isInView, setIsInView] = useState(false);
+    const intervalRef = useRef<NodeJS.Timeout | null>(null);
+    const sectionRef = useRef<HTMLDivElement>(null);
+
+    const startAutoCycle = () => {
+        if (intervalRef.current) clearInterval(intervalRef.current);
+        intervalRef.current = setInterval(() => {
+            setActiveIndex((current) => (current + 1) % tabData.length);
+        }, 3500); // Switch every 3.5 seconds
+    };
+
+    const stopAutoCycle = () => {
+        if (intervalRef.current) {
+            clearInterval(intervalRef.current);
+            intervalRef.current = null;
+        }
+    };
+
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            (entries) => {
+                const [entry] = entries;
+                if (entry.isIntersecting) {
+                    setIsInView(true);
+                    startAutoCycle();
+                } else {
+                    setIsInView(false);
+                    stopAutoCycle();
+                }
+            },
+            {
+                threshold: 0.3, // Start when 30% of the section is visible
+                rootMargin: '0px'
+            }
+        );
+
+        if (sectionRef.current) {
+            observer.observe(sectionRef.current);
+        }
+
+        return () => {
+            observer.disconnect();
+            stopAutoCycle();
+        };
+    }, []);
 
     const switchTab = (newIndex: number) => {
-        if (newIndex === activeIndex) return;
+        if (newIndex === activeIndex || !isInView) return;
         setActiveIndex(newIndex);
+        startAutoCycle(); // Reset timer when user manually interacts
     };
 
     const handleNext = () => switchTab((activeIndex + 1) % tabData.length);
     const handlePrev = () => switchTab((activeIndex - 1 + tabData.length) % tabData.length);
 
     return (
-        <Section className="bg-transparent text-white py-10 md:py-12 overflow-hidden w-full">
+        <Section ref={sectionRef} className="bg-transparent text-white py-10 md:py-12 overflow-hidden w-full">
             <Container className="max-w-[90rem] w-full mx-auto px-4 sm:px-6 lg:px-8">
 
                 {/* ─── Heading Section ─── */}
@@ -132,74 +178,74 @@ export default function UnifiedSystemSection({ showHeader = true }: { showHeader
                     </div>
                 )}
 
-                    {/* ── Tab navigation (Pill style with smooth sliding background) ── */}
-                    <div className="w-full max-w-5xl mx-auto bg-[#111827]/50 backdrop-blur-md rounded-2xl p-0 mb-10 border border-white/5 overflow-hidden">
-                        <div className="relative flex flex-wrap sm:flex-nowrap gap-0">
-                            {tabData.map((t, idx) => (
-                                <button
-                                    key={t.id}
-                                    onClick={() => switchTab(idx)}
-                                    className={`relative flex-1 flex flex-col sm:flex-row items-center justify-center gap-2.5 py-4 px-4 transition-all duration-300 outline-none z-10 ${activeIndex === idx ? "text-black font-bold" : "text-slate-400 hover:text-white"
-                                        }`}
-                                >
-                                    {activeIndex === idx && (
-                                        <motion.div
-                                            layoutId="activePillUnified"
-                                            className="absolute inset-0 bg-white rounded-xl shadow-lg"
-                                            transition={{ type: "spring", stiffness: 300, damping: 24 }}
+                {/* ── Tab navigation (Pill style with smooth sliding background) ── */}
+                <div className="w-full max-w-5xl mx-auto bg-[#111827]/50 backdrop-blur-md rounded-2xl p-0 mb-10 border border-white/5 overflow-hidden">
+                    <div className="relative flex flex-wrap sm:flex-nowrap gap-0">
+                        {tabData.map((t, idx) => (
+                            <button
+                                key={t.id}
+                                onClick={() => switchTab(idx)}
+                                className={`relative flex-1 flex flex-col sm:flex-row items-center justify-center gap-2.5 py-4 px-4 transition-all duration-300 outline-none z-10 ${activeIndex === idx ? "text-black font-bold" : "text-slate-400 hover:text-white"
+                                    }`}
+                            >
+                                {activeIndex === idx && (
+                                    <motion.div
+                                        layoutId="activePillUnified"
+                                        className="absolute inset-0 bg-white rounded-xl shadow-lg"
+                                        transition={{ type: "spring", stiffness: 300, damping: 24 }}
+                                    />
+                                )}
+                                <span className={`relative z-10 transition-colors ${activeIndex === idx ? "text-blue-600" : "text-inherit"}`}>
+                                    {t.icon}
+                                </span>
+                                <span className="relative z-10 text-[12px] font-bold uppercase tracking-widest hidden sm:block">
+                                    {t.label}
+                                </span>
+                            </button>
+                        ))}
+                    </div>
+                </div>
+
+                {/* ─── Sliding track with 5 separate containers ─── */}
+                <div className="w-full overflow-hidden">
+                    <div
+                        className="flex flex-row transition-transform duration-500 ease-&lsqb;cubic-bezier(0.25,0.8,0.25,1)&rsqb;"
+                        style={{
+                            width: `${tabData.length * 100}%`,
+                            transform: `translateX(-${activeIndex * (100 / tabData.length)}%)`
+                        }}
+                    >
+                        {tabData.map((data) => (
+                            <div
+                                key={data.id}
+                                className="shrink-0"
+                                style={{ width: `${100 / tabData.length}%` }}
+                            >
+                                <CardShell>
+                                    <div className="flex flex-col lg:flex-row gap-10 lg:gap-14">
+                                        <LeftContent
+                                            icon={data.icon}
+                                            category={data.category}
+                                            title={data.title}
+                                            desc={data.desc}
+                                            bullets={data.bullets}
+                                            cta={data.cta}
                                         />
-                                    )}
-                                    <span className={`relative z-10 transition-colors ${activeIndex === idx ? "text-blue-600" : "text-inherit"}`}>
-                                        {t.icon}
-                                    </span>
-                                    <span className="relative z-10 text-[12px] font-bold uppercase tracking-widest hidden sm:block">
-                                        {t.label}
-                                    </span>
-                                </button>
-                            ))}
-                        </div>
+                                        <RightContent
+                                            stat1={data.outcomes[0].stat}
+                                            label1={data.outcomes[0].label}
+                                            stat2={data.outcomes[1].stat}
+                                            label2={data.outcomes[1].label}
+                                        />
+                                    </div>
+                                </CardShell>
+                            </div>
+                        ))}
                     </div>
+                </div>
 
-                    {/* ─── Sliding track with 5 separate containers ─── */}
-                    <div className="w-full overflow-hidden">
-                        <div
-                            className="flex flex-row transition-transform duration-500 ease-&lsqb;cubic-bezier(0.25,0.8,0.25,1)&rsqb;"
-                            style={{
-                                width: `${tabData.length * 100}%`,
-                                transform: `translateX(-${activeIndex * (100 / tabData.length)}%)`
-                            }}
-                        >
-                            {tabData.map((data) => (
-                                <div
-                                    key={data.id}
-                                    className="shrink-0"
-                                    style={{ width: `${100 / tabData.length}%` }}
-                                >
-                                    <CardShell>
-                                        <div className="flex flex-col lg:flex-row gap-10 lg:gap-14">
-                                            <LeftContent
-                                                icon={data.icon}
-                                                category={data.category}
-                                                title={data.title}
-                                                desc={data.desc}
-                                                bullets={data.bullets}
-                                                cta={data.cta}
-                                            />
-                                            <RightContent
-                                                stat1={data.outcomes[0].stat}
-                                                label1={data.outcomes[0].label}
-                                                stat2={data.outcomes[1].stat}
-                                                label2={data.outcomes[1].label}
-                                            />
-                                        </div>
-                                    </CardShell>
-                                </div>
-                            ))}
-                        </div>
-                    </div>
-
-                </Container>
-            </Section>
+            </Container>
+        </Section>
     );
 }
 

@@ -2,10 +2,7 @@
 
 import React, { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
-import {
-    ShieldCheck, Lock, Server, FileText,
-    Zap, Globe, Eye, CheckCircle2
-} from 'lucide-react';
+import { ShieldCheck, Lock, FileText, Server } from 'lucide-react';
 
 /* ─────────────────────────────────────────────
    DATA
@@ -20,31 +17,60 @@ const stats = [
 const features = [
     {
         icon: Lock,
-        title: 'End-to-End Encryption',
-        description: 'Military-grade AES-256 encryption protects all data at rest and in transit. Your IP and sensitive information never leave your sovereign control.',
+        title: 'End-to-end encryption',
+        description:
+            'Military-grade AES-256 encryption protects all data at rest and in transit. Your IP and sensitive information never leave your sovereign control.',
         tags: ['AES-256', 'TLS 1.3', 'Zero-knowledge'],
-        color: 'blue',
+        accent: '#3b82f6',         // blue
+        iconBg: 'rgba(59,130,246,0.08)',
+        iconBorder: 'rgba(59,130,246,0.2)',
+        iconColor: '#60a5fa',
+        tagBg: 'rgba(59,130,246,0.08)',
+        tagBorder: 'rgba(59,130,246,0.2)',
+        tagColor: '#93c5fd',
+        topBar: '#3b82f6',
     },
     {
         icon: FileText,
-        title: 'Immutable Audit Trails',
-        description: 'Every action is logged, timestamped, and tamper-proof. Full AI decision transparency for governance, compliance, and legal defensibility.',
+        title: 'Immutable audit trails',
+        description:
+            'Every action is logged, timestamped, and tamper-proof. Full AI decision transparency for governance, compliance, and legal defensibility.',
         tags: ['Immutable logs', 'Decision transparency', 'Export ready'],
-        color: 'indigo',
+        accent: '#22c55e',
+        iconBg: 'rgba(34,197,94,0.08)',
+        iconBorder: 'rgba(34,197,94,0.2)',
+        iconColor: '#4ade80',
+        tagBg: 'rgba(34,197,94,0.08)',
+        tagBorder: 'rgba(34,197,94,0.2)',
+        tagColor: '#86efac',
+        topBar: '#22c55e',
     },
     {
         icon: Server,
-        title: 'Enterprise Infrastructure',
-        description: 'Deployed on hardened multi-region infrastructure with automatic failover. Your AI systems are always on — no excuses, no downtime.',
+        title: 'Enterprise infrastructure',
+        description:
+            'Deployed on hardened multi-region infrastructure with automatic failover. Your AI systems are always on — no excuses, no downtime.',
         tags: ['Multi-region', 'Auto-failover', 'SOC 2 Type II'],
-        color: 'cyan',
+        accent: '#f59e0b',
+        iconBg: 'rgba(245,158,11,0.08)',
+        iconBorder: 'rgba(245,158,11,0.2)',
+        iconColor: '#fbbf24',
+        tagBg: 'rgba(245,158,11,0.08)',
+        tagBorder: 'rgba(245,158,11,0.2)',
+        tagColor: '#fcd34d',
+        topBar: '#f59e0b',
     },
 ];
 
-const trustBadges = [];
+const services = [
+    { name: 'API', uptime: '100%' },
+    { name: 'Dashboard', uptime: '100%' },
+    { name: 'Webhooks', uptime: '100%' },
+    { name: 'Auth', uptime: '100%' },
+];
 
 /* ─────────────────────────────────────────────
-   ANIMATED STAT
+   STAT CARD
 ───────────────────────────────────────────── */
 function StatCard({ value, label, sublabel, index }) {
     const ref = useRef(null);
@@ -53,18 +79,16 @@ function StatCard({ value, label, sublabel, index }) {
     return (
         <motion.div
             ref={ref}
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.6, delay: index * 0.1 }}
-            className="relative group flex flex-col items-center text-center p-6 rounded-2xl border border-white/5 bg-white/[0.02] backdrop-blur-sm hover:bg-white/[0.05] hover:border-blue-500/30 transition-all duration-300"
+            transition={{ duration: 0.55, delay: index * 0.1, ease: [0.22, 1, 0.36, 1] }}
+            className="group flex flex-col items-center text-center p-6 rounded-xl border border-white/[0.06] bg-white/[0.02] hover:bg-white/[0.04] hover:border-blue-500/20 transition-all duration-300 cursor-default"
         >
-            {/* Subtle glow on hover */}
-            <div className="absolute inset-0 rounded-2xl bg-blue-500/0 group-hover:bg-blue-500/5 transition-all duration-500 pointer-events-none" />
-            <span className="text-4xl md:text-5xl font-bold bg-gradient-to-br from-blue-400 to-cyan-400 bg-clip-text text-transparent mb-1 tracking-tight">
+            <span className="text-4xl md:text-[2.6rem] font-medium text-white group-hover:text-blue-400 transition-colors duration-300 leading-none mb-2 tracking-tight">
                 {value}
             </span>
-            <span className="text-white/80 text-sm font-semibold uppercase tracking-wider">{label}</span>
-            <span className="text-white/30 text-xs mt-0.5">{sublabel}</span>
+            <span className="text-white/50 text-[11px] font-medium uppercase tracking-widest mb-0.5">{label}</span>
+            <span className="text-white/20 text-[11px]">{sublabel}</span>
         </motion.div>
     );
 }
@@ -72,61 +96,87 @@ function StatCard({ value, label, sublabel, index }) {
 /* ─────────────────────────────────────────────
    FEATURE CARD
 ───────────────────────────────────────────── */
-const colorMap = {
-    blue: {
-        glow: 'from-blue-600/20 to-transparent',
-        icon: 'text-blue-400 bg-blue-500/10 border-blue-500/20',
-        tag: 'bg-blue-500/10 text-blue-300 border-blue-500/20',
-        dot: 'bg-blue-400',
-    },
-    indigo: {
-        glow: 'from-indigo-600/20 to-transparent',
-        icon: 'text-indigo-400 bg-indigo-500/10 border-indigo-500/20',
-        tag: 'bg-indigo-500/10 text-indigo-300 border-indigo-500/20',
-        dot: 'bg-indigo-400',
-    },
-    cyan: {
-        glow: 'from-cyan-600/20 to-transparent',
-        icon: 'text-cyan-400 bg-cyan-500/10 border-cyan-500/20',
-        tag: 'bg-cyan-500/10 text-cyan-300 border-cyan-500/20',
-        dot: 'bg-cyan-400',
-    },
-};
-
-function FeatureCard({ icon: Icon, title, description, tags, color, index }) {
+function FeatureCard({ icon: Icon, title, description, tags, topBar, iconBg, iconBorder, iconColor, tagBg, tagBorder, tagColor, index }) {
     const ref = useRef(null);
     const isInView = useInView(ref, { once: true, margin: '-60px' });
-    const c = colorMap[color];
 
     return (
         <motion.div
             ref={ref}
-            initial={{ opacity: 0, y: 40 }}
+            initial={{ opacity: 0, y: 36 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.7, delay: 0.1 + index * 0.12, ease: [0.22, 1, 0.36, 1] }}
-            className="group relative flex flex-col rounded-[1.75rem] border border-white/[0.07] bg-[#050a14] p-8 overflow-hidden hover:border-white/[0.15] transition-all duration-500"
+            transition={{ duration: 0.65, delay: 0.1 + index * 0.12, ease: [0.22, 1, 0.36, 1] }}
+            className="group relative flex flex-col rounded-xl border border-white/[0.06] bg-white/[0.02] p-8 overflow-hidden hover:border-white/[0.12] hover:bg-white/[0.035] transition-all duration-400"
         >
-            {/* Corner gradient glow */}
-            <div className={`absolute top-0 left-0 w-48 h-48 bg-gradient-to-br ${c.glow} rounded-full blur-2xl -translate-x-1/2 -translate-y-1/2 pointer-events-none transition-all duration-500 group-hover:scale-125`} />
+            {/* Top accent bar */}
+            <div
+                className="absolute top-0 left-0 right-0 h-[2px]"
+                style={{ background: topBar }}
+            />
 
             {/* Icon */}
-            <div className={`relative w-12 h-12 rounded-xl border flex items-center justify-center mb-6 ${c.icon}`}>
-                <Icon className="w-5 h-5" strokeWidth={1.8} />
+            <div
+                className="w-10 h-10 rounded-lg flex items-center justify-center mb-5 shrink-0"
+                style={{ background: iconBg, border: `0.5px solid ${iconBorder}` }}
+            >
+                <Icon className="w-[15px] h-[15px]" style={{ color: iconColor }} strokeWidth={1.8} />
             </div>
 
             {/* Text */}
-            <h3 className="text-xl font-bold text-white mb-3 tracking-tight">{title}</h3>
-            <p className="text-white/50 leading-relaxed text-sm flex-1 mb-6">{description}</p>
+            <h3 className="text-[15px] font-medium text-white mb-2.5 tracking-tight">{title}</h3>
+            <p className="text-white/40 leading-relaxed text-[13px] flex-1 mb-5">{description}</p>
 
             {/* Tags */}
-            <div className="flex flex-wrap gap-2">
+            <div className="flex flex-wrap gap-1.5">
                 {tags.map((tag, i) => (
-                    <span key={i} className={`flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium border ${c.tag}`}>
-                        <span className={`w-1.5 h-1.5 rounded-full ${c.dot}`} />
+                    <span
+                        key={i}
+                        className="text-[11px] font-medium px-2.5 py-1 rounded-full"
+                        style={{ background: tagBg, border: `0.5px solid ${tagBorder}`, color: tagColor }}
+                    >
                         {tag}
                     </span>
                 ))}
             </div>
+        </motion.div>
+    );
+}
+
+/* ─────────────────────────────────────────────
+   STATUS BAR
+───────────────────────────────────────────── */
+function StatusBar() {
+    const ref = useRef(null);
+    const isInView = useInView(ref, { once: true, margin: '-40px' });
+
+    return (
+        <motion.div
+            ref={ref}
+            initial={{ opacity: 0, y: 16 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.55, delay: 0.5 }}
+            className="mt-3 flex items-center justify-between flex-wrap gap-4 px-5 py-4 rounded-xl border border-white/[0.06] bg-white/[0.02]"
+        >
+            {/* Live indicator */}
+            <div className="flex items-center gap-2">
+                <span className="relative flex h-2 w-2">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-60" />
+                    <span className="relative inline-flex rounded-full h-2 w-2 bg-green-400" />
+                </span>
+                <span className="text-[13px] text-white/40">All systems operational</span>
+            </div>
+
+            {/* Services */}
+            <div className="flex gap-6 flex-wrap">
+                {services.map((s) => (
+                    <div key={s.name} className="text-center">
+                        <div className="text-[11px] text-white/25 mb-0.5">{s.name}</div>
+                        <div className="text-[12px] font-medium text-green-400">{s.uptime}</div>
+                    </div>
+                ))}
+            </div>
+
+            <span className="text-[11px] text-white/20">Last checked 2 min ago</span>
         </motion.div>
     );
 }
@@ -139,67 +189,55 @@ export default function WhatWeProvide() {
     const isHeaderInView = useInView(headerRef, { once: true, margin: '-80px' });
 
     return (
-        <section className="relative w-full bg-transparent text-white py-28 md:py-40 overflow-hidden">
+        <section className="relative w-full bg-transparent text-white py-28 md:py-36 overflow-hidden">
 
-            {/* ── Background Orbs ── */}
-            <div className="absolute inset-0 pointer-events-none">
-                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[600px] bg-blue-600/8 rounded-full blur-[120px]" />
-                <div className="absolute bottom-0 right-1/4 w-[500px] h-[400px] bg-cyan-500/6 rounded-full blur-[100px]" />
-            </div>
-
-            {/* ── Grid pattern overlay ── */}
-            <div
-                className="absolute inset-0 pointer-events-none opacity-[0.025]"
-                style={{
-                    backgroundImage: `linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)`,
-                    backgroundSize: '60px 60px'
-                }}
-            />
-
-            <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12">
+            <div className="relative z-10 max-w-6xl mx-auto px-6 lg:px-12">
 
                 {/* ─── Header ─── */}
-                <div ref={headerRef} className="mb-20 md:mb-28 text-center max-w-4xl mx-auto">
+                <div ref={headerRef} className="mb-16 md:mb-20 text-center max-w-3xl mx-auto">
                     <motion.div
-                        initial={{ opacity: 0, y: -10 }}
+                        initial={{ opacity: 0, y: -8 }}
                         animate={isHeaderInView ? { opacity: 1, y: 0 } : {}}
-                        transition={{ duration: 0.5 }}
-                        className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-blue-500/30 bg-blue-500/10 text-blue-400 text-sm font-semibold mb-6"
+                        transition={{ duration: 0.45 }}
+                        className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-blue-500/25 bg-blue-500/8 text-blue-400 text-[12px] font-medium mb-5"
                     >
-                        <ShieldCheck className="w-4 h-4" />
+                        <ShieldCheck className="w-3.5 h-3.5" />
                         Enterprise Security
                     </motion.div>
 
                     <motion.div
-                        initial={{ opacity: 0, y: 30 }}
+                        initial={{ opacity: 0, y: 24 }}
                         animate={isHeaderInView ? { opacity: 1, y: 0 } : {}}
-                        transition={{ duration: 0.7, delay: 0.1 }}
+                        transition={{ duration: 0.6, delay: 0.08 }}
                     >
-                        <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-[1.08] mb-6">
+                        <h2 className="text-4xl md:text-5xl lg:text-[3.25rem] font-medium tracking-tight leading-[1.1] mb-4">
                             Built for trust.{' '}
-                            <span className="bg-gradient-to-r from-blue-400 via-cyan-400 to-blue-300 bg-clip-text text-transparent">
+                            <span className="text-blue-400">
                                 Hardened for scale.
                             </span>
                         </h2>
-                        <p className="text-white/50 text-lg leading-relaxed">
-                            Security isn’t something added later. It’s built into how everything runs
+                        <p className="text-white/40 text-base leading-relaxed">
+                            Security isn&apos;t something added later — it&apos;s built into how everything runs.
                         </p>
                     </motion.div>
                 </div>
 
                 {/* ─── Stats Row ─── */}
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-16 md:mb-24">
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-12 md:mb-16">
                     {stats.map((stat, i) => (
                         <StatCard key={i} {...stat} index={i} />
                     ))}
                 </div>
 
-                {/* ─── Features Bento Grid ─── */}
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                {/* ─── Feature Cards ─── */}
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
                     {features.map((feature, i) => (
                         <FeatureCard key={i} {...feature} index={i} />
                     ))}
                 </div>
+
+                {/* ─── Status Bar ─── */}
+                {/* <StatusBar /> */}
 
             </div>
         </section>

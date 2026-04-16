@@ -138,7 +138,7 @@ const DashboardCard = ({
 
 const RightBox = () => {
   return (
-    <div className="lg:col-span-7 flex justify-center lg:justify-end w-full relative lg:left-[80px] lg:-top-[120px]">
+    <div className="lg:col-span-7 flex justify-center lg:justify-end w-full relative lg:left-[80px] lg:-top-[60px]">
       {/* Background Canvas (The Container) */}
       <div className="w-full max-w-[720px] rounded-[3.5rem] bg-[#fdfdff] border border-gray-200/50 p-3 md:p-4 shadow-[0_40px_100px_-20px_rgba(0,0,0,0.1)] relative overflow-hidden flex flex-col justify-center">
 

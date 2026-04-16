@@ -10,8 +10,9 @@ body {
 body {
   background-color: #f9fafb;
   color: #0f172a;
-  font-family: var(--font-saans), "__saans_cd5095", "__saans_Fallback_cd5095", system-ui, -apple-system, sans-serif;
+  font-family: var(--font-montserrat), "Montserrat", system-ui, -apple-system, sans-serif;
   text-rendering: optimizeLegibility;
+  font-feature-settings: "rlig" 1, "calt" 1;
 }
 
 *,
@@ -121,4 +122,75 @@ body {
   body {
     @apply bg-background text-foreground;
   }
+
+  /* Typography Base Styles */
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-medium tracking-tight;
+    font-family: var(--font-montserrat), "Montserrat", system-ui, -apple-system, sans-serif;
+  }
+
+  h1 {
+    @apply text-3xl md:text-4xl lg:text-5xl font-medium;
+  }
+
+  h2 {
+    @apply text-2xl md:text-3xl lg:text-4xl font-medium;
+  }
+
+  h3 {
+    @apply text-xl md:text-2xl font-medium;
+  }
+
+  h4 {
+    @apply text-lg md:text-xl font-medium;
+  }
+
+  h5 {
+    @apply text-base md:text-lg font-medium;
+  }
+
+  h6 {
+    @apply text-sm md:text-base font-medium;
+  }
+
+  p {
+    @apply text-sm leading-relaxed;
+    font-family: var(--font-montserrat), "Montserrat", system-ui, -apple-system, sans-serif;
+  }
+
+  /* Text utilities */
+  .text-display {
+    @apply text-4xl md:text-5xl lg:text-6xl font-medium tracking-tight;
+  }
+
+  .text-heading {
+    @apply text-2xl md:text-3xl lg:text-4xl font-medium tracking-tight;
+  }
+
+  .text-subheading {
+    @apply text-xl md:text-2xl font-medium tracking-tight;
+  }
+
+  .text-body {
+    @apply text-sm leading-relaxed;
+  }
+
+  .text-caption {
+    @apply text-xs leading-normal;
+  }
+
+  /* Font weight utilities */
+  .font-light { font-weight: 300; }
+  .font-normal { font-weight: 400; }
+  .font-medium { font-weight: 500; }
+  .font-semibold { font-weight: 600; }
+  .font-bold { font-weight: 700; }
+
+  /* Letter spacing utilities */
+  .tracking-tighter { letter-spacing: -0.05em; }
+  .tracking-tight { letter-spacing: -0.025em; }
+  .tracking-normal { letter-spacing: 0; }
+  .tracking-wide { letter-spacing: 0.025em; }
+  .tracking-wider { letter-spacing: 0.05em; }
+  .tracking-widest { letter-spacing: 0.1em; }
 }
