@@ -9,7 +9,7 @@ import TechStackRow from './TechStackRow';
 
 export default function RoughHeroReplicate() {
     return (
-        <div className="relative w-[100vw] h-[140vh] sm:h-[170vh] md:h-[190vh] text-white flex flex-col items-center pt-20 font-sans z-[50] overflow-hidden bg-black" style={{
+        <div className="relative w-[100vw] h-[140vh] sm:h-[120vh] md:h-[190vh] lg:h-[110vh] text-white flex flex-col items-center pt-20 font-sans z-[50] overflow-hidden bg-black" style={{
             background: 'radial-gradient(ellipse at 15% 25%, rgba(99, 102, 241, 0.15) 0%, transparent 40%), radial-gradient(ellipse at 85% 75%, rgba(59, 130, 246, 0.12) 0%, transparent 45%), radial-gradient(ellipse at 50% 95%, rgba(37, 99, 235, 0.1) 0%, transparent 35%), #000000'
         }}>
 
@@ -148,13 +148,13 @@ export default function RoughHeroReplicate() {
                             {/* Overlapping Icons */}
                             <div className="flex -space-x-4">
                                 <div className="w-[38px] h-[38px] md:w-[42px] md:h-[42px] rounded-full bg-white border-[2px] border-slate-700 flex items-center justify-center shadow-md relative z-[1] overflow-hidden">
-                                   <img src="/company-logos/askyourcounsellor_logo.png" alt="Ask Your Counsellor Logo" className="w-full h-full object-contain p-1" />
+                                    <img src="/company-logos/askyourcounsellor_logo.png" alt="Ask Your Counsellor Logo" className="w-full h-full object-contain p-1" />
                                 </div>
                                 <div className="w-[38px] h-[38px] md:w-[42px] md:h-[42px] rounded-full bg-white border-[2px] border-slate-700 flex items-center justify-center shadow-md relative z-[2] overflow-hidden">
-                                   <img src="/company-logos/devstag_logo.png" alt="Devstag Logo" className="w-full h-full object-contain p-1 brightness-0" />
+                                    <img src="/company-logos/devstag_logo.png" alt="Devstag Logo" className="w-full h-full object-contain p-1 brightness-0" />
                                 </div>
                                 <div className="w-[38px] h-[38px] md:w-[42px] md:h-[42px] rounded-full bg-white border-[2px] border-slate-700 flex items-center justify-center shadow-md relative z-[3] overflow-hidden">
-                                   <img src="/company-logos/duckhawk.png" alt="Duckhawk Logo" className="w-full h-full object-contain p-1" />
+                                    <img src="/company-logos/duckhawk.png" alt="Duckhawk Logo" className="w-full h-full object-contain p-1" />
                                 </div>
                             </div>
                         </div>
