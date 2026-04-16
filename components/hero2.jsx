@@ -9,7 +9,7 @@ import TechStackRow from './TechStackRow';
 
 export default function RoughHeroReplicate() {
     return (
-        <div className="relative w-[100vw] min-h-[115vh] text-white flex flex-col items-center pt-20 font-sans z-[50] overflow-hidden bg-black" style={{
+        <div className="relative w-[100vw] h-[140vh] sm:h-[170vh] md:h-[190vh] text-white flex flex-col items-center pt-20 font-sans z-[50] overflow-hidden bg-black" style={{
             background: 'radial-gradient(ellipse at 15% 25%, rgba(99, 102, 241, 0.15) 0%, transparent 40%), radial-gradient(ellipse at 85% 75%, rgba(59, 130, 246, 0.12) 0%, transparent 45%), radial-gradient(ellipse at 50% 95%, rgba(37, 99, 235, 0.1) 0%, transparent 35%), #000000'
         }}>
 
@@ -126,7 +126,7 @@ export default function RoughHeroReplicate() {
                     </div>
 
                     {/* Instant Updates Card (Left, Tilted Down) */}
-                    <div className="absolute -top-[210px] lg:-top-[340px] -left-[1%] md:-left-[4%] lg:-left-[6%] xl:-left-[8%] rotate-[-10deg] z-10 w-[220px] transition-transform duration-500 hover:rotate-0 hover:scale-105">
+                    <div className="absolute -top-[210px] lg:-top-[340px] -left-[1%] md:-left-[4%] lg:-left-[6%] xl:-left-[8%] rotate-[-10deg] z-10 w-[220px] transition-transform duration-500 hover:rotate-0 hover:scale-105 hidden md:block">
                         <div className="rounded-[16px] bg-slate-900/60 backdrop-blur-md border border-slate-700 shadow-[0_20px_50px_rgba(0,0,0,0.5)] p-5 flex flex-col items-center justify-center min-h-[130px] text-center">
                             <div className="w-[46px] h-[46px] rounded-full bg-[#683EE8] flex items-center justify-center shadow-md mb-2.5">
                                 <svg className="w-[22px] h-[22px] text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -139,7 +139,7 @@ export default function RoughHeroReplicate() {
                     </div>
 
                     {/* Trusted Companies Card (Right, Tilted Down) */}
-                    <div className="absolute -top-[240px] lg:-top-[340px] -right-[1%] md:-right-[4%] lg:-right-[6%] xl:-right-[8%] rotate-[10deg] z-10 w-[280px] transition-transform duration-500 hover:rotate-0 hover:scale-105">
+                    <div className="absolute -top-[240px] lg:-top-[340px] -right-[1%] md:-right-[4%] lg:-right-[6%] xl:-right-[8%] rotate-[10deg] z-10 w-[280px] transition-transform duration-500 hover:rotate-0 hover:scale-105 hidden md:block">
                         <div className="rounded-[16px] bg-slate-900/60 backdrop-blur-md border border-slate-700 shadow-[0_20px_50px_rgba(0,0,0,0.5)] p-5 md:p-6 flex items-center justify-between min-h-[110px]">
                             <div className="text-white tracking-tight leading-snug" style={{ fontSize: '14px', fontWeight: 500, letterSpacing: '-0.01em' }}>
                                 Trusted By 100+<br />Companies
@@ -161,7 +161,7 @@ export default function RoughHeroReplicate() {
                     </div>
 
                     {/* Monthly Savings Card (New Left, Tilted Slightly) */}
-                    <div className="absolute -top-[60px] lg:-top-[170px] -left-[2%] md:-left-[2%] lg:-left-[3%] xl:-left-[5%] rotate-[-6deg] z-10 w-[240px] transition-transform duration-500 hover:rotate-0 hover:scale-105">
+                    <div className="absolute -top-[60px] lg:-top-[170px] -left-[2%] md:-left-[2%] lg:-left-[3%] xl:-left-[5%] rotate-[-6deg] z-10 w-[240px] transition-transform duration-500 hover:rotate-0 hover:scale-105 hidden md:block">
                         <div className="rounded-[16px] bg-slate-900/60 backdrop-blur-md border border-slate-700 shadow-[0_20px_50px_rgba(0,0,0,0.5)] p-5 flex flex-col text-left min-h-[130px]">
                             <div className="flex justify-between items-center mb-2">
                                 <span className="text-slate-300" style={{ fontSize: '13px', fontWeight: 500, letterSpacing: '0.01em' }}>Monthly Savings</span>
@@ -184,7 +184,7 @@ export default function RoughHeroReplicate() {
                     </div>
 
                     {/* Lead Qualification Card (New Right, Tilted Slightly) */}
-                    <div className="absolute -top-[80px] lg:-top-[150px] -right-[2%] md:-right-[2%] lg:-right-[3%] xl:-right-[5%] rotate-[7deg] z-10 w-[260px] transition-transform duration-500 hover:rotate-0 hover:scale-105">
+                    <div className="absolute -top-[80px] lg:-top-[150px] -right-[2%] md:-right-[2%] lg:-right-[3%] xl:-right-[5%] rotate-[7deg] z-10 w-[260px] transition-transform duration-500 hover:rotate-0 hover:scale-105 hidden md:block">
                         <div className="rounded-[16px] bg-slate-900/60 backdrop-blur-md border border-slate-700 shadow-[0_20px_50px_rgba(0,0,0,0.5)] p-5 flex flex-col text-left min-h-[130px]">
                             <div className="flex justify-between items-center mb-3">
                                 <span className="text-slate-300" style={{ fontSize: '13px', fontWeight: 500, letterSpacing: '0.01em' }}>Lead Qualification</span>

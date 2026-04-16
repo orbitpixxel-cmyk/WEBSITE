@@ -90,7 +90,7 @@ export default function Navbar() {
           </button>
         </MobileNavHeader>
 
-        <MobileNavMenu isOpen={mobileOpen} onClose={closeMobile}>
+        <MobileNavMenu isOpen={mobileOpen} onClose={closeMobile} visible>
           <nav className="flex w-full flex-col gap-3 text-sm text-white">
             {links.map((item) => (
               <Link

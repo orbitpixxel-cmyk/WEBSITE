@@ -42,6 +42,7 @@ interface MobileNavMenuProps {
   className?: string;
   isOpen: boolean;
   onClose: () => void;
+  visible?: boolean;
 }
 
 import { motion, useScroll, useMotionValueEvent } from "framer-motion";
@@ -150,7 +151,7 @@ export const MobileNav = ({ children, className, visible }: MobileNavProps) => {
       className={cn(
         "relative z-50 mx-auto flex w-full max-w-[calc(100vw-2rem)] flex-col items-center justify-between bg-transparent px-0 py-2 transition-all duration-200 lg:hidden rounded-2xl",
         visible &&
-        "max-w-[calc(100vw-3rem)] bg-black/40 backdrop-blur-xl border border-white/10 shadow-[0_8px_32px_0_rgba(0,0,0,0.3)] px-4",
+        "max-w-[calc(100vw-3rem)] bg-black/10 backdrop-blur-xl border border-white/10 shadow-[0_8px_32px_0_rgba(0,0,0,0.3)] px-4",
         className,
       )}
     >
@@ -180,13 +181,14 @@ export const MobileNavMenu = ({
   className,
   isOpen,
   onClose,
-}: MobileNavMenuProps) => {
+  visible,
+}: MobileNavMenuProps & { visible?: boolean }) => {
   if (!isOpen) return null;
 
   return (
     <div
       className={cn(
-        "absolute inset-x-0 top-16 z-50 flex w-full flex-col items-start justify-start gap-4 rounded-2xl border border-border-subtle/40 bg-background/65 px-4 py-8 backdrop-blur-md shadow-[0_20px_60px_rgba(15,_23,_42,_0.03)]",
+        "absolute inset-x-0 top-16 z-50 flex w-full flex-col items-start justify-start gap-4 rounded-2xl border border-white/10 bg-black/40 px-4 py-8 backdrop-blur-xl shadow-[0_8px_32px_0_rgba(0,0,0,0.3)]",
         className,
       )}
     >

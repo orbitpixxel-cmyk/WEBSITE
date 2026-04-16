@@ -61,7 +61,7 @@ const MarqueeRow = ({ items, direction = "left", speed = 40 }: { items: any[]; d
 export default function TechStackRow() {
   return (
     <div className="w-full py-0 relative flex flex-col items-center gap-6 mt-4">
-      <span className="text-[12px] font-bold text-zinc-500 uppercase tracking-[0.3em] opacity-80 z-40 relative mb-2">
+      <span className="text-[12px] font-bold text-zinc-500 uppercase tracking-[0.3em] opacity-80 z-40 relative mb-2 text-center sm:text-left">
         Integrated with your favorite tools
       </span>
       <div className="w-full max-w-xl mx-auto relative pointer-events-none z-20" style={{

@@ -18,8 +18,8 @@ const Bento2 = () => {
         </h2>
       </div>
 
-      {/* Bento Grid - 2x2 symmetrical layout */}
-      <div className="grid grid-cols-12 gap-8">
+      {/* Bento Grid - Vertical on mobile, 2x2 on larger screens */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
 
         {/* Box 1 */}
         <motion.div
@@ -27,7 +27,7 @@ const Bento2 = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.55, delay: 0.05 }}
           viewport={{ once: true }}
-          className="col-span-12 md:col-span-6 bg-white rounded-[2.5rem] flex flex-col overflow-hidden min-h-[380px] group border border-gray-100 shadow-[0_4px_30px_-4px_rgba(0,0,0,0.05)]"
+          className="bg-white rounded-[2.5rem] flex flex-col overflow-hidden min-h-[380px] group border border-gray-100 shadow-[0_4px_30px_-4px_rgba(0,0,0,0.05)]"
         >
           {/* Image on top, full width */}
           <div className="relative w-full h-64 overflow-hidden">
@@ -56,7 +56,7 @@ const Bento2 = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.55, delay: 0.15 }}
           viewport={{ once: true }}
-          className="col-span-12 md:col-span-6 bg-white rounded-[2.5rem] flex flex-col overflow-hidden min-h-[380px] group border border-gray-100 shadow-[0_4px_30px_-4px_rgba(0,0,0,0.05)]"
+          className="bg-white rounded-[2.5rem] flex flex-col overflow-hidden min-h-[380px] group border border-gray-100 shadow-[0_4px_30px_-4px_rgba(0,0,0,0.05)]"
         >
           {/* Image on top, full width */}
           <div className="relative w-full h-64 overflow-hidden">
@@ -85,7 +85,7 @@ const Bento2 = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.55, delay: 0.25 }}
           viewport={{ once: true }}
-          className="col-span-12 md:col-span-6 bg-white rounded-[2.5rem] flex flex-col overflow-hidden min-h-[380px] group border border-gray-100 shadow-[0_4px_30px_-4px_rgba(0,0,0,0.05)]"
+          className="bg-white rounded-[2.5rem] flex flex-col overflow-hidden min-h-[380px] group border border-gray-100 shadow-[0_4px_30px_-4px_rgba(0,0,0,0.05)]"
         >
           {/* Image on top, full width */}
           <div className="relative w-full h-64 overflow-hidden">
@@ -114,7 +114,7 @@ const Bento2 = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.55, delay: 0.35 }}
           viewport={{ once: true }}
-          className="col-span-12 md:col-span-6 bg-white rounded-[2.5rem] flex flex-col overflow-hidden min-h-[380px] group border border-gray-100 shadow-[0_4px_30px_-4px_rgba(0,0,0,0.05)]"
+          className="bg-white rounded-[2.5rem] flex flex-col overflow-hidden min-h-[380px] group border border-gray-100 shadow-[0_4px_30px_-4px_rgba(0,0,0,0.05)]"
         >
           {/* Image on top, full width */}
           <div className="relative w-full h-64 overflow-hidden">

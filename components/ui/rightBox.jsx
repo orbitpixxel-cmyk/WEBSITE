@@ -169,7 +169,7 @@ const RightBox = () => {
                 </button>
               </div>
               <div className="bg-[#fafafa]/50 border-t border-gray-100 p-4 md:p-5">
-                <ul className="grid grid-cols-2 gap-x-2 gap-y-2.5">
+                <ul className="grid grid-cols-1 md:grid-cols-2 gap-x-2 gap-y-2.5">
                   {[
                     "Advanced Automations",
                     "Weekly Development Calls",
@@ -203,7 +203,7 @@ const RightBox = () => {
                 </button>
               </div>
               <div className="bg-[#1f1f1f]/80 border-t border-[#2d2d2d] p-4 md:p-5">
-                <ul className="grid grid-cols-2 gap-x-2 gap-y-2.5">
+                <ul className="grid grid-cols-1 md:grid-cols-2 gap-x-2 gap-y-2.5">
                   {[
                     "Advanced Automations",
                     "Weekly Development Calls",
@@ -224,7 +224,7 @@ const RightBox = () => {
         </DashboardCard>
 
         {/* Bottom row */}
-        <div className="grid grid-cols-2 gap-5 mt-0">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mt-0">
           <DashboardCard
             title="Chat Agents"
             subtitle="24/7 Web & SMS"
