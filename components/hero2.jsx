@@ -142,7 +142,7 @@ export default function RoughHeroReplicate() {
                     <div className="absolute -top-[240px] lg:-top-[340px] -right-[1%] md:-right-[4%] lg:-right-[6%] xl:-right-[8%] rotate-[10deg] z-10 w-[280px] transition-transform duration-500 hover:rotate-0 hover:scale-105 hidden md:block">
                         <div className="rounded-[16px] bg-slate-900/60 backdrop-blur-md border border-slate-700 shadow-[0_20px_50px_rgba(0,0,0,0.5)] p-5 md:p-6 flex items-center justify-between min-h-[110px]">
                             <div className="text-white tracking-tight leading-snug" style={{ fontSize: '14px', fontWeight: 500, letterSpacing: '-0.01em' }}>
-                                Trusted By 100+<br />Companies
+                                Trusted By Real<br />Companies
                             </div>
 
                             {/* Overlapping Icons */}
