@@ -60,7 +60,9 @@ export default function DemoPage() {
           {/* <div className="w-[100vw] relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw]">
             <BigTestimonialSection />
           </div> */}
-          <AISection />
+          <div id="ai-section">
+            <AISection />
+          </div>
           <UnifiedSystemSection />
           {/* <WhoIsThisFor /> */}
           <WhatWeProvide />
