@@ -47,30 +47,30 @@ export default function RoughHeroReplicate() {
                         style={{ fontWeight: 500, letterSpacing: '-0.02em', lineHeight: 1.1 }}
                     >
                         <span className="text-white">
-                            Empower Your
+                            The Only
                         </span>{' '}
                         <span className="relative inline-block px-1">
                             <span className="absolute inset-x-[-2px] inset-y-[8%] -z-10 -rotate-3 rounded-[4px] bg-[#3B82F6]/20"></span>
                             <span className="bg-gradient-to-r from-[#3B82F6] via-[#60A5FA] to-[#22D3EE] bg-clip-text text-transparent">
-                                Business
+                                Receptionist
                             </span>
                         </span><br />
                         <span className="text-white">
-                            with an
+                            That Never
                         </span>{' '}
                         <span className="relative inline-block px-1">
                             <span className="absolute inset-x-[-2px] inset-y-[8%] -z-10 -rotate-3 rounded-[4px] bg-[#60A5FA]/20"></span>
                             <span className="bg-gradient-to-r from-[#3B82F6] via-[#60A5FA] to-[#22D3EE] bg-clip-text text-transparent">
-                                AI Partner
+                                Sleeps
                             </span>
                         </span><br />
                         <span className="text-white">
-                            That
+                            Or Misses a
                         </span>{' '}
                         <span className="relative inline-block px-1">
                             <span className="absolute inset-x-[-2px] inset-y-[8%] -z-10 -rotate-3 rounded-[4px] bg-[#22D3EE]/20"></span>
                             <span className="bg-gradient-to-r from-[#3B82F6] via-[#60A5FA] to-[#22D3EE] bg-clip-text text-transparent">
-                                Never Sleeps
+                                Beat
                             </span>
                         </span>
                     </motion.h1>
