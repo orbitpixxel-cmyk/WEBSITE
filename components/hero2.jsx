@@ -7,6 +7,13 @@ import { Zap } from "lucide-react";
 
 import TechStackRow from './TechStackRow';
 
+/* ─── Animation Variants ────────────────────────────────── */
+const fadeUp = (delay = 0) => ({
+    initial: { opacity: 0, y: 28 },
+    animate: { opacity: 1, y: 0 },
+    transition: { duration: 0.7, delay, ease: [0.25, 0.1, 0.25, 1] },
+});
+
 export default function RoughHeroReplicate() {
     return (
         <div className="relative w-[100vw] h-[140vh] sm:h-[120vh] md:h-[190vh] lg:h-[110vh] text-white flex flex-col items-center pt-20 font-sans z-[50] overflow-hidden bg-black" style={{
@@ -40,38 +47,33 @@ export default function RoughHeroReplicate() {
                     </motion.div>
 
                     <motion.h1
-                        initial={{ opacity: 0, y: 30 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 1, ease: [0.25, 0.1, 0.25, 1] }}
-                        className="text-[40px] sm:text-[48px] md:text-[54px] lg:text-[56px] leading-snug tracking-normal mb-8 px-6"
-                        style={{ fontWeight: 500, letterSpacing: '-0.02em', lineHeight: 1.1 }}
+                        {...fadeUp(0.2)}
+                        className="text-[28px] sm:text-[34px] md:text-[38px] lg:text-[42px] xl:text-[48px] font-bold leading-[1.1] tracking-tight mb-5"
                     >
                         <span className="text-white">
-                            The Only
-                        </span>{' '}
-                        <span className="relative inline-block px-1">
-                            <span className="absolute inset-x-[-2px] inset-y-[8%] -z-10 -rotate-3 rounded-[4px] bg-[#3B82F6]/20"></span>
+                            Empower Your{' '}
+                        </span>
+                        <span className="relative inline-block">
                             <span className="bg-gradient-to-r from-[#3B82F6] via-[#60A5FA] to-[#22D3EE] bg-clip-text text-transparent">
-                                Receptionist
+                                Business
                             </span>
-                        </span><br />
-                        <span className="text-white">
-                            That Never
-                        </span>{' '}
-                        <span className="relative inline-block px-1">
-                            <span className="absolute inset-x-[-2px] inset-y-[8%] -z-10 -rotate-3 rounded-[4px] bg-[#60A5FA]/20"></span>
-                            <span className="bg-gradient-to-r from-[#3B82F6] via-[#60A5FA] to-[#22D3EE] bg-clip-text text-transparent">
-                                Sleeps
-                            </span>
-                        </span><br />
-                        <span className="text-white">
-                            Or Misses a
-                        </span>{' '}
-                        <span className="relative inline-block px-1">
-                            <span className="absolute inset-x-[-2px] inset-y-[8%] -z-10 -rotate-3 rounded-[4px] bg-[#22D3EE]/20"></span>
-                            <span className="bg-gradient-to-r from-[#3B82F6] via-[#60A5FA] to-[#22D3EE] bg-clip-text text-transparent">
-                                Beat
-                            </span>
+                            <motion.span
+                                className="absolute -bottom-1 left-0 right-0 h-[3px] rounded-full bg-gradient-to-r from-blue-500 via-cyan-400 to-blue-600"
+                                initial={{ scaleX: 0 }}
+                                animate={{ scaleX: 1 }}
+                                transition={{ duration: 0.8, delay: 0.8, ease: "easeOut" }}
+                                style={{ transformOrigin: "left" }}
+                            />
+                        </span>
+                        <br />
+                        <span className="text-white">with an </span>
+                        <span className="bg-gradient-to-r from-[#60A5FA] to-[#22D3EE] bg-clip-text text-transparent italic">
+                            AI Partner
+                        </span>
+                        <br />
+                        <span className="text-white">That </span>
+                        <span className="bg-gradient-to-r from-[#22D3EE] to-[#3B82F6] bg-clip-text text-transparent">
+                            Never Sleeps
                         </span>
                     </motion.h1>
 
