@@ -14,6 +14,7 @@ import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter }
 import SmoothScrolling from '@/components/ui/SmoothScrolling';
 import Footer from "@/components/Footer";
 import WhatWeProvide from "@/components/ui/WhatWeProvide";
+import RightBox from "@/components/ui/rightBox";
 // import HeroSection from "@/components/HeroSection";
 import HeroSection from "@/components/hero2";
 
@@ -58,7 +59,9 @@ export default function DemoPage() {
                     <div className="w-[100vw] relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw]">
                         <BigTestimonialSection />
                     </div>
-                    <AISection />
+                    <AISection>
+                        <RightBox />
+                    </AISection>
                     <UnifiedSystemSection />
                     <WhoIsThisFor />
                     <WhatWeProvide />

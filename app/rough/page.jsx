@@ -6,6 +6,7 @@ import HeroSection from "@/components/hero2";
 import SmoothScrolling from "@/components/ui/SmoothScrolling";
 import BigTestimonialSection from "@/components/BigTestimonialSection";
 import AISection from "@/components/ui/AI_SECTION";
+import RightBox from "@/components/ui/rightBox";
 
 
 export default function HeroFlow() {
@@ -16,7 +17,9 @@ export default function HeroFlow() {
           <HeroSection />
         </div>
         <div className="relative z-10 -mt-20">
-          <AISection />
+          <AISection>
+            <RightBox />
+          </AISection>
         </div>
         <BigTestimonialSection />
       </SmoothScrolling>

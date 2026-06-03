@@ -3,17 +3,11 @@ import dynamic from "next/dynamic";
 // @ts-ignore
 import HeroSection from "@/components/hero2";
 
-// Lazy-load all below-the-fold sections — they won't be included in the initial JS bundle
-const AISection = dynamic(() => import("@/components/ui/AI_SECTION"), {
-  ssr: false,
-});
-const UnifiedSystemSection = dynamic(
-  () => import("@/components/UnifiedSystemSection"),
-  { ssr: false }
-);
-const WhatWeProvide = dynamic(() => import("@/components/ui/WhatWeProvide"), {
-  ssr: false,
-});
+import AISection from "@/components/ui/AI_SECTION";
+import UnifiedSystemSection from "@/components/UnifiedSystemSection";
+import WhatWeProvide from "@/components/ui/WhatWeProvide";
+
+import RightBox from "@/components/ui/rightBox";
 
 export default function DemoPage() {
   return (
@@ -57,7 +51,9 @@ export default function DemoPage() {
             <BigTestimonialSection />
           </div> */}
           <div id="ai-section">
-            <AISection />
+            <AISection>
+              <RightBox />
+            </AISection>
           </div>
           <UnifiedSystemSection />
           {/* <WhoIsThisFor /> */}

@@ -3,7 +3,6 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import Bento2 from "./Bento2";
-import RightBox from "./rightBox";
 import { useInViewClass, useInViewChildren } from "@/lib/useInView";
 import { ChevronDown, Star, BrainCircuit, Users, Zap, Phone, Settings, RefreshCw, Search, Rocket, Monitor, BarChart3 } from "lucide-react";
 
@@ -57,7 +56,7 @@ const AccordionItem = ({ title, children, isOpen, onToggle }) => {
   );
 };
 
-export default function AISection() {
+export default function AISection({ children }) {
   const [openAccordion, setOpenAccordion] = useState(0);
   const badgeRef = useInViewClass();
   const leftColRef = useInViewClass();
@@ -154,8 +153,8 @@ export default function AISection() {
             </div>
           </div>
 
-          {/* Right Column - AI Dashboard (Extracted to RightBox) */}
-          <RightBox />
+          {/* Right Column - AI Dashboard (Passed from Server) */}
+          {children}
         </div>
       </div>
 
