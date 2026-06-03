@@ -1,27 +1,23 @@
-"use client";
 import React from "react";
-import { motion } from "framer-motion";
-import { Zap, Bot, BarChart3, ChevronRight, Phone, Shield, Clock, Layers, Sparkles, Lock } from "lucide-react";
+import dynamic from "next/dynamic";
 // @ts-ignore
-import BorderGlow from "@/components/ui/Border/BorderGlow";
-import Workflow from "@/components/ui/Workflow/workflow";
-import DashboardVisual from "@/components/ui/Workflow/DashboardVisual";
-import UnifiedSystemSection from "@/components/UnifiedSystemSection";
-import WhoIsThisFor from "@/components/WhoIsThisFor";
-import AISection from "@/components/ui/AI_SECTION";
-import BigTestimonialSection from "@/components/BigTestimonialSection";
-import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from '@/components/ui/card';
-import CardAni from '@/components/ui/card-animation/cardAni';
-import SmoothScrolling from '@/components/ui/SmoothScrolling';
-import Footer from "@/components/Footer";
-import WhatWeProvide from "@/components/ui/WhatWeProvide";
-// import HeroSection from "@/components/HeroSection";
 import HeroSection from "@/components/hero2";
+
+// Lazy-load all below-the-fold sections — they won't be included in the initial JS bundle
+const AISection = dynamic(() => import("@/components/ui/AI_SECTION"), {
+  ssr: false,
+});
+const UnifiedSystemSection = dynamic(
+  () => import("@/components/UnifiedSystemSection"),
+  { ssr: false }
+);
+const WhatWeProvide = dynamic(() => import("@/components/ui/WhatWeProvide"), {
+  ssr: false,
+});
 
 export default function DemoPage() {
   return (
     <>
-      {/* <SmoothScrolling> */}
       <div className="flex min-h-screen flex-col items-center justify-center px-6 relative overflow-hidden"
         style={{ background: 'linear-gradient(135deg, #020617 0%, #050816 40%, #0B1226 100%)' }}>
         {/* Visual Infrastructure Background Layer - Darker */}
@@ -68,7 +64,6 @@ export default function DemoPage() {
           <WhatWeProvide />
         </div>
       </div>
-      {/* </SmoothScrolling> */}
     </>
   );
 }

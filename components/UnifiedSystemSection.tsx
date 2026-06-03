@@ -261,7 +261,6 @@ function CardShell({ children }: { children: React.ReactNode }) {
                 maskImage: 'linear-gradient(to right, transparent 2px, black 2px)'
             }}
         >
-            <div className="absolute inset-0 opacity-[0.03] mix-blend-overlay pointer-events-none" style={{ backgroundImage: "url('https://www.transparenttextures.com/patterns/stardust.png')" }} />
             <div className="relative z-10">{children}</div>
         </div>
     );

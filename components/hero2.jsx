@@ -2,7 +2,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { PremiumArcs } from "@/components/ui/PremiumArcs";
+import Image from "next/image";
 import { Zap } from "lucide-react";
 
 import TechStackRow from './TechStackRow';
@@ -150,13 +150,13 @@ export default function RoughHeroReplicate() {
                             {/* Overlapping Icons */}
                             <div className="flex -space-x-4">
                                 <div className="w-[38px] h-[38px] md:w-[42px] md:h-[42px] rounded-full bg-white border-[2px] border-slate-700 flex items-center justify-center shadow-md relative z-[1] overflow-hidden">
-                                    <img src="/company-logos/askyourcounsellor_logo.png" alt="Ask Your Counsellor Logo" className="w-full h-full object-contain p-1" />
+                                    <Image src="/company-logos/askyourcounsellor_logo.png" alt="Ask Your Counsellor Logo" width={42} height={42} className="w-full h-full object-contain p-1" />
                                 </div>
                                 <div className="w-[38px] h-[38px] md:w-[42px] md:h-[42px] rounded-full bg-white border-[2px] border-slate-700 flex items-center justify-center shadow-md relative z-[2] overflow-hidden">
-                                    <img src="/company-logos/devstag_logo.png" alt="Devstag Logo" className="w-full h-full object-contain p-1 brightness-0" />
+                                    <Image src="/company-logos/devstag_logo.png" alt="Devstag Logo" width={42} height={42} className="w-full h-full object-contain p-1 brightness-0" />
                                 </div>
                                 <div className="w-[38px] h-[38px] md:w-[42px] md:h-[42px] rounded-full bg-white border-[2px] border-slate-700 flex items-center justify-center shadow-md relative z-[3] overflow-hidden">
-                                    <img src="/company-logos/duckhawk.png" alt="Duckhawk Logo" className="w-full h-full object-contain p-1" />
+                                    <Image src="/company-logos/duckhawk.png" alt="Duckhawk Logo" width={42} height={42} className="w-full h-full object-contain p-1" />
                                 </div>
                             </div>
                         </div>

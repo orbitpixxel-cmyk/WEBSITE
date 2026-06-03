@@ -3,12 +3,8 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
-import CardAni from "./card-animation/cardAni";
-import BorderGlow from "./Border/BorderGlow";
-import Bento from "./Bento";
 import Bento2 from "./Bento2";
 import RightBox from "./rightBox";
-import CRMDashboard from "./dasboard";
 import { ChevronDown, Star, Bot, BrainCircuit, ShieldCheck, Users, Cpu, Briefcase, Zap, Phone, MessageSquare, Settings, RefreshCw, ArrowRight, Globe, Webhook, TrendingUp, Search, Rocket, Monitor, BarChart3 } from "lucide-react";
 
 /**
