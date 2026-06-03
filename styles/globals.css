@@ -194,3 +194,103 @@ body {
   .tracking-wider { letter-spacing: 0.05em; }
   .tracking-widest { letter-spacing: 0.1em; }
 }
+
+/* ─── CSS-only scroll-triggered animations (replaces framer-motion) ─── */
+.fade-in-up {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.fade-in-up.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.fade-in-down {
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+.fade-in-down.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.fade-in-left {
+  opacity: 0;
+  transform: translateX(20px);
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+.fade-in-left.is-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.fade-in {
+  opacity: 0;
+  transition: opacity 0.6s ease-out;
+}
+.fade-in.is-visible {
+  opacity: 1;
+}
+
+/* Stagger delays */
+.delay-1 { transition-delay: 0.05s; }
+.delay-2 { transition-delay: 0.1s; }
+.delay-3 { transition-delay: 0.15s; }
+.delay-4 { transition-delay: 0.2s; }
+.delay-5 { transition-delay: 0.25s; }
+.delay-6 { transition-delay: 0.3s; }
+.delay-7 { transition-delay: 0.35s; }
+.delay-8 { transition-delay: 0.4s; }
+
+/* Navbar hide/show animation */
+.navbar-animate {
+  transition: transform 0.35s ease-in-out;
+}
+.navbar-hidden {
+  transform: translateY(-100px);
+}
+
+/* Scale-in for underlines */
+.scale-in-x {
+  transform: scaleX(0);
+  transform-origin: left;
+  animation: scale-in-x 0.8s ease-out 0.8s forwards;
+}
+@keyframes scale-in-x {
+  to { transform: scaleX(1); }
+}
+
+/* Accordion expand/collapse */
+.accordion-content {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.3s ease-in-out, opacity 0.3s ease-in-out;
+  opacity: 0;
+}
+.accordion-content.is-open {
+  grid-template-rows: 1fr;
+  opacity: 1;
+}
+.accordion-content > div {
+  overflow: hidden;
+}
+
+/* Tab pill slider */
+.tab-pill {
+  transition: left 0.3s cubic-bezier(0.25, 0.8, 0.25, 1),
+              width 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* CSS gradient background (replaces WebGL Grainient) */
+@keyframes grainient-shift {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+.css-grainient {
+  background-size: 400% 400%;
+  animation: grainient-shift 8s ease infinite;
+}

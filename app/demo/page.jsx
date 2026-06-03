@@ -11,7 +11,6 @@ import WhoIsThisFor from "@/components/WhoIsThisFor";
 import AISection from "@/components/ui/AI_SECTION";
 import BigTestimonialSection from "@/components/BigTestimonialSection";
 import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from '@/components/ui/card';
-import CardAni from '@/components/ui/card-animation/cardAni';
 import SmoothScrolling from '@/components/ui/SmoothScrolling';
 import Footer from "@/components/Footer";
 import WhatWeProvide from "@/components/ui/WhatWeProvide";

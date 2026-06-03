@@ -1,12 +1,12 @@
 "use client";
 
-import React, { useRef } from 'react';
-import { motion, useInView } from 'framer-motion';
+import React from 'react';
 import { ShieldCheck, Lock, FileText, Server } from 'lucide-react';
+import { useInViewClass } from '@/lib/useInView';
 
 /* ─────────────────────────────────────────────
    DATA
-───────────────────────────────────────────── */
+   ───────────────────────────────────────────── */
 const stats = [
     { value: '99.99%', label: 'Uptime SLA', sublabel: 'Guaranteed' },
     { value: '0', label: 'Security Incidents', sublabel: 'Track record' },
@@ -62,51 +62,38 @@ const features = [
     },
 ];
 
-const services = [
-    { name: 'API', uptime: '100%' },
-    { name: 'Dashboard', uptime: '100%' },
-    { name: 'Webhooks', uptime: '100%' },
-    { name: 'Auth', uptime: '100%' },
-];
-
 /* ─────────────────────────────────────────────
    STAT CARD
-───────────────────────────────────────────── */
+   ───────────────────────────────────────────── */
 function StatCard({ value, label, sublabel, index }) {
-    const ref = useRef(null);
-    const isInView = useInView(ref, { once: true, margin: '-50px' });
+    const ref = useInViewClass({ threshold: 0.1 });
+    const delayClass = `delay-${index + 1}`;
 
     return (
-        <motion.div
+        <div
             ref={ref}
-            initial={{ opacity: 0, y: 20 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.55, delay: index * 0.1, ease: [0.22, 1, 0.36, 1] }}
-            className="group flex flex-col items-center text-center p-6 rounded-xl border border-white/[0.06] bg-white/[0.02] hover:bg-white/[0.04] hover:border-blue-500/20 transition-all duration-300 cursor-default"
+            className={`group flex flex-col items-center text-center p-6 rounded-xl border border-white/[0.06] bg-white/[0.02] hover:bg-white/[0.04] hover:border-blue-500/20 transition-all duration-300 cursor-default fade-in-up ${delayClass}`}
         >
             <span className="text-4xl md:text-[2.6rem] font-medium text-white group-hover:text-blue-400 transition-colors duration-300 leading-none mb-2 tracking-tight">
                 {value}
             </span>
             <span className="text-white/50 text-[11px] font-medium uppercase tracking-widest mb-0.5">{label}</span>
             <span className="text-white/20 text-[11px]">{sublabel}</span>
-        </motion.div>
+        </div>
     );
 }
 
 /* ─────────────────────────────────────────────
    FEATURE CARD
-───────────────────────────────────────────── */
+   ───────────────────────────────────────────── */
 function FeatureCard({ icon: Icon, title, description, tags, topBar, iconBg, iconBorder, iconColor, tagBg, tagBorder, tagColor, index }) {
-    const ref = useRef(null);
-    const isInView = useInView(ref, { once: true, margin: '-60px' });
+    const ref = useInViewClass({ threshold: 0.1 });
+    const delayClass = `delay-${index * 2 + 2}`;
 
     return (
-        <motion.div
+        <div
             ref={ref}
-            initial={{ opacity: 0, y: 36 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.65, delay: 0.1 + index * 0.12, ease: [0.22, 1, 0.36, 1] }}
-            className="group relative flex flex-col rounded-xl border border-white/[0.06] bg-white/[0.02] p-8 overflow-hidden hover:border-white/[0.12] hover:bg-white/[0.035] transition-all duration-400"
+            className={`group relative flex flex-col rounded-xl border border-white/[0.06] bg-white/[0.02] p-8 overflow-hidden hover:border-white/[0.12] hover:bg-white/[0.035] transition-all duration-400 fade-in-up ${delayClass}`}
         >
             {/* Top accent bar */}
             <div
@@ -138,55 +125,16 @@ function FeatureCard({ icon: Icon, title, description, tags, topBar, iconBg, ico
                     </span>
                 ))}
             </div>
-        </motion.div>
-    );
-}
-
-/* ─────────────────────────────────────────────
-   STATUS BAR
-───────────────────────────────────────────── */
-function StatusBar() {
-    const ref = useRef(null);
-    const isInView = useInView(ref, { once: true, margin: '-40px' });
-
-    return (
-        <motion.div
-            ref={ref}
-            initial={{ opacity: 0, y: 16 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.55, delay: 0.5 }}
-            className="mt-3 flex items-center justify-between flex-wrap gap-4 px-5 py-4 rounded-xl border border-white/[0.06] bg-white/[0.02]"
-        >
-            {/* Live indicator */}
-            <div className="flex items-center gap-2">
-                <span className="relative flex h-2 w-2">
-                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-60" />
-                    <span className="relative inline-flex rounded-full h-2 w-2 bg-green-400" />
-                </span>
-                <span className="text-[13px] text-white/40">All systems operational</span>
-            </div>
-
-            {/* Services */}
-            <div className="flex gap-6 flex-wrap">
-                {services.map((s) => (
-                    <div key={s.name} className="text-center">
-                        <div className="text-[11px] text-white/25 mb-0.5">{s.name}</div>
-                        <div className="text-[12px] font-medium text-green-400">{s.uptime}</div>
-                    </div>
-                ))}
-            </div>
-
-            <span className="text-[11px] text-white/20">Last checked 2 min ago</span>
-        </motion.div>
+        </div>
     );
 }
 
 /* ─────────────────────────────────────────────
    MAIN COMPONENT
-───────────────────────────────────────────── */
+   ───────────────────────────────────────────── */
 export default function WhatWeProvide() {
-    const headerRef = useRef(null);
-    const isHeaderInView = useInView(headerRef, { once: true, margin: '-80px' });
+    const badgeRef = useInViewClass({ threshold: 0.15 });
+    const headerRef = useInViewClass({ threshold: 0.15 });
 
     return (
         <section className="relative w-full bg-transparent text-white py-28 md:py-36 overflow-hidden">
@@ -194,21 +142,18 @@ export default function WhatWeProvide() {
             <div className="relative z-10 max-w-6xl mx-auto px-6 lg:px-12">
 
                 {/* ─── Header ─── */}
-                <div ref={headerRef} className="mb-16 md:mb-20 text-center max-w-3xl mx-auto">
-                    <motion.div
-                        initial={{ opacity: 0, y: -8 }}
-                        animate={isHeaderInView ? { opacity: 1, y: 0 } : {}}
-                        transition={{ duration: 0.45 }}
-                        className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-blue-500/25 bg-blue-500/8 text-blue-400 text-[12px] font-medium mb-5"
+                <div className="mb-16 md:mb-20 text-center max-w-3xl mx-auto">
+                    <div
+                        ref={badgeRef}
+                        className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-blue-500/25 bg-blue-500/8 text-blue-400 text-[12px] font-medium mb-5 fade-in-down"
                     >
                         <ShieldCheck className="w-3.5 h-3.5" />
                         Enterprise Security
-                    </motion.div>
+                    </div>
 
-                    <motion.div
-                        initial={{ opacity: 0, y: 24 }}
-                        animate={isHeaderInView ? { opacity: 1, y: 0 } : {}}
-                        transition={{ duration: 0.6, delay: 0.08 }}
+                    <div
+                        ref={headerRef}
+                        className="fade-in-up"
                     >
                         <h2 className="text-4xl md:text-5xl lg:text-[3.25rem] font-medium tracking-tight leading-[1.1] mb-4">
                             Built for trust.{' '}
@@ -219,7 +164,7 @@ export default function WhatWeProvide() {
                         <p className="text-white/40 text-base leading-relaxed">
                             Security isn&apos;t something added later — it&apos;s built into how everything runs.
                         </p>
-                    </motion.div>
+                    </div>
                 </div>
 
                 {/* ─── Stats Row ─── */}
@@ -235,9 +180,6 @@ export default function WhatWeProvide() {
                         <FeatureCard key={i} {...feature} index={i} />
                     ))}
                 </div>
-
-                {/* ─── Status Bar ─── */}
-                {/* <StatusBar /> */}
 
             </div>
         </section>

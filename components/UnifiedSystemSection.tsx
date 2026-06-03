@@ -4,7 +4,6 @@ import React, { useState, useEffect, useRef } from "react";
 import Section from "@/components/ui/Section";
 import Container from "@/components/ui/Container";
 import { ArrowLeft, ArrowRight, TrendingUp, Megaphone, Headphones, Settings, DollarSign, Check } from "lucide-react";
-import { motion } from "framer-motion";
 
 
 const tabData = [
@@ -179,7 +178,15 @@ export default function UnifiedSystemSection({ showHeader = true }: { showHeader
                 )}
 
                 {/* ── Tab navigation (Pill style with smooth sliding background) ── */}
-                <div className="w-full max-w-5xl mx-auto bg-[#111827]/50 backdrop-blur-md rounded-2xl p-0 mb-10 border border-white/5 overflow-hidden">
+                <div className="w-full max-w-5xl mx-auto bg-[#111827]/50 backdrop-blur-md rounded-2xl p-1 mb-10 border border-white/5 overflow-hidden relative">
+                    {/* Sliding active pill background */}
+                    <div 
+                        className="absolute inset-y-1 bg-white rounded-xl shadow-lg transition-all duration-300 tab-pill"
+                        style={{
+                            left: `calc(${activeIndex * 20}% + 4px)`,
+                            width: `calc(20% - 8px)`
+                        }}
+                    />
                     <div className="relative flex flex-wrap sm:flex-nowrap gap-0">
                         {tabData.map((t, idx) => (
                             <button
@@ -188,14 +195,7 @@ export default function UnifiedSystemSection({ showHeader = true }: { showHeader
                                 className={`relative flex-1 flex flex-col sm:flex-row items-center justify-center gap-2.5 py-4 px-4 transition-all duration-300 outline-none z-10 ${activeIndex === idx ? "text-black font-bold" : "text-slate-400 hover:text-white"
                                     }`}
                             >
-                                {activeIndex === idx && (
-                                    <motion.div
-                                        layoutId="activePillUnified"
-                                        className="absolute inset-0 bg-white rounded-xl shadow-lg"
-                                        transition={{ type: "spring", stiffness: 300, damping: 24 }}
-                                    />
-                                )}
-                                <span className={`relative z-10 transition-colors ${activeIndex === idx ? "text-blue-600" : "text-inherit"}`}>
+                                <span className={`relative z-10 transition-colors ${activeIndex === idx ? "text-blue-600 animate-pulse-subtle" : "text-inherit"}`}>
                                     {t.icon}
                                 </span>
                                 <span className="relative z-10 text-[12px] font-bold uppercase tracking-widest hidden sm:block">

@@ -2,62 +2,48 @@
 
 import React from "react";
 import Image from "next/image";
-import { motion } from "framer-motion";
 import { Star, Rocket } from "lucide-react";
-import Grainient from "../Grainient";
+import { useInViewClass } from "@/lib/useInView";
 
 /**
- * Ultra-Premium Dashboard Card with WebGL Grainient Integration
- * Following the user-specified configurations for the high-impact graduation.
+ * Dashboard Card with CSS gradient background (replaces WebGL Grainient)
  */
 const DashboardCard = ({
   title,
   subtitle,
   iconSrc,
   rating,
-  delay = 0,
   children,
   className = "",
   variant = "blue" // blue, pink, dark
 }) => {
+  const ref = useInViewClass();
 
-  // High-Impact Color Profiles for Grainient
+  // CSS gradient profiles that replicate the Grainient look
   const profiles = {
     blue: {
-      c1: "#4F46E5",
-      c2: "#3B82F6",
-      c3: "#A78BFA",
+      gradient: "linear-gradient(135deg, #4F46E5, #3B82F6, #A78BFA, #4F46E5)",
       glow: "rgba(79, 70, 229, 0.4)",
       border: "rgba(79, 70, 229, 0.4)",
-      bg: "bg-white/90"
     },
     pink: {
-      c1: "#FF9FFC",
-      c2: "#5227FF",
-      c3: "#B19EEF",
+      gradient: "linear-gradient(135deg, #FF9FFC, #5227FF, #B19EEF, #FF9FFC)",
       glow: "rgba(219, 39, 119, 0.4)",
       border: "rgba(219, 39, 119, 0.4)",
-      bg: "bg-white/90"
     },
     dark: {
-      c1: "#04070a",
-      c2: "#10B981",
-      c3: "#0E7490",
+      gradient: "linear-gradient(135deg, #04070a, #10B981, #0E7490, #04070a)",
       glow: "rgba(16, 185, 129, 0.5)",
       border: "rgba(16, 185, 129, 0.5)",
-      bg: "bg-[#04070a]/90"
     }
   };
 
   const p = profiles[variant];
 
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 15 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.8, delay, ease: [0.16, 1, 0.3, 1] }}
-      viewport={{ once: true }}
-      className={`relative rounded-[2rem] overflow-hidden group ${className}`}
+    <div
+      ref={ref}
+      className={`relative rounded-[2rem] overflow-hidden group fade-in-up ${className}`}
       style={{
         boxShadow: `0 30px 60px -12px ${p.glow}`,
       }}
@@ -72,33 +58,11 @@ const DashboardCard = ({
         <div className="absolute inset-0 rounded-[2rem] bg-transparent shadow-[inset_0_0_15px_rgba(255,255,255,0.4)]" />
       </div>
 
-      {/* WEBGL GRAINIENT BACKGROUND - Using User-Provided Values */}
-      <div className="absolute inset-0 z-0">
-        <Grainient
-          color1={p.c1}
-          color2={p.c2}
-          color3={p.c3}
-          timeSpeed={0.25}
-          colorBalance={0}
-          warpStrength={1}
-          warpFrequency={5}
-          warpSpeed={2}
-          warpAmplitude={50}
-          blendAngle={0}
-          blendSoftness={0.05}
-          rotationAmount={500}
-          noiseScale={2}
-          grainAmount={0.1}
-          grainScale={2}
-          grainAnimated={false}
-          contrast={1.5}
-          gamma={1}
-          saturation={1}
-          centerX={0}
-          centerY={0}
-          zoom={0.9}
-        />
-      </div>
+      {/* CSS GRADIENT BACKGROUND - Replaces WebGL Grainient */}
+      <div
+        className="absolute inset-0 z-0 css-grainient"
+        style={{ background: p.gradient }}
+      />
 
       {/* Content wrapper */}
       <div className="relative z-30 p-3 md:p-4 flex flex-col h-full backdrop-blur-[1px]">
@@ -132,7 +96,7 @@ const DashboardCard = ({
           {children}
         </div>
       </div>
-    </motion.div>
+    </div>
   );
 };
 
@@ -149,7 +113,6 @@ const RightBox = () => {
           iconSrc="/voice.png"
           rating="4.9"
           variant="blue"
-          delay={0.3}
           className="mb-2"
         >
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -230,7 +193,6 @@ const RightBox = () => {
             subtitle="24/7 Web & SMS"
             iconSrc="/chat.png"
             variant="pink"
-            delay={0.4}
             className="h-full"
           >
             <div className="bg-white rounded-xl border border-violet-100 shadow-sm flex flex-col overflow-hidden w-full mt-3">
@@ -268,7 +230,6 @@ const RightBox = () => {
             subtitle="Workflow Orchestration"
             iconSrc="/AI.png"
             variant="dark"
-            delay={0.5}
             className="h-full"
           >
             <div className="bg-[#0f172a] rounded-xl border border-[#1e293b] shadow-sm flex flex-col overflow-hidden w-full mt-3">

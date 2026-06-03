@@ -2,7 +2,7 @@
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { Menu, X } from "lucide-react";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 
 
 interface NavbarProps {
@@ -45,39 +45,36 @@ interface MobileNavMenuProps {
   visible?: boolean;
 }
 
-import { motion, useScroll, useMotionValueEvent } from "framer-motion";
-
 export const Navbar = ({ children, className }: NavbarProps) => {
   const [visible, setVisible] = useState<boolean>(false);
   const [hidden, setHidden] = useState<boolean>(false);
-  const { scrollY } = useScroll();
 
-  useMotionValueEvent(scrollY, "change", (latest) => {
-    const previous = scrollY.getPrevious() ?? 0;
-    if (latest > previous && latest > 150) {
-      setHidden(true);
-    } else {
-      setHidden(false);
-    }
+  useEffect(() => {
+    let prevScrollY = window.scrollY;
 
-    if (latest > 100) {
-      setVisible(true);
-    } else {
-      setVisible(false);
-    }
-  });
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+
+      if (currentScrollY > prevScrollY && currentScrollY > 150) {
+        setHidden(true);
+      } else {
+        setHidden(false);
+      }
+
+      setVisible(currentScrollY > 100);
+      prevScrollY = currentScrollY;
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
-    <motion.div
-      variants={{
-        visible: { y: 0 },
-        hidden: { y: -100 },
-      }}
-      animate={hidden ? "hidden" : "visible"}
-      transition={{ duration: 0.35, ease: "easeInOut" }}
+    <div
       className={cn(
-        "fixed inset-x-0 z-[1000] w-full px-4 md:px-6 transition-all duration-200",
+        "fixed inset-x-0 z-[1000] w-full px-4 md:px-6 navbar-animate",
         visible ? "top-4" : "top-2",
+        hidden && "navbar-hidden",
         className,
       )}
     >
@@ -89,7 +86,7 @@ export const Navbar = ({ children, className }: NavbarProps) => {
           )
           : child,
       )}
-    </motion.div>
+    </div>
   );
 };
 

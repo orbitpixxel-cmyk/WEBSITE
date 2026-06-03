@@ -1,18 +1,9 @@
 "use client";
 import React from "react";
-import { motion } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
 import { Zap } from "lucide-react";
-
 import TechStackRow from './TechStackRow';
-
-/* ─── Animation Variants ────────────────────────────────── */
-const fadeUp = (delay = 0) => ({
-    initial: { opacity: 0, y: 28 },
-    animate: { opacity: 1, y: 0 },
-    transition: { duration: 0.7, delay, ease: [0.25, 0.1, 0.25, 1] },
-});
 
 export default function RoughHeroReplicate() {
     return (
@@ -36,19 +27,17 @@ export default function RoughHeroReplicate() {
 
                 {/* Hero Header Section */}
                 <div className="text-center max-w-4xl mb-8 mt-10">
-                    <motion.div
-                        initial={{ opacity: 0, y: -20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-50 border border-blue-200/60 text-blue-600 text-sm font-medium mb-6 mx-auto shadow-sm"
-                        style={{ fontWeight: 500, letterSpacing: '0.01em' }}
+                    <div
+                        className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-50 border border-blue-200/60 text-blue-600 text-sm font-medium mb-6 mx-auto shadow-sm fade-in-down is-visible"
+                        style={{ fontWeight: 500, letterSpacing: '0.01em', animationDelay: '0.1s' }}
                     >
                         <Zap className="w-4 h-4 text-blue-500" />
                         <span>Pioneering Next-Gen AI Solutions</span>
-                    </motion.div>
+                    </div>
 
-                    <motion.h1
-                        {...fadeUp(0.2)}
-                        className="text-[28px] sm:text-[34px] md:text-[38px] lg:text-[42px] xl:text-[48px] font-bold leading-[1.1] tracking-tight mb-5"
+                    <h1
+                        className="text-[28px] sm:text-[34px] md:text-[38px] lg:text-[42px] xl:text-[48px] font-bold leading-[1.1] tracking-tight mb-5 fade-in-up is-visible"
+                        style={{ transitionDelay: '0.2s' }}
                     >
                         <span className="text-white">
                             Empower Your{' '}
@@ -57,12 +46,8 @@ export default function RoughHeroReplicate() {
                             <span className="bg-gradient-to-r from-[#3B82F6] via-[#60A5FA] to-[#22D3EE] bg-clip-text text-transparent">
                                 Business
                             </span>
-                            <motion.span
-                                className="absolute -bottom-1 left-0 right-0 h-[3px] rounded-full bg-gradient-to-r from-blue-500 via-cyan-400 to-blue-600"
-                                initial={{ scaleX: 0 }}
-                                animate={{ scaleX: 1 }}
-                                transition={{ duration: 0.8, delay: 0.8, ease: "easeOut" }}
-                                style={{ transformOrigin: "left" }}
+                            <span
+                                className="absolute -bottom-1 left-0 right-0 h-[3px] rounded-full bg-gradient-to-r from-blue-500 via-cyan-400 to-blue-600 scale-in-x"
                             />
                         </span>
                         <br />
@@ -75,23 +60,18 @@ export default function RoughHeroReplicate() {
                         <span className="bg-gradient-to-r from-[#22D3EE] to-[#3B82F6] bg-clip-text text-transparent">
                             Never Sleeps
                         </span>
-                    </motion.h1>
+                    </h1>
 
-                    <motion.p
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.8, delay: 0.2 }}
-                        className="text-slate-300 text-base md:text-lg max-w-2xl mx-auto mb-10 leading-relaxed"
-                        style={{ fontWeight: 400, letterSpacing: '0.01em', lineHeight: 1.7 }}
+                    <p
+                        className="text-slate-300 text-base md:text-lg max-w-2xl mx-auto mb-10 leading-relaxed fade-in-up is-visible"
+                        style={{ fontWeight: 400, letterSpacing: '0.01em', lineHeight: 1.7, transitionDelay: '0.3s' }}
                     >
                         We build custom AI solutions that automate your operations, enhance customer engagement, and drive business growth 24/7.
-                    </motion.p>
+                    </p>
 
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.8, delay: 0.3 }}
-                        className="flex flex-wrap justify-center gap-4"
+                    <div
+                        className="flex flex-wrap justify-center gap-4 fade-in-up is-visible"
+                        style={{ transitionDelay: '0.4s' }}
                     >
                         <Link href="/contact" className="inline-block">
                             <button
@@ -115,7 +95,7 @@ export default function RoughHeroReplicate() {
                         >
                             Our Services
                         </button>
-                    </motion.div>
+                    </div>
 
 
                 </div>
