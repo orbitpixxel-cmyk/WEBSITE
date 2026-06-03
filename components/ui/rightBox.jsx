@@ -1,9 +1,7 @@
-"use client";
-
 import React from "react";
 import Image from "next/image";
 import { Star, Rocket } from "lucide-react";
-import { useInViewClass } from "@/lib/useInView";
+import AnimateInView from "./AnimateInView";
 
 /**
  * Dashboard Card with CSS gradient background (replaces WebGL Grainient)
@@ -17,8 +15,6 @@ const DashboardCard = ({
   className = "",
   variant = "blue" // blue, pink, dark
 }) => {
-  const ref = useInViewClass();
-
   // CSS gradient profiles that replicate the Grainient look
   const profiles = {
     blue: {
@@ -41,8 +37,7 @@ const DashboardCard = ({
   const p = profiles[variant];
 
   return (
-    <div
-      ref={ref}
+    <AnimateInView
       className={`relative rounded-[2rem] overflow-hidden group fade-in-up ${className}`}
       style={{
         boxShadow: `0 30px 60px -12px ${p.glow}`,
@@ -96,7 +91,7 @@ const DashboardCard = ({
           {children}
         </div>
       </div>
-    </div>
+    </AnimateInView>
   );
 };
 
