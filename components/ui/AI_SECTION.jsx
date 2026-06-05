@@ -64,7 +64,15 @@ export default function AISection({ children }) {
   const processGridRef = useInViewChildren();
 
   return (
-    <div className="min-h-screen w-full rounded-[3.5rem] bg-white py-24 text-black z-10 relative overflow-hidden">
+    <div 
+      className="min-h-screen w-full rounded-[3.5rem] bg-white py-24 text-black z-10 relative overflow-hidden"
+      style={{
+        transform: "translate3d(0, 0, 0)",
+        WebkitTransform: "translate3d(0, 0, 0)",
+        backfaceVisibility: "hidden",
+        WebkitBackfaceVisibility: "hidden",
+      }}
+    >
       {/* Background Mesh Gradients - Blueish */}
       <div className="max-w-7xl mx-auto w-full px-6 md:px-10 relative z-10 text-left">
         {/* Section Badge */}
