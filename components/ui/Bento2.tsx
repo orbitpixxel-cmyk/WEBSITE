@@ -34,6 +34,7 @@ const Bento2 = () => {
               alt="Instant replies"
               fill
               className="object-cover transition-transform duration-500 group-hover:scale-105"
+              sizes="(max-width: 768px) 100vw, 50vw"
             />
           </div>
           <div className="p-6 flex-1">
@@ -58,6 +59,7 @@ const Bento2 = () => {
               alt="Save time"
               fill
               className="object-cover transition-transform duration-500 group-hover:scale-105"
+              sizes="(max-width: 768px) 100vw, 50vw"
             />
           </div>
           <div className="p-6 flex-1">
@@ -82,6 +84,7 @@ const Bento2 = () => {
               alt="System integration"
               fill
               className="object-cover transition-transform duration-500 group-hover:scale-105"
+              sizes="(max-width: 768px) 100vw, 50vw"
             />
           </div>
           <div className="p-6 flex-1">
@@ -106,6 +109,7 @@ const Bento2 = () => {
               alt="Full ownership"
               fill
               className="object-cover transition-transform duration-500 group-hover:scale-105"
+              sizes="(max-width: 768px) 100vw, 50vw"
             />
           </div>
           <div className="p-6 flex-1">

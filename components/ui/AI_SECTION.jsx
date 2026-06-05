@@ -10,11 +10,9 @@ import { ChevronDown, Star, BrainCircuit, Users, Zap, Phone, Settings, RefreshCw
  * Accordion Item
  */
 const AccordionItem = ({ title, children, isOpen, onToggle }) => {
-  const ref = useInViewClass();
   return (
     <div
-      ref={ref}
-      className={`mb-3 rounded-2xl overflow-hidden border transition-all duration-300 fade-in-up ${
+      className={`mb-3 rounded-2xl overflow-hidden border transition-all duration-300 ${
         isOpen
           ? "border-blue-200 bg-white shadow-[0_8px_30px_-4px_rgba(59,130,246,0.1)]"
           : "border-gray-200/60 bg-gray-50/30 hover:border-blue-100 hover:bg-gray-50"
@@ -243,6 +241,7 @@ export default function AISection({ children }) {
                 alt="AI CRM Dashboard Preview"
                 fill
                 className="object-cover"
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 priority
               />
             </div>
